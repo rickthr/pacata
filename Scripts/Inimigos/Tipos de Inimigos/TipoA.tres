@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DatabaseInimigos" format=3 uid="uid://bi0x10olh7tph"]
-
-[ext_resource type="Script" uid="uid://drv3odnxiy4tf" path="res://Scripts/Inimigos/database_inimigos.gd" id="1_kocx8"]
-
-[resource]
-script = ExtResource("1_kocx8")
-valor_velocidade = 1
-tipo = "A"
-metadata/_custom_type_script = "uid://drv3odnxiy4tf"

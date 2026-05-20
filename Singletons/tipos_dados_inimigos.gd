@@ -5,7 +5,6 @@ class_name TipoDatabaseInimigos
 
 enum Vida{Baixa, Media, Alta}
 enum DanoColisao{Baixo, Medio, Alto}
-enum DanoProjetil{Baixo, Medio, Alto}
 enum Velocidade{Baixa, Media, Alta}
 
 @export var valorVida = {
@@ -20,14 +19,8 @@ enum Velocidade{Baixa, Media, Alta}
 	DanoColisao.Alto : 3
 }
 
-@export var valorDanoProjetil = {
-	DanoProjetil.Baixo : 1,
-	DanoProjetil.Medio : 3,
-	DanoProjetil.Alto : 5
-}
-
 @export var valorVelocidade = {
-	Vida.Baixa : 100,
-	Vida.Media : 150,
-	Vida.Alta : 200
+	Velocidade.Baixa : 100,
+	Velocidade.Media : 150,
+	Velocidade.Alta : 200
 }

@@ -10,13 +10,10 @@ dados: vida, dano, velocidade, sprite e recompensa ao morrer.
 """
 enum Vida{Baixa, Media, Alta}
 enum DanoColisao{Baixo, Medio, Alto}
-enum DanoProjetil{Baixo, Medio, Alto}
 enum Velocidade{Baixa, Media, Alta}
 """
 @export var valor_vida: TipoDatabaseInimigos.Vida
 @export var valor_danoColisao: TipoDatabaseInimigos.DanoColisao
-@export var valor_danoProjetil: TipoDatabaseInimigos.DanoProjetil
 @export var valor_velocidade: TipoDatabaseInimigos.Velocidade
 @export var tipo_projetil: PackedScene
-@export var sprite: Texture2D
 @export var tipo: String

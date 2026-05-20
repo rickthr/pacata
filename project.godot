@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="pacata"
+run/main_scene="uid://4vq3s0mua6ar"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 TiposDadosInimigos="*uid://dhs1qwkrnkxcy"
+Global="*uid://ba3srecfpdtpo"
 
 [dotnet]
 

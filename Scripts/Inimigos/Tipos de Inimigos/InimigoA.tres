@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DatabaseInimigos" format=3 uid="uid://bi0x10olh7tph"]
+
+[ext_resource type="Script" uid="uid://drv3odnxiy4tf" path="res://Scripts/Inimigos/database_inimigos.gd" id="1_kgnkn"]
+[ext_resource type="PackedScene" uid="uid://c87alwowd28rf" path="res://Prefabs/projetil_inimigo.tscn" id="2_8pjkw"]
+
+[resource]
+script = ExtResource("1_kgnkn")
+valor_velocidade = 1
+tipo_projetil = ExtResource("2_8pjkw")
+tipo = "A"
+metadata/_custom_type_script = "uid://drv3odnxiy4tf"
