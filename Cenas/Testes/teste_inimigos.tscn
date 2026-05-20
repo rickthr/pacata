@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://4vq3s0mua6ar"]
+
+[ext_resource type="Script" uid="uid://drv3odnxiy4tf" path="res://Scripts/Inimigos/database_inimigos.gd" id="1_g2u6o"]
+[ext_resource type="Script" uid="uid://c73v5xmb3yts" path="res://Scripts/Inimigos/InimigoBasico.gd" id="2_fxowy"]
+[ext_resource type="Resource" uid="uid://bi0x10olh7tph" path="res://Scripts/Inimigos/Tipos de Inimigos/TipoA.tres" id="3_pytsr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pytsr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pytsr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pytsr"]
+
+[node name="Teste Inimigos" type="Node2D" unique_id=185444534]
+
+[node name="DatabaseInimigos" type="Node" parent="." unique_id=1704270781]
+script = ExtResource("1_g2u6o")
+
+[node name="InimigoBasico" type="CharacterBody2D" parent="." unique_id=1330895462]
+script = ExtResource("2_fxowy")
+dadosTipoInimigo = ExtResource("3_pytsr")
+
+[node name="colisao" type="CollisionShape2D" parent="InimigoBasico" unique_id=1916394562]
+shape = SubResource("RectangleShape2D_pytsr")
+
+[node name="animated" type="AnimatedSprite2D" parent="InimigoBasico" unique_id=343165041]
+sprite_frames = SubResource("SpriteFrames_pytsr")
+
+[node name="area2d" type="Area2D" parent="InimigoBasico" unique_id=1430103300]
+
+[node name="area2d_colisao" type="CollisionShape2D" parent="InimigoBasico/area2d" unique_id=1092325651]
+shape = SubResource("CircleShape2D_pytsr")
+
+[connection signal="body_entered" from="InimigoBasico/area2d" to="InimigoBasico" method="_on_area_2d_body_entered"]

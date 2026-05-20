@@ -14,6 +14,14 @@ config/name="pacata"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TiposDadosInimigos="*uid://dhs1qwkrnkxcy"
+
+[dotnet]
+
+project/assembly_name="pacata"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
