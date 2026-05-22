@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://4vq3s0mua6ar"]
 
+[ext_resource type="PackedScene" uid="uid://nppox0kfr3k7" path="res://Prefabs/Inimigos/inimigo_tipoC.tscn" id="1_g2u6o"]
 
 [node name="Teste Inimigos" type="Node2D" unique_id=185444534]
 
