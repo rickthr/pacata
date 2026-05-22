@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://kubhn6m24wm3"]
+
+[ext_resource type="Script" uid="uid://cmewq6a702lbs" path="res://Scripts/Inimigos/inimigo_tipo_a.gd" id="1_2yxrs"]
+[ext_resource type="Resource" uid="uid://bi0x10olh7tph" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoA.tres" id="2_p5y2u"]
+[ext_resource type="Texture2D" uid="uid://djpga1otan8mv" path="res://icon.svg" id="3_cd7nw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pytsr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pytsr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pytsr"]
+
+[node name="InimigoA" type="CharacterBody2D" unique_id=197331739]
+script = ExtResource("1_2yxrs")
+dadosTipoInimigo = ExtResource("2_p5y2u")
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=1004946581]
+shape = SubResource("RectangleShape2D_pytsr")
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1542027916]
+sprite_frames = SubResource("SpriteFrames_pytsr")
+
+[node name="area2d" type="Area2D" parent="." unique_id=549738750]
+
+[node name="area2d_colisao" type="CollisionShape2D" parent="area2d" unique_id=718047789]
+shape = SubResource("CircleShape2D_pytsr")
+
+[node name="TimerAtirar" type="Timer" parent="." unique_id=504561067]
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2104141958]
+texture = ExtResource("3_cd7nw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=542269330]
+
+[connection signal="body_entered" from="area2d" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="TimerAtirar" to="." method="_on_timer_atirar_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

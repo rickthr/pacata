@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://4vq3s0mua6ar"]
+
+[ext_resource type="PackedScene" uid="uid://nppox0kfr3k7" path="res://Prefabs/Inimigos/inimigo_tipoC.tscn" id="1_g2u6o"]
+
+[node name="Teste Inimigos" type="Node2D" unique_id=185444534]
+
+[node name="InimigoC" parent="." unique_id=197331739 instance=ExtResource("1_g2u6o")]
+position = Vector2(-3, 155)
+frequencia = 1.0
+
+[node name="InimigoC2" parent="." unique_id=2033787696 instance=ExtResource("1_g2u6o")]
+position = Vector2(1157, 490)
+frequencia = 1.0
