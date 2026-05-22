@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource("1_kgnkn")
-valor_velocidade = 1
 tipo_projetil = ExtResource("2_8pjkw")
 tipo = "A"
 metadata/_custom_type_script = "uid://drv3odnxiy4tf"

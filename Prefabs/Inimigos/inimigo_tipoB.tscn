@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bom0dkcchnh3g"]
+
+[ext_resource type="Script" uid="uid://7c6jprfageyu" path="res://Scripts/Inimigos/inimigo_tipo_b.gd" id="1_w0vy1"]
+[ext_resource type="Resource" uid="uid://br5ra0kejyxlo" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoB.tres" id="2_6x7rb"]
+[ext_resource type="Texture2D" uid="uid://djpga1otan8mv" path="res://icon.svg" id="2_hdo21"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crevy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jox6t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ncvmg"]
+
+[node name="InimigoB" type="CharacterBody2D" unique_id=1538728272]
+script = ExtResource("1_w0vy1")
+dadosTipoInimigo = ExtResource("2_6x7rb")
+metadata/_custom_type_script = "uid://c73v5xmb3yts"
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=1442077348]
+shape = SubResource("RectangleShape2D_crevy")
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=284173798]
+sprite_frames = SubResource("SpriteFrames_jox6t")
+
+[node name="area2d" type="Area2D" parent="." unique_id=197579427]
+
+[node name="area2d_colisao" type="CollisionShape2D" parent="area2d" unique_id=249243542]
+shape = SubResource("CircleShape2D_ncvmg")
+
+[node name="TimerAtirar" type="Timer" parent="." unique_id=876975102]
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=603982884]
+texture = ExtResource("2_hdo21")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1724003079]
+
+[connection signal="body_entered" from="area2d" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="TimerAtirar" to="." method="_on_timer_atirar_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

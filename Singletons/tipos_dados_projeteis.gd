@@ -11,7 +11,7 @@ enum Velocidade{Baixa, Media, Alta}
 }
 
 @export var valorVelocidade = {
-	Velocidade.Baixa : 50,
-	Velocidade.Media : 100,
-	Velocidade.Alta : 150
+	Velocidade.Baixa : 150,
+	Velocidade.Media : 200,
+	Velocidade.Alta : 250
 }

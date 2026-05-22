@@ -1,8 +1,10 @@
 extends CharacterBody2D
+class_name InimigoBasico
 
 """
 Cada tipo de inimigo terá seu proprio padrão de movimento, instanciamento de projeteis, dano, velocidade, vida. 
 Mas todos se basearão em um enemy_data_basic, para que eles compartilhem as mesmas variaveis, colisão e morte.
+Importante: verificar qual lado o inimigo foi instanciado. Criar uma variavel direita e outra esquerda, para determinar para qual lado o inimigo deve se direcionar, além de flipar a nave ou mudar o instanciador de projeteis de lugar
 """
 @export var dadosTipoInimigo: DatabaseInimigos #PEGA DIRETAMENTE TODOS OS DADOS DE UM TIPO DE INIMIGO
 
@@ -17,9 +19,12 @@ var tipo : String
 var direcao_projetil = Vector2.ZERO
 var direcao = Vector2.ZERO
 var jogador
+enum LadoInstanciado {ESQUERDA, DIREITA} 
+var lado: LadoInstanciado
 
 func  _ready() -> void:
-	
+	definir_lado()
+	altera_direcao_lado()
 	#Transferindo todos os valores do tipo de inimigo para variaveis utilizaveis
 	var tiposDados = TipoDatabaseInimigos.new()
 	velocidade = tiposDados.valorVelocidade.values()[dadosTipoInimigo.valor_velocidade]
@@ -30,20 +35,36 @@ func  _ready() -> void:
 	
 	jogador = Global.Jogador
 	
-#Fazer movimentação(Override)
 func _physics_process(delta: float) -> void:
 	movimento()
 	move_and_slide()
-	
+
 func movimento():#FUNÇÃO OVERRIDE PARA MOVIMENTO
 	#movimento básico
+	rotation = direcao.angle()
 	velocity = direcao*velocidade
+	
+func definir_lado():
+	if global_position.x < get_viewport().size.x/2:
+		lado = LadoInstanciado.ESQUERDA
+		$Sprite2D.flip_h = false
+	else:
+		lado = LadoInstanciado.DIREITA
+		$Sprite2D.flip_h = true
+	
+func altera_direcao_lado():#OVERRIDE
+	if lado == LadoInstanciado.ESQUERDA:
+		direcao = Vector2(1, -1).normalized()
+	elif lado == LadoInstanciado.DIREITA:
+		direcao = Vector2(-1, 1).normalized()
 	
 #Fazer instanciar projeteis(Override)
 func instancia_projetil():
+	#verificar se ele intancia projeteis
 	var num_projeteis_instanciados = 1
 	var projeteis_instanciados : Array
 	
+	#mudar a posição do projetil para a posição de onde sai o tiro na nave
 	for proj in range(num_projeteis_instanciados):
 		var atual_projetil_instanciado = projetil.instantiate()
 		projeteis_instanciados.append(atual_projetil_instanciado)
@@ -53,7 +74,7 @@ func instancia_projetil():
 		atual_projetil_instanciado.global_position.x -= 100
 		get_tree().current_scene.add_child(atual_projetil_instanciado)
 			
-#Definir direção de instanciamento de projeteis
+#Definir direção de instanciamento de projeteis (OVERRIDE)
 func defini_direcao_proj() -> Vector2:
 	direcao_projetil = Vector2.ZERO
 	#Override para cada tipo de direcao respectivo ao tipo de inimigo
@@ -92,3 +113,6 @@ func morte():
 
 func _on_timer_atirar_timeout() -> void:
 	instancia_projetil()
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	morte()
