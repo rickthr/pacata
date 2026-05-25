@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://dwvwhckn6kh5m"]
 
 [ext_resource type="Script" uid="uid://cob3l8e6f8uve" path="res://nave.gd" id="1_ltewx"]
+=======
+[gd_scene format=3 uid="uid://bt5jb2vgcsppq"]
+
+[ext_resource type="Script" path="res://nave.gd" id="1_ltewx"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://djpga1otan8mv" path="res://icon.svg" id="2_ilgfq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
