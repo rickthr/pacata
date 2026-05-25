@@ -8,5 +8,6 @@ script = ExtResource("1_y01xg")
 valor_vida = 1
 valor_danoColisao = 1
 tipo_projetil = ExtResource("2_r2dsc")
-tipo = "A"
+valor_quant_spawn = 1
+tipo = "B"
 metadata/_custom_type_script = "uid://drv3odnxiy4tf"

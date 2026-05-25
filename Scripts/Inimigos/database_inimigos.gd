@@ -16,4 +16,8 @@ enum Velocidade{Baixa, Media, Alta}
 @export var valor_danoColisao: TipoDatabaseInimigos.DanoColisao
 @export var valor_velocidade: TipoDatabaseInimigos.Velocidade
 @export var tipo_projetil: PackedScene
+@export var valor_quant_spawn: int
 @export var tipo: String
+#essas duas variaveis não são necessarias pro inimigo, apenas para o gerenciador
+@export var caminho1: NodePath
+@export var caminho2: NodePath

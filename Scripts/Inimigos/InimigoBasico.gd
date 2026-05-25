@@ -14,6 +14,7 @@ var vida : int
 var dano_colisao : int 
 var projetil : PackedScene 
 var tipo : String 
+var quant_spawn:int
 	
 @onready var anim = $animated
 var direcao_projetil = Vector2.ZERO
@@ -21,6 +22,9 @@ var direcao = Vector2.ZERO
 var jogador
 enum LadoInstanciado {ESQUERDA, DIREITA} 
 var lado: LadoInstanciado
+
+signal sai_da_tela
+signal morri
 
 func  _ready() -> void:
 	definir_lado()
@@ -31,10 +35,12 @@ func  _ready() -> void:
 	vida = tiposDados.valorVida.values()[dadosTipoInimigo.valor_vida]
 	dano_colisao = tiposDados.valorDanoColisao.values()[dadosTipoInimigo.valor_danoColisao]
 	projetil = dadosTipoInimigo.tipo_projetil
+	quant_spawn = dadosTipoInimigo.valor_quant_spawn
 	tipo = dadosTipoInimigo.tipo
 	
 	jogador = Global.Jogador
 	
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	movimento()
 	move_and_slide()
@@ -71,7 +77,8 @@ func instancia_projetil():
 		#DEFINIR DIREÇÃO EM QUE PROJETEIS SÃO INSTANCIADOS 
 		atual_projetil_instanciado.direcao = defini_direcao_proj()
 		atual_projetil_instanciado.global_position = global_position
-		atual_projetil_instanciado.global_position.x -= 100
+		atual_projetil_instanciado.global_position.x -= 70
+		atual_projetil_instanciado.global_position.y -= 70
 		get_tree().current_scene.add_child(atual_projetil_instanciado)
 			
 #Definir direção de instanciamento de projeteis (OVERRIDE)
@@ -109,10 +116,12 @@ func morte():
 		#faz animação de morte
 		print("morri")
 		#depois da animação de explosão da nave
+		emit_signal("morri")
 		queue_free()
 
 func _on_timer_atirar_timeout() -> void:
 	instancia_projetil()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	morte()
+	emit_signal("sai_da_tela")
+	queue_free()

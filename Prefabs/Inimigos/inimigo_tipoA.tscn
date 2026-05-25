@@ -26,6 +26,7 @@ sprite_frames = SubResource("SpriteFrames_pytsr")
 shape = SubResource("CircleShape2D_pytsr")
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=504561067]
+wait_time = 0.5
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2104141958]

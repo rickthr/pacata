@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dan4mi72ndicc"]
+[gd_scene format=3 uid="uid://wen7xesh0rnn"]
 
 [ext_resource type="Script" uid="uid://c73v5xmb3yts" path="res://Scripts/Inimigos/InimigoBasico.gd" id="1_x5tq8"]
 [ext_resource type="Resource" uid="uid://bi0x10olh7tph" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoA.tres" id="2_o1adk"]
@@ -26,6 +26,7 @@ sprite_frames = SubResource("SpriteFrames_pytsr")
 shape = SubResource("CircleShape2D_pytsr")
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=504561067]
+wait_time = 0.5
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2104141958]
