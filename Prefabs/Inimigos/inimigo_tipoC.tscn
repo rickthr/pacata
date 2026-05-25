@@ -13,7 +13,7 @@
 [node name="InimigoC" type="CharacterBody2D" unique_id=197331739]
 script = ExtResource("1_q3kla")
 amplitude = 200.0
-frequencia = 5.0
+frequencia = 0.5
 dadosTipoInimigo = ExtResource("2_up7l5")
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=1004946581]

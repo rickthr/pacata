@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://2811fia8kpdi"]
+
+[ext_resource type="Script" uid="uid://b1bqlbr1cd0ed" path="res://Cenas/Testes/boss_basico.gd" id="1_wf27p"]
+[ext_resource type="Resource" uid="uid://qnxwc0vppii7" path="res://Scripts/Bosses/Resources/Boss1.tres" id="2_eopdm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pytsr"]
+
+[node name="BossBasico" type="CharacterBody2D" unique_id=1891045147]
+script = ExtResource("1_wf27p")
+dadosBoss = ExtResource("2_eopdm")
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=1554743582]
+shape = SubResource("RectangleShape2D_pytsr")

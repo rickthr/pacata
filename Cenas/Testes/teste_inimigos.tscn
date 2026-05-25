@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://4vq3s0mua6ar"]
 
-[ext_resource type="PackedScene" uid="uid://nppox0kfr3k7" path="res://Prefabs/Inimigos/inimigo_tipoC.tscn" id="1_g2u6o"]
+[ext_resource type="PackedScene" uid="uid://q52txm4f4wkd" path="res://Prefabs/Gerenciadores de Batalha/gerenciador_batalhas_boss_1.tscn" id="1_pytsr"]
+[ext_resource type="PackedScene" uid="uid://2811fia8kpdi" path="res://Prefabs/boss_basico.tscn" id="2_fxowy"]
+[ext_resource type="PackedScene" uid="uid://c7bwlvm4sf21j" path="res://Prefabs/Bosses/boss_1.tscn" id="3_pytsr"]
 
 [node name="Teste Inimigos" type="Node2D" unique_id=185444534]
 
-[node name="InimigoC" parent="." unique_id=197331739 instance=ExtResource("1_g2u6o")]
-position = Vector2(-3, 155)
-frequencia = 1.0
+[node name="GerenciadorBatalhas_Boss1" parent="." unique_id=2026716191 instance=ExtResource("1_pytsr")]
 
-[node name="InimigoC2" parent="." unique_id=2033787696 instance=ExtResource("1_g2u6o")]
-position = Vector2(1157, 490)
-frequencia = 1.0
+[node name="BossBasico" parent="." unique_id=1891045147 instance=ExtResource("2_fxowy")]
+
+[node name="Boss1" parent="." unique_id=1877750270 instance=ExtResource("3_pytsr")]
