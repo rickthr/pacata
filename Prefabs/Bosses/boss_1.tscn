@@ -22,8 +22,10 @@ shape = SubResource("RectangleShape2D_5xyr6")
 
 [node name="JanelaVulnerabilidade" type="Timer" parent="." unique_id=1097036783]
 
-[node name="HSlider" type="HSlider" parent="." unique_id=1327348126]
-offset_right = 8.0
-offset_bottom = 16.0
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=54194447]
+offset_right = 90.0
+offset_bottom = 12.0
+value = 100.0
+show_percentage = false
 
 [connection signal="timeout" from="JanelaVulnerabilidade" to="." method="_on_janela_vulnerabilidade_timeout"]

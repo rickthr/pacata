@@ -16,7 +16,7 @@ var projetil : PackedScene
 var tipo : String 
 var quant_spawn:int
 	
-@onready var anim = $animated
+@onready var anim = $anim
 var direcao_projetil = Vector2.ZERO
 var direcao = Vector2.ZERO
 var jogador
