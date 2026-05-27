@@ -16,6 +16,7 @@ enum Estados{
 	Encerrado     # boss morreu, batalha acabou
 }
 
+var estadoAtual: Estados
 var quantInimigosInstanciados:int
 var tiposInimigos: Array[PackedScene]
 
@@ -24,15 +25,19 @@ func _ready() -> void:
 	boss.boss_morreu.connect(_on_boss_morreu)
 	quantInimigosInstanciados = 0
 	tiposInimigos.assign(boss.cenas_inimigos)
+	estadoAtual = Estados.Inativo
 	randomizaInimigos()
+	await  boss.ready
+	boss.mudar_estado(BossBasico.Estados.CutScene)
+	
 
 func _on_onda_iniciada() -> void:
-	quantInimigosInstanciados = 0
-	randomizaInimigos()
+	mudaEstado(Estados.Instanciando)
 	pass
 	
 func _on_onda_encerrada() -> void:
-	boss.mudar_estado(BossBasico.Estados.FaseDano)
+	mudaEstado(Estados.Aguardando)  # gerenciador para de instanciar
+	boss.mudar_estado(BossBasico.Estados.FaseDano)  # depois avisa o boss
 
 func _on_boss_morreu() -> void:
 	#para o funcionamento de algumas coisas
@@ -48,6 +53,20 @@ Exemplo:
 func _process(delta: float) -> void:
 	pass
 	
+func mudaEstado(estadoNovo: Estados):
+	estadoAtual = estadoNovo
+	match estadoAtual:
+		Estados.Inativo:
+			pass
+		Estados.Instanciando:
+			quantInimigosInstanciados = 0
+			randomizaInimigos()
+		Estados.Aguardando:
+			
+			pass
+		Estados.Encerrado:
+			pass
+	
 func randomizaInimigos():
 	randomize()
 	var indice = randi() % boss.dadosBoss.cenasInimigos.size()
@@ -56,18 +75,11 @@ func randomizaInimigos():
 	
 func selecionaInstaciamento(c_inimigo: PackedScene, ind:int) -> void:
 	var tipo_selecionado = boss.dadosBoss.tiposInimigos[ind]
-	for i in boss.dadosBoss.tiposInimigos:
-		if tipo_selecionado.tipo == "A":
-			print_debug("tipo a")
-			instanciaInimigoA(c_inimigo,tipo_selecionado)
-			break
-		elif tipo_selecionado.tipo == "B":
-			print_debug("tipo b")
-		elif tipo_selecionado.tipo == "C":
-			print_debug("tipo c")
-			#pode adicionar mais elifs aqui
-		else:
-			print_debug("inimigo desconhecido")
+	match tipo_selecionado.tipo:
+		"A": instanciaInimigoA(c_inimigo, tipo_selecionado)
+		"B": instanciaInimigoB(c_inimigo, tipo_selecionado)
+		"C": instanciaInimigoC(c_inimigo, tipo_selecionado)
+		_: push_error("inimigo desconhecido: " + tipo_selecionado.tipo)
 	#if t_inimigo == tipoA
 	#chama função instanciar tipoA
 	pass
@@ -86,9 +98,11 @@ func instanciaInimigoC(inimigoCena: PackedScene, inimigoDados: DatabaseInimigos)
 	pass
 	
 func _on_inimigo_sai_da_tela() -> void:
-	if quantInimigosInstanciados >= 6:
+	quantInimigosInstanciados -= 1
+	if quantInimigosInstanciados <= 0:
 		_on_onda_encerrada()
 
 func _on_inimigo_morri() -> void:
-	if quantInimigosInstanciados >= 6:
+	quantInimigosInstanciados -= 1
+	if quantInimigosInstanciados <= 0:
 		_on_onda_encerrada()

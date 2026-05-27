@@ -23,7 +23,7 @@ var quant_spawn_inimigos: Array[int]
 
 var vidaMaxima:float
 var timer:Timer
-var sliderVida:HSlider
+var sliderVida:ProgressBar
 var podeInstanciar:bool
 var podeTomarDano:bool
 var hitbox: Area2D
@@ -60,7 +60,7 @@ func _ready() -> void:
 		
 	timer = $JanelaVulnerabilidade
 	timer.wait_time = janela_vul
-	sliderVida = $HSlider
+	sliderVida = $ProgressBar
 	sliderVida.max_value = vidaMaxima
 	hitbox = $area2d
 	podeTomarDano = false 
