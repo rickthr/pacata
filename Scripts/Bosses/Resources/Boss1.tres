@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DatabaseBosses" format=3 uid="uid://qnxwc0vppii7"]
+
+[ext_resource type="Script" uid="uid://b2x3oi2qpmsgp" path="res://Scripts/Bosses/database_bosses.gd" id="1_u6r7u"]
+[ext_resource type="Script" uid="uid://drv3odnxiy4tf" path="res://Scripts/Inimigos/database_inimigos.gd" id="2_6mlss"]
+[ext_resource type="PackedScene" uid="uid://kubhn6m24wm3" path="res://Prefabs/Inimigos/inimigo_tipoA.tscn" id="2_x55sc"]
+[ext_resource type="PackedScene" uid="uid://bom0dkcchnh3g" path="res://Prefabs/Inimigos/inimigo_tipoB.tscn" id="3_6mlss"]
+[ext_resource type="Resource" uid="uid://bi0x10olh7tph" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoA.tres" id="3_mmg8v"]
+[ext_resource type="PackedScene" uid="uid://nppox0kfr3k7" path="res://Prefabs/Inimigos/inimigo_tipoC.tscn" id="4_mmg8v"]
+[ext_resource type="Resource" uid="uid://br5ra0kejyxlo" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoB.tres" id="4_ygios"]
+[ext_resource type="Resource" uid="uid://dg3a1jvlsjowt" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoC.tres" id="5_1m5qv"]
+
+[resource]
+script = ExtResource("1_u6r7u")
+textoNome = "Boss1"
+quantidadeFases = 1
+tiposInimigos = Array[ExtResource("2_6mlss")]([ExtResource("3_mmg8v"), ExtResource("4_ygios"), ExtResource("5_1m5qv")])
+cenasInimigos = Array[PackedScene]([ExtResource("2_x55sc"), ExtResource("3_6mlss"), ExtResource("4_mmg8v")])
+metadata/_custom_type_script = "uid://b2x3oi2qpmsgp"
