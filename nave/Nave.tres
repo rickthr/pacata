@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="DatabaseNave" format=3 uid="uid://bp6mqarjc8tdi"]
+
+[ext_resource type="Script" uid="uid://drghrbj2d3632" path="res://nave/database_nave.gd" id="1_iksgb"]
+
+[resource]
+script = ExtResource("1_iksgb")

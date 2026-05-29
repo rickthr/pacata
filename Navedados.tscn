@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bv8v5uv0qaqbw"]
+
+[ext_resource type="Script" path="res://database_nave.gd" id="1_w0q4g"]
+
+[node name="ResourcePreloader" type="ResourcePreloader" unique_id=216962154]
+script = ExtResource("1_w0q4g")

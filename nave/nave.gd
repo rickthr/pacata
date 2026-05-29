@@ -1,16 +1,36 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+
 const JUMP_VELOCITY = -400.0
 
 @onready var shoot_l: Marker2D = $shoot_l
 @onready var shoot_r: Marker2D = $shoot_r
 
-var contador_flip :=0
-var shoot = preload("res://shoot.tscn")
-var vida := 5
+@export var dadosNave : DatabaseNave
 
+var contador_flip :=0
+var shoot = preload("res://nave/shoot.tscn")
+
+var vida :int
+var dano_bala :int
+var SPEED:int 
+
+func flip():
+	if contador_flip %2 == 0:
+		$flip1/canhao.visible = true
+		$flip2/card.visible = true
+		
+		$flip2/canhao.visible = false
+		$flip1/card.visible = false
+		
+		
+	else:
+		$flip1/canhao.visible = false
+		$flip2/card.visible = false
+		
+		$flip2/canhao.visible = true
+		$flip1/card.visible = true
 func receber_dano():
 	vida -= 1
 	var tween = get_tree().create_tween()
@@ -22,31 +42,43 @@ func receber_dano():
 	
 func _ready() -> void:
 	add_to_group("jogador")
+	flip()
+	var tipoDados = TipoDatabaseNave.new()
+	dano_bala = tipoDados.valorAtaqueNave[dadosNave.valor_dano_nave]
+	vida = tipoDados.valorResistenciaNave[dadosNave.vida_nave]
+	SPEED = tipoDados.valorVelocidadeNave[dadosNave.speed_nave]
+	print("SPEED: ", SPEED)
+	print("vida: ", vida)
+	print("dano: ", dano_bala)
+	
 func _physics_process(delta: float) -> void:
 	
 	var direction_x := Input.get_axis("ui_left", "ui_right")
 	var direction_y := Input.get_axis("ui_up", "ui_down")
 	
 	if direction_y != 0:
+		print("?")
 		velocity.y = direction_y * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	if direction_x !=0:
+		print("?")
 		velocity.x = direction_x * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Input.is_action_just_pressed("flip"):
 		contador_flip+=1
+		flip()
 		print(contador_flip)
 	
 	if Input.is_action_just_pressed("atack"):
 		var new_shoot =  shoot.instantiate()
 		if contador_flip % 2 == 0:
-			new_shoot.global_position = shoot_r.global_position
-		else:
 			new_shoot.global_position = shoot_l.global_position
+		else:
+			new_shoot.global_position = shoot_r.global_position
 		get_tree().root.add_child(new_shoot)
 	move_and_slide()
 
@@ -54,3 +86,18 @@ func _physics_process(delta: float) -> void:
 func _on_broca_body_entered(body: Node2D) -> void:
 	#sinal emite morte do objeto q entrou na area
 	queue_free()
+
+
+func _on_flip_2_body_entered(body: Node2D) -> void:
+	if contador_flip %2 == 0 and body.is_in_group("Minerios"):
+		#coletou_minerio()
+		pass
+	else:
+		receber_dano()
+
+func _on_flip_1_body_entered(body: Node2D) -> void:
+	if contador_flip %2 != 0 and body.is_in_group("Minerios"):
+		#coletou_minerio()
+		pass
+	else:
+		receber_dano()

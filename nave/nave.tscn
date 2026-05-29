@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cgwn51p8ondg"]
+
+[ext_resource type="Script" uid="uid://cob3l8e6f8uve" path="res://nave/nave.gd" id="1_ltewx"]
+[ext_resource type="Resource" uid="uid://bp6mqarjc8tdi" path="res://nave/Nave.tres" id="2_2pqvo"]
+[ext_resource type="Texture2D" uid="uid://1lrq5jrck7rd" path="res://Assets/nave/DRILLERA0132X32.png" id="2_53dx7"]
+[ext_resource type="Texture2D" uid="uid://c1jgcfn4ewfu7" path="res://Assets/nave/CARRINHOCOMPLETED.png" id="3_6rt8y"]
+[ext_resource type="Texture2D" uid="uid://bn71nd0yiggy1" path="res://Assets/nave/canhao.png" id="4_1poy6"]
+[ext_resource type="Texture2D" uid="uid://c51rouprh63ls" path="res://Assets/nave/broca.png" id="5_xqbh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
+size = Vector2(222, 161)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1vys"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_53dx7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1vys"]
+size = Vector2(133.75, 225)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jemat"]
+size = Vector2(117.5, 84.5)
+
+[node name="Nave" type="CharacterBody2D" unique_id=85779185]
+collision_mask = 6
+script = ExtResource("1_ltewx")
+dadosNave = ExtResource("2_2pqvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1334530049]
+position = Vector2(6, 34.5)
+shape = SubResource("RectangleShape2D_ilgfq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1593959628]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_j1vys")
+
+[node name="flip2" type="Area2D" parent="." unique_id=1585097600]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flip2" unique_id=362983867]
+position = Vector2(184, -16.5)
+shape = SubResource("RectangleShape2D_j1vys")
+
+[node name="canhao" type="Sprite2D" parent="flip2" unique_id=1461168935]
+position = Vector2(162.68808, -27)
+scale = Vector2(0.696, 0.68)
+texture = ExtResource("4_1poy6")
+
+[node name="card" type="Sprite2D" parent="flip2" unique_id=261987526]
+position = Vector2(180.84377, -21.187508)
+scale = Vector2(0.7298176, 0.6988282)
+texture = ExtResource("3_6rt8y")
+
+[node name="flip1" type="Area2D" parent="." unique_id=66447914]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flip1" unique_id=755707403]
+position = Vector2(-153, -21)
+shape = SubResource("RectangleShape2D_j1vys")
+
+[node name="card" type="Sprite2D" parent="flip1" unique_id=393927898]
+position = Vector2(-183, -21.188)
+scale = Vector2(0.781, 0.699)
+texture = ExtResource("3_6rt8y")
+
+[node name="canhao" type="Sprite2D" parent="flip1" unique_id=693362293]
+position = Vector2(-159, -27)
+scale = Vector2(0.6875, 0.6796875)
+texture = ExtResource("4_1poy6")
+
+[node name="shoot_l" type="Marker2D" parent="." unique_id=902505111]
+position = Vector2(-159, -134)
+
+[node name="shoot_r" type="Marker2D" parent="." unique_id=491748429]
+position = Vector2(161, -137)
+
+[node name="Broca" type="Area2D" parent="." unique_id=1455819047]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Broca" unique_id=791978129]
+position = Vector2(0, -88)
+shape = SubResource("RectangleShape2D_jemat")
+
+[node name="Sprite2D" type="Sprite2D" parent="Broca" unique_id=335720182]
+position = Vector2(-2.0000014, -90)
+scale = Vector2(0.57812494, 0.3828125)
+texture = ExtResource("5_xqbh8")
+
+[connection signal="body_entered" from="flip2" to="." method="_on_flip_2_body_entered"]
+[connection signal="body_entered" from="flip1" to="." method="_on_flip_1_body_entered"]
+[connection signal="body_entered" from="Broca" to="." method="_on_broca_body_entered"]
