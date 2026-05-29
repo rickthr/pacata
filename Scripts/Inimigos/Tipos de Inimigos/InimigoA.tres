@@ -5,10 +5,8 @@
 
 [resource]
 script = ExtResource("1_kgnkn")
-valor_velocidade = 1
+valor_velocidade = 2
 tipo_projetil = ExtResource("2_8pjkw")
 valor_quant_spawn = 2
 tipo = "A"
-caminho1 = NodePath("Path2D/PathFollow2D")
-caminho2 = NodePath("Path2D2/PathFollow2D")
 metadata/_custom_type_script = "uid://drv3odnxiy4tf"

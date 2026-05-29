@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_raagu")
+valorVelocidade = 2
 tipo = "A"
 descricao = "Vai reto"
 metadata/_custom_type_script = "uid://4uguwf1v35q2"

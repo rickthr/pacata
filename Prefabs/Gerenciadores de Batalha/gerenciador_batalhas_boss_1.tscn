@@ -3,30 +3,6 @@
 [ext_resource type="Script" uid="uid://bnwstx5gnxj5u" path="res://Scripts/Bosses/Gerenciadores de Batalha/gerenciador_de_batalhas_boss1.gd" id="1_7hn0v"]
 [ext_resource type="PackedScene" uid="uid://c7bwlvm4sf21j" path="res://Prefabs/Bosses/boss_1.tscn" id="2_e4xux"]
 
-[sub_resource type="Curve2D" id="Curve2D_e4xux"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1151, 4, 0, 0, 0, 0, 1157, 646)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_bm7ip"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, -2, 0, 0, 0, 0, -1, 644)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_5fg4f"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 86, 645, 0, 0, 0, 0, 1096, 645)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_tgc0i"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 34, 5, 0, 0, 0, 0, 1066, 8)
-}
-point_count = 2
-
 [node name="GerenciadorBatalhas_Boss1" type="Node2D" unique_id=2026716191]
 
 [node name="control" type="Node2D" parent="." unique_id=24854038 node_paths=PackedStringArray("boss")]
@@ -35,33 +11,4 @@ boss = NodePath("Boss1")
 
 [node name="Boss1" parent="control" unique_id=1877750270 instance=ExtResource("2_e4xux")]
 
-[node name="Path2DV1" type="Path2D" parent="." unique_id=1805301052]
-position = Vector2(1160.0001, 1.6940659e-21)
-scale = Vector2(0.02777778, 1)
-curve = SubResource("Curve2D_e4xux")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2DV1" unique_id=1222273612]
-position = Vector2(1151, 4)
-rotation = 1.5614508
-
-[node name="Path2DV2" type="Path2D" parent="." unique_id=255970155]
-curve = SubResource("Curve2D_bm7ip")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2DV2" unique_id=1784033571]
-position = Vector2(-1, -2)
-rotation = 1.5707964
-
-[node name="Path2DH1" type="Path2D" parent="." unique_id=650926366]
-position = Vector2(0, -2)
-curve = SubResource("Curve2D_5fg4f")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2DH1" unique_id=1120626773]
-position = Vector2(86, 645)
-
-[node name="Path2DH2" type="Path2D" parent="." unique_id=501822823]
-position = Vector2(31, -2)
-curve = SubResource("Curve2D_tgc0i")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2DH2" unique_id=532529185]
-position = Vector2(34, 5)
-rotation = 0.0029069686
+[node name="SpawnPointInimigo" type="Marker2D" parent="control" unique_id=1494804815]

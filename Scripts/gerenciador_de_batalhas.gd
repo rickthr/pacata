@@ -19,6 +19,7 @@ enum Estados{
 var estadoAtual: Estados
 var quantInimigosInstanciados:int
 var tiposInimigos: Array[PackedScene]
+var posInstanciar: Marker2D
 
 func _ready() -> void:
 	boss.onda_iniciada.connect(_on_onda_iniciada)
@@ -26,6 +27,7 @@ func _ready() -> void:
 	quantInimigosInstanciados = 0
 	tiposInimigos.assign(boss.cenas_inimigos)
 	estadoAtual = Estados.Inativo
+	print_debug(posInstanciar)
 	randomizaInimigos()
 	await  boss.ready
 	boss.mudar_estado(BossBasico.Estados.CutScene)

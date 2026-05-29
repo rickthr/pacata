@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Global="*uid://ba3srecfpdtpo"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="pacata"

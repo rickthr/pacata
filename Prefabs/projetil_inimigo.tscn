@@ -9,6 +9,7 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_1xgb4"]
 
 [node name="ProjetilInimigo" type="Area2D" unique_id=673015861]
+collision_layer = 4
 script = ExtResource("1_k4h5d")
 dadosTipoProjetil = ExtResource("2_ixeko")
 

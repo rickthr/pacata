@@ -17,9 +17,9 @@ func altera_direcao_lado():#OVERRIDE
 #Definir direção de instanciamento de projeteis (OVERRIDE)
 func defini_direcao_proj() -> Vector2:
 	if lado == LadoInstanciado.DIREITA:
-		direcao_projetil = Vector2.DOWN
-	else:
 		direcao_projetil = Vector2.UP
+	else:
+		direcao_projetil = Vector2.DOWN
 	
 	#Override para cada tipo de direcao respectivo ao tipo de inimigo
 	return direcao_projetil

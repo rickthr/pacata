@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bquu0l8crkrkr"]
+
+[ext_resource type="PackedScene" uid="uid://bom0dkcchnh3g" path="res://Prefabs/Inimigos/inimigo_tipoB.tscn" id="1_bghb7"]
+
+[node name="HordaB" type="Node2D" unique_id=1210834179]
+
+[node name="InimigoB2" parent="." unique_id=792958340 instance=ExtResource("1_bghb7")]
+position = Vector2(1280, 500)
+
+[node name="InimigoB" parent="." unique_id=1538728272 instance=ExtResource("1_bghb7")]
+position = Vector2(0, 200)
