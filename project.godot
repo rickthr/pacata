@@ -14,8 +14,6 @@ config/name="pacata"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-<<<<<<< Updated upstream
-=======
 [autoload]
 
 TiposDadosInimigos="uid://dhs1qwkrnkxcy"
@@ -81,7 +79,6 @@ atack={
 2d_physics/layer_3="coletaveis "
 2d_physics/layer_4="shoot"
 
->>>>>>> Stashed changes
 [physics]
 
 3d/physics_engine="Jolt Physics"
