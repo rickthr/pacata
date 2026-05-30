@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -400.0
 @onready var shoot_r: Marker2D = $shoot_r
 
 @export var dadosNave : DatabaseNave
+@export var label_vida : Label
+@export var label_score : Label
 
 var contador_flip :=0
 var shoot = preload("res://nave/shoot.tscn")
@@ -34,6 +36,7 @@ func flip():
 		$flip1/card.visible = true
 func receber_dano():
 	vida -= 1
+	label_vida.text = "Vida: " + str(vida)
 	$naveHit.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate", Color.RED,0.5)
@@ -43,7 +46,7 @@ func receber_dano():
 		$naveDead.play()
 		await $naveDead.finished
 		queue_free()
-	
+
 func _ready() -> void:
 	add_to_group("jogador")
 	flip()
@@ -54,6 +57,9 @@ func _ready() -> void:
 	print("SPEED: ", SPEED)
 	print("vida: ", vida)
 	print("dano: ", dano_bala)
+	label_vida.text = "Vida: " + str(vida)
+	label_score.text = "Score:" + str(Global.score)
+	
 	
 func _physics_process(delta: float) -> void:
 	
@@ -90,6 +96,8 @@ func _physics_process(delta: float) -> void:
 		get_tree().root.add_child(new_shoot)
 		await get_tree().create_timer(0.3).timeout
 		pode_atirar = true
+		
+		
 	move_and_slide()
 
 

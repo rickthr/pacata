@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c4r7glcsspnix" path="res://Assets/menu/menu_improvisado.png" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://nave/nave.tscn" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://dvrrwjbw5uasy" path="res://Assets/menu/menu_sozinho.png" id="3_epypp"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://FONTE/Micro5-Regular.ttf" id="4_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://usu4ruqjpd2o" path="res://Assets/menu/vida.png" id="5_kdubu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(594, 188)
@@ -21,12 +23,14 @@ size = Vector2(1311, 63.5)
 
 [node name="Node2D" type="Node2D" unique_id=2055429933]
 
-[node name="Nave" parent="." unique_id=85779185 instance=ExtResource("2_epypp")]
+[node name="Nave" parent="." unique_id=85779185 node_paths=PackedStringArray("label_vida", "label_score") instance=ExtResource("2_epypp")]
 position = Vector2(640, 485)
+label_vida = NodePath("../vida")
+label_score = NodePath("../score")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=979871887]
 z_index = 1
-position = Vector2(650, 362.5625)
+position = Vector2(643, 370.00003)
 scale = Vector2(0.20162037, 0.18478127)
 texture = ExtResource("1_0e48y")
 
@@ -57,3 +61,26 @@ shape = SubResource("RectangleShape2D_kdubu")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="menu" unique_id=1248449642]
 position = Vector2(650.5, 697.25)
 shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="score" type="Label" parent="." unique_id=1714361929]
+offset_left = 128.0
+offset_top = 83.0
+offset_right = 193.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("4_q6r6c")
+theme_override_font_sizes/font_size = 46
+text = "Score:"
+
+[node name="vida" type="Label" parent="." unique_id=984831631]
+offset_left = 1084.0
+offset_top = 83.0
+offset_right = 1209.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("4_q6r6c")
+theme_override_font_sizes/font_size = 46
+clip_text = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1466551773]
+position = Vector2(1065, 108)
+scale = Vector2(0.12214602, 0.12437187)
+texture = ExtResource("5_kdubu")
