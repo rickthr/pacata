@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://c1jgcfn4ewfu7" path="res://Assets/nave/CARRINHOCOMPLETED.png" id="3_6rt8y"]
 [ext_resource type="Texture2D" uid="uid://bn71nd0yiggy1" path="res://Assets/nave/canhao.png" id="4_1poy6"]
 [ext_resource type="Texture2D" uid="uid://c51rouprh63ls" path="res://Assets/nave/broca.png" id="5_xqbh8"]
+[ext_resource type="AudioStream" uid="uid://diodqer63djsi" path="res://sounds/Nave explodindo.mp3" id="7_o8mc5"]
+[ext_resource type="AudioStream" uid="uid://dak7woail2gdd" path="res://sounds/Nave levando dano.mp3" id="8_0acnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
-size = Vector2(222, 161)
+size = Vector2(93.5, 96.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j1vys"]
 animations = [{
@@ -22,10 +24,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1vys"]
-size = Vector2(133.75, 225)
+size = Vector2(58.9375, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jemat"]
-size = Vector2(117.5, 84.5)
+size = Vector2(41.75, 30.25)
 
 [node name="Nave" type="CharacterBody2D" unique_id=85779185]
 collision_mask = 6
@@ -33,64 +35,72 @@ script = ExtResource("1_ltewx")
 dadosNave = ExtResource("2_2pqvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1334530049]
-position = Vector2(6, 34.5)
+position = Vector2(-1.25, 1.75)
 shape = SubResource("RectangleShape2D_ilgfq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1593959628]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_j1vys")
 
 [node name="flip2" type="Area2D" parent="." unique_id=1585097600]
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flip2" unique_id=362983867]
-position = Vector2(184, -16.5)
+position = Vector2(71, -11)
 shape = SubResource("RectangleShape2D_j1vys")
 
 [node name="canhao" type="Sprite2D" parent="flip2" unique_id=1461168935]
-position = Vector2(162.68808, -27)
-scale = Vector2(0.696, 0.68)
+position = Vector2(65.999985, -11.999994)
+scale = Vector2(0.3, 0.293)
 texture = ExtResource("4_1poy6")
 
 [node name="card" type="Sprite2D" parent="flip2" unique_id=261987526]
-position = Vector2(180.84377, -21.187508)
-scale = Vector2(0.7298176, 0.6988282)
+position = Vector2(70.00001, -11.000003)
+scale = Vector2(0.3, 0.287)
 texture = ExtResource("3_6rt8y")
 
 [node name="flip1" type="Area2D" parent="." unique_id=66447914]
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flip1" unique_id=755707403]
-position = Vector2(-153, -21)
+position = Vector2(-74.53125, -11.5)
 shape = SubResource("RectangleShape2D_j1vys")
 
 [node name="card" type="Sprite2D" parent="flip1" unique_id=393927898]
-position = Vector2(-183, -21.188)
-scale = Vector2(0.781, 0.699)
+position = Vector2(-71.000015, -11)
+scale = Vector2(0.3, 0.269)
 texture = ExtResource("3_6rt8y")
 
 [node name="canhao" type="Sprite2D" parent="flip1" unique_id=693362293]
-position = Vector2(-159, -27)
-scale = Vector2(0.6875, 0.6796875)
+position = Vector2(-67.000015, -12)
+scale = Vector2(0.3, 0.297)
 texture = ExtResource("4_1poy6")
 
 [node name="shoot_l" type="Marker2D" parent="." unique_id=902505111]
-position = Vector2(-159, -134)
+position = Vector2(-67, -60)
 
 [node name="shoot_r" type="Marker2D" parent="." unique_id=491748429]
-position = Vector2(161, -137)
+position = Vector2(65, -59)
 
 [node name="Broca" type="Area2D" parent="." unique_id=1455819047]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Broca" unique_id=791978129]
-position = Vector2(0, -88)
+position = Vector2(-1, -48)
 shape = SubResource("RectangleShape2D_jemat")
 
 [node name="Sprite2D" type="Sprite2D" parent="Broca" unique_id=335720182]
-position = Vector2(-2.0000014, -90)
-scale = Vector2(0.57812494, 0.3828125)
+position = Vector2(-2.3841858e-07, -46.000004)
+scale = Vector2(0.2, 0.133)
 texture = ExtResource("5_xqbh8")
+
+[node name="naveDead" type="AudioStreamPlayer2D" parent="." unique_id=2108717333]
+stream = ExtResource("7_o8mc5")
+bus = &"Efeitos sonoros"
+
+[node name="naveHit" type="AudioStreamPlayer2D" parent="." unique_id=1476305978]
+stream = ExtResource("8_0acnm")
+bus = &"Efeitos sonoros"
 
 [connection signal="body_entered" from="flip2" to="." method="_on_flip_2_body_entered"]
 [connection signal="body_entered" from="flip1" to="." method="_on_flip_1_body_entered"]

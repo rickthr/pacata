@@ -14,10 +14,20 @@ config/name="pacata"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://cwx4t2nfdohus"
+
 [autoload]
 
 TiposDadosInimigos="uid://dhs1qwkrnkxcy"
 Global="*uid://ba3srecfpdtpo"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

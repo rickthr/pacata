@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dak7woail2gdd"
+path="res://.godot/imported/Nave levando dano.mp3-86f56fbe50cf316a25800d7ccc9faf8b.mp3str"
+
+[deps]
+
+source_file="res://sounds/Nave levando dano.mp3"
+dest_files=["res://.godot/imported/Nave levando dano.mp3-86f56fbe50cf316a25800d7ccc9faf8b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

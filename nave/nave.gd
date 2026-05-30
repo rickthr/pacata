@@ -15,6 +15,7 @@ var shoot = preload("res://nave/shoot.tscn")
 var vida :int
 var dano_bala :int
 var SPEED:int 
+var pode_atirar := true
 
 func flip():
 	if contador_flip %2 == 0:
@@ -33,11 +34,14 @@ func flip():
 		$flip1/card.visible = true
 func receber_dano():
 	vida -= 1
+	$naveHit.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate", Color.RED,0.5)
 	tween.tween_property(self,"modulate", Color.WHITE,0.5)
 	await get_tree().create_timer(2.0).timeout
 	if vida == 0:
+		$naveDead.play()
+		await $naveDead.finished
 		queue_free()
 	
 func _ready() -> void:
@@ -57,13 +61,13 @@ func _physics_process(delta: float) -> void:
 	var direction_y := Input.get_axis("ui_up", "ui_down")
 	
 	if direction_y != 0:
-		print("?")
+		
 		velocity.y = direction_y * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	if direction_x !=0:
-		print("?")
+	
 		velocity.x = direction_x * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -73,13 +77,16 @@ func _physics_process(delta: float) -> void:
 		flip()
 		print(contador_flip)
 	
-	if Input.is_action_just_pressed("atack"):
+	if Input.is_action_pressed("atack") and pode_atirar:
 		var new_shoot =  shoot.instantiate()
+		pode_atirar = false
 		if contador_flip % 2 == 0:
 			new_shoot.global_position = shoot_l.global_position
 		else:
 			new_shoot.global_position = shoot_r.global_position
 		get_tree().root.add_child(new_shoot)
+		await get_tree().create_timer(0.3).timeout
+		pode_atirar = true
 	move_and_slide()
 
 
