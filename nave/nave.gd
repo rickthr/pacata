@@ -57,6 +57,8 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	
+	position.x = clamp(position.x, 0, 1280)
+	position.y = clamp(position.y, 0, 720)
 	var direction_x := Input.get_axis("ui_left", "ui_right")
 	var direction_y := Input.get_axis("ui_up", "ui_down")
 	
@@ -79,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("atack") and pode_atirar:
 		var new_shoot =  shoot.instantiate()
+		$tiro.play()
 		pode_atirar = false
 		if contador_flip % 2 == 0:
 			new_shoot.global_position = shoot_l.global_position

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vh50a8aej1fn"]
 
-[ext_resource type="Script" uid="uid://gqgi862srkbs" path="res://shoot.gd" id="1_vnmmp"]
+[ext_resource type="Script" uid="uid://gqgi862srkbs" path="res://nave/shoot.gd" id="1_vnmmp"]
 [ext_resource type="Texture2D" uid="uid://c0n6w3xq601kh" path="res://Assets/nave/BALA.png" id="2_vnmmp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yt1ub"]
@@ -19,6 +19,7 @@ position = Vector2(1, -1.5)
 shape = SubResource("CapsuleShape2D_yt1ub")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1075693466]
+z_index = -1
 position = Vector2(1, -1)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_vnmmp")
