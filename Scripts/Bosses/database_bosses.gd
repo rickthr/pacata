@@ -10,3 +10,5 @@ ESSA CLASSE DEVE ATRIBUIR OS VALORES PARA UM DETERMINADO BOSS BASEADO NOS PARAME
 @export var janelaVulnerabilidade: TipoDatabaseBosses.JanelaVulnerabilidade
 @export var tiposInimigos: Array[DatabaseInimigos]
 @export var cenasInimigos: Array[PackedScene]
+@export var projetilMaior: PackedScene
+@export var projetilMenor: PackedScene

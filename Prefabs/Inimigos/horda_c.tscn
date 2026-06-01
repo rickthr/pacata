@@ -1,12 +1,23 @@
 [gd_scene format=3 uid="uid://bjpwj1e58yorm"]
 
 [ext_resource type="PackedScene" uid="uid://nppox0kfr3k7" path="res://Prefabs/Inimigos/inimigo_tipoC.tscn" id="1_fuajv"]
+[ext_resource type="Script" uid="uid://drv3odnxiy4tf" path="res://Scripts/Inimigos/database_inimigos.gd" id="2_uq5mm"]
+[ext_resource type="PackedScene" uid="uid://c87alwowd28rf" path="res://Prefabs/projetil_inimigo.tscn" id="3_43upn"]
+
+[sub_resource type="Resource" id="Resource_r0fx5"]
+script = ExtResource("2_uq5mm")
+valor_vida = 1
+valor_danoColisao = 1
+tipo_projetil = ExtResource("3_43upn")
+valor_quant_spawn = 2
+tipo = "C"
+metadata/_custom_type_script = "uid://drv3odnxiy4tf"
 
 [node name="HordaC" type="Node2D" unique_id=939299534]
 
-[node name="InimigoC2" parent="." unique_id=2050144372 node_paths=PackedStringArray("caminhoPos") instance=ExtResource("1_fuajv")]
+[node name="InimigoC2" parent="." unique_id=2050144372 instance=ExtResource("1_fuajv")]
 position = Vector2(1280, 720)
-caminhoPos = NodePath("")
 
-[node name="InimigoC" parent="." unique_id=197331739 node_paths=PackedStringArray("caminhoPos") instance=ExtResource("1_fuajv")]
-caminhoPos = NodePath("")
+[node name="InimigoC" parent="." unique_id=197331739 instance=ExtResource("1_fuajv")]
+position = Vector2(0.1, 0.1)
+dadosTipoInimigo = SubResource("Resource_r0fx5")

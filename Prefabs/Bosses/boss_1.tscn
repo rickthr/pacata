@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bahep28044k1k" path="res://Prefabs/Bosses/boss_1.gd" id="1_y3k76"]
 [ext_resource type="Resource" uid="uid://qnxwc0vppii7" path="res://Scripts/Bosses/Resources/Boss1.tres" id="2_g4pn2"]
+[ext_resource type="Texture2D" uid="uid://djpga1otan8mv" path="res://icon.svg" id="3_vf0gf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wg2qg"]
 
@@ -12,6 +13,22 @@ script = ExtResource("1_y3k76")
 dadosBoss = ExtResource("2_g4pn2")
 metadata/_custom_type_script = "uid://b1bqlbr1cd0ed"
 
+[node name="InstMaior" type="Node2D" parent="." unique_id=345737063]
+
+[node name="Marker2D" type="Marker2D" parent="InstMaior" unique_id=2022967480]
+
+[node name="Marker2D2" type="Marker2D" parent="InstMaior" unique_id=754979944]
+
+[node name="Marker2D3" type="Marker2D" parent="InstMaior" unique_id=1959664096]
+
+[node name="InstMenor" type="Node2D" parent="." unique_id=1342432778]
+
+[node name="Marker2D3" type="Marker2D" parent="InstMenor" unique_id=1628393415]
+
+[node name="Marker2D2" type="Marker2D" parent="InstMenor" unique_id=359680296]
+
+[node name="Marker2D" type="Marker2D" parent="InstMenor" unique_id=972574495]
+
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=238277119]
 shape = SubResource("RectangleShape2D_wg2qg")
 
@@ -20,12 +37,23 @@ shape = SubResource("RectangleShape2D_wg2qg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area2d" unique_id=1745663073]
 shape = SubResource("RectangleShape2D_5xyr6")
 
-[node name="JanelaVulnerabilidade" type="Timer" parent="." unique_id=1097036783]
-
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=54194447]
 offset_right = 90.0
 offset_bottom = 12.0
 value = 100.0
 show_percentage = false
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617251182]
+position = Vector2(640, 0)
+scale = Vector2(10, 1)
+texture = ExtResource("3_vf0gf")
+
+[node name="JanelaVulnerabilidade" type="Timer" parent="." unique_id=1097036783]
+
+[node name="TimerAtirar" type="Timer" parent="." unique_id=1647474994]
+
+[node name="TiroMaior" type="Timer" parent="." unique_id=286809198]
+
 [connection signal="timeout" from="JanelaVulnerabilidade" to="." method="_on_janela_vulnerabilidade_timeout"]
+[connection signal="timeout" from="TimerAtirar" to="." method="_on_timer_atirar_timeout"]
+[connection signal="timeout" from="TiroMaior" to="." method="_on_tiro_maior_timeout"]
