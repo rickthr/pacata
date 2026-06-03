@@ -10,19 +10,10 @@
 
 [node name="TestDialogueCaller" type="Node" parent="." unique_id=1008552034]
 script = ExtResource("2_141ub")
-dialogue_source = NodePath("../DialogueNPC")
+dialogue_id = "DMRC1"
 
 [node name="DialogueNPC" type="Node" parent="." unique_id=464048036]
 script = ExtResource("3_141ub")
-dialogue_text = "Pai|Onde você pensa que vai?
-Diggy|Huh… Ia dar uma zolhada na nave.
-Pai|Sabe que não pode mexer nela.
-Diggy|E ela vai ficar aqui, pegando poeira? Ela ainda funciona, pai, eu posso pilotá-lá, como você fazia.
-Pai|Filho… você sabe que esse é um trabalho ingrato, ainda mais em nossas condições–
-Diggy|Não ligo pra isso, quero ser um Driller, além do mais, estamos precisando do dinheiro.
-Pai|...
-Diggy|Me deixa fazer isso, pai, me deixa provar que posso ser diferente dos outros.
-Pai|Diferente vc já é, todo errado dos olho aí.
-Pai|Mas, temo que não posso impedi-lo.
-Diggy|Valeu, paizão.
-Pai|Cuidado, filho."
+dialogue_id = "DMRC1"
+dialogue_text = "
+"
