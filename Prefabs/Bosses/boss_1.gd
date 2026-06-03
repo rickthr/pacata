@@ -1,31 +1,49 @@
 extends BossBasico
 
-@export var pos_instancia_tiro_maior: Array[Marker2D]
-@export var pos_instancia_tiro_menor: Array[Marker2D]
+@export var pos_instancia_tiro_maior: Marker2D
+@export var pos_instancia_tiro_menor_s: Array[Marker2D]
+@export var pos_instancia_tiro_menor_r: Array[Marker2D]
+@export var pos_instancia_tiro_medio: Array[Marker2D]
 @export var aviso_tiro_maior: PackedScene
 
+@onready var timer_tiro_maior = $TiroTiroMaior
+@onready var timer_tiro_medio = $TimerTiroMedio
+@onready var timer_tiro_menor_s = $TimerTiroMenorS
+@onready var timer_tiro_menor_r = $TimerTiroMenorR
+
 var inimigos_desapareceram: int
+
+# Armazena os tempos originais para não dividi-los infinitamente
+var wait_time_menor_s_base: float
+var wait_time_medio_base: float
+
+var pode_atirar_medio := true
+
+func _ready() -> void:
+	super._ready() # Garante que o _ready do BossBasico seja executado primeiro
+	# Guarda os valores originais configurados no Inspector
+	wait_time_menor_s_base = timer_tiro_menor_s.wait_time
+	wait_time_medio_base = timer_tiro_medio.wait_time
+	inimigos_desapareceram = 0
 	
 func faseDano():
-	timerTiroMaior.start()
-	timerTiroMenor.start()
+	inicializa_atiradores()
 	comportamento_por_fase()
-	"""
-	fazer o tiro menor
-	avisar do tiro maior
-		tiro maior
-	a depender da fase, 
-		atirar mais rapido 
-		instanciar inimigos
-	"""
 	pass
 	
+func inicializa_atiradores():	
+	timer_tiro_maior.start()
+	timer_tiro_medio.start()
+	timer_tiro_menor_r.start()
+	timer_tiro_menor_s.start()
+
 func avisa_tiro_maior():
 	"""
 	cria a linha de aviso e pisca ela tres vezes antes de atirar
 	"""
 	var aviso = aviso_tiro_maior.instantiate()
 	get_tree().current_scene.add_child(aviso)
+	aviso.global_position = pos_instancia_tiro_maior.global_position
 	
 	for i in 3:
 		aviso.visible = true
@@ -43,45 +61,70 @@ func tiro_maior():
 	atira
 	retira o instanciador maior escolhido da lista
 	"""
-	var l_instanciador = pos_instancia_tiro_maior
+	var projetil = projetil_maior.instantiate()
+	get_tree().current_scene.add_child(projetil)
+	projetil.global_position = pos_instancia_tiro_maior.global_position
 	
-	for i in range(len(l_instanciador)):
-		var instanciador = l_instanciador.pick_random()
-		var projetil = projetil_maior.instantiate()
-		get_tree().current_scene.add_child(projetil)
-		projetil.global_position = instanciador.global_position
-		l_instanciador.erase(instanciador)
+	#espera a animação do tiro acabar para destruilo
+	await get_tree().create_timer(2).timeout#simula
+	projetil.queue_free()
 	pass
 	
-func tiro_menor():
-	var l_instanciador = pos_instancia_tiro_menor
-	for instanciador in l_instanciador:
-		var projetil = projetil_menor.instantiate()
+func tiro_menor(l_instanciadores: Array[Marker2D], t_projetil: PackedScene):
+	for instanciador in l_instanciadores:
+		var projetil = t_projetil.instantiate()
 		get_tree().current_scene.add_child(projetil)
 		projetil.global_position = instanciador.global_position
-		l_instanciador.erase(instanciador)
-		projetil.direcao = Vector2.DOWN
+
+func tiro_medio(): #chek
+	pode_atirar_medio = false
+	var l_instanciadores = pos_instancia_tiro_medio.duplicate()
+	randomize()
+	var projetil
+	
+	while l_instanciadores.size() > 0:
+		var indice = randi() % len(l_instanciadores)
+		
+		projetil = projetil_medio.instantiate()
+		get_tree().current_scene.add_child(projetil)
+		projetil.global_position = l_instanciadores[indice].global_position
+			
+		l_instanciadores.erase(l_instanciadores[indice])
+		#espera a animação do projetil acabar
+			
+		await get_tree().create_timer(2).timeout	
+		projetil.queue_free()
+		print_debug(l_instanciadores.size())
+	
+	pode_atirar_medio = true
 
 func comportamento_por_fase():
 	var inimigos: Array
+	
+	# Reseta os timers para o padrão antes de aplicar os buffs da fase atual
+	timer_tiro_menor_s.wait_time = wait_time_menor_s_base
+	timer_tiro_medio.wait_time = wait_time_medio_base
+	
 	match  faseAtual:
 		1:
 			for inimigo in get_tree().get_nodes_in_group("inimigo"):
 				inimigo.multiplicadorPFase = 1
 				inimigos.append(inimigo) 
-				inimigos[inimigo].desapareci.connect(_on_inimigo_desapareceu.bind(inimigo))
+				if not inimigo.desapareci.is_connected(_on_inimigo_desapareceu):
+					inimigo.desapareci.connect(_on_inimigo_desapareceu.bind(inimigo))
 			pass
 		2:
 			for inimigo in get_tree().get_nodes_in_group("inimigo"):
 				inimigo.multiplicadorPFase = 1.5
-				timerTiroMenor.wait_time /= 2
-				emit_signal("chamar_instanciar")
+				timer_tiro_menor_s.wait_time = wait_time_menor_s_base/2
+				timer_tiro_medio.wait_time = wait_time_medio_base/2
+			emit_signal("chamar_instanciar")
 			pass
 		3:
 			for inimigo in get_tree().get_nodes_in_group("inimigo"):
 				inimigo.multiplicadorPFase = 2
-				timerTiroMenor.wait_time /= 3
-				emit_signal("chamar_instanciar")
+				timer_tiro_medio.wait_time = wait_time_medio_base/3
+			emit_signal("chamar_instanciar")
 			pass
 	"""
 	diminuir o timer por tiro
@@ -90,16 +133,36 @@ func comportamento_por_fase():
 	pass
 	
 func _on_inimigo_desapareceu(inimigo: Node2D) -> void:
+	print_debug("dessapareceu")
 	inimigos_desapareceram += 1
 	inimigo.queue_free()
 	if inimigos_desapareceram >=3: 
 		emit_signal("fechar_instanciar")
 		inimigos_desapareceram = 0
 
-func _on_timer_atirar_timeout() -> void:
-	tiro_menor()
+func _on_timer_tiro_menor_s_timeout() -> void:
+	tiro_menor(pos_instancia_tiro_menor_s, projetil_menor_s)
 	pass # Replace with function body.
 
-func _on_tiro_maior_timeout() -> void:
+
+func _on_timer_tiro_menor_r_timeout() -> void:
+	tiro_menor(pos_instancia_tiro_menor_r, projetil_menor_r)
+	pass # Replace with function body.
+
+
+func _on_timer_tiro_medio_timeout() -> void:
+	if pode_atirar_medio:
+		tiro_medio()
+	pass # Replace with function body.
+
+
+func _on_tiro_tiro_maior_timeout() -> void:
 	avisa_tiro_maior()
 	pass # Replace with function body.
+
+func _on_janela_vulnerabilidade_timeout() -> void:
+	super._on_janela_vulnerabilidade_timeout()
+	timer_tiro_maior.stop()
+	timer_tiro_medio.stop()
+	timer_tiro_menor_r.stop()
+	timer_tiro_menor_s.stop()

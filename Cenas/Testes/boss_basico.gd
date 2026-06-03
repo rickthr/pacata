@@ -20,7 +20,9 @@ var janela_vul:float
 var cenas_inimigos: Array[PackedScene]
 var dados_inimigos: Array[DatabaseInimigos]
 var quant_spawn_inimigos: Array[int]
-var projetil_menor: PackedScene
+var projetil_menor_s: PackedScene
+var projetil_menor_r: PackedScene
+var projetil_medio: PackedScene
 var projetil_maior: PackedScene
 
 var vidaMaxima:float
@@ -29,15 +31,18 @@ var sliderVida:ProgressBar
 var podeInstanciar:bool
 var faseDanoIniciada:bool
 var hitbox: Area2D
-var timerTiroMaior: Timer
-var timerTiroMenor: Timer
 var faseAtual:int
+var fases_realizadas:=0
+var cutscene_final:=false
 
 #sinais para o gerenciador de batalha
 signal onda_iniciada
 signal boss_morreu
+@warning_ignore("unused_signal")
 signal chamar_instanciar
+@warning_ignore("unused_signal")
 signal fechar_instanciar
+signal cutscene_encerrada
 
 enum Estados{
 	Batalhando,
@@ -56,7 +61,9 @@ func _ready() -> void:
 	janela_vul = tipoDados.valorJanelaVulnerabilidade.values()[dadosBoss.janelaVulnerabilidade]
 	quant_fases = dadosBoss.quantidadeFases + 1
 	projetil_maior = dadosBoss.projetilMaior
-	projetil_menor = dadosBoss.projetilMenor
+	projetil_menor_s = dadosBoss.projetilMenor1
+	projetil_menor_r = dadosBoss.projetilMenor2
+	projetil_medio = dadosBoss.projetilMedio
 	"""
 	Aderindo valores para inimigos para quando for instancia-los
 	cada tipo e cena de inimigo precisa estar em ordem no inspetor para que eles possuam o mesmo indice na hora de instanciar. 
@@ -69,18 +76,20 @@ func _ready() -> void:
 		
 	timer = $JanelaVulnerabilidade
 	timer.wait_time = janela_vul
-	timerTiroMaior = $TimerTiroMaior
-	timerTiroMenor = $TimerAtirar
 	sliderVida = $ProgressBar
 	sliderVida.max_value = vidaMaxima
 	hitbox = $area2d
 	faseDanoIniciada = false 
 	podeInstanciar = false 
 	hitbox.monitoring = false
-	
+	faseAtual = 0
+	fases_realizadas = 0
+	cutscene_final = false
+	mudar_estado(Estados.CutScene) #->teste?
 	
 func mudar_estado(novo_estado: Estados) -> void:
 	estado_atual = novo_estado
+	print_debug(estado_atual)
 	match estado_atual:
 		Estados.Batalhando:
 			#chama as funções que realizaa as operações de BATALHANDO
@@ -88,6 +97,7 @@ func mudar_estado(novo_estado: Estados) -> void:
 			podeInstanciar = true
 			faseDanoIniciada = false
 			emit_signal("onda_iniciada")
+			print_debug("emitindo sinal")
 			"""
 			se instanciar cada tipo de inimigo aleatoriamente 2 vezes:
 				deve receber um aviso do gerenciador de batalhas e
@@ -109,12 +119,13 @@ func mudar_estado(novo_estado: Estados) -> void:
 			na fase de dano o boss irá aparecer para atirar no player
 			e estará vulneravel a dano
 			"""
+			podeInstanciar = false
 			#chama as funções que realizaa as operações de FASEDANO
 			#espera o tempo da animação acabar
 			await get_tree().create_timer(5).timeout
 			faseAtual +=1
+			fases_realizadas +=1
 			timer.start() #dá play no timer janelaVulnerabilidade
-			faseDanoIniciada = true
 			hitbox.monitoring = true #ativa a hitbox
 			faseDanoIniciada = true #ativa pode_tomar_dano
 			faseDano()
@@ -130,14 +141,16 @@ func mudar_estado(novo_estado: Estados) -> void:
 			passa pro estado cutscene
 			"""
 		Estados.CutScene:
-			#chama as funções que realizaa as operações de CUTSCENE
 			hitbox.monitoring = false
 			podeInstanciar = false
 			faseDanoIniciada = false
-			# animação/dialogo aqui primeiro
-			await get_tree().create_timer(3).timeout  # simula animação por enquanto
-			if vida > 0:
-				mudar_estado(Estados.Batalhando)
+			
+			await get_tree().create_timer(5).timeout
+			
+			if cutscene_final:
+				mudar_estado(Estados.Morrendo)
+			elif vida > 0:
+				emit_signal("cutscene_encerrada")
 			else:
 				mudar_estado(Estados.Morrendo)
 			"""
@@ -161,4 +174,15 @@ func receber_dano(dano: float) -> void:
 		vida -= dano
 		
 func _on_janela_vulnerabilidade_timeout() -> void:
-	mudar_estado(Estados.CutScene)
+	hitbox.monitoring = false
+	faseDanoIniciada = false
+	timer.stop()
+	
+	if fases_realizadas >= quant_fases:
+		cutscene_final = true
+		mudar_estado(Estados.CutScene)
+		
+	elif vida > 0:
+		mudar_estado(Estados.CutScene)
+	else:
+		mudar_estado(Estados.Morrendo)

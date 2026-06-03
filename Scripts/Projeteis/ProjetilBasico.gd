@@ -1,4 +1,5 @@
 extends Area2D
+class_name ProjetilBasico
 
 """
 Cada tipo de projetil terá seu proprio padrão de movimento, dano e velocidade.
@@ -19,7 +20,7 @@ var tipo: String
 var descricao: String
 
 var jogador
-var direcao:= Vector2.ZERO
+var direcao:= Vector2.DOWN
 
 func _ready() -> void:
 	var tiposDados = TipoDatabaseProjeteis.new()
@@ -53,10 +54,10 @@ func autoDestruicao():
 
 #FAZER COLISAO
 func _on_body_entered(corpo: Node2D) -> void:
-	autoDestruicao()
 	if corpo.is_in_group("jogador"):
-		dar_dano()
-		#dar dano no jogador
+		dar_dano()#dar dano no jogador
+	autoDestruicao()
+		
 
 #ao sair da tela
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

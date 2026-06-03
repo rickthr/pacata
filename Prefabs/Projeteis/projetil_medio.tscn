@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqk1ah54mmk0s"]
+
+[ext_resource type="Script" uid="uid://bggrmw68fubjl" path="res://Scripts/Projeteis/projetil_medio.gd" id="1_cl138"]
+[ext_resource type="Texture2D" uid="uid://djpga1otan8mv" path="res://icon.svg" id="1_x1eu7"]
+[ext_resource type="Resource" uid="uid://bf5qa0of5qo1o" path="res://Scripts/Projeteis/Tipos Projeteis/ProjetilMedio.tres" id="2_avahe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moa8s"]
+
+[node name="ProjetilMedio" type="Area2D" unique_id=1188101960]
+collision_layer = 4
+script = ExtResource("1_cl138")
+dadosTipoProjetil = ExtResource("2_avahe")
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=589016711]
+shape = SubResource("CapsuleShape2D_moa8s")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=235815411]
+position = Vector2(0, 255)
+scale = Vector2(0.5, 4)
+texture = ExtResource("1_x1eu7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

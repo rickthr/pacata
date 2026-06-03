@@ -6,8 +6,12 @@
 [ext_resource type="Script" uid="uid://drv3odnxiy4tf" path="res://Scripts/Inimigos/database_inimigos.gd" id="2_6mlss"]
 [ext_resource type="PackedScene" uid="uid://bjpwj1e58yorm" path="res://Prefabs/Inimigos/horda_c.tscn" id="3_hhavq"]
 [ext_resource type="Resource" uid="uid://bi0x10olh7tph" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoA.tres" id="3_mmg8v"]
+[ext_resource type="PackedScene" uid="uid://dnib0yp1l61v8" path="res://Prefabs/Projeteis/projetil_maior.tscn" id="4_3d5ks"]
 [ext_resource type="Resource" uid="uid://br5ra0kejyxlo" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoB.tres" id="4_ygios"]
 [ext_resource type="Resource" uid="uid://dg3a1jvlsjowt" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoC.tres" id="5_1m5qv"]
+[ext_resource type="PackedScene" uid="uid://bqk1ah54mmk0s" path="res://Prefabs/Projeteis/projetil_medio.tscn" id="5_30h7b"]
+[ext_resource type="PackedScene" uid="uid://bt5la1ts3eoi3" path="res://Prefabs/Projeteis/projetil_menor_s.tscn" id="6_7f204"]
+[ext_resource type="PackedScene" uid="uid://b0fljdbxukhgl" path="res://Prefabs/Projeteis/projetil_menor_r.tscn" id="7_oy0xh"]
 
 [resource]
 script = ExtResource("1_u6r7u")
@@ -15,4 +19,8 @@ textoNome = "Boss1"
 quantidadeFases = 1
 tiposInimigos = Array[ExtResource("2_6mlss")]([ExtResource("3_mmg8v"), ExtResource("4_ygios"), ExtResource("5_1m5qv")])
 cenasInimigos = Array[PackedScene]([ExtResource("1_1m5qv"), ExtResource("2_1m5qv"), ExtResource("3_hhavq")])
+projetilMaior = ExtResource("4_3d5ks")
+projetilMedio = ExtResource("5_30h7b")
+projetilMenor1 = ExtResource("6_7f204")
+projetilMenor2 = ExtResource("7_oy0xh")
 metadata/_custom_type_script = "uid://b2x3oi2qpmsgp"
