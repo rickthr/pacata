@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DatabaseProjeteis" format=3 uid="uid://b6vwbykydu62"]
+
+[ext_resource type="Script" uid="uid://4uguwf1v35q2" path="res://Scripts/Projeteis/database_projeteis.gd" id="1_2j55i"]
+
+[resource]
+script = ExtResource("1_2j55i")
+valorVelocidade = 1
+tipo = "S"
+descricao = "Segui o jogador"
+metadata/_custom_type_script = "uid://4uguwf1v35q2"

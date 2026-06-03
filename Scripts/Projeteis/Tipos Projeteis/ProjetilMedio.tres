@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DatabaseProjeteis" format=3 uid="uid://bf5qa0of5qo1o"]
+
+[ext_resource type="Script" uid="uid://4uguwf1v35q2" path="res://Scripts/Projeteis/database_projeteis.gd" id="1_hkbb8"]
+
+[resource]
+script = ExtResource("1_hkbb8")
+valorDano = 1
+tipo = "Medio"
+descricao = "Disparo medio"
+metadata/_custom_type_script = "uid://4uguwf1v35q2"

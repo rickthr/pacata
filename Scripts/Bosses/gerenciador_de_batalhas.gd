@@ -17,27 +17,41 @@ enum Estados{
 }
 
 var estadoAtual: Estados
-var quantInimigosInstanciados:int
-var tiposInimigos: Array[PackedScene]
+var posInstanciar: Marker2D
+@export var quantInimigosAInstanciar:int
+@export var quantInimigosAInstanciarInicial:int
+@export var maxQuantHordasNaTela:int
+var quantHordasNaTela:int
+var saiuDaTelaOuMorreu:bool = false
+var cenaHorda:Node2D
+var pare_instanciar_PF:bool = true
+var cenas_disponiveis:Array[PackedScene]
 
 func _ready() -> void:
 	boss.onda_iniciada.connect(_on_onda_iniciada)
 	boss.boss_morreu.connect(_on_boss_morreu)
-	quantInimigosInstanciados = 0
-	tiposInimigos.assign(boss.cenas_inimigos)
-	estadoAtual = Estados.Inativo
-	randomizaInimigos()
-	await  boss.ready
-	boss.mudar_estado(BossBasico.Estados.CutScene)
+	boss.chamar_instanciar.connect(_on_instanciar)
+	boss.fechar_instanciar.connect(_on_encerra_instanciar)
+	boss.cutscene_encerrada.connect(_on_cutscene_encerrada)
+	cenas_disponiveis.assign(boss.dadosBoss.cenasInimigos)
+	#estadoAtual = 
+	#randomizaInimigos() ->pra teste
+	await boss.ready
+	#boss.mudar_estado(BossBasico.Estados.CutScene)
 	
 
 func _on_onda_iniciada() -> void:
+	print_debug("onda chamada")
 	mudaEstado(Estados.Instanciando)
 	pass
 	
 func _on_onda_encerrada() -> void:
-	mudaEstado(Estados.Aguardando)  # gerenciador para de instanciar
-	boss.mudar_estado(BossBasico.Estados.FaseDano)  # depois avisa o boss
+	if estadoAtual != Estados.Aguardando:
+		mudaEstado(Estados.Aguardando)  # gerenciador para de instanciar
+
+func _on_cutscene_encerrada() -> void:
+	if estadoAtual != Estados.Encerrado:
+		boss.mudar_estado(BossBasico.Estados.Batalhando)
 
 func _on_boss_morreu() -> void:
 	#para o funcionamento de algumas coisas
@@ -51,32 +65,42 @@ Exemplo:
 """	
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	pass
+		pass
 	
 func mudaEstado(estadoNovo: Estados):
 	estadoAtual = estadoNovo
 	match estadoAtual:
 		Estados.Inativo:
-			pass
+			pass  # boss inicia por conta própria
 		Estados.Instanciando:
-			quantInimigosInstanciados = 0
+			quantInimigosAInstanciar = quantInimigosAInstanciarInicial
+			quantHordasNaTela = 0
 			randomizaInimigos()
 		Estados.Aguardando:
-			
-			pass
+			boss.mudar_estado(boss.Estados.FaseDano)
+			pass  # não chama boss aqui
 		Estados.Encerrado:
 			pass
 	
 func randomizaInimigos():
+
+	if cenas_disponiveis.is_empty():
+		cenas_disponiveis.assign(boss.dadosBoss.cenasInimigos)
+		
 	randomize()
-	var indice = randi() % boss.dadosBoss.cenasInimigos.size()
-	var inimigo_selecionado = boss.dadosBoss.cenasInimigos[indice]
-	selecionaInstaciamento(inimigo_selecionado, indice)
+		
+	var indice = randi() % cenas_disponiveis.size()
+	var inimigo_selecionado = cenas_disponiveis[indice]
+	
+	var ind_original = boss.dadosBoss.cenasInimigos.find(inimigo_selecionado)
+	
+	selecionaInstaciamento(inimigo_selecionado, ind_original)
+	cenas_disponiveis.erase(inimigo_selecionado)
 	
 func selecionaInstaciamento(c_inimigo: PackedScene, ind:int) -> void:
 	var tipo_selecionado = boss.dadosBoss.tiposInimigos[ind]
 	match tipo_selecionado.tipo:
-		"A": instanciaInimigoA(c_inimigo, tipo_selecionado)
+		"A": instanciaInimigoA(c_inimigo, tipo_selecionado) 
 		"B": instanciaInimigoB(c_inimigo, tipo_selecionado)
 		"C": instanciaInimigoC(c_inimigo, tipo_selecionado)
 		_: push_error("inimigo desconhecido: " + tipo_selecionado.tipo)
@@ -97,12 +121,29 @@ func instanciaInimigoB(inimigoCena: PackedScene, inimigoDados: DatabaseInimigos)
 func instanciaInimigoC(inimigoCena: PackedScene, inimigoDados: DatabaseInimigos):
 	pass
 	
-func _on_inimigo_sai_da_tela() -> void:
-	quantInimigosInstanciados -= 1
-	if quantInimigosInstanciados <= 0:
-		_on_onda_encerrada()
-
-func _on_inimigo_morri() -> void:
-	quantInimigosInstanciados -= 1
-	if quantInimigosInstanciados <= 0:
-		_on_onda_encerrada()
+func _on_instanciar(): #instanciar somente para fases em que o boss instancia fora da fase de instanciamento
+	pass
+	
+func _on_encerra_instanciar():# para o intanciar somente para fases em que o boss instancia fora da fase de instanciamento
+	pass
+	
+func _on_inimigo_desapareceu(horda: Node2D) -> void:
+	print_debug(estadoAtual)
+	print_debug(boss.estado_atual)
+	print_debug(pare_instanciar_PF)
+	print_debug(boss.podeInstanciar)
+		
+	quantHordasNaTela -= 1
+	
+	if horda and is_instance_valid(horda):
+		horda.queue_free()
+	
+	if pare_instanciar_PF == false and quantInimigosAInstanciar > 0  and quantHordasNaTela <= 0:
+		randomizaInimigos()
+	elif pare_instanciar_PF == false and quantInimigosAInstanciar <= 0  and quantHordasNaTela <= 0:
+		pare_instanciar_PF = true  # para de instanciar quando acabou a cota
+	elif quantInimigosAInstanciar <= 0 and quantHordasNaTela <= 0 and quantHordasNaTela <= 0:
+		if estadoAtual != Estados.Aguardando:
+			_on_onda_encerrada()
+	elif quantInimigosAInstanciar > 0 and quantHordasNaTela <= 0 and quantHordasNaTela <= 0 and boss.podeInstanciar:
+		randomizaInimigos()

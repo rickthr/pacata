@@ -8,8 +8,9 @@
 [node name="control" type="Node2D" parent="." unique_id=24854038 node_paths=PackedStringArray("boss")]
 script = ExtResource("1_7hn0v")
 boss = NodePath("Boss1")
-quantInimigosAInstanciar = 3
-quantInimigosAInstanciarInicial = 3
+quantInimigosAInstanciar = 6
 maxQuantHordasNaTela = 1
 
 [node name="Boss1" parent="control" unique_id=1877750270 instance=ExtResource("2_e4xux")]
+
+[node name="SpawnPointInimigo" type="Marker2D" parent="control" unique_id=1494804815]

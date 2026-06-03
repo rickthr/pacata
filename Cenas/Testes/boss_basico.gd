@@ -20,17 +20,29 @@ var janela_vul:float
 var cenas_inimigos: Array[PackedScene]
 var dados_inimigos: Array[DatabaseInimigos]
 var quant_spawn_inimigos: Array[int]
+var projetil_menor_s: PackedScene
+var projetil_menor_r: PackedScene
+var projetil_medio: PackedScene
+var projetil_maior: PackedScene
 
 var vidaMaxima:float
 var timer:Timer
 var sliderVida:ProgressBar
 var podeInstanciar:bool
-var podeTomarDano:bool
+var faseDanoIniciada:bool
 var hitbox: Area2D
+var faseAtual:int
+var fases_realizadas:=0
+var cutscene_final:=false
 
 #sinais para o gerenciador de batalha
 signal onda_iniciada
 signal boss_morreu
+@warning_ignore("unused_signal")
+signal chamar_instanciar
+@warning_ignore("unused_signal")
+signal fechar_instanciar
+signal cutscene_encerrada
 
 enum Estados{
 	Batalhando,
@@ -48,6 +60,10 @@ func _ready() -> void:
 	vidaMaxima = vida
 	janela_vul = tipoDados.valorJanelaVulnerabilidade.values()[dadosBoss.janelaVulnerabilidade]
 	quant_fases = dadosBoss.quantidadeFases + 1
+	projetil_maior = dadosBoss.projetilMaior
+	projetil_menor_s = dadosBoss.projetilMenor1
+	projetil_menor_r = dadosBoss.projetilMenor2
+	projetil_medio = dadosBoss.projetilMedio
 	"""
 	Aderindo valores para inimigos para quando for instancia-los
 	cada tipo e cena de inimigo precisa estar em ordem no inspetor para que eles possuam o mesmo indice na hora de instanciar. 
@@ -63,19 +79,25 @@ func _ready() -> void:
 	sliderVida = $ProgressBar
 	sliderVida.max_value = vidaMaxima
 	hitbox = $area2d
-	podeTomarDano = false 
+	faseDanoIniciada = false 
 	podeInstanciar = false 
-	hitbox.monitoring = false	
+	hitbox.monitoring = false
+	faseAtual = 0
+	fases_realizadas = 0
+	cutscene_final = false
+	mudar_estado(Estados.CutScene) #->teste?
 	
 func mudar_estado(novo_estado: Estados) -> void:
 	estado_atual = novo_estado
+	print_debug(estado_atual)
 	match estado_atual:
 		Estados.Batalhando:
 			#chama as funções que realizaa as operações de BATALHANDO
 			hitbox.monitoring = false
 			podeInstanciar = true
-			podeTomarDano = false
+			faseDanoIniciada = false
 			emit_signal("onda_iniciada")
+			print_debug("emitindo sinal")
 			"""
 			se instanciar cada tipo de inimigo aleatoriamente 2 vezes:
 				deve receber um aviso do gerenciador de batalhas e
@@ -85,7 +107,7 @@ func mudar_estado(novo_estado: Estados) -> void:
 			#chama as funções que realizaa as operações de MORRRENDO
 			hitbox.monitoring = false
 			podeInstanciar = false
-			podeTomarDano = false
+			faseDanoIniciada = false
 			emit_signal("boss_morreu")
 			"""
 			Inicia a animação final
@@ -93,14 +115,22 @@ func mudar_estado(novo_estado: Estados) -> void:
 			aparece a tela de resultados 
 			"""
 		Estados.FaseDano:
+			"""
+			na fase de dano o boss irá aparecer para atirar no player
+			e estará vulneravel a dano
+			"""
+			podeInstanciar = false
 			#chama as funções que realizaa as operações de FASEDANO
 			#espera o tempo da animação acabar
 			await get_tree().create_timer(5).timeout
+			faseAtual +=1
+			fases_realizadas +=1
 			timer.start() #dá play no timer janelaVulnerabilidade
 			hitbox.monitoring = true #ativa a hitbox
-			podeTomarDano = true #ativa pode_tomar_dano
-			
+			faseDanoIniciada = true #ativa pode_tomar_dano
+			faseDano()
 			#quando acaba o timer, ele já chama a propria função e passa pra cutscene
+			
 			"""
 			Inicia animação
 			Encerrou a animação
@@ -111,14 +141,16 @@ func mudar_estado(novo_estado: Estados) -> void:
 			passa pro estado cutscene
 			"""
 		Estados.CutScene:
-			#chama as funções que realizaa as operações de CUTSCENE
 			hitbox.monitoring = false
 			podeInstanciar = false
-			podeTomarDano = false
-			# animação/dialogo aqui primeiro
-			await get_tree().create_timer(3).timeout  # simula animação por enquanto
-			if vida > 0:
-				mudar_estado(Estados.Batalhando)
+			faseDanoIniciada = false
+			
+			await get_tree().create_timer(5).timeout
+			
+			if cutscene_final:
+				mudar_estado(Estados.Morrendo)
+			elif vida > 0:
+				emit_signal("cutscene_encerrada")
 			else:
 				mudar_estado(Estados.Morrendo)
 			"""
@@ -129,14 +161,28 @@ func mudar_estado(novo_estado: Estados) -> void:
 			se não:
 				vai pro estado morrendo
 			"""
-	
+			
+func faseDano():	#OVERRIDE
+	pass
+
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	sliderVida.value = vida
 
 func receber_dano(dano: float) -> void:
-	if podeTomarDano:
+	if faseDanoIniciada:
 		vida -= dano
 		
 func _on_janela_vulnerabilidade_timeout() -> void:
-	mudar_estado(Estados.CutScene)
+	hitbox.monitoring = false
+	faseDanoIniciada = false
+	timer.stop()
+	
+	if fases_realizadas >= quant_fases:
+		cutscene_final = true
+		mudar_estado(Estados.CutScene)
+		
+	elif vida > 0:
+		mudar_estado(Estados.CutScene)
+	else:
+		mudar_estado(Estados.Morrendo)

@@ -22,11 +22,14 @@ var direcao = Vector2.ZERO
 var jogador
 enum LadoInstanciado {ESQUERDA, DIREITA} 
 var lado: LadoInstanciado
+@export var caminhoPos: PathFollow2D
+var ja_desapareceu = false
+var multiplicadorPFase:= 1
 
-signal sai_da_tela
-signal morri
+signal desapareci
 
 func  _ready() -> void:
+	add_to_group("inimigo")
 	definir_lado()
 	altera_direcao_lado()
 	#Transferindo todos os valores do tipo de inimigo para variaveis utilizaveis
@@ -37,6 +40,8 @@ func  _ready() -> void:
 	projetil = dadosTipoInimigo.tipo_projetil
 	quant_spawn = dadosTipoInimigo.valor_quant_spawn
 	tipo = dadosTipoInimigo.tipo
+	#caminhoPos.progress_ratio = randf()
+	#position = caminhoPos.global_position
 	
 	jogador = Global.Jogador
 	
@@ -48,15 +53,13 @@ func _physics_process(delta: float) -> void:
 func movimento():#FUNÇÃO OVERRIDE PARA MOVIMENTO
 	#movimento básico
 	rotation = direcao.angle()
-	velocity = direcao*velocidade
+	velocity = (direcao*velocidade) * multiplicadorPFase
 	
 func definir_lado():
 	if global_position.x < get_viewport().size.x/2:
 		lado = LadoInstanciado.ESQUERDA
-		$Sprite2D.flip_h = false
 	else:
 		lado = LadoInstanciado.DIREITA
-		$Sprite2D.flip_h = true
 	
 func altera_direcao_lado():#OVERRIDE
 	if lado == LadoInstanciado.ESQUERDA:
@@ -77,8 +80,6 @@ func instancia_projetil():
 		#DEFINIR DIREÇÃO EM QUE PROJETEIS SÃO INSTANCIADOS 
 		atual_projetil_instanciado.direcao = defini_direcao_proj()
 		atual_projetil_instanciado.global_position = global_position
-		atual_projetil_instanciado.global_position.x -= 70
-		atual_projetil_instanciado.global_position.y -= 70
 		get_tree().current_scene.add_child(atual_projetil_instanciado)
 			
 #Definir direção de instanciamento de projeteis (OVERRIDE)
@@ -116,12 +117,19 @@ func morte():
 		#faz animação de morte
 		print("morri")
 		#depois da animação de explosão da nave
-		emit_signal("morri")
+		morri_sai_tela()
 		queue_free()
 
 func _on_timer_atirar_timeout() -> void:
 	instancia_projetil()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	emit_signal("sai_da_tela")
+	morri_sai_tela()
+	await get_tree().create_timer(1).timeout
 	queue_free()
+	
+func morri_sai_tela():
+	if ja_desapareceu:
+		return
+	ja_desapareceu = true
+	emit_signal("desapareci")
