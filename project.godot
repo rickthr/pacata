@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://cwx4t2nfdohus"
 
 TiposDadosInimigos="uid://dhs1qwkrnkxcy"
 Global="*uid://ba3srecfpdtpo"
+DialogueManager="*uid://cosf8xqqm4air"
 
 [display]
 
