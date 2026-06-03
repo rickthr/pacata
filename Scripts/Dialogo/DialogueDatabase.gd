@@ -1,6 +1,58 @@
 extends RefCounted
 
+const DIALOGUE_IDS: Array[String] = [
+	"INTRO1",
+	"DPai1",
+	"DUAI1",
+	"DUAI2",
+	"DMRC1",
+	"DMRC2",
+	"DPAI2"
+]
+
+const POPUP_IDS: Array[String] = [
+	"PPAP",
+	"PPRP1",
+	"PPMRC1",
+	"PPMRC2"
+]
+
 const DIALOGUES: Dictionary = {
+	"INTRO1": [
+		{
+			"speaker": "Diggy",
+			"text": "Andrômeda, a fascinante galáxia e lugar onde eu vivo."
+		},
+		{
+			"speaker": "Diggy",
+			"text": "Anos atrás, no lado mais pobre da galáxia, a Associação Interplanetária tentou invadir nosso planeta."
+		},
+		{
+			"speaker": "Diggy",
+			"text": "Só que nosso planeta era habitado pela União de Drillers, e uma guerra foi travada, destruindo metade do planeta."
+		},
+		{
+			"speaker": "Diggy",
+			"text": "Depois disso, ficamos pra consertar o lugar. Não deu muito certo."
+		},
+		{
+			"speaker": "Diggy",
+			"text": "Hoje, metade do planeta está coberta por uma vegetação que cresce continuamente."
+		},
+		{
+			"speaker": "Diggy",
+			"text": "Esse é o Planeta Garagem, ponto comercial e garagem para viajantes espaciais."
+		},
+		{
+			"speaker": "Diggy",
+			"text": "E eu sou um deles. Me chamo Diggy."
+		},
+		{
+			"speaker": "Diggy",
+			"text": "Apesar da galáxia ter vários planetas para explorar, neste exato momento eu estou vendo vídeos no tik-tok."
+		}
+	],
+
 	"DPai1": [
 		{"speaker": "Pai", "text": "Onde você pensa que vai?"},
 		{"speaker": "Diggy", "text": "Huh… Ia dar uma zolhada na nave."},
@@ -87,6 +139,36 @@ const DIALOGUES: Dictionary = {
 	]
 }
 
+const POPUPS: Dictionary = {
+	"PPAP": [
+		"Esse é o meu pai, <>, um ex-driller. Ele participou da guerra quando eu ainda era um bebê. Aprendi tudo com ele."
+	],
+
+	"PPRP1": [
+		"UAI: Planeta Curupolar, enquadrado no setor <>.",
+		"UAI: Aparentemente, seu eixo de rotação permite uma característica peculiar no planeta.",
+		"UAI: De um lado, a temperatura é alta e o terreno é coberto por vulcões e magma.",
+		"UAI: Do outro, a temperatura é baixa e o terreno é coberto por geleiras e gêiseres.",
+		"Diggy: Legal, fogo e gelo = vapor.",
+		"UAI: Uma análise formidável.",
+		"Diggy: Você que é formidável.",
+		"UAI: Sua órbita guarda a presença de cometas que se originam tanto na presença de alta como de baixa temperatura.",
+		"UAI: Como um driller, é seu trabalho destruir os cometas e adquirir os minérios."
+	],
+
+	"PPMRC1": [
+		"UAI: É melhor a gente dar o fora daqui.",
+		"Diggy: Nem precisa dizer duas vezes."
+	],
+
+	"PPMRC2": [
+		"UAI: Calculando rota…",
+		"Diggy: NÃO, MINHA DRILL!",
+		"NÃO DEIXEM ELES FUGIREM!",
+		"UAI: Alvo: Planeta Garagem."
+	]
+}
+
 
 static func get_dialogue(dialogue_id: String) -> Array[Dictionary]:
 	if not DIALOGUES.has(dialogue_id):
@@ -99,3 +181,24 @@ static func get_dialogue(dialogue_id: String) -> Array[Dictionary]:
 		result.append(line.duplicate())
 	
 	return result
+
+
+static func get_popup_sequence(popup_id: String) -> Array[String]:
+	if not POPUPS.has(popup_id):
+		push_warning("DialogueDatabase: popup não encontrado: " + popup_id)
+		return []
+	
+	var result: Array[String] = []
+	
+	for message in POPUPS[popup_id]:
+		result.append(str(message))
+	
+	return result
+
+
+static func has_dialogue(dialogue_id: String) -> bool:
+	return DIALOGUES.has(dialogue_id)
+
+
+static func has_popup(popup_id: String) -> bool:
+	return POPUPS.has(popup_id)
