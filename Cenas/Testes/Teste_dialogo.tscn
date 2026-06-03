@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://csyq7dfftegdf"]
+
+[ext_resource type="PackedScene" uid="uid://j6w7hlk2a64a" path="res://Prefabs/Dialogo/dialogue_box.tscn" id="1_bqon4"]
+[ext_resource type="Script" uid="uid://dad456qtuubwr" path="res://Scripts/Dialogo/TestDialogueCaller.gd.gd" id="2_141ub"]
+
+[node name="TesteDialogo" type="Node2D" unique_id=820121488]
+
+[node name="DialogueBox" parent="." unique_id=1335076014 instance=ExtResource("1_bqon4")]
+
+[node name="TestDialogueCaller" type="Node" parent="." unique_id=1008552034]
+script = ExtResource("2_141ub")
