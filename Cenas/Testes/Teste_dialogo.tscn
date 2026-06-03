@@ -15,5 +15,3 @@ dialogue_id = "DMRC1"
 [node name="DialogueNPC" type="Node" parent="." unique_id=464048036]
 script = ExtResource("3_141ub")
 dialogue_id = "DMRC1"
-dialogue_text = "
-"

@@ -7,6 +7,14 @@ extends CanvasLayer
 
 @export var typing_speed: float = 0.03
 
+@export_group("Retratos")
+@export var diggy_portrait: Texture2D
+@export var pai_portrait: Texture2D
+@export var uai_portrait: Texture2D
+@export var chefe_portrait: Texture2D
+@export var capanga_1_portrait: Texture2D
+@export var capanga_2_portrait: Texture2D
+
 var full_text: String = ""
 var current_text: String = ""
 var current_char_index: int = 0
@@ -38,8 +46,12 @@ func _on_dialogue_started() -> void:
 
 func _on_dialogue_finished() -> void:
 	panel.visible = false
+	
 	dialogue_text.text = ""
 	name_label.text = ""
+	portrait.texture = null
+	portrait.visible = false
+	
 	full_text = ""
 	current_text = ""
 	current_char_index = 0
@@ -47,8 +59,12 @@ func _on_dialogue_finished() -> void:
 
 
 func _on_dialogue_line_changed(line_data: Dictionary) -> void:
-	name_label.text = line_data.get("speaker", "")
+	var speaker: String = line_data.get("speaker", "")
+	
+	name_label.text = speaker
 	full_text = line_data.get("text", "")
+	
+	_set_portrait_by_speaker(speaker)
 	
 	dialogue_text.text = ""
 	current_text = ""
@@ -75,3 +91,29 @@ func _show_full_text() -> void:
 	current_text = full_text
 	current_char_index = full_text.length()
 	is_typing = false
+
+
+func _set_portrait_by_speaker(speaker: String) -> void:
+	var selected_portrait: Texture2D = null
+	
+	match speaker:
+		"Diggy":
+			selected_portrait = diggy_portrait
+		"Pai":
+			selected_portrait = pai_portrait
+		"UAI":
+			selected_portrait = uai_portrait
+		"Chefe":
+			selected_portrait = chefe_portrait
+		"Capanga 1":
+			selected_portrait = capanga_1_portrait
+		"Capanga 2":
+			selected_portrait = capanga_2_portrait
+	
+	if selected_portrait == null:
+		portrait.texture = null
+		portrait.visible = false
+		return
+	
+	portrait.texture = selected_portrait
+	portrait.visible = true
