@@ -21,6 +21,7 @@ var descricao: String
 
 var jogador
 var direcao:= Vector2.DOWN
+var sprite: Sprite2D
 
 func _ready() -> void:
 	var tiposDados = TipoDatabaseProjeteis.new()
@@ -30,9 +31,11 @@ func _ready() -> void:
 	descricao = dadosTipoProjetil.descricao
 	
 	jogador = Global.Jogador
+	sprite = $sprite
 
 func _process(delta: float) -> void:
 	movimento(delta)
+	flip()
 
 #FAZER MOVIMENTO
 func movimento(delta: float):
@@ -40,6 +43,9 @@ func movimento(delta: float):
 	#a direcao é definida no script do inimigo que instanciou o projetil
 	position += direcao * velocidade * delta
 	
+func flip():
+	sprite.flip_v = direcao.y < 0
+
 #FAZER DAR DANO
 func dar_dano():
 	print("dando dano no jogador: ", dano)

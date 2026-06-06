@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="DatabaseInimigos" format=3 uid="uid://br5ra0kejyxlo"]
 
 [ext_resource type="Script" uid="uid://drv3odnxiy4tf" path="res://Scripts/Inimigos/database_inimigos.gd" id="1_y01xg"]
-[ext_resource type="PackedScene" uid="uid://c87alwowd28rf" path="res://Prefabs/projetil_inimigo.tscn" id="2_r2dsc"]
+[ext_resource type="PackedScene" uid="uid://b0fljdbxukhgl" path="res://Prefabs/Projeteis/projetil_menor_r.tscn" id="2_y01xg"]
 
 [resource]
 script = ExtResource("1_y01xg")
 valor_vida = 1
 valor_danoColisao = 1
 valor_velocidade = 1
-tipo_projetil = ExtResource("2_r2dsc")
+tipo_projetil = ExtResource("2_y01xg")
 valor_quant_spawn = 2
 tipo = "B"
 metadata/_custom_type_script = "uid://drv3odnxiy4tf"

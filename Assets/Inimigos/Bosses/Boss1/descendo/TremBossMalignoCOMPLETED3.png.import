@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3pyx0k3x36ua"
-path="res://.godot/imported/TremBossMalignoCOMPLETED.png-e7f445c71549652d3466d50e21f69455.ctex"
+uid="uid://krhbqlsij05m"
+path="res://.godot/imported/TremBossMalignoCOMPLETED3.png-ac130a07734ef1882aff1bc0f6f5eac4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Inimigos/Bosses/TremBossMalignoCOMPLETED.png"
-dest_files=["res://.godot/imported/TremBossMalignoCOMPLETED.png-e7f445c71549652d3466d50e21f69455.ctex"]
+source_file="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED3.png"
+dest_files=["res://.godot/imported/TremBossMalignoCOMPLETED3.png-ac130a07734ef1882aff1bc0f6f5eac4.ctex"]
 
 [params]
 
