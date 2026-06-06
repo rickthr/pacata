@@ -2,14 +2,11 @@ extends Node2D
 
 @export var cena_bola_magma: PackedScene
 @export var cena_indicador: PackedScene
-
 @export var intervalo: float = 1.2
 @export var tempo_aviso: float = 0.8
 @export var margem_erro_mira: float = 20.0
-
 @export var largura_tela: float = 1152.0
 @export var distancia_fora_da_tela: float = 80.0
-
 @export var nave_path: NodePath
 
 var ativo: bool = false
@@ -63,9 +60,6 @@ func escolher_ponto_proximo_da_nave() -> Vector2:
 
 
 func criar_indicador(posicao_alvo: Vector2):
-	if cena_indicador == null:
-		print("ERRO: cena_indicador não foi definida no Inspector.")
-		return
 
 	var indicador = cena_indicador.instantiate()
 	get_tree().current_scene.add_child(indicador)
@@ -77,9 +71,6 @@ func criar_indicador(posicao_alvo: Vector2):
 
 
 func lancar_bola_magma(posicao_alvo: Vector2):
-	if cena_bola_magma == null:
-		print("ERRO: cena_bola_magma não foi definida no Inspector.")
-		return
 
 	var bola = cena_bola_magma.instantiate()
 	get_tree().current_scene.add_child(bola)

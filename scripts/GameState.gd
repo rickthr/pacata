@@ -13,11 +13,11 @@ func iniciar_missao_pai():
 
 func concluir_missao_pai():
 	missao_pai_estado = "concluida"
-	geologo_liberado = true
+	geologo_liberado = false
 
 
 func liberar_loja_pecas():
-	loja_pecas_liberada = true
+	loja_pecas_liberada = false
 
 
 func resetar_progresso():
