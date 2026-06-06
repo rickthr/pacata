@@ -34,6 +34,7 @@ var hitbox: Area2D
 var faseAtual:int
 var fases_realizadas:=0
 var cutscene_final:=false
+var anim:AnimatedSprite2D
 
 #sinais para o gerenciador de batalha
 signal onda_iniciada
@@ -89,7 +90,7 @@ func _ready() -> void:
 	
 func mudar_estado(novo_estado: Estados) -> void:
 	estado_atual = novo_estado
-	print_debug(estado_atual)
+
 	match estado_atual:
 		Estados.Batalhando:
 			#chama as funções que realizaa as operações de BATALHANDO
@@ -97,7 +98,6 @@ func mudar_estado(novo_estado: Estados) -> void:
 			podeInstanciar = true
 			faseDanoIniciada = false
 			emit_signal("onda_iniciada")
-			print_debug("emitindo sinal")
 			"""
 			se instanciar cada tipo de inimigo aleatoriamente 2 vezes:
 				deve receber um aviso do gerenciador de batalhas e
@@ -119,10 +119,12 @@ func mudar_estado(novo_estado: Estados) -> void:
 			na fase de dano o boss irá aparecer para atirar no player
 			e estará vulneravel a dano
 			"""
+			await  get_tree().create_timer(1).timeout
+			anim.play("descendo")
 			podeInstanciar = false
 			#chama as funções que realizaa as operações de FASEDANO
 			#espera o tempo da animação acabar
-			await get_tree().create_timer(5).timeout
+			await anim.animation_finished
 			faseAtual +=1
 			fases_realizadas +=1
 			timer.start() #dá play no timer janelaVulnerabilidade
@@ -145,7 +147,7 @@ func mudar_estado(novo_estado: Estados) -> void:
 			podeInstanciar = false
 			faseDanoIniciada = false
 			
-			await get_tree().create_timer(5).timeout
+			await  get_tree().create_timer(2).timeout
 			
 			if cutscene_final:
 				mudar_estado(Estados.Morrendo)
@@ -184,5 +186,6 @@ func _on_janela_vulnerabilidade_timeout() -> void:
 		
 	elif vida > 0:
 		mudar_estado(Estados.CutScene)
+		anim.play("subindo")
 	else:
 		mudar_estado(Estados.Morrendo)

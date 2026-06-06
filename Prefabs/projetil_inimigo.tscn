@@ -21,7 +21,7 @@ sprite_frames = SubResource("SpriteFrames_1xgb4")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=983589421]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1764583177]
+[node name="sprite" type="Sprite2D" parent="." unique_id=1764583177]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_d7mpo")
 

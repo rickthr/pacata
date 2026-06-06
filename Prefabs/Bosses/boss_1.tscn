@@ -3,11 +3,104 @@
 [ext_resource type="Script" uid="uid://bahep28044k1k" path="res://Prefabs/Bosses/boss_1.gd" id="1_y3k76"]
 [ext_resource type="Resource" uid="uid://qnxwc0vppii7" path="res://Scripts/Bosses/Resources/Boss1.tres" id="2_g4pn2"]
 [ext_resource type="PackedScene" uid="uid://c672wdww4c4k5" path="res://Prefabs/avisa_tiro_maior.tscn" id="2_xor2y"]
-[ext_resource type="Texture2D" uid="uid://d3pyx0k3x36ua" path="res://Assets/Inimigos/Bosses/TremBossMalignoCOMPLETED.png" id="3_vf0gf"]
+[ext_resource type="Texture2D" uid="uid://d3pyx0k3x36ua" path="res://Assets/Inimigos/Bosses/Boss1/TremBossMalignoCOMPLETED.png" id="3_vf0gf"]
+[ext_resource type="Texture2D" uid="uid://djpdwi23tsu7c" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED1.png" id="5_f5abl"]
+[ext_resource type="Texture2D" uid="uid://c4t0euapcua5y" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED2.png" id="6_7udnf"]
+[ext_resource type="Texture2D" uid="uid://krhbqlsij05m" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED3.png" id="7_7hj0j"]
+[ext_resource type="Texture2D" uid="uid://btf7nn278xwjw" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED4.png" id="8_qeyx8"]
+[ext_resource type="Texture2D" uid="uid://bjgo7wy2tuyi5" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED5.png" id="9_fbsgj"]
+[ext_resource type="Texture2D" uid="uid://ns6xgnavn7oo" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED6.png" id="10_0lr6w"]
+[ext_resource type="Texture2D" uid="uid://cmee4ef6n0bg5" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED7.png" id="11_oao1q"]
+[ext_resource type="Texture2D" uid="uid://b0trurxpt1s0v" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED8.png" id="12_4jgd3"]
+[ext_resource type="Texture2D" uid="uid://hgq8toh2g3us" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED9.png" id="13_qd0ki"]
+[ext_resource type="Texture2D" uid="uid://dnkm6r2ojtiv4" path="res://Assets/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED10.png" id="14_7udnf"]
+[ext_resource type="Texture2D" uid="uid://dne8wdojk6lo0" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo1.png" id="15_q1rnu"]
+[ext_resource type="Texture2D" uid="uid://cxuk40qkf1pt2" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo2.png" id="16_afrfh"]
+[ext_resource type="Texture2D" uid="uid://dg2j7ulute76v" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo3.png" id="17_tr1qw"]
+[ext_resource type="Texture2D" uid="uid://coli8dhsnma8g" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo4.png" id="18_ru4iy"]
+[ext_resource type="Texture2D" uid="uid://dhmips0656brw" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo5.png" id="19_mhpyx"]
+[ext_resource type="Texture2D" uid="uid://bqw844xclgd5h" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo6.png" id="20_5hilp"]
+[ext_resource type="Texture2D" uid="uid://b2lg6eyjcihqd" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo7.png" id="21_dtk7y"]
+[ext_resource type="Texture2D" uid="uid://ch1i4ecak80er" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo8.png" id="22_yj2r0"]
+[ext_resource type="Texture2D" uid="uid://gmwe4xkek1qu" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo9.png" id="23_1k2wo"]
+[ext_resource type="Texture2D" uid="uid://hp5yn631mxug" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo10.png" id="24_h0a1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wg2qg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xyr6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi25a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f5abl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7udnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7hj0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qeyx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fbsgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0lr6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_oao1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4jgd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qd0ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7udnf")
+}],
+"loop": false,
+"name": &"descendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_q1rnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_afrfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tr1qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ru4iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mhpyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5hilp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_dtk7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_yj2r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1k2wo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_h0a1x")
+}],
+"loop": false,
+"name": &"subindo",
+"speed": 5.0
+}]
 
 [node name="Boss1" type="CharacterBody2D" unique_id=1877750270 node_paths=PackedStringArray("pos_instancia_tiro_maior", "pos_instancia_tiro_menor_s", "pos_instancia_tiro_menor_r", "pos_instancia_tiro_medio")]
 position = Vector2(640, 0)
@@ -74,12 +167,19 @@ offset_bottom = 12.0
 value = 100.0
 show_percentage = false
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617251182]
+[node name="sprite" type="Sprite2D" parent="." unique_id=1617251182]
+visible = false
 position = Vector2(0, 45)
 texture = ExtResource("3_vf0gf")
 
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1075190972]
+position = Vector2(-4.285714, 202.85715)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_fi25a")
+animation = &"descendo"
+
 [node name="JanelaVulnerabilidade" type="Timer" parent="." unique_id=1097036783]
-wait_time = 5.0
+wait_time = 20.0
 
 [node name="TimerTiroMenorS" type="Timer" parent="." unique_id=1647474994]
 wait_time = 2.0
@@ -87,10 +187,11 @@ wait_time = 2.0
 [node name="TimerTiroMenorR" type="Timer" parent="." unique_id=248898768]
 
 [node name="TimerTiroMedio" type="Timer" parent="." unique_id=574351633]
-wait_time = 1.5
+wait_time = 5.0
+one_shot = true
 
 [node name="TiroTiroMaior" type="Timer" parent="." unique_id=286809198]
-wait_time = 4.0
+wait_time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="JanelaVulnerabilidade" to="." method="_on_janela_vulnerabilidade_timeout"]

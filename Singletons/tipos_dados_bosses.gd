@@ -18,7 +18,7 @@ var valorVida = {
 }
 
 var valorJanelaVulnerabilidade = {
-	JanelaVulnerabilidade.Curta: 5.0,
-	JanelaVulnerabilidade.Media: 8.0,
-	JanelaVulnerabilidade.Longa: 10.0
+	JanelaVulnerabilidade.Curta: 10.0,
+	JanelaVulnerabilidade.Media: 15.0,
+	JanelaVulnerabilidade.Longa: 20.0
 }

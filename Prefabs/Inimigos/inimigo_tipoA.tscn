@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bsswff2pcotlr" path="res://Assets/Inimigos/BALINHA.png" id="3_n8rqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pytsr"]
+size = Vector2(50, 53)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pytsr"]
 
@@ -16,6 +17,7 @@ script = ExtResource("1_2yxrs")
 dadosTipoInimigo = ExtResource("2_p5y2u")
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=1004946581]
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_pytsr")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=1542027916]

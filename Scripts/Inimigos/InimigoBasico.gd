@@ -78,9 +78,10 @@ func instancia_projetil():
 		var atual_projetil_instanciado = projetil.instantiate()
 		projeteis_instanciados.append(atual_projetil_instanciado)
 		#DEFINIR DIREÇÃO EM QUE PROJETEIS SÃO INSTANCIADOS 
+		get_tree().current_scene.add_child(atual_projetil_instanciado)
 		atual_projetil_instanciado.direcao = defini_direcao_proj()
 		atual_projetil_instanciado.global_position = global_position
-		get_tree().current_scene.add_child(atual_projetil_instanciado)
+		
 			
 #Definir direção de instanciamento de projeteis (OVERRIDE)
 func defini_direcao_proj() -> Vector2:

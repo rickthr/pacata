@@ -6,6 +6,7 @@
 [node name="GerenciadorBatalhas_Boss1" type="Node2D" unique_id=2026716191]
 
 [node name="control" type="Node2D" parent="." unique_id=24854038 node_paths=PackedStringArray("boss")]
+position = Vector2(-3, 3)
 script = ExtResource("1_7hn0v")
 boss = NodePath("Boss1")
 quantInimigosAInstanciar = 3
