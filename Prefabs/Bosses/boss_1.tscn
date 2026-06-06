@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://ch1i4ecak80er" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo8.png" id="22_yj2r0"]
 [ext_resource type="Texture2D" uid="uid://gmwe4xkek1qu" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo9.png" id="23_1k2wo"]
 [ext_resource type="Texture2D" uid="uid://hp5yn631mxug" path="res://Assets/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo10.png" id="24_h0a1x"]
+[ext_resource type="Texture2D" uid="uid://dlpsncq1efk0j" path="res://Assets/Inimigos/bv inimigos.png" id="25_tr1qw"]
+[ext_resource type="Texture2D" uid="uid://015a2x4jpqel" path="res://Assets/Inimigos/bv inimigos aj.png" id="26_ru4iy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wg2qg"]
 
@@ -124,7 +126,7 @@ position = Vector2(639, 216)
 position = Vector2(-642.8571, 0)
 
 [node name="Marker2D" type="Marker2D" parent="InstMedio" unique_id=401387220]
-position = Vector2(242, 122)
+position = Vector2(238.5714, 118.571434)
 
 [node name="Marker2D4" type="Marker2D" parent="InstMedio" unique_id=1492952157]
 position = Vector2(459, 139)
@@ -133,7 +135,7 @@ position = Vector2(459, 139)
 position = Vector2(817, 139)
 
 [node name="Marker2D3" type="Marker2D" parent="InstMedio" unique_id=1257568400]
-position = Vector2(1037, 129)
+position = Vector2(1038.5714, 121.42858)
 
 [node name="InstMenorS" type="Node2D" parent="." unique_id=1342432778]
 position = Vector2(-642.8571, 0)
@@ -142,16 +144,16 @@ position = Vector2(-642.8571, 0)
 position = Vector2(289, 52)
 
 [node name="Marker2D2" type="Marker2D" parent="InstMenorS" unique_id=359680296]
-position = Vector2(993, 52)
+position = Vector2(997.1429, 51.428574)
 
 [node name="InstMenorR" type="Node2D" parent="." unique_id=1387105975]
 position = Vector2(-642.8571, 0)
 
 [node name="Marker2D" type="Marker2D" parent="InstMenorR" unique_id=667588620]
-position = Vector2(386, 81)
+position = Vector2(378.571, 82)
 
 [node name="Marker2D2" type="Marker2D" parent="InstMenorR" unique_id=1116138459]
-position = Vector2(900, 84)
+position = Vector2(900, 82)
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=238277119]
 shape = SubResource("RectangleShape2D_wg2qg")
@@ -160,12 +162,6 @@ shape = SubResource("RectangleShape2D_wg2qg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area2d" unique_id=1745663073]
 shape = SubResource("RectangleShape2D_5xyr6")
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=54194447]
-offset_right = 90.0
-offset_bottom = 12.0
-value = 100.0
-show_percentage = false
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1617251182]
 visible = false
@@ -177,6 +173,40 @@ position = Vector2(-4.285714, 202.85715)
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_fi25a")
 animation = &"descendo"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1510732895]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1218184113]
+texture_filter = 1
+offset_left = -21.0
+offset_top = 136.6
+offset_right = 99.0
+offset_bottom = 200.6
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+value = 100.0
+texture_under = ExtResource("25_tr1qw")
+texture_progress = ExtResource("26_ru4iy")
+texture_progress_offset = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/TextureProgressBar" unique_id=801749384]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(81.880005, 30.159992)
+rotation = 1.5707964
+scale = Vector2(0.055999815, 0.35999995)
+texture = ExtResource("26_ru4iy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/TextureProgressBar" unique_id=1721818610]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(36.880005, 30.159992)
+rotation = 1.5707964
+scale = Vector2(0.055999815, 0.35999995)
+texture = ExtResource("26_ru4iy")
 
 [node name="JanelaVulnerabilidade" type="Timer" parent="." unique_id=1097036783]
 wait_time = 20.0
