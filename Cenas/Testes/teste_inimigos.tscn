@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://4vq3s0mua6ar"]
 
 [ext_resource type="PackedScene" uid="uid://q52txm4f4wkd" path="res://Prefabs/Gerenciadores de Batalha/gerenciador_batalhas_boss_1.tscn" id="1_pytsr"]
+[ext_resource type="PackedScene" path="res://node_2d.tscn" id="2_fxowy"]
 
 [node name="Teste Inimigos" type="Node2D" unique_id=185444534]
+
+[node name="Nave" parent="." unique_id=2055429933 instance=ExtResource("2_fxowy")]
 
 [node name="GerenciadorBatalhas_Boss1" parent="." unique_id=2026716191 instance=ExtResource("1_pytsr")]

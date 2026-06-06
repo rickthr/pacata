@@ -27,9 +27,13 @@
 [ext_resource type="Texture2D" uid="uid://dlpsncq1efk0j" path="res://Assets/Inimigos/bv inimigos.png" id="25_tr1qw"]
 [ext_resource type="Texture2D" uid="uid://015a2x4jpqel" path="res://Assets/Inimigos/bv inimigos aj.png" id="26_ru4iy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg2qg"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tr1qw"]
+radius = 115.714325
+height = 917.14325
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xyr6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ru4iy"]
+radius = 91.42853
+height = 934.28564
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fi25a"]
 animations = [{
@@ -107,6 +111,7 @@ animations = [{
 [node name="Boss1" type="CharacterBody2D" unique_id=1877750270 node_paths=PackedStringArray("pos_instancia_tiro_maior", "pos_instancia_tiro_menor_s", "pos_instancia_tiro_menor_r", "pos_instancia_tiro_medio")]
 position = Vector2(640, 0)
 scale = Vector2(0.7, 0.7)
+collision_layer = 2
 script = ExtResource("1_y3k76")
 pos_instancia_tiro_maior = NodePath("InstMaior/Marker2D")
 pos_instancia_tiro_menor_s = [NodePath("InstMenorS/Marker2D2"), NodePath("InstMenorS/Marker2D3")]
@@ -156,12 +161,17 @@ position = Vector2(378.571, 82)
 position = Vector2(900, 82)
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=238277119]
-shape = SubResource("RectangleShape2D_wg2qg")
+position = Vector2(-14.285671, 47.142857)
+rotation = 1.5707964
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("CapsuleShape2D_tr1qw")
 
 [node name="area2d" type="Area2D" parent="." unique_id=1298161627]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area2d" unique_id=1745663073]
-shape = SubResource("RectangleShape2D_5xyr6")
+position = Vector2(3.623768e-13, 72.85714)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ru4iy")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1617251182]
 visible = false

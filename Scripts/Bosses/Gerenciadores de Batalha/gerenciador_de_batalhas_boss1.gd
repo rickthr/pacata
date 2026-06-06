@@ -34,8 +34,10 @@ func _spawnar(inimigoCena: PackedScene, inimigoDados: DatabaseInimigos) -> void:
 	add_child(cenaInimigo)
 	
 	var inimigos = cenaInimigo.find_children("*", "CharacterBody2D", true, false)
-	if inimigos.size() > 0:
-		inimigos[0].desapareci.connect(_on_inimigo_desapareceu.bind(cenaInimigo))	
-		quantHordasNaTela += 1
-	
+	vivos_por_horda[cenaInimigo] = inimigos.size()
+
+	for inimigo in inimigos:
+		if inimigo.has_signal("desapareci"):
+			inimigo.desapareci.connect(_on_inimigo_desapareceu.bind(cenaInimigo))
+	quantHordasNaTela += 1
 	quantInimigosAInstanciar -= 1

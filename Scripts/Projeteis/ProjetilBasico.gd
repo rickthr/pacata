@@ -47,10 +47,9 @@ func flip():
 	sprite.flip_v = direcao.y < 0
 
 #FAZER DAR DANO
-func dar_dano():
-	print("dando dano no jogador: ", dano)
-	if jogador.has_method("receber_dano"):
-		jogador.receber_dano(dano)
+func dar_dano(corpo: Node2D):
+	if corpo.has_method("receber_dano"):
+		corpo.receber_dano()
 	#Chama a função 'receber_dano(dano)' do jogador
 
 #FAZER SER DESTRUIDA
@@ -61,9 +60,8 @@ func autoDestruicao():
 #FAZER COLISAO
 func _on_body_entered(corpo: Node2D) -> void:
 	if corpo.is_in_group("jogador"):
-		dar_dano()#dar dano no jogador
-	autoDestruicao()
-		
+		dar_dano(corpo)#dar dano no jogador
+	autoDestruicao()		
 
 #ao sair da tela
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

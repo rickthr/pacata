@@ -9,7 +9,9 @@ size = Vector2(128, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jox6t"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ncvmg"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdo21"]
+radius = 41.0
+height = 156.0
 
 [node name="InimigoB" type="CharacterBody2D" unique_id=1538728272]
 collision_layer = 2
@@ -27,7 +29,8 @@ sprite_frames = SubResource("SpriteFrames_jox6t")
 [node name="area2d" type="Area2D" parent="." unique_id=197579427]
 
 [node name="area2d_colisao" type="CollisionShape2D" parent="area2d" unique_id=249243542]
-shape = SubResource("CircleShape2D_ncvmg")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hdo21")
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=876975102]
 wait_time = 0.4

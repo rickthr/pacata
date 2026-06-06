@@ -9,7 +9,9 @@ size = Vector2(50, 53)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pytsr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pytsr"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8rqg"]
+radius = 27.0
+height = 76.0
 
 [node name="InimigoA" type="CharacterBody2D" unique_id=197331739]
 collision_layer = 2
@@ -26,7 +28,7 @@ sprite_frames = SubResource("SpriteFrames_pytsr")
 [node name="area2d" type="Area2D" parent="." unique_id=549738750]
 
 [node name="area2d_colisao" type="CollisionShape2D" parent="area2d" unique_id=718047789]
-shape = SubResource("CircleShape2D_pytsr")
+shape = SubResource("CapsuleShape2D_n8rqg")
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=504561067]
 wait_time = 0.3

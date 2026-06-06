@@ -71,7 +71,8 @@ func tiro_maior():
 	
 	#espera a animação do tiro acabar para destruilo
 	await get_tree().create_timer(2).timeout#simula
-	projetil.queue_free()
+	if is_instance_valid(projetil):
+		projetil.queue_free()
 	pass
 	
 func tiro_menor(l_instanciadores: Array[Marker2D], t_projetil: PackedScene):
@@ -100,7 +101,8 @@ func tiro_medio(): #chek
 		#espera a animação do projetil acabar
 			
 		await get_tree().create_timer(1).timeout	
-		projetil.queue_free()
+		if is_instance_valid(projetil):
+			projetil.queue_free()
 	
 	pode_atirar_medio = true
 

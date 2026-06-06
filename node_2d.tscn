@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cbol6mjydn0ju"]
+[gd_scene format=3 uid="uid://b8m34tky5kr6m"]
 
 [ext_resource type="Texture2D" uid="uid://c4r7glcsspnix" path="res://Assets/menu/menu_improvisado.png" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://nave/nave.tscn" id="2_epypp"]
@@ -23,7 +23,7 @@ size = Vector2(1311, 63.5)
 
 [node name="Node2D" type="Node2D" unique_id=2055429933]
 
-[node name="Nave" parent="." unique_id=85779185 node_paths=PackedStringArray("label_vida", "label_score") instance=ExtResource("2_epypp")]
+[node name="Nave" parent="." unique_id=85779185 node_paths=PackedStringArray("label_vida", "label_score") groups=["jogador"] instance=ExtResource("2_epypp")]
 position = Vector2(640, 485)
 label_vida = NodePath("../vida")
 label_score = NodePath("../score")
