@@ -27,7 +27,7 @@ var projetil_maior: PackedScene
 
 var vidaMaxima:float
 var timer:Timer
-var sliderVida:ProgressBar
+var sliderVida:TextureProgressBar
 var podeInstanciar:bool
 var faseDanoIniciada:bool
 var hitbox: Area2D
@@ -77,7 +77,7 @@ func _ready() -> void:
 		
 	timer = $JanelaVulnerabilidade
 	timer.wait_time = janela_vul
-	sliderVida = $ProgressBar
+	sliderVida = $CanvasLayer/TextureProgressBar
 	sliderVida.max_value = vidaMaxima
 	hitbox = $area2d
 	faseDanoIniciada = false 

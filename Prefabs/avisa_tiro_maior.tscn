@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c672wdww4c4k5"]
 
-[ext_resource type="Texture2D" uid="uid://djpga1otan8mv" path="res://icon.svg" id="1_ld47g"]
+[ext_resource type="Texture2D" uid="uid://cwxqn7lsk2e71" path="res://Assets/Projeteis/rajada.png" id="1_ld47g"]
 
 [node name="AvisaTiroMaior" type="Node2D" unique_id=1123790480]
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1597996244]
-modulate = Color(1, 0.32941177, 0, 0.4862745)
+modulate = Color(1, 0.32941177, 0, 0.3137255)
 position = Vector2(0, 308)
-scale = Vector2(1, 5)
+scale = Vector2(1, 2)
 texture = ExtResource("1_ld47g")
