@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dq0tlmctqgki3"]
+
+[ext_resource type="Script" uid="uid://br2v3cevybfl5" path="res://scripts_planetacurupolar/planeta_curupolar.gd" id="1_2jjnc"]
+[ext_resource type="Texture2D" uid="uid://bua2oywaon76y" path="res://assets/Curupolar.png" id="3_j2wkr"]
+[ext_resource type="Script" uid="uid://3lchunu2arvg" path="res://scripts_planetacurupolar/nave.gd" id="4_4xbj2"]
+[ext_resource type="Script" uid="uid://l8mdvx6is4iu" path="res://scripts_planetacurupolar/spawner_magma.gd" id="5_h2bnb"]
+[ext_resource type="Texture2D" uid="uid://dgpxvgw7nh55v" path="res://assets/DRILLERA0132X32.png" id="5_n4ax2"]
+[ext_resource type="PackedScene" uid="uid://d3bsa405x88mw" path="res://scenes/Boladefogo.tscn" id="7_415qc"]
+[ext_resource type="Script" uid="uid://dryjruyluglhl" path="res://scripts_planetacurupolar/spawner_vento.gd" id="8_2jjnc"]
+[ext_resource type="PackedScene" uid="uid://b1piise6j1ltc" path="res://scenes/IndicadorMagma.tscn" id="8_fgs4o"]
+[ext_resource type="PackedScene" uid="uid://bkqqluy7mgou3" path="res://scripts_planetacurupolar/OndaVento.tscn" id="9_alyvy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3afiy"]
+size = Vector2(64, 55)
+
+[node name="PlanetaCurupolar" type="Node2D" unique_id=875043077]
+script = ExtResource("1_2jjnc")
+
+[node name="Curupolar" type="Sprite2D" parent="." unique_id=1033081834]
+position = Vector2(1145, 349)
+scale = Vector2(3.3518748, 3.381389)
+texture = ExtResource("3_j2wkr")
+
+[node name="Nave" type="CharacterBody2D" parent="." unique_id=1602437785]
+position = Vector2(648, 306)
+script = ExtResource("4_4xbj2")
+
+[node name="Drillera0132x32" type="Sprite2D" parent="Nave" unique_id=2084992805]
+position = Vector2(2, -2)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("5_n4ax2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nave" unique_id=245042477]
+position = Vector2(2, -2.5)
+shape = SubResource("RectangleShape2D_3afiy")
+
+[node name="SpawnerMagma" type="Node2D" parent="." unique_id=1359226679]
+script = ExtResource("5_h2bnb")
+cena_bola_magma = ExtResource("7_415qc")
+cena_indicador = ExtResource("8_fgs4o")
+nave_path = NodePath("../Nave")
+
+[node name="SpawnerVento" type="Node2D" parent="." unique_id=1228402130]
+script = ExtResource("8_2jjnc")
+cena_onda_vento = ExtResource("9_alyvy")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1167698700]
+
+[node name="LabelAviso" type="Label" parent="UI" unique_id=1974680314]
+offset_right = 40.0
+offset_bottom = 23.0

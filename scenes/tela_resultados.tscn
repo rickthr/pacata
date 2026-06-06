@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://beutyxppel01v"]
+
+[node name="TelaResultados" type="Control" unique_id=351148202]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="Panel" parent="." unique_id=12661138]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="Titulo" type="Label" parent="Painel" unique_id=859822175]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 105.0
+offset_right = 574.0
+offset_bottom = 128.0
+text = "Titulo"
+
+[node name="MaiorCombo" type="Label" parent="Painel" unique_id=751867541]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 180.0
+offset_right = 598.0
+offset_bottom = 203.0
+text = "Maior combo"
+
+[node name="Asteroides" type="Label" parent="Painel" unique_id=818657859]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 251.0
+offset_right = 549.0
+offset_bottom = 274.0
+text = "Asteroides"
+
+[node name="Minerios" type="Label" parent="Painel" unique_id=1189150370]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 324.0
+offset_right = 567.0
+offset_bottom = 347.0
+text = "minerios"
+
+[node name="Nota" type="Label" parent="Painel" unique_id=1519728765]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 395.0
+offset_right = 582.0
+offset_bottom = 418.0
+text = "Nota"
+
+[node name="BotaoContinuar" type="Button" parent="Painel" unique_id=1058079451]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 109.0
+offset_right = 861.0
+offset_bottom = 117.0
+text = "Continue"
+
+[node name="BotaoRepetir" type="Button" parent="Painel" unique_id=1792828809]
+layout_mode = 0
+offset_left = 865.0
+offset_top = 150.0
+offset_right = 928.0
+offset_bottom = 181.0
+text = "Repeat"

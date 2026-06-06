@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://qtumuf5kmtyf"]
+
+[ext_resource type="Script" uid="uid://cg4imf3ttr4br" path="res://scripts_planetagaragem/hubinicial.gd" id="1_5upld"]
+[ext_resource type="Texture2D" uid="uid://bt8txlp6rghp2" path="res://assets/Garagem.png" id="2_2svgc"]
+[ext_resource type="Texture2D" uid="uid://62qcp2xtn3od" path="res://assets/Universo.png" id="2_eoi27"]
+[ext_resource type="Script" uid="uid://b11uxvdscetyk" path="res://scripts_planetagaragem/pai.gd" id="3_eoi27"]
+[ext_resource type="Texture2D" uid="uid://bqlgranxo127v" path="res://assets/cadeado.png" id="5_kdjcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqpon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3olw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kqvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rbgt"]
+
+[node name="hub_inicial" type="Node2D" unique_id=15167499]
+script = ExtResource("1_5upld")
+
+[node name="Universo" type="Sprite2D" parent="." unique_id=361502068]
+position = Vector2(595, 336.00003)
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("2_eoi27")
+
+[node name="Garagem" type="Sprite2D" parent="." unique_id=496833025]
+position = Vector2(575.99994, 325.99997)
+scale = Vector2(3.5812497, 3.5888886)
+texture = ExtResource("2_2svgc")
+
+[node name="Quadrantes" type="Node2D" parent="." unique_id=377777049]
+
+[node name="AreaPai" type="Area2D" parent="Quadrantes" unique_id=1163421026]
+position = Vector2(589, 163)
+script = ExtResource("3_eoi27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quadrantes/AreaPai" unique_id=1838365542]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_vqpon")
+debug_color = Color(0.19607843, 0, 0.6901961, 0.41960785)
+
+[node name="Label" type="Label" parent="Quadrantes/AreaPai" unique_id=1064887781]
+offset_left = -24.0
+offset_top = -25.0
+offset_right = 23.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 32
+text = "pai"
+
+[node name="AreaVendedor" type="Area2D" parent="Quadrantes" unique_id=308897820]
+position = Vector2(394, 339)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quadrantes/AreaVendedor" unique_id=1915379239]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_r3olw")
+debug_color = Color(0.7056817, 0.48922104, 9.62615e-07, 0.41960785)
+
+[node name="Label" type="Label" parent="Quadrantes/AreaVendedor" unique_id=1740881468]
+offset_left = -79.0
+offset_top = -17.0
+offset_right = 71.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 32
+text = "Vendedor"
+
+[node name="AreaGeologo" type="Area2D" parent="Quadrantes" unique_id=1508313603]
+position = Vector2(765, 353)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quadrantes/AreaGeologo" unique_id=1205813141]
+position = Vector2(-0.9998779, 3.0517578e-05)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_6kqvq")
+debug_color = Color(0.8143059, 0.40876192, 0, 0.41960785)
+
+[node name="Label" type="Label" parent="Quadrantes/AreaGeologo" unique_id=1447373546]
+offset_left = -60.0
+offset_top = -20.0
+offset_right = 67.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 32
+text = "Geologo"
+
+[node name="AreaLojaPecas" type="Area2D" parent="Quadrantes" unique_id=228368272]
+position = Vector2(583, 488)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quadrantes/AreaLojaPecas" unique_id=1287655582]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_6rbgt")
+debug_color = Color(0.2574184, 0.504544, 1, 0.41960785)
+
+[node name="Label" type="Label" parent="Quadrantes/AreaLojaPecas" unique_id=435137298]
+offset_left = -99.0
+offset_top = -24.0
+offset_right = 109.0
+offset_bottom = 21.0
+theme_override_font_sizes/font_size = 32
+text = "Loja de peças"
+
+[node name="Marcadores" type="Node2D" parent="." unique_id=388934402]
+
+[node name="CadeadoGeologo" type="Sprite2D" parent="Marcadores" unique_id=988450124]
+position = Vector2(763, 325)
+scale = Vector2(2, 2)
+texture = ExtResource("5_kdjcx")
+
+[node name="CadeadoLojaPecas" type="Sprite2D" parent="Marcadores" unique_id=864152887]
+position = Vector2(580, 457)
+scale = Vector2(2, 2)
+texture = ExtResource("5_kdjcx")
+
+[node name="CadeadoVendedor" type="Sprite2D" parent="Marcadores" unique_id=39437098]
+position = Vector2(388, 305)
+scale = Vector2(2, 2)
+texture = ExtResource("5_kdjcx")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=360013295]
+
+[node name="LabelNotificacao" type="Label" parent="UI" unique_id=1701219889]
+offset_right = 40.0
+offset_bottom = 23.0
