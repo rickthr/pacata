@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d3bsa405x88mw"]
+
+[ext_resource type="Script" uid="uid://c0ov3gqjpy7i" path="res://scripts_planetacurupolar/BolaMagma.gd" id="1_7p57q"]
+[ext_resource type="Texture2D" uid="uid://cffxr2wqu6ymr" path="res://assets/Projétil curupolar.png" id="2_7p57q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_81w53"]
+radius = 17.117243
+
+[node name="BolaMagma" type="Area2D" unique_id=590929055]
+script = ExtResource("1_7p57q")
+velocidade = 700.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213760587]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_7p57q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98632325]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_81w53")
