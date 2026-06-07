@@ -24,7 +24,6 @@ var rotacao_destino: float = 0.0
 
 
 func _ready():
-	configurar_planeta()
 	aplicar_face_quente()
 
 
@@ -32,20 +31,12 @@ func _process(delta):
 	contar_tempo_de_rotacao(delta)
 	rotacionar_planeta(delta)
 
-
-func configurar_planeta():
-	sprite_planeta.global_position = Vector2(1080, 324)
-	label_aviso.text = ""
-	label_aviso.hide()
-
-
 func contar_tempo_de_rotacao(delta):
 	tempo_atual += delta
 
 	if tempo_atual >= tempo_para_trocar_face:
 		tempo_atual = 0.0
 		trocar_face()
-
 
 func trocar_face():
 	if rotacionando:
@@ -70,7 +61,7 @@ func rotacionar_planeta(delta):
 		velocidade_rotacao * delta
 	)
 
-	if sprite_planeta.rotation >= rotacao_destino:
+	if is_equal_approx(sprite_planeta.rotation, rotacao_destino):
 		sprite_planeta.rotation = rotacao_destino
 		rotacionando = false
 
@@ -89,23 +80,13 @@ func aplicar_face_atual():
 
 
 func aplicar_face_quente():
-
-
 	ativar_magma(true)
 	ativar_vento(false)
-
-	if nave.has_method("alterar_sinal"):
-		nave.alterar_sinal(true)
-
 
 func aplicar_face_fria():
 
 	ativar_magma(false)
 	ativar_vento(true)
-
-	if nave.has_method("alterar_sinal"):
-		nave.alterar_sinal(false)
-
 
 func ativar_magma(ativo: bool):
 	if spawner_magma == null:

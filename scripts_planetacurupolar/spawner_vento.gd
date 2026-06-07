@@ -2,9 +2,9 @@ extends Node2D
 
 @export var cena_onda_vento: PackedScene
 @export var intervalo: float = 1.0
-@export var largura_tela: float = 1152.0
+@export var largura_tela: float 
 @export var altura_minima: float = 80.0
-@export var altura_maxima: float = 568.0
+@export var altura_maxima: float
 @export var distancia_fora_da_tela: float = 80.0
 
 var ativo: bool = false

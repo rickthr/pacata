@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bkqqluy7mgou3"]
+[gd_scene format=3 uid="uid://c55j0ge33gfhb"]
 
 [ext_resource type="Script" uid="uid://cfn1sehw8glay" path="res://scripts_planetacurupolar/onda_vento.gd" id="1_pvpkp"]
 [ext_resource type="Texture2D" uid="uid://b0ardnwqfiolj" path="res://assets/Vento curupolar.png" id="2_si0gw"]

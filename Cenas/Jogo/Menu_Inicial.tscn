@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cjnnjyn8fcepy"]
+
+[ext_resource type="Texture2D" uid="uid://df1npikgee0q0" path="res://Assets/Interface/Menu inicial.png" id="1_pqahr"]
+[ext_resource type="Texture2D" uid="uid://ctghh4h6b4u10" path="res://Assets/Interface/🫷.png" id="2_ek16h"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://FONTE/Micro5-Regular.ttf" id="3_upy1c"]
+
+[node name="MenuInicial" type="Node2D" unique_id=1278007668]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=137684394]
+
+[node name="fundo" type="Sprite2D" parent="CanvasLayer" unique_id=82959146]
+texture_filter = 1
+position = Vector2(636, 358)
+scale = Vector2(4, 4)
+texture = ExtResource("1_pqahr")
+
+[node name="logo" type="Sprite2D" parent="CanvasLayer" unique_id=1841886995]
+texture_filter = 1
+position = Vector2(640, 200)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ek16h")
+
+[node name="Jogar" type="Label" parent="CanvasLayer" unique_id=1614650229]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_upy1c")
+theme_override_font_sizes/font_size = 82
+text = "Jogar"
+horizontal_alignment = 1
+
+[node name="Opcoes" type="Label" parent="CanvasLayer" unique_id=2001223727]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 40.0
+offset_right = 100.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_upy1c")
+theme_override_font_sizes/font_size = 82
+text = "Opções"
+horizontal_alignment = 1
+
+[node name="Sair" type="Label" parent="CanvasLayer" unique_id=1596181731]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 130.0
+offset_right = 100.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_upy1c")
+theme_override_font_sizes/font_size = 82
+text = "Sair"
+horizontal_alignment = 1

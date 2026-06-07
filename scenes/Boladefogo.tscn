@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://d3bsa405x88mw"]
 
 [ext_resource type="Script" uid="uid://c0ov3gqjpy7i" path="res://scripts_planetacurupolar/BolaMagma.gd" id="1_7p57q"]
-[ext_resource type="Texture2D" uid="uid://cffxr2wqu6ymr" path="res://assets/Projétil curupolar.png" id="2_7p57q"]
+[ext_resource type="Texture2D" uid="uid://cffxr2wqu6ymr" path="res://Assets/Projétil curupolar.png" id="2_7p57q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_81w53"]
-radius = 17.117243
+radius = 14.142136
 
 [node name="BolaMagma" type="Area2D" unique_id=590929055]
+texture_filter = 1
 script = ExtResource("1_7p57q")
 velocidade = 700.0
 

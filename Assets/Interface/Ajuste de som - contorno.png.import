@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dln16cnstp6ce"
-path="res://.godot/imported/X.png-f177ed80ac37c1e4faea2176d1642853.ctex"
+uid="uid://b43vwealmbsb0"
+path="res://.godot/imported/Ajuste de som - contorno.png-a6ef07374e6c596e9ce80026598cf818.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/X.png"
-dest_files=["res://.godot/imported/X.png-f177ed80ac37c1e4faea2176d1642853.ctex"]
+source_file="res://Assets/Interface/Ajuste de som - contorno.png"
+dest_files=["res://.godot/imported/Ajuste de som - contorno.png-a6ef07374e6c596e9ce80026598cf818.ctex"]
 
 [params]
 

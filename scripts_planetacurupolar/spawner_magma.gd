@@ -13,11 +13,10 @@ var ativo: bool = false
 var nave: Node2D
 var ultimo_ponto_alvo: Vector2 = Vector2.ZERO
 
-
 func _ready():
+	nave = Global.Jogador
 	if nave_path != NodePath(""):
 		nave = get_node_or_null(nave_path)
-
 
 func iniciar():
 	if ativo:
