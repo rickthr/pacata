@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bua2oywaon76y"
-path="res://.godot/imported/Curupolar.png-f59aa0881c50c39069ab7de089edaa77.ctex"
+path="res://.godot/imported/Curupolar.png-52bccaab8c6b1542a3516ff852aa80ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Curupolar.png"
-dest_files=["res://.godot/imported/Curupolar.png-f59aa0881c50c39069ab7de089edaa77.ctex"]
+source_file="res://Assets/Curupolar.png"
+dest_files=["res://.godot/imported/Curupolar.png-52bccaab8c6b1542a3516ff852aa80ce.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt8txlp6rghp2"
-path="res://.godot/imported/Garagem.png-7485c8d268f7fdb53eafbbb92ce5af5f.ctex"
+path="res://.godot/imported/Garagem.png-161921ac00ce24ac9ab374e6fe85c385.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Garagem.png"
-dest_files=["res://.godot/imported/Garagem.png-7485c8d268f7fdb53eafbbb92ce5af5f.ctex"]
+source_file="res://Assets/Garagem.png"
+dest_files=["res://.godot/imported/Garagem.png-161921ac00ce24ac9ab374e6fe85c385.ctex"]
 
 [params]
 

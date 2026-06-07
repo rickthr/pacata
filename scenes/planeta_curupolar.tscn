@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dq0tlmctqgki3"]
 
 [ext_resource type="Script" uid="uid://br2v3cevybfl5" path="res://scripts_planetacurupolar/planeta_curupolar.gd" id="1_2jjnc"]
-[ext_resource type="Texture2D" uid="uid://bua2oywaon76y" path="res://assets/Curupolar.png" id="3_j2wkr"]
+[ext_resource type="Texture2D" uid="uid://bua2oywaon76y" path="res://Assets/Curupolar.png" id="3_j2wkr"]
 [ext_resource type="Script" uid="uid://3lchunu2arvg" path="res://scripts_planetacurupolar/nave.gd" id="4_4xbj2"]
 [ext_resource type="Script" uid="uid://l8mdvx6is4iu" path="res://scripts_planetacurupolar/spawner_magma.gd" id="5_h2bnb"]
-[ext_resource type="Texture2D" uid="uid://dgpxvgw7nh55v" path="res://assets/DRILLERA0132X32.png" id="5_n4ax2"]
+[ext_resource type="Texture2D" uid="uid://dgpxvgw7nh55v" path="res://Assets/DRILLERA0132X32.png" id="5_n4ax2"]
 [ext_resource type="PackedScene" uid="uid://d3bsa405x88mw" path="res://scenes/Boladefogo.tscn" id="7_415qc"]
 [ext_resource type="Script" uid="uid://dryjruyluglhl" path="res://scripts_planetacurupolar/spawner_vento.gd" id="8_2jjnc"]
 [ext_resource type="PackedScene" uid="uid://b1piise6j1ltc" path="res://scenes/IndicadorMagma.tscn" id="8_fgs4o"]
@@ -14,6 +14,7 @@
 size = Vector2(64, 55)
 
 [node name="PlanetaCurupolar" type="Node2D" unique_id=875043077]
+texture_filter = 1
 script = ExtResource("1_2jjnc")
 
 [node name="Curupolar" type="Sprite2D" parent="." unique_id=1033081834]
