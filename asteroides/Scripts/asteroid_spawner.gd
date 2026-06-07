@@ -25,7 +25,7 @@ func _spawnar() -> void:
 
 	var a: Asteroid = asteroid_scene.instantiate()
 	get_parent().add_child(a)
-	a.global_position = Vector2(randf_range(150.0, get_viewport().get_visible_rect().size.x -150.0), -60.0)
+	a.global_position = Vector2(randf_range(150.0, get_viewport().get_visible_rect().size.x -200.0), -60.0)
 	a.setup(ast, min_dict)
 
 func _sortear() -> Dictionary:

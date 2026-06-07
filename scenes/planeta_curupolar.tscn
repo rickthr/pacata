@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dq0tlmctqgki3"]
 
 [ext_resource type="Script" uid="uid://br2v3cevybfl5" path="res://scripts_planetacurupolar/planeta_curupolar.gd" id="1_2jjnc"]
+[ext_resource type="PackedScene" uid="uid://b8m34tky5kr6m" path="res://node_2d.tscn" id="2_2jjnc"]
 [ext_resource type="Texture2D" uid="uid://bua2oywaon76y" path="res://Assets/Curupolar.png" id="3_j2wkr"]
 [ext_resource type="Script" uid="uid://l8mdvx6is4iu" path="res://scripts_planetacurupolar/spawner_magma.gd" id="5_h2bnb"]
 [ext_resource type="PackedScene" uid="uid://d3bsa405x88mw" path="res://scenes/Boladefogo.tscn" id="7_415qc"]
@@ -12,6 +13,8 @@
 [node name="PlanetaCurupolar" type="Node2D" unique_id=875043077]
 texture_filter = 1
 script = ExtResource("1_2jjnc")
+
+[node name="Nave" parent="." unique_id=2055429933 instance=ExtResource("2_2jjnc")]
 
 [node name="Curupolar" type="Sprite2D" parent="." unique_id=1033081834]
 position = Vector2(1279.0001, 349)

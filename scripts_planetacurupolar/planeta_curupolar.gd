@@ -6,10 +6,9 @@ enum FacePlaneta {
 }
 
 @onready var sprite_planeta: Sprite2D = $Curupolar
-@onready var nave: CharacterBody2D = $Nave
+@onready var nave:= $Nave
 @onready var spawner_magma: Node2D = $SpawnerMagma
 @onready var focos_vento: Node2D = $FocosVento
-@onready var label_aviso: Label = $UI/LabelAviso
 @onready var spawner_vento: Node2D = $SpawnerVento
 
 @export var posicao_planeta: Vector2 = Vector2(1080, 324)
