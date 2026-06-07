@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://csyq7dfftegdf"]
+
+[ext_resource type="PackedScene" uid="uid://j6w7hlk2a64a" path="res://Prefabs/Dialogo/dialogue_box.tscn" id="1_bqon4"]
+[ext_resource type="Script" uid="uid://dad456qtuubwr" path="res://Scripts/Dialogo/TestDialogueCaller.gd" id="2_141ub"]
+[ext_resource type="Script" uid="uid://bg6ly35mub6a7" path="res://Scripts/Dialogo/DialogueNPC.gd" id="3_141ub"]
+[ext_resource type="PackedScene" uid="uid://caocggpeyhbk5" path="res://Prefabs/Dialogo/dialogue_popup.tscn" id="4_7yiox"]
+
+[node name="TesteDialogo" type="Node2D" unique_id=820121488]
+
+[node name="DialogueBox" parent="." unique_id=1335076014 instance=ExtResource("1_bqon4")]
+
+[node name="TestDialogueCaller" type="Node" parent="." unique_id=1008552034]
+script = ExtResource("2_141ub")
+test_dialogue_id = "DPAI2"
+
+[node name="DialogueNPC" type="Node" parent="." unique_id=464048036]
+script = ExtResource("3_141ub")
+dialogue_id = "INTRO1"
+
+[node name="DialoguePopup" parent="." unique_id=1826871568 instance=ExtResource("4_7yiox")]

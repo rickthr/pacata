@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b4ej53i2qgk82"]
+
+[ext_resource type="PackedScene" uid="uid://j6w7hlk2a64a" path="res://Prefabs/Dialogo/dialogue_box.tscn" id="1_2c2n1"]
+[ext_resource type="PackedScene" uid="uid://caocggpeyhbk5" path="res://Prefabs/Dialogo/dialogue_popup.tscn" id="2_eu2qr"]
+
+[node name="DialogueUi" type="Node" unique_id=1705464675]
+
+[node name="DialogueBox" parent="." unique_id=1335076014 instance=ExtResource("1_2c2n1")]
+
+[node name="DialoguePopup" parent="." unique_id=1826871568 instance=ExtResource("2_eu2qr")]
