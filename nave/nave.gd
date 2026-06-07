@@ -49,6 +49,7 @@ func receber_dano():
 
 func _ready() -> void:
 	add_to_group("jogador")
+	Global.Jogador = self
 	flip()
 	var tipoDados = TipoDatabaseNave.new()
 	dano_bala = tipoDados.valorAtaqueNave[dadosNave.valor_dano_nave]
