@@ -1,27 +1,24 @@
 extends Area2D
 class_name AsteroidBase
 
-# Sinais 
 signal coletado(dados: Dictionary)
 signal destruido(dados: Dictionary)
-
-# Nós esperados em asteroid.tscn
 @onready var sprite:    Sprite2D         = $Sprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
-# Dados preenchidos pelo AsteroidSpawner via setup()
+# Dados preenchidos pelo AsteroidSpawner
 var dados_asteroide: Dictionary = {}
 var dados_minerio:   Dictionary = {}
-
 var hp_atual: int = 0
-
 # Movimento
 var velocidade: Vector2 = Vector2.ZERO
 var rot_speed:  float   = 0.0
 
-# _ready — conecta detecção de área (nave deve estar no grupo "player")
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
+	await get_tree().create_timer(2.0).timeout
+	receber_dano(hp_atual)
+	
 
 # setup() — chamado pelo Spawner logo após add_child()
 func setup(asteroide_dict: Dictionary, minerio_dict: Dictionary) -> void:
@@ -49,7 +46,7 @@ func _checar_despawn() -> void:
 	if position.y > get_viewport_rect().size.y + 80.0:
 		queue_free()
 
-# HP e dano
+# DANO E DESTRUIÇÃO
 func receber_dano(quantidade: int) -> void:
 	hp_atual -= quantidade
 	if hp_atual <= 0:
@@ -58,8 +55,9 @@ func receber_dano(quantidade: int) -> void:
 
 func _ao_destruir() -> void:
 	destruido.emit(_montar_dados())
-	queue_free()
-
+	queue_free()	
+	
+	
 # Coleta
 func coletar() -> void:
 	coletado.emit(_montar_dados())
