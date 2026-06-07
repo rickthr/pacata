@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3bsa405x88mw" path="res://scenes/Boladefogo.tscn" id="7_415qc"]
 [ext_resource type="Script" uid="uid://dryjruyluglhl" path="res://scripts_planetacurupolar/spawner_vento.gd" id="8_2jjnc"]
 [ext_resource type="PackedScene" uid="uid://b1piise6j1ltc" path="res://scenes/IndicadorMagma.tscn" id="8_fgs4o"]
-[ext_resource type="PackedScene" uid="uid://bkqqluy7mgou3" path="res://scripts_planetacurupolar/OndaVento.tscn" id="9_alyvy"]
+[ext_resource type="PackedScene" uid="uid://bkqqluy7mgou3" path="res://scenes/OndaVento.tscn" id="9_alyvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3afiy"]
 size = Vector2(64, 55)

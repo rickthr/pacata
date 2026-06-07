@@ -29,9 +29,6 @@ func ciclo_vento():
 
 
 func criar_onda_vento():
-	if cena_onda_vento == null:
-		print("ERRO: cena_onda_vento não foi definida no Inspector.")
-		return
 
 	var onda = cena_onda_vento.instantiate()
 	get_tree().current_scene.add_child(onda)
