@@ -12,7 +12,7 @@ var _is_epico: bool = false
 
 func setup(asteroide_dict: Dictionary, minerio_dict: Dictionary) -> void:
 	super.setup(asteroide_dict, minerio_dict)
-	_aplicar_vfx()
+	#_aplicar_vfx()
 	
 #Função destruir com os fragmentos
 func _ao_destruir() -> void:
@@ -21,6 +21,7 @@ func _ao_destruir() -> void:
 	queue_free()
 
 #função cores do minerio por raridade(não está funcionando tão bem)
+'''
 func _aplicar_vfx() -> void:
 	var raridade: String = dados_minerio.get("raridade", "Comum")
 	match raridade:
@@ -35,7 +36,7 @@ func _aplicar_vfx() -> void:
 			_is_epico   = true
 			_base_scale = sprite.scale if sprite else Vector2.ONE
 			_pulse_time = randf() * TAU
-
+'''
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if _is_epico and sprite:
