@@ -5,7 +5,7 @@ var asteroides = [
 	{
 		"nome": "Asteroide Rochoso",
 		"tamanho": "Pequeno",
-		"hp": 10,
+		"hp": 1,
 		"velocidade": 210,
 		"minerio": "Ybyvira",
 		"chance_spawn": 50
@@ -13,7 +13,7 @@ var asteroides = [
 	{
 		"nome": "Asteroide Metálico",
 		"tamanho": "Medio",
-		"hp": 20,
+		"hp": 2,
 		"velocidade": 160,
 		"minerio": "Pirotupita Verde",
 		"chance_spawn": 30
@@ -21,7 +21,7 @@ var asteroides = [
 	{
 		"nome": "Asteroide Congelado",
 		"tamanho": "Grande",
-		"hp": 35,
+		"hp": 3,
 		"velocidade": 90,
 		"minerio": "Tatibyru",
 		"chance_spawn": 15
@@ -29,7 +29,7 @@ var asteroides = [
 	{
 		"nome": "Asteroide Solar",
 		"tamanho": "Grande",
-		"hp": 50,
+		"hp": 3,
 		"velocidade": 70,
 		"minerio": "Argutinga",
 		"chance_spawn": 5

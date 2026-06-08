@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://d0f538jn8e3ex" path="res://asteroides/Sprites/fragmento 5.png" id="6_b3ls5"]
 [ext_resource type="Texture2D" uid="uid://brboxy7n0ap2q" path="res://asteroides/Sprites/fragmento 6.png" id="7_gkjap"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_td83g"]
-radius = 25.179358
+[sub_resource type="CircleShape2D" id="CircleShape2D_gsn21"]
+radius = 22.090721
 
-[node name="Asteroid" type="Area2D" unique_id=441166708]
+[node name="Asteroid" type="Area2D" unique_id=441166708 groups=["asteroid"]]
 texture_filter = 1
+collision_layer = 8
 script = ExtResource("1_td83g")
 fragment_scene = ExtResource("2_gsn21")
 fragment_textures = Array[Texture2D]([ExtResource("3_egd4j"), ExtResource("4_k8ucx"), ExtResource("5_howh4"), ExtResource("6_b3ls5"), ExtResource("7_gkjap"), ExtResource("3_egd4j")])
@@ -23,6 +24,5 @@ position = Vector2(0.49999058, 7.5)
 scale = Vector2(0.13240741, 0.13407408)
 texture = ExtResource("2_td83g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=39566646]
-texture_filter = 1
-shape = SubResource("CircleShape2D_td83g")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=4887166]
+shape = SubResource("CircleShape2D_gsn21")

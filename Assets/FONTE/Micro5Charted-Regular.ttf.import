@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://brblw4ofokmmc"
-path="res://.godot/imported/Micro5-Regular.ttf-19bc9923f063d0357c5214a45497d043.fontdata"
+uid="uid://cjcm08rrvd3rc"
+path="res://.godot/imported/Micro5Charted-Regular.ttf-7920cc0ab537dfd8ac3f8ad99ebb34a6.fontdata"
 
 [deps]
 
-source_file="res://FONTE/Micro5-Regular.ttf"
-dest_files=["res://.godot/imported/Micro5-Regular.ttf-19bc9923f063d0357c5214a45497d043.fontdata"]
+source_file="res://Assets/FONTE/Micro5Charted-Regular.ttf"
+dest_files=["res://.godot/imported/Micro5Charted-Regular.ttf-7920cc0ab537dfd8ac3f8ad99ebb34a6.fontdata"]
 
 [params]
 

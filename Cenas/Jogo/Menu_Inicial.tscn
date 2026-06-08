@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://df1npikgee0q0" path="res://Assets/Interface/Menu inicial.png" id="1_pqahr"]
 [ext_resource type="Texture2D" uid="uid://ctghh4h6b4u10" path="res://Assets/Interface/🫷.png" id="2_ek16h"]
-[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://FONTE/Micro5-Regular.ttf" id="3_upy1c"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_upy1c"]
 
 [node name="MenuInicial" type="Node2D" unique_id=1278007668]
 

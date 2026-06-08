@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://c3ru4nv1ogbvs"]
 
+[ext_resource type="PackedScene" uid="uid://c6jaflonf2e37" path="res://Prefabs/fundo.tscn" id="1_y3406"]
+
 [node name="FTutorial" type="Node2D" unique_id=2061296585]
+
+[node name="Fundo" parent="." unique_id=446008467 instance=ExtResource("1_y3406")]
