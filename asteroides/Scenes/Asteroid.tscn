@@ -13,6 +13,7 @@
 radius = 21.0
 
 [node name="Asteroid" type="Area2D" unique_id=441166708]
+texture_filter = 1
 script = ExtResource("1_td83g")
 fragment_scene = ExtResource("2_gsn21")
 fragment_textures = Array[Texture2D]([ExtResource("3_egd4j"), ExtResource("4_k8ucx"), ExtResource("5_howh4"), ExtResource("6_b3ls5"), ExtResource("7_gkjap"), ExtResource("3_egd4j")])

@@ -7,6 +7,7 @@ var lifetime: float = 0.8
 func setup(textura: Texture2D, cor: Color) -> void:
 	sprite.texture  = textura
 	sprite.modulate = cor
+	sprite.scale    = Vector2(0.2, 0.2)
 
 func _ready() -> void:
 	gravity_scale   = 0.15   

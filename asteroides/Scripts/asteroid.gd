@@ -14,7 +14,7 @@ func setup(asteroide_dict: Dictionary, minerio_dict: Dictionary) -> void:
 	super.setup(asteroide_dict, minerio_dict)
 	_aplicar_vfx()
 	
-#Função destruir com particular sendo emitidas
+#Função destruir com os fragmentos
 func _ao_destruir() -> void:
 	_lancar_fragmentos()
 	destruido.emit(_montar_dados())
