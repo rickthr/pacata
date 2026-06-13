@@ -14,7 +14,11 @@ const POPUP_IDS: Array[String] = [
 	"PPAP",
 	"PPRP1",
 	"PPMRC1",
-	"PPMRC2"
+	"PPMRC2",
+	"PPUAIT1",
+	"PPUAIT2",
+	"PPUAIT3"
+	
 ]
 
 const DIALOGUES: Dictionary = {
@@ -143,7 +147,20 @@ const POPUPS: Dictionary = {
 	"PPAP": [
 		"Esse é o meu pai, <>, um ex-driller. Ele participou da guerra quando eu ainda era um bebê. Aprendi tudo com ele."
 	],
-
+	"PPUAIT1": [
+		"UAI: Voce pode mover a nave apertando os botões que o senhor <> definiu como 'WASD'"
+	],
+	"PPUAIT2": [
+		"UAI: !",
+		"UAI: Agora que voce sabe mover a nave, saiba que ela possui duas asas.",
+		"UAI: Onde uma delas serve para destruir asteroids e a outra para coletar minerios.",
+		"UAI: Voce pode destruir os minerios atirando neles, apertando o botão <>.",
+		"UAI: Enquanto na outra asa, os minerios são coletados pela garra, basta aproxima-la dos minerios.",
+	],
+	"PPUAIT3": [
+		"UAI: !",
+		"UAI: Saiba que voce também pode trocar a posição das asas apertando o botão <>",
+	],
 	"PPRP1": [
 		"UAI: Planeta Curupolar, enquadrado no setor <>.",
 		"UAI: Aparentemente, seu eixo de rotação permite uma característica peculiar no planeta.",
