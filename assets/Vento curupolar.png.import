@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0ardnwqfiolj"
-path="res://.godot/imported/Vento curupolar.png-494fae7b06d6239e62b05eb2eb9f5123.ctex"
+path="res://.godot/imported/Vento curupolar.png-3cb7405e26010fffbacccd683bd84142.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Vento curupolar.png"
-dest_files=["res://.godot/imported/Vento curupolar.png-494fae7b06d6239e62b05eb2eb9f5123.ctex"]
+source_file="res://assets/Vento curupolar.png"
+dest_files=["res://.godot/imported/Vento curupolar.png-3cb7405e26010fffbacccd683bd84142.ctex"]
 
 [params]
 

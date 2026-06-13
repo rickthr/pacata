@@ -14,6 +14,9 @@ const JUMP_VELOCITY = -400.0
 var contador_flip :=0
 var shoot = preload("res://nave/shoot.tscn")
 
+var sinal_ativo: bool = false 
+var forca_externa: Vector2 = Vector2.ZERO
+var velocidade:int 
 var vida :int
 var dano_bala :int
 var SPEED:int 
@@ -69,6 +72,16 @@ func _physics_process(delta: float) -> void:
 	var direction_x := Input.get_axis("ui_left", "ui_right")
 	var direction_y := Input.get_axis("ui_up", "ui_down")
 	
+	
+	var direcao := Vector2(direction_x, direction_y)
+	velocity = direcao * velocidade
+	
+	if sinal_ativo:
+		velocity += forca_externa
+	else:
+		velocity += forca_externa * 1.5
+	forca_externa = forca_externa.move_toward(Vector2.ZERO, 300.0 * delta)
+
 	if direction_y != 0:
 		
 		velocity.y = direction_y * SPEED
@@ -101,7 +114,8 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
-
+func aplicar_empurrao(forca: Vector2) -> void:
+	forca_externa += forca
 func _on_broca_body_entered(body: Node2D) -> void:
 	#sinal emite morte do objeto q entrou na area
 	queue_free()
