@@ -1,20 +1,12 @@
 [gd_scene format=3 uid="uid://cjnnjyn8fcepy"]
 
 [ext_resource type="Texture2D" uid="uid://df1npikgee0q0" path="res://Assets/Interface/Menu inicial.png" id="1_pqahr"]
-[ext_resource type="Script" uid="uid://b82tppejehi1x" path="res://Scripts/Gerenciadores de Cenas/menu_inicial.gd" id="1_upy1c"]
+[ext_resource type="Script" uid="uid://b82tppejehi1x" path="res://Scripts/Gerenciadores de Cenas/gerencia_botoes.gd" id="1_upy1c"]
 [ext_resource type="Texture2D" uid="uid://ctghh4h6b4u10" path="res://Assets/Interface/🫷.png" id="2_ek16h"]
 [ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_upy1c"]
 [ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Interface/botão do menu de config.png" id="5_sg353"]
 [ext_resource type="AudioStream" uid="uid://bw4ias3tjx1r" path="res://Assets/Sons/Músicas/Musiquinha menu_ilovemp4.mp3" id="6_wt5pj"]
-[ext_resource type="Script" uid="uid://bv47j3ia4c57g" path="res://Scripts/Gerenciadores de Cenas/gerenciador_cenas.gd" id="7_5e7wx"]
-[ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Interface/menu de configurações.png" id="8_ypg5f"]
-[ext_resource type="Texture2D" uid="uid://c6bqqdmku5fid" path="res://Assets/Interface/Discord.png" id="9_3kjng"]
-[ext_resource type="Texture2D" uid="uid://bridsp4mq4vij" path="res://Assets/Interface/GitHub.png" id="10_64mix"]
-[ext_resource type="Texture2D" uid="uid://ch5qeuq4giiy8" path="res://Assets/Interface/Instagram.png" id="11_eekcj"]
-[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Interface/Itch.io.png" id="12_ytdbx"]
-[ext_resource type="Texture2D" uid="uid://b43vwealmbsb0" path="res://Assets/Interface/Ajuste de som - contorno.png" id="13_6pnne"]
-[ext_resource type="Texture2D" uid="uid://cpjfvrxrny65m" path="res://Assets/Interface/Som.png" id="14_qa8d5"]
-[ext_resource type="Texture2D" uid="uid://bxdvgb7drkg8g" path="res://Assets/Interface/Musica.png" id="15_qylq5"]
+[ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="7_5e7wx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sg353"]
 
@@ -46,100 +38,12 @@
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_sg353"]
 
-[sub_resource type="Animation" id="Animation_wt5pj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.029506557, 0.029506557, 0.029506557, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_vc246"]
-resource_name = "fade_in"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.23137257, 0, 0.23137257, 1), Color(0.23137255, 0, 0.23137255, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_5e7wx"]
-resource_name = "fade_out"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0.23137255, 0, 0.23137255, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vc246"]
-_data = {
-&"RESET": SubResource("Animation_wt5pj"),
-&"fade_in": SubResource("Animation_vc246"),
-&"fade_out": SubResource("Animation_5e7wx")
-}
-
-[node name="MenuInicial" type="Control" unique_id=291414542 node_paths=PackedStringArray("hover")]
+[node name="MenuInicial" type="Control" unique_id=291414542 node_paths=PackedStringArray("botoes", "efeitoStream", "hover")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_upy1c")
+botoes = NodePath("CanvasLayer/Botoes")
+efeitoStream = NodePath("EfeitoSonoro")
 hover = NodePath("CanvasLayer/hover")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=137684394]
@@ -243,83 +147,10 @@ stream = SubResource("AudioStreamMP3_sg353")
 volume_db = 10.0
 
 [node name="TrilhaSonora" type="AudioStreamPlayer2D" parent="." unique_id=1143633206]
+process_mode = 3
 stream = ExtResource("6_wt5pj")
 volume_db = 1.0
 autoplay = true
 parameters/looping = true
 
-[node name="GerenciadorCenas" type="Node2D" parent="." unique_id=1051175840]
-process_mode = 3
-script = ExtResource("7_5e7wx")
-
-[node name="Transicao" type="CanvasLayer" parent="GerenciadorCenas" unique_id=886977392]
-
-[node name="animacao" type="AnimationPlayer" parent="GerenciadorCenas/Transicao" unique_id=92230300]
-root_node = NodePath("ColorRect")
-libraries/ = SubResource("AnimationLibrary_vc246")
-autoplay = &"fade_in"
-
-[node name="ColorRect" type="ColorRect" parent="GerenciadorCenas/Transicao/animacao" unique_id=619492040]
-self_modulate = Color(0.029506557, 0.029506557, 0.029506557, 1)
-offset_right = 1280.0
-offset_bottom = 720.0
-
-[node name="Opcoes" type="CanvasLayer" parent="GerenciadorCenas" unique_id=613345231]
-
-[node name="Sprite2D" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=1775385261]
-texture_filter = 1
-position = Vector2(640, 360)
-scale = Vector2(3.5, 3)
-texture = ExtResource("8_ypg5f")
-
-[node name="Discord" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=2029500038]
-texture_filter = 1
-position = Vector2(510, 479)
-scale = Vector2(3, 3)
-texture = ExtResource("9_3kjng")
-
-[node name="GitHub" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=1603627525]
-texture_filter = 1
-position = Vector2(589, 479)
-scale = Vector2(3, 3)
-texture = ExtResource("10_64mix")
-
-[node name="Instagram" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=577703459]
-texture_filter = 1
-position = Vector2(670, 479)
-scale = Vector2(3, 3)
-texture = ExtResource("11_eekcj")
-
-[node name="Itch_io" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=1167543870]
-texture_filter = 1
-position = Vector2(760, 479)
-scale = Vector2(3, 3)
-texture = ExtResource("12_ytdbx")
-
-[node name="AjusteDeSomContorno" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=511389301]
-texture_filter = 1
-position = Vector2(651, 291)
-scale = Vector2(3, 3)
-texture = ExtResource("13_6pnne")
-
-[node name="AjusteDeSomContorno2" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=237601236]
-texture_filter = 1
-position = Vector2(651, 403)
-scale = Vector2(3, 3)
-texture = ExtResource("13_6pnne")
-
-[node name="Som" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=1492526034]
-texture_filter = 1
-position = Vector2(510, 288)
-scale = Vector2(2, 2)
-texture = ExtResource("14_qa8d5")
-
-[node name="Musica" type="Sprite2D" parent="GerenciadorCenas/Opcoes" unique_id=2133977384]
-texture_filter = 1
-position = Vector2(506, 403)
-scale = Vector2(2, 2)
-texture = ExtResource("15_qylq5")
-
-[node name="EfeitosStream" type="AudioStreamPlayer2D" parent="GerenciadorCenas" unique_id=176635717]
-
-[connection signal="passarCena" from="GerenciadorCenas" to="GerenciadorCenas" method="_on_passar_cena"]
+[node name="GerenciadorCenas" parent="." unique_id=80333866 instance=ExtResource("7_5e7wx")]

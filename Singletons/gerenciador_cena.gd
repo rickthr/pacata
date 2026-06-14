@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 class_name GerenciadorCenas
 
 enum Cenas{
@@ -7,6 +7,13 @@ enum Cenas{
 	Tutorial,
 	PlanetaCurupolar,
 	Opcoes
+}
+
+var caminhos_cena: Dictionary={
+	Cenas.MenuInicial: "res://Cenas/Jogo/Menu_Inicial.tscn",
+	Cenas.PlanetaGaragem: "res://Cenas/Jogo/Planeta_Garagem.tscn",
+	Cenas.Tutorial: "res://Cenas/Jogo/F_Tutorial.tscn",
+	Cenas.PlanetaCurupolar: "res://Cenas/Jogo/F_PlanetaCurupolar.tscn"
 }
 
 var sons: Dictionary ={
@@ -22,36 +29,58 @@ var cenaAtual
 var cnvsOpcoes
 var efeitoStream 
 
+var cena_anterior_aPausa
+
 func _ready() -> void:
+	if Global.CenaAtual == null:
+		Global.CenaAtual = Cenas.Tutorial
 	Global.GerenciadorCenas = self
 	cnvsOpcoes = $Opcoes
 	efeitoStream = $EfeitosStream
 	desativar_no(cnvsOpcoes)
+	cenaAtual = Global.CenaAtual
 
 func _process(delta: float) -> void:
 	gerenciarCena()
 
 func mudarCena(novaCena: Cenas):
+	cena_anterior_aPausa = cenaAtual# ->passa a cena anterior antes que ela mude 
 	cenaAtual = novaCena
-	desativar_no(cnvsOpcoes)
-
+	Global.CenaAtual = cenaAtual
+	
+	if cenaAtual == Cenas.Opcoes:
+		get_tree().paused = true
+	elif cenaAtual != Cenas.Opcoes:
+		get_tree().change_scene_to_file(caminhos_cena[cenaAtual])
+	
 func gerenciarCena():
 	match cenaAtual:
 		Cenas.MenuInicial:
 			#se o jogador está nessa cena, não há nada para alterar atraves do gerenciador de cenas por enquanto
 			pass
 		Cenas.Opcoes:
-			reativar_no(cnvsOpcoes)
-			#pausar_jogo()
-			if Input.is_action_just_pressed("ui_cancel"):
-				mudarCena(Cenas.MenuInicial)
-				tocar_som("voltar")
-				#pausar_jogo()
+			opcoes()
 			pass
+		Cenas.PlanetaGaragem:
+			if Input.is_action_just_pressed("ui_cancel"):
+				mudarCena(Cenas.Opcoes)
+			pass
+		Cenas.Tutorial:
+			if Input.is_action_just_pressed("ui_cancel"):
+				mudarCena(Cenas.Opcoes)
 	pass
 	
-func pausar_jogo():
-	get_tree().paused = !get_tree().paused
+func opcoes():
+	reativar_no(cnvsOpcoes)
+			#pausar_jogo()
+	if Input.is_action_just_pressed("ui_cancel"):
+		desativar_no(cnvsOpcoes)
+		Global.CenaAtual = cena_anterior_aPausa
+		cenaAtual = cena_anterior_aPausa
+		get_tree().paused = false
+		tocar_som("voltar")
+		
+		#pausar_jogo()
 
 func tocar_som(nome_do_som: String):
 	# load() carrega o arquivo de áudio a partir do caminho na string

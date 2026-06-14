@@ -1,7 +1,8 @@
 extends Control
+class_name GerenciaBotoes
 
-@onready var botoes= $CanvasLayer/Botoes
-@onready var efeitoStream = $EfeitoSonoro
+@export var botoes: Node2D
+@export var efeitoStream: AudioStreamPlayer2D
 @export var hover: Sprite2D
 
 var sons: Dictionary ={
@@ -66,7 +67,7 @@ func desenha_hover(idx_botao_atual: int):
 	var pos_botao = botao_alvo.global_position
 	hover.global_position = Vector2(625, pos_botao.y + 40) 
 	
-func seleciona_botao(idx_botao: int):
+func seleciona_botao(idx_botao: int): # OVERRIDE
 	match idx_botao:
 		0:#jogar
 			tocar_som("start")

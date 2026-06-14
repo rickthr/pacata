@@ -23,8 +23,8 @@ var rotacao_destino: float = 0.0
 
 
 func _ready():
+	await get_tree().process_frame
 	aplicar_face_quente()
-
 
 func _process(delta):
 	contar_tempo_de_rotacao(delta)

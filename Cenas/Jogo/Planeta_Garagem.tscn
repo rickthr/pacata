@@ -1,33 +1,36 @@
-[gd_scene format=3 uid="uid://qtumuf5kmtyf"]
+[gd_scene format=3 uid="uid://bf1c0lvx5fm5w"]
 
-[ext_resource type="Script" uid="uid://0tjx0icagaxe" path="res://Scripts/Gerenciadores de Cenas/botoes_planetagaragem.gd" id="1_3gq0m"]
-[ext_resource type="Texture2D" uid="uid://bt8txlp6rghp2" path="res://Assets/Garagem.png" id="2_2svgc"]
-[ext_resource type="Texture2D" uid="uid://62qcp2xtn3od" path="res://Assets/Universo.png" id="2_eoi27"]
-[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Interface/Itch.io.png" id="3_kdjcx"]
-[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_l4ckx"]
-[ext_resource type="Texture2D" uid="uid://bqlgranxo127v" path="res://Assets/cadeado.png" id="5_kdjcx"]
-[ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Interface/botão do menu de config.png" id="6_3fxad"]
+[ext_resource type="Script" uid="uid://0tjx0icagaxe" path="res://Scripts/Gerenciadores de Cenas/botoes_planetagaragem.gd" id="1_43vs0"]
+[ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="2_7lvqx"]
+[ext_resource type="Texture2D" uid="uid://62qcp2xtn3od" path="res://Assets/Universo.png" id="2_qab2s"]
+[ext_resource type="Texture2D" uid="uid://bt8txlp6rghp2" path="res://Assets/Garagem.png" id="3_7lvqx"]
+[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Interface/Itch.io.png" id="4_grnmf"]
+[ext_resource type="Texture2D" uid="uid://bqlgranxo127v" path="res://Assets/cadeado.png" id="5_d6t0n"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="6_hiqbd"]
+[ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Interface/botão do menu de config.png" id="7_0ivy3"]
 
 [node name="GerenciaPlanetaGaragem" type="Control" unique_id=1423091008 node_paths=PackedStringArray("texto_notificacao", "botoes", "efeitoStream", "hover")]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_3gq0m")
+script = ExtResource("1_43vs0")
 texto_notificacao = NodePath("UI/TextoNotificacao")
 botoes = NodePath("Quadrantes/Textos")
 efeitoStream = NodePath("EfeitosStream")
 hover = NodePath("hover")
 
+[node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("2_7lvqx")]
+
 [node name="Universo" type="Sprite2D" parent="." unique_id=361502068]
 texture_filter = 1
 position = Vector2(640, 360)
 scale = Vector2(4, 4)
-texture = ExtResource("2_eoi27")
+texture = ExtResource("2_qab2s")
 
 [node name="Garagem" type="Sprite2D" parent="." unique_id=496833025]
 texture_filter = 1
 position = Vector2(640, 360)
 scale = Vector2(3.5812497, 3.5888886)
-texture = ExtResource("2_2svgc")
+texture = ExtResource("3_7lvqx")
 
 [node name="Quadrantes" type="Node2D" parent="." unique_id=377777049]
 
@@ -35,40 +38,40 @@ texture = ExtResource("2_2svgc")
 texture_filter = 1
 position = Vector2(640, 243)
 scale = Vector2(4, 4)
-texture = ExtResource("3_kdjcx")
+texture = ExtResource("4_grnmf")
 
 [node name="AreaVendedor" type="Sprite2D" parent="Quadrantes" unique_id=1097645913]
 texture_filter = 1
 position = Vector2(492, 308)
 scale = Vector2(4, 4)
-texture = ExtResource("3_kdjcx")
+texture = ExtResource("4_grnmf")
 
 [node name="CadeadoVendedor" type="Sprite2D" parent="Quadrantes/AreaVendedor" unique_id=39437098]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_kdjcx")
+texture = ExtResource("5_d6t0n")
 
 [node name="AreaGeologo" type="Sprite2D" parent="Quadrantes" unique_id=611611039]
 texture_filter = 1
 position = Vector2(790, 308)
 scale = Vector2(4, 4)
-texture = ExtResource("3_kdjcx")
+texture = ExtResource("4_grnmf")
 
 [node name="CadeadoGeologo" type="Sprite2D" parent="Quadrantes/AreaGeologo" unique_id=988450124]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_kdjcx")
+texture = ExtResource("5_d6t0n")
 
 [node name="AreaLoja" type="Sprite2D" parent="Quadrantes" unique_id=256090999]
 texture_filter = 1
 position = Vector2(640, 408)
 scale = Vector2(4, 4)
-texture = ExtResource("3_kdjcx")
+texture = ExtResource("4_grnmf")
 
 [node name="CadeadoLojaPecas" type="Sprite2D" parent="Quadrantes/AreaLoja" unique_id=864152887]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_kdjcx")
+texture = ExtResource("5_d6t0n")
 
 [node name="Textos" type="Node2D" parent="Quadrantes" unique_id=717488004]
 
@@ -85,7 +88,7 @@ offset_right = 708.0
 offset_bottom = 317.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_fonts/font = ExtResource("6_hiqbd")
 theme_override_font_sizes/font_size = 53
 text = "Garagem"
 horizontal_alignment = 1
@@ -103,7 +106,7 @@ offset_right = 568.0
 offset_bottom = 381.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_fonts/font = ExtResource("6_hiqbd")
 theme_override_font_sizes/font_size = 53
 text = "Vendedor"
 horizontal_alignment = 1
@@ -122,7 +125,7 @@ offset_bottom = 381.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(75, 0)
-theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_fonts/font = ExtResource("6_hiqbd")
 theme_override_font_sizes/font_size = 53
 text = "Geologo"
 horizontal_alignment = 1
@@ -141,7 +144,7 @@ offset_bottom = 484.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(75, 0)
-theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_fonts/font = ExtResource("6_hiqbd")
 theme_override_font_sizes/font_size = 53
 text = "Loja"
 horizontal_alignment = 1
@@ -154,7 +157,7 @@ offset_left = 15.0
 offset_top = 15.0
 offset_right = 353.0
 offset_bottom = 78.0
-theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_fonts/font = ExtResource("6_hiqbd")
 theme_override_font_sizes/font_size = 62
 text = "PLANETA GARAGEM"
 
@@ -171,7 +174,7 @@ offset_right = 91.5
 offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_fonts/font = ExtResource("6_hiqbd")
 theme_override_font_sizes/font_size = 32
 text = "Acesse a garagem"
 
@@ -179,7 +182,7 @@ text = "Acesse a garagem"
 texture_filter = 1
 position = Vector2(633, 288)
 scale = Vector2(2.1, 2.1)
-texture = ExtResource("6_3fxad")
+texture = ExtResource("7_0ivy3")
 
 [node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=38928706]
 
