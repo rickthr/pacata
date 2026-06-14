@@ -8,6 +8,7 @@ radius = 14.142136
 
 [node name="BolaMagma" type="Area2D" unique_id=590929055]
 texture_filter = 1
+collision_layer = 64
 script = ExtResource("1_7p57q")
 velocidade = 700.0
 

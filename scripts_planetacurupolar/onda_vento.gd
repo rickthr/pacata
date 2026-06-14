@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var velocidade: float = 450.0
-@export var forca_empurrao: float = 300.0
+@export var velocidade: float
+@export var forca_empurrao: float
 @export var limite_esquerdo: float = -100.0
 
 var direcao: Vector2 = Vector2.LEFT
