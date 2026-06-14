@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vh50a8aej1fn"]
 
-[ext_resource type="Script" uid="uid://gqgi862srkbs" path="res://nave/shoot.gd" id="1_vnmmp"]
-[ext_resource type="Texture2D" uid="uid://c0n6w3xq601kh" path="res://Assets/nave/BALA.png" id="2_vnmmp"]
+[ext_resource type="Script" uid="uid://gqgi862srkbs" path="res://Nave/shoot.gd" id="1_vnmmp"]
+[ext_resource type="Texture2D" uid="uid://c0n6w3xq601kh" path="res://Assets/Cores Originais/Nave/BALA.png" id="2_vnmmp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yt1ub"]
 radius = 6.0

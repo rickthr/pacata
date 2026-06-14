@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6rmfxfnufukd"]
 
-[ext_resource type="Script" uid="uid://c04swivgas3j1" path="res://asteroides/Scripts/fragment.gd" id="1_d5twm"]
+[ext_resource type="Script" uid="uid://c04swivgas3j1" path="res://Asteroides/Scripts/fragment.gd" id="1_d5twm"]
 
 [node name="Fragment" type="RigidBody2D" unique_id=93173308]
 script = ExtResource("1_d5twm")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7c6jprfageyu" path="res://Scripts/Inimigos/inimigo_tipo_b.gd" id="1_w0vy1"]
 [ext_resource type="Resource" uid="uid://br5ra0kejyxlo" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoB.tres" id="2_6x7rb"]
-[ext_resource type="Texture2D" uid="uid://btd8r7pw3ljko" path="res://Assets/Inimigos/MARIAFUMEGAWkart.png" id="3_hdo21"]
+[ext_resource type="Texture2D" uid="uid://btd8r7pw3ljko" path="res://Assets/Cores Originais/Inimigos/MARIAFUMEGAWkart.png" id="3_hdo21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crevy"]
 size = Vector2(128, 64)

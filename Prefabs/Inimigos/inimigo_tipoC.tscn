@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccp1r60gbi7lx" path="res://Scripts/Inimigos/inimigo_tipo_c.gd" id="1_q3kla"]
 [ext_resource type="Resource" uid="uid://dg3a1jvlsjowt" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoC.tres" id="2_up7l5"]
-[ext_resource type="Texture2D" uid="uid://bj76m1a0xqpfg" path="res://Assets/Inimigos/GIRAGIRA.png" id="3_up7l5"]
+[ext_resource type="Texture2D" uid="uid://bj76m1a0xqpfg" path="res://Assets/Cores Originais/Inimigos/GIRAGIRA.png" id="3_up7l5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qamv2"]
 radius = 6.0

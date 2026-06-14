@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://c7gojnghjad5d"]
 
 [ext_resource type="Script" uid="uid://cn4chunbsw7qn" path="res://Singletons/gerenciador_cena.gd" id="1_obyyu"]
-[ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Interface/menu de configurações.png" id="2_npafc"]
-[ext_resource type="Texture2D" uid="uid://c6bqqdmku5fid" path="res://Assets/Interface/Discord.png" id="3_74lao"]
-[ext_resource type="Texture2D" uid="uid://bridsp4mq4vij" path="res://Assets/Interface/GitHub.png" id="4_iq70n"]
-[ext_resource type="Texture2D" uid="uid://ch5qeuq4giiy8" path="res://Assets/Interface/Instagram.png" id="5_f3v81"]
-[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Interface/Itch.io.png" id="6_j0e77"]
-[ext_resource type="Texture2D" uid="uid://b43vwealmbsb0" path="res://Assets/Interface/Ajuste de som - contorno.png" id="7_d3xpe"]
-[ext_resource type="Texture2D" uid="uid://cpjfvrxrny65m" path="res://Assets/Interface/Som.png" id="8_uij10"]
-[ext_resource type="Texture2D" uid="uid://bxdvgb7drkg8g" path="res://Assets/Interface/Musica.png" id="9_vf8tc"]
+[ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Cores Originais/Interface/menu de configurações.png" id="2_npafc"]
+[ext_resource type="Texture2D" uid="uid://c6bqqdmku5fid" path="res://Assets/Cores Originais/Interface/Discord.png" id="3_74lao"]
+[ext_resource type="Texture2D" uid="uid://bridsp4mq4vij" path="res://Assets/Cores Originais/Interface/GitHub.png" id="4_iq70n"]
+[ext_resource type="Texture2D" uid="uid://ch5qeuq4giiy8" path="res://Assets/Cores Originais/Interface/Instagram.png" id="5_f3v81"]
+[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Cores Originais/Interface/Itch.io.png" id="6_j0e77"]
+[ext_resource type="Texture2D" uid="uid://b43vwealmbsb0" path="res://Assets/Cores Originais/Interface/Ajuste de som - contorno.png" id="7_d3xpe"]
+[ext_resource type="Texture2D" uid="uid://cpjfvrxrny65m" path="res://Assets/Cores Originais/Interface/Som.png" id="8_uij10"]
+[ext_resource type="Texture2D" uid="uid://bxdvgb7drkg8g" path="res://Assets/Cores Originais/Interface/Musica.png" id="9_vf8tc"]
 
 [sub_resource type="Animation" id="Animation_wt5pj"]
 length = 0.001

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3t0ho7w0awmh"]
 
-[ext_resource type="PackedScene" uid="uid://dq0tlmctqgki3" path="res://scenes/planeta_curupolar.tscn" id="1_i4rc7"]
+[ext_resource type="PackedScene" uid="uid://dq0tlmctqgki3" path="res://Planetas/planeta_curupolar.tscn" id="1_i4rc7"]
 [ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="2_k3ebi"]
 
 [node name="GerenciaPlanetaCurupolar" type="Node2D" unique_id=846405332]

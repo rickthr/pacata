@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cui2ijrxh24pq" path="res://Scripts/Projeteis/projetil_maior.gd" id="1_ff34j"]
 [ext_resource type="Resource" uid="uid://bmymbtvwr77ko" path="res://Scripts/Projeteis/Tipos Projeteis/ProjetilMaior.tres" id="2_qh775"]
-[ext_resource type="Texture2D" uid="uid://cwxqn7lsk2e71" path="res://Assets/Projeteis/rajada.png" id="3_qh775"]
+[ext_resource type="Texture2D" uid="uid://cwxqn7lsk2e71" path="res://Assets/Cores Originais/Projeteis/rajada.png" id="3_qh775"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5i3ot"]
 radius = 120.0

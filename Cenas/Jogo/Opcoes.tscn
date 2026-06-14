@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://c5y0do6eylu20"]
 
-[ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Interface/menu de configurações.png" id="1_f4ojv"]
-[ext_resource type="Texture2D" uid="uid://c6bqqdmku5fid" path="res://Assets/Interface/Discord.png" id="2_485lp"]
-[ext_resource type="Texture2D" uid="uid://bridsp4mq4vij" path="res://Assets/Interface/GitHub.png" id="3_6mjpd"]
-[ext_resource type="Texture2D" uid="uid://ch5qeuq4giiy8" path="res://Assets/Interface/Instagram.png" id="4_2x53t"]
-[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Interface/Itch.io.png" id="5_5ogq2"]
-[ext_resource type="Texture2D" uid="uid://b43vwealmbsb0" path="res://Assets/Interface/Ajuste de som - contorno.png" id="6_krjk4"]
-[ext_resource type="Texture2D" uid="uid://cpjfvrxrny65m" path="res://Assets/Interface/Som.png" id="7_7j7ll"]
-[ext_resource type="Texture2D" uid="uid://bxdvgb7drkg8g" path="res://Assets/Interface/Musica.png" id="8_dmp1m"]
+[ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Cores Originais/Interface/menu de configurações.png" id="1_f4ojv"]
+[ext_resource type="Texture2D" uid="uid://c6bqqdmku5fid" path="res://Assets/Cores Originais/Interface/Discord.png" id="2_485lp"]
+[ext_resource type="Texture2D" uid="uid://bridsp4mq4vij" path="res://Assets/Cores Originais/Interface/GitHub.png" id="3_6mjpd"]
+[ext_resource type="Texture2D" uid="uid://ch5qeuq4giiy8" path="res://Assets/Cores Originais/Interface/Instagram.png" id="4_2x53t"]
+[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Cores Originais/Interface/Itch.io.png" id="5_5ogq2"]
+[ext_resource type="Texture2D" uid="uid://b43vwealmbsb0" path="res://Assets/Cores Originais/Interface/Ajuste de som - contorno.png" id="6_krjk4"]
+[ext_resource type="Texture2D" uid="uid://cpjfvrxrny65m" path="res://Assets/Cores Originais/Interface/Som.png" id="7_7j7ll"]
+[ext_resource type="Texture2D" uid="uid://bxdvgb7drkg8g" path="res://Assets/Cores Originais/Interface/Musica.png" id="8_dmp1m"]
 
 [node name="Opcoes" type="Node2D" unique_id=1917565987]
 texture_filter = 1

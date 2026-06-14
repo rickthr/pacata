@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diodqer63djsi"
+path="res://.godot/imported/Nave explodindo.mp3-d0d5b862e47dad92c8f07cc95a9a6a67.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sons/Efeitos Nave/sounds/Nave explodindo.mp3"
+dest_files=["res://.godot/imported/Nave explodindo.mp3-d0d5b862e47dad92c8f07cc95a9a6a67.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmewq6a702lbs" path="res://Scripts/Inimigos/inimigo_tipo_a.gd" id="1_2yxrs"]
 [ext_resource type="Resource" uid="uid://bi0x10olh7tph" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoA.tres" id="2_p5y2u"]
-[ext_resource type="Texture2D" uid="uid://bsswff2pcotlr" path="res://Assets/Inimigos/BALINHA.png" id="3_n8rqg"]
+[ext_resource type="Texture2D" uid="uid://bsswff2pcotlr" path="res://Assets/Cores Originais/Inimigos/BALINHA.png" id="3_n8rqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pytsr"]
 size = Vector2(50, 53)
