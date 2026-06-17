@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw4ias3tjx1r"
+path="res://.godot/imported/Musiquinha menu_ilovemp4.mp3-764639672c940b6cf239f70534ebef46.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sons/Músicas/Musiquinha menu_ilovemp4.mp3"
+dest_files=["res://.godot/imported/Musiquinha menu_ilovemp4.mp3-764639672c940b6cf239f70534ebef46.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

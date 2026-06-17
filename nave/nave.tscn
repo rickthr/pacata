@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cgwn51p8ondg"]
 
-[ext_resource type="Script" uid="uid://cob3l8e6f8uve" path="res://nave/nave.gd" id="1_ltewx"]
-[ext_resource type="Resource" uid="uid://bp6mqarjc8tdi" path="res://nave/Nave.tres" id="2_2pqvo"]
-[ext_resource type="Texture2D" uid="uid://1lrq5jrck7rd" path="res://Assets/nave/DRILLERA0132X32.png" id="2_53dx7"]
-[ext_resource type="Texture2D" uid="uid://c1jgcfn4ewfu7" path="res://Assets/nave/CARRINHOCOMPLETED.png" id="3_6rt8y"]
-[ext_resource type="Texture2D" uid="uid://bn71nd0yiggy1" path="res://Assets/nave/canhao.png" id="4_1poy6"]
-[ext_resource type="Texture2D" uid="uid://c51rouprh63ls" path="res://Assets/nave/broca.png" id="5_xqbh8"]
-[ext_resource type="AudioStream" uid="uid://diodqer63djsi" path="res://sounds/Nave explodindo.mp3" id="7_o8mc5"]
-[ext_resource type="AudioStream" uid="uid://dak7woail2gdd" path="res://sounds/Nave levando dano.mp3" id="8_0acnm"]
-[ext_resource type="AudioStream" uid="uid://bsf3ao4my6a0w" path="res://sounds/tiro.mp3" id="9_0acnm"]
+[ext_resource type="Script" uid="uid://cob3l8e6f8uve" path="res://Nave/nave.gd" id="1_ltewx"]
+[ext_resource type="Resource" uid="uid://bp6mqarjc8tdi" path="res://Nave/Nave.tres" id="2_2pqvo"]
+[ext_resource type="Texture2D" uid="uid://1lrq5jrck7rd" path="res://Assets/Cores Originais/Nave/DRILLERA0132X32.png" id="2_53dx7"]
+[ext_resource type="Texture2D" uid="uid://c1jgcfn4ewfu7" path="res://Assets/Cores Originais/Nave/CARRINHOCOMPLETED.png" id="3_6rt8y"]
+[ext_resource type="Texture2D" uid="uid://bn71nd0yiggy1" path="res://Assets/Cores Originais/Nave/canhao.png" id="4_1poy6"]
+[ext_resource type="Texture2D" uid="uid://c51rouprh63ls" path="res://Assets/Cores Originais/Nave/broca.png" id="5_xqbh8"]
+[ext_resource type="AudioStream" uid="uid://diodqer63djsi" path="res://Assets/Sons/Efeitos Nave/sounds/Nave explodindo.mp3" id="7_o8mc5"]
+[ext_resource type="AudioStream" uid="uid://dak7woail2gdd" path="res://Assets/Sons/Efeitos Nave/sounds/Nave levando dano.mp3" id="8_0acnm"]
+[ext_resource type="AudioStream" uid="uid://bsf3ao4my6a0w" path="res://Assets/Sons/Efeitos Nave/sounds/tiro.mp3" id="9_0acnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
 size = Vector2(48, 40)

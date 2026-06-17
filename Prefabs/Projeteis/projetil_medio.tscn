@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bggrmw68fubjl" path="res://Scripts/Projeteis/projetil_medio.gd" id="1_cl138"]
 [ext_resource type="Resource" uid="uid://bf5qa0of5qo1o" path="res://Scripts/Projeteis/Tipos Projeteis/ProjetilMedio.tres" id="2_avahe"]
-[ext_resource type="Texture2D" uid="uid://cwxqn7lsk2e71" path="res://Assets/Projeteis/rajada.png" id="3_avahe"]
+[ext_resource type="Texture2D" uid="uid://cwxqn7lsk2e71" path="res://Assets/Cores Originais/Projeteis/rajada.png" id="3_avahe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moa8s"]
 radius = 49.0

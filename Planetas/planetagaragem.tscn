@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://qtumuf5kmtyf"]
+
+[ext_resource type="Script" uid="uid://0tjx0icagaxe" path="res://Scripts/Gerenciadores de Cenas/botoes_planetagaragem.gd" id="1_3gq0m"]
+[ext_resource type="Texture2D" uid="uid://bt8txlp6rghp2" path="res://Assets/Cores Originais/Planetas e Derivados/Garagem.png" id="2_2svgc"]
+[ext_resource type="Texture2D" uid="uid://62qcp2xtn3od" path="res://Assets/Cores Originais/Planetas e Derivados/Universo.png" id="2_eoi27"]
+[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Cores Originais/Interface/Itch.io.png" id="3_kdjcx"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_l4ckx"]
+[ext_resource type="Texture2D" uid="uid://bqlgranxo127v" path="res://Assets/Cores Originais/cadeado.png" id="5_kdjcx"]
+[ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Cores Originais/Interface/botão do menu de config.png" id="6_3fxad"]
+
+[node name="GerenciaPlanetaGaragem" type="Control" unique_id=1423091008 node_paths=PackedStringArray("texto_notificacao", "botoes", "efeitoStream", "hover")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3gq0m")
+texto_notificacao = NodePath("UI/TextoNotificacao")
+botoes = NodePath("Quadrantes/Textos")
+efeitoStream = NodePath("EfeitosStream")
+hover = NodePath("hover")
+
+[node name="Universo" type="Sprite2D" parent="." unique_id=361502068]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(4, 4)
+texture = ExtResource("2_eoi27")
+
+[node name="Garagem" type="Sprite2D" parent="." unique_id=496833025]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(3.5812497, 3.5888886)
+texture = ExtResource("2_2svgc")
+
+[node name="Quadrantes" type="Node2D" parent="." unique_id=377777049]
+
+[node name="AreaGaragem" type="Sprite2D" parent="Quadrantes" unique_id=1404742842]
+texture_filter = 1
+position = Vector2(640, 243)
+scale = Vector2(4, 4)
+texture = ExtResource("3_kdjcx")
+
+[node name="AreaVendedor" type="Sprite2D" parent="Quadrantes" unique_id=1097645913]
+texture_filter = 1
+position = Vector2(492, 308)
+scale = Vector2(4, 4)
+texture = ExtResource("3_kdjcx")
+
+[node name="CadeadoVendedor" type="Sprite2D" parent="Quadrantes/AreaVendedor" unique_id=39437098]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kdjcx")
+
+[node name="AreaGeologo" type="Sprite2D" parent="Quadrantes" unique_id=611611039]
+texture_filter = 1
+position = Vector2(790, 308)
+scale = Vector2(4, 4)
+texture = ExtResource("3_kdjcx")
+
+[node name="CadeadoGeologo" type="Sprite2D" parent="Quadrantes/AreaGeologo" unique_id=988450124]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kdjcx")
+
+[node name="AreaLoja" type="Sprite2D" parent="Quadrantes" unique_id=256090999]
+texture_filter = 1
+position = Vector2(640, 408)
+scale = Vector2(4, 4)
+texture = ExtResource("3_kdjcx")
+
+[node name="CadeadoLojaPecas" type="Sprite2D" parent="Quadrantes/AreaLoja" unique_id=864152887]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kdjcx")
+
+[node name="Textos" type="Node2D" parent="Quadrantes" unique_id=717488004]
+
+[node name="GaragemText" type="Label" parent="Quadrantes/Textos" unique_id=1064887781]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 566.0
+offset_top = 262.0
+offset_right = 708.0
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_font_sizes/font_size = 53
+text = "Garagem"
+horizontal_alignment = 1
+
+[node name="VendedorText" type="Label" parent="Quadrantes/Textos" unique_id=1075388024]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 418.0
+offset_top = 327.0
+offset_right = 568.0
+offset_bottom = 381.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_font_sizes/font_size = 53
+text = "Vendedor"
+horizontal_alignment = 1
+
+[node name="GeologoText" type="Label" parent="Quadrantes/Textos" unique_id=275219794]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 715.0
+offset_top = 327.0
+offset_right = 865.0
+offset_bottom = 381.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 0)
+theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_font_sizes/font_size = 53
+text = "Geologo"
+horizontal_alignment = 1
+
+[node name="LojaText" type="Label" parent="Quadrantes/Textos" unique_id=1033213534]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 566.0
+offset_top = 430.0
+offset_right = 716.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 0)
+theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_font_sizes/font_size = 53
+text = "Loja"
+horizontal_alignment = 1
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=360013295]
+
+[node name="Planeta" type="Label" parent="UI" unique_id=1701219889]
+texture_filter = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 353.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_font_sizes/font_size = 62
+text = "PLANETA GARAGEM"
+
+[node name="TextoNotificacao" type="Label" parent="UI" unique_id=1184308539]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.5
+offset_top = -70.0
+offset_right = 91.5
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_l4ckx")
+theme_override_font_sizes/font_size = 32
+text = "Acesse a garagem"
+
+[node name="hover" type="Sprite2D" parent="." unique_id=135401412]
+texture_filter = 1
+position = Vector2(633, 288)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("6_3fxad")
+
+[node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=38928706]
+
+[node name="EfeitosStream" type="AudioStreamPlayer2D" parent="." unique_id=1508883836]

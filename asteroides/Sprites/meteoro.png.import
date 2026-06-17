@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bliv5ubel0i53"
-path="res://.godot/imported/meteoro.png-e9bc5a7ebee76923ed37fe82cc5bef32.ctex"
+path="res://.godot/imported/meteoro.png-c10b09dad7a6df410220d971debed21e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asteroides/Sprites/meteoro.png"
-dest_files=["res://.godot/imported/meteoro.png-e9bc5a7ebee76923ed37fe82cc5bef32.ctex"]
+source_file="res://Asteroides/Sprites/meteoro.png"
+dest_files=["res://.godot/imported/meteoro.png-c10b09dad7a6df410220d971debed21e.ctex"]
 
 [params]
 

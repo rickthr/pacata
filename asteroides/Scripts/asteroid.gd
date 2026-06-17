@@ -8,9 +8,6 @@ extends AsteroidBase
 var _pulse_time: float = 0.0
 var _base_scale: Vector2 = Vector2.ONE
 var _is_epico: bool = false
-
-func _ready() -> void:
-	print_debug(collision_layer, collision_mask)
 	
 func setup(asteroide_dict: Dictionary, minerio_dict: Dictionary) -> void:
 	super.setup(asteroide_dict, minerio_dict)

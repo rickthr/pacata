@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b1piise6j1ltc"]
+
+[ext_resource type="Script" uid="uid://cuugn53crywx1" path="res://Scripts/Planeta Curupolar/indicadormagma.gd" id="1_bk4e2"]
+[ext_resource type="Texture2D" uid="uid://dln16cnstp6ce" path="res://Assets/Cores Originais/Planetas e Derivados/X.png" id="2_bk4e2"]
+
+[node name="IndicadorMagma" type="Node2D" unique_id=198170442]
+script = ExtResource("1_bk4e2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554084400]
+texture_filter = 1
+position = Vector2(0, 1)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_bk4e2")

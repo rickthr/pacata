@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c672wdww4c4k5"]
 
-[ext_resource type="Texture2D" uid="uid://cwxqn7lsk2e71" path="res://Assets/Projeteis/rajada.png" id="1_ld47g"]
+[ext_resource type="Texture2D" uid="uid://cwxqn7lsk2e71" path="res://Assets/Cores Originais/Projeteis/rajada.png" id="1_ld47g"]
 
 [node name="AvisaTiroMaior" type="Node2D" unique_id=1123790480]
 

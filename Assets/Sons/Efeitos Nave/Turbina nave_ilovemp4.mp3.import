@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3isiw42s2shn"
+path="res://.godot/imported/Turbina nave_ilovemp4.mp3-8b8b507cc76d5a0b5511c110eb742ced.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sons/Efeitos Nave/Turbina nave_ilovemp4.mp3"
+dest_files=["res://.godot/imported/Turbina nave_ilovemp4.mp3-8b8b507cc76d5a0b5511c110eb742ced.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

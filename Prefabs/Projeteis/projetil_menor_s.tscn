@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6d2nak6ut8e5" path="res://Scripts/Projeteis/projetil_s.gd" id="1_hifqe"]
 [ext_resource type="Resource" uid="uid://b6vwbykydu62" path="res://Scripts/Projeteis/Tipos Projeteis/ProjetilS.tres" id="2_26wnw"]
-[ext_resource type="Texture2D" uid="uid://bpmpatiyahdu" path="res://Assets/Projeteis/projetilMAIOE.png" id="3_26wnw"]
+[ext_resource type="Texture2D" uid="uid://bpmpatiyahdu" path="res://Assets/Cores Originais/Projeteis/projetilMAIOE.png" id="3_26wnw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ff4vm"]
 radius = 13.0

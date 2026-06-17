@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c55j0ge33gfhb"]
+
+[ext_resource type="Script" uid="uid://cfn1sehw8glay" path="res://Scripts/Planeta Curupolar/onda_vento.gd" id="1_2bugv"]
+[ext_resource type="Texture2D" uid="uid://b0ardnwqfiolj" path="res://Assets/Cores Originais/Planetas e Derivados/Vento curupolar.png" id="2_uxd7t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb3yl"]
+radius = 13.833334
+height = 46.333336
+
+[node name="Onda Vento" type="Area2D" unique_id=64112393]
+collision_layer = 64
+script = ExtResource("1_2bugv")
+velocidade = 6000.0
+forca_empurrao = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1477889097]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_uxd7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=843064398]
+position = Vector2(-2.000001, 0)
+rotation = 1.5707964
+scale = Vector2(3, 3)
+shape = SubResource("CapsuleShape2D_qb3yl")

@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://c7sv1k42ekrej"]
 
-[ext_resource type="Script" uid="uid://pynkftrxrn8b" path="res://asteroides/Scripts/asteroid.gd" id="1_td83g"]
-[ext_resource type="PackedScene" uid="uid://b6rmfxfnufukd" path="res://asteroides/Scenes/Fragment.tscn" id="2_gsn21"]
-[ext_resource type="Texture2D" uid="uid://bliv5ubel0i53" path="res://asteroides/Sprites/meteoro.png" id="2_td83g"]
-[ext_resource type="Texture2D" uid="uid://ujuanceksyr3" path="res://asteroides/Sprites/fragmento 2.png" id="3_egd4j"]
-[ext_resource type="Texture2D" uid="uid://b3o5dmk5t3qf6" path="res://asteroides/Sprites/fragmento 3.png" id="4_k8ucx"]
-[ext_resource type="Texture2D" uid="uid://0hpcxnvpur0l" path="res://asteroides/Sprites/fragmento 4.png" id="5_howh4"]
-[ext_resource type="Texture2D" uid="uid://d0f538jn8e3ex" path="res://asteroides/Sprites/fragmento 5.png" id="6_b3ls5"]
-[ext_resource type="Texture2D" uid="uid://brboxy7n0ap2q" path="res://asteroides/Sprites/fragmento 6.png" id="7_gkjap"]
+[ext_resource type="Script" uid="uid://pynkftrxrn8b" path="res://Asteroides/Scripts/asteroid.gd" id="1_td83g"]
+[ext_resource type="PackedScene" uid="uid://b6rmfxfnufukd" path="res://Asteroides/Scenes/Fragment.tscn" id="2_gsn21"]
+[ext_resource type="Texture2D" uid="uid://bliv5ubel0i53" path="res://Asteroides/Sprites/meteoro.png" id="2_td83g"]
+[ext_resource type="Texture2D" uid="uid://ujuanceksyr3" path="res://Asteroides/Sprites/fragmento 2.png" id="3_egd4j"]
+[ext_resource type="Texture2D" uid="uid://b3o5dmk5t3qf6" path="res://Asteroides/Sprites/fragmento 3.png" id="4_k8ucx"]
+[ext_resource type="Texture2D" uid="uid://0hpcxnvpur0l" path="res://Asteroides/Sprites/fragmento 4.png" id="5_howh4"]
+[ext_resource type="Texture2D" uid="uid://d0f538jn8e3ex" path="res://Asteroides/Sprites/fragmento 5.png" id="6_b3ls5"]
+[ext_resource type="Texture2D" uid="uid://brboxy7n0ap2q" path="res://Asteroides/Sprites/fragmento 6.png" id="7_gkjap"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gsn21"]
 radius = 22.090721
 
 [node name="Asteroid" type="Area2D" unique_id=441166708 groups=["asteroid"]]
 texture_filter = 1
-collision_layer = 8
+collision_layer = 32
+collision_mask = 15
 script = ExtResource("1_td83g")
 fragment_scene = ExtResource("2_gsn21")
 fragment_textures = Array[Texture2D]([ExtResource("3_egd4j"), ExtResource("4_k8ucx"), ExtResource("5_howh4"), ExtResource("6_b3ls5"), ExtResource("7_gkjap"), ExtResource("3_egd4j")])
