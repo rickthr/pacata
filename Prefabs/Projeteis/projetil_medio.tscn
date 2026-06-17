@@ -9,7 +9,8 @@ radius = 49.0
 height = 684.0
 
 [node name="ProjetilMedio" type="Area2D" unique_id=1188101960]
-collision_layer = 4
+collision_layer = 8
+collision_mask = 33
 script = ExtResource("1_cl138")
 dadosTipoProjetil = ExtResource("2_avahe")
 

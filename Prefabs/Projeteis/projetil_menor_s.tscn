@@ -8,7 +8,8 @@
 radius = 13.0
 
 [node name="ProjetilMenorS" type="Area2D" unique_id=491273859]
-collision_layer = 4
+collision_layer = 8
+collision_mask = 33
 script = ExtResource("1_hifqe")
 dadosTipoProjetil = ExtResource("2_26wnw")
 metadata/_custom_type_script = "uid://dksb268q7yeaf"

@@ -16,6 +16,7 @@ height = 16.0
 
 [node name="InimigoC" type="CharacterBody2D" unique_id=197331739]
 collision_layer = 2
+collision_mask = 37
 script = ExtResource("1_q3kla")
 amplitude = 150.0
 frequencia = 0.4
@@ -39,7 +40,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kkmha")
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=504561067]
-wait_time = 0.2
+wait_time = 0.3
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2104141958]

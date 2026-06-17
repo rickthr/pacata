@@ -44,8 +44,8 @@ func altera_direcao_lado():#OVERRIDE
 
 func defini_direcao_proj() -> Vector2:
 	if lado == LadoInstanciado.ESQUERDA:
-		direcao_projetil = Vector2(-direcao.y, direcao.x).normalized()
+		direcao_projetil = Vector2(direcao.y, -direcao.x).normalized()
 	elif lado == LadoInstanciado.DIREITA:
-		direcao_projetil = Vector2(direcao.y, direcao.x).normalized()
+		direcao_projetil = Vector2(direcao.y, -direcao.x).normalized()
 	#Override para cada tipo de direcao respectivo ao tipo de inimigo
 	return direcao_projetil
