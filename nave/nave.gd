@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-
-
 const JUMP_VELOCITY = -400.0
 
 @onready var shoot_l: Marker2D = $shoot_l
