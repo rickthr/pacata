@@ -33,7 +33,8 @@ var cena_anterior_aPausa
 
 func _ready() -> void:
 	if Global.CenaAtual == null:
-		Global.CenaAtual = Cenas.Tutorial
+		Global.CenaAtual = Cenas.MenuInicial #pra testes
+		
 	Global.GerenciadorCenas = self
 	cnvsOpcoes = $Opcoes
 	efeitoStream = $EfeitosStream

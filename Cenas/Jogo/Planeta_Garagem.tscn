@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0tjx0icagaxe" path="res://Scripts/Gerenciadores de Cenas/botoes_planetagaragem.gd" id="1_43vs0"]
 [ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="2_7lvqx"]
-[ext_resource type="Texture2D" uid="uid://62qcp2xtn3od" path="res://Assets/Cores Originais/Planetas e Derivados/Universo.png" id="2_qab2s"]
+[ext_resource type="Texture2D" uid="uid://dx8ojknj1d6w2" path="res://Assets/Cores Originais/Interface/Universo (background padrão_.jpg" id="2_43vs0"]
 [ext_resource type="Texture2D" uid="uid://bt8txlp6rghp2" path="res://Assets/Cores Originais/Planetas e Derivados/Garagem.png" id="3_7lvqx"]
 [ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Cores Originais/Interface/Itch.io.png" id="4_grnmf"]
 [ext_resource type="Texture2D" uid="uid://bqlgranxo127v" path="res://Assets/Cores Originais/cadeado.png" id="5_d6t0n"]
@@ -19,17 +19,19 @@ efeitoStream = NodePath("EfeitosStream")
 hover = NodePath("hover")
 
 [node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("2_7lvqx")]
+position = Vector2(640, 360)
+scale = Vector2(3.5, 3.5)
 
 [node name="Universo" type="Sprite2D" parent="." unique_id=361502068]
 texture_filter = 1
 position = Vector2(640, 360)
 scale = Vector2(4, 4)
-texture = ExtResource("2_qab2s")
+texture = ExtResource("2_43vs0")
 
 [node name="Garagem" type="Sprite2D" parent="." unique_id=496833025]
 texture_filter = 1
 position = Vector2(640, 360)
-scale = Vector2(3.5812497, 3.5888886)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("3_7lvqx")
 
 [node name="Quadrantes" type="Node2D" parent="." unique_id=377777049]

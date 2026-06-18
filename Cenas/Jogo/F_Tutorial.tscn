@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://nvu74qeiiqi2" path="res://Scripts/Gerenciadores de Cenas/gerenciador_tutorial.gd" id="1_ik14d"]
 [ext_resource type="PackedScene" path="res://Prefabs/fundo.tscn" id="1_y3406"]
 [ext_resource type="PackedScene" uid="uid://b4ej53i2qgk82" path="res://Prefabs/Dialogo/dialogue_ui.tscn" id="2_4gh05"]
-[ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="4_e2uks"]
 
 [node name="FTutorial" type="Node2D" unique_id=2061296585]
 script = ExtResource("1_ik14d")
@@ -11,5 +10,3 @@ script = ExtResource("1_ik14d")
 [node name="Fundo" parent="." unique_id=446008467 instance=ExtResource("1_y3406")]
 
 [node name="DialogueUi" parent="." unique_id=1705464675 instance=ExtResource("2_4gh05")]
-
-[node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("4_e2uks")]

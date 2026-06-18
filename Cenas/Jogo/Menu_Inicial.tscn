@@ -154,3 +154,4 @@ autoplay = true
 parameters/looping = true
 
 [node name="GerenciadorCenas" parent="." unique_id=80333866 instance=ExtResource("7_5e7wx")]
+position = Vector2(-650, -103)

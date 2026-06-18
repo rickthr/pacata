@@ -18,7 +18,9 @@ var index_botao: int = 0
 var gerenciadorCenas: GerenciadorCenas
 
 func _ready() -> void:
+	print_debug(Global.GerenciadorCenas)	
 	gerenciadorCenas = Global.GerenciadorCenas
+	print_debug(Global.GerenciadorCenas)	
 	# Pega todos os botões que estão dentro do nó Botoes
 	lista_botoes = botoes.get_children()
 	
