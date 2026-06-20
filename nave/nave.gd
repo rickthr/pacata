@@ -50,7 +50,9 @@ func receber_dano():
 
 func _ready() -> void:
 	add_to_group("jogador")
+	print_debug(self)
 	Global.Jogador = self
+	print_debug(Global.Jogador)
 	flip()
 	var tipoDados = TipoDatabaseNave.new()
 	dano_bala = tipoDados.valorAtaqueNave[dadosNave.valor_dano_nave]
@@ -99,6 +101,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("atack") and pode_atirar:
 		var new_shoot =  shoot.instantiate()
+		print_debug(new_shoot)
 		$tiro.play()
 		pode_atirar = false
 		if contador_flip % 2 == 0:

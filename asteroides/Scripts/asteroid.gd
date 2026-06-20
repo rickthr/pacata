@@ -10,9 +10,10 @@ extends AsteroidBase
 var _pulse_time: float = 0.0
 var _base_scale: Vector2 = Vector2.ONE
 var _is_epico: bool = false
-	
+
 func setup(asteroide_dict: Dictionary, minerio_dict: Dictionary) -> void:
 	super.setup(asteroide_dict, minerio_dict)
+	print_debug(collision_layer, " ", collision_mask)
 	#_aplicar_vfx()
 	
 #Função destruir com os fragmentos

@@ -16,6 +16,7 @@ var rot_speed:  float   = 0.0
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
+	print_debug(collision_layer, " ", collision_mask)
 	
 
 # setup() — chamado pelo Spawner logo após add_child()

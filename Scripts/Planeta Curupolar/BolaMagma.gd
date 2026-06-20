@@ -28,7 +28,7 @@ func configurar(posicao_inicial: Vector2, alvo: Vector2):
 	posicao_alvo = alvo
 	movendo = true
 
-	print("Bola configurada. Inicial: ", posicao_inicial, " Alvo: ", alvo)
+	print_debug("Bola configurada. Inicial: ", posicao_inicial, " Alvo: ", alvo)
 
 
 func _on_body_entered(body):
