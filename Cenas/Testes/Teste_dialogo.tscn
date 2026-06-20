@@ -11,7 +11,6 @@
 
 [node name="TestDialogueCaller" type="Node" parent="." unique_id=1008552034]
 script = ExtResource("2_141ub")
-test_dialogue_id = "DPAI2"
 
 [node name="DialogueNPC" type="Node" parent="." unique_id=464048036]
 script = ExtResource("3_141ub")

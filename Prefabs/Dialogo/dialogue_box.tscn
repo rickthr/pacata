@@ -22,8 +22,11 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_0ocdd")
 
 [node name="BoxBackground" type="TextureRect" parent="Panel" unique_id=1794079934]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="NameLabel" type="Label" parent="Panel" unique_id=458109714]
 layout_mode = 0
