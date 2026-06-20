@@ -15,8 +15,8 @@ var velocidade: Vector2 = Vector2.ZERO
 var rot_speed:  float   = 0.0
 
 func _ready() -> void:
-	add_to_group("asteroid")
 	area_entered.connect(_on_area_entered)
+	
 
 # setup() — chamado pelo Spawner logo após add_child()
 func setup(asteroide_dict: Dictionary, minerio_dict: Dictionary) -> void:

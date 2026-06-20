@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://pnwsjyqjn2dl"]
+
+[ext_resource type="Script" uid="uid://b6y3gslfh14xm" path="res://asteroides/Scripts/ore_drop.gd" id="1_dtu83"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dtu83"]
+radius = 7.071068
+
+[node name="OreDrop" type="Area2D" unique_id=1727941661]
+script = ExtResource("1_dtu83")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1195854923]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=743525972]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_dtu83")
