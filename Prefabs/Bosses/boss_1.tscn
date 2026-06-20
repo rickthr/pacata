@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bahep28044k1k" path="res://Prefabs/Bosses/boss_1.gd" id="1_y3k76"]
 [ext_resource type="Resource" uid="uid://qnxwc0vppii7" path="res://Scripts/Bosses/Resources/Boss1.tres" id="2_g4pn2"]
 [ext_resource type="PackedScene" uid="uid://c672wdww4c4k5" path="res://Prefabs/avisa_tiro_maior.tscn" id="2_xor2y"]
-[ext_resource type="Texture2D" uid="uid://d3pyx0k3x36ua" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/TremBossMalignoCOMPLETED.png" id="3_vf0gf"]
+[ext_resource type="Texture2D" uid="uid://1vg1x0nxyo43" path="res://Assets/Protanopia/Inimigos/proTrembossmaligno.png" id="4_tr1qw"]
 [ext_resource type="Texture2D" uid="uid://djpdwi23tsu7c" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED1.png" id="5_f5abl"]
 [ext_resource type="Texture2D" uid="uid://c4t0euapcua5y" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED2.png" id="6_7udnf"]
 [ext_resource type="Texture2D" uid="uid://krhbqlsij05m" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED3.png" id="7_7hj0j"]
@@ -28,12 +28,49 @@
 [ext_resource type="Texture2D" uid="uid://015a2x4jpqel" path="res://Assets/Cores Originais/Inimigos/bv inimigos aj.png" id="26_ru4iy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tr1qw"]
-radius = 115.714325
-height = 917.14325
+radius = 117.14291
+height = 1051.429
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ru4iy"]
-radius = 91.42853
-height = 934.28564
+radius = 151.42853
+height = 1099.9999
+
+[sub_resource type="Animation" id="Animation_tr1qw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, -8.999999)]
+}
+
+[sub_resource type="Animation" id="Animation_ru4iy"]
+resource_name = "descendo_gravado"
+length = 2.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(600, 20), Vector2(620, 70), Vector2(590, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhpyx"]
+_data = {
+&"RESET": SubResource("Animation_tr1qw"),
+&"descendo_gravado": SubResource("Animation_ru4iy")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fi25a"]
 animations = [{
@@ -70,6 +107,11 @@ animations = [{
 }],
 "loop": false,
 "name": &"descendo",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"descendo_gravado",
 "speed": 5.0
 }, {
 "frames": [{
@@ -109,7 +151,7 @@ animations = [{
 }]
 
 [node name="Boss1" type="CharacterBody2D" unique_id=1877750270 node_paths=PackedStringArray("pos_instancia_tiro_maior", "pos_instancia_tiro_menor_s", "pos_instancia_tiro_menor_r", "pos_instancia_tiro_medio")]
-position = Vector2(640, 0)
+position = Vector2(640, -8.999999)
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
 script = ExtResource("1_y3k76")
@@ -122,51 +164,52 @@ dadosBoss = ExtResource("2_g4pn2")
 metadata/_custom_type_script = "uid://b1bqlbr1cd0ed"
 
 [node name="InstMaior" type="Node2D" parent="." unique_id=345737063]
-position = Vector2(-642.8571, 0)
+position = Vector2(-647.1429, -251.42854)
 
 [node name="Marker2D" type="Marker2D" parent="InstMaior" unique_id=2022967480]
 position = Vector2(639, 216)
 
 [node name="InstMedio" type="Node2D" parent="." unique_id=2141966760]
-position = Vector2(-642.8571, 0)
+position = Vector2(-647.1429, -251.42854)
 
 [node name="Marker2D" type="Marker2D" parent="InstMedio" unique_id=401387220]
-position = Vector2(238.5714, 118.571434)
+position = Vector2(200, 115)
 
 [node name="Marker2D4" type="Marker2D" parent="InstMedio" unique_id=1492952157]
-position = Vector2(459, 139)
+position = Vector2(440.00003, 129.99997)
 
 [node name="Marker2D2" type="Marker2D" parent="InstMedio" unique_id=543763218]
-position = Vector2(817, 139)
+position = Vector2(835.71436, 129.99998)
 
 [node name="Marker2D3" type="Marker2D" parent="InstMedio" unique_id=1257568400]
-position = Vector2(1038.5714, 121.42858)
+position = Vector2(1074.2858, 115.714264)
 
 [node name="InstMenorS" type="Node2D" parent="." unique_id=1342432778]
-position = Vector2(-642.8571, 0)
+position = Vector2(-647.1429, -251.42854)
 
 [node name="Marker2D3" type="Marker2D" parent="InstMenorS" unique_id=1628393415]
-position = Vector2(289, 52)
+position = Vector2(254, 34)
 
 [node name="Marker2D2" type="Marker2D" parent="InstMenorS" unique_id=359680296]
-position = Vector2(997.1429, 51.428574)
+position = Vector2(1031.4286, 34.285686)
 
 [node name="InstMenorR" type="Node2D" parent="." unique_id=1387105975]
-position = Vector2(-642.8571, 0)
+position = Vector2(-647.1429, -251.42854)
 
 [node name="Marker2D" type="Marker2D" parent="InstMenorR" unique_id=667588620]
-position = Vector2(378.571, 82)
+position = Vector2(350, 68)
 
 [node name="Marker2D2" type="Marker2D" parent="InstMenorR" unique_id=1116138459]
-position = Vector2(900, 82)
+position = Vector2(922.8571, 68.57141)
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=238277119]
-position = Vector2(-14.285671, 47.142857)
+position = Vector2(-14.285671, -232.85715)
 rotation = 1.5707964
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("CapsuleShape2D_tr1qw")
 
 [node name="area2d" type="Area2D" parent="." unique_id=1298161627]
+position = Vector2(0, -309.99997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area2d" unique_id=1745663073]
 position = Vector2(3.623768e-13, 72.85714)
@@ -174,15 +217,22 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ru4iy")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1617251182]
-visible = false
-position = Vector2(0, 45)
-texture = ExtResource("3_vf0gf")
+texture_filter = 1
+position = Vector2(0, -160.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_tr1qw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1006447957]
+root_node = NodePath("../anim")
+libraries/ = SubResource("AnimationLibrary_mhpyx")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=1075190972]
 position = Vector2(-4.285714, 202.85715)
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_fi25a")
 animation = &"descendo"
+frame = 9
+frame_progress = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1510732895]
 scale = Vector2(5, 5)

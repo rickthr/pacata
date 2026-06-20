@@ -2,24 +2,31 @@
 
 [ext_resource type="Script" uid="uid://br2v3cevybfl5" path="res://Scripts/Planeta Curupolar/planeta_curupolar.gd" id="1_2jjnc"]
 [ext_resource type="PackedScene" uid="uid://b8m34tky5kr6m" path="res://node_2d.tscn" id="2_2jjnc"]
-[ext_resource type="Texture2D" uid="uid://bua2oywaon76y" path="res://Assets/Cores Originais/Planetas e Derivados/Curupolar.png" id="3_j2wkr"]
+[ext_resource type="Texture2D" uid="uid://uveimb1u7am2" path="res://Assets/Protanopia/prota universo.png" id="2_qmhjd"]
+[ext_resource type="Texture2D" uid="uid://c5md2k4poxn1s" path="res://Assets/Protanopia/teste13es.png" id="3_qnhs7"]
 [ext_resource type="Script" uid="uid://l8mdvx6is4iu" path="res://Scripts/Planeta Curupolar/spawner_magma.gd" id="5_h2bnb"]
 [ext_resource type="PackedScene" uid="uid://d3bsa405x88mw" path="res://Planetas/Boladefogo.tscn" id="7_415qc"]
 [ext_resource type="Script" uid="uid://dryjruyluglhl" path="res://Scripts/Planeta Curupolar/spawner_vento.gd" id="8_2jjnc"]
 [ext_resource type="PackedScene" uid="uid://b1piise6j1ltc" path="res://Planetas/IndicadorMagma.tscn" id="8_fgs4o"]
-[ext_resource type="PackedScene" uid="uid://c38xctjl2sgq7" path="res://Asteroides/Scenes/asteroid_spawner.tscn" id="8_fkykd"]
+[ext_resource type="PackedScene" uid="uid://c38xctjl2sgq7" path="res://asteroides/Scenes/asteroid_spawner.tscn" id="8_fkykd"]
 [ext_resource type="PackedScene" uid="uid://bkqqluy7mgou3" path="res://Scripts/Planeta Curupolar/OndaVento.tscn" id="9_alyvy"]
 
 [node name="PlanetaCurupolar" type="Node2D" unique_id=875043077]
 texture_filter = 1
 script = ExtResource("1_2jjnc")
 
+[node name="Fundo" type="Sprite2D" parent="." unique_id=882635614]
+position = Vector2(640, 360)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_qmhjd")
+
 [node name="Nave" parent="." unique_id=2055429933 instance=ExtResource("2_2jjnc")]
 
 [node name="Curupolar" type="Sprite2D" parent="." unique_id=1033081834]
+texture_filter = 1
 position = Vector2(1279.0001, 349)
-scale = Vector2(3.3518748, 3.381389)
-texture = ExtResource("3_j2wkr")
+scale = Vector2(1, 1.009)
+texture = ExtResource("3_qnhs7")
 
 [node name="SpawnerMagma" type="Node2D" parent="." unique_id=1359226679]
 script = ExtResource("5_h2bnb")

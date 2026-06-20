@@ -1,25 +1,8 @@
 [gd_scene format=3 uid="uid://b8m34tky5kr6m"]
 
-[ext_resource type="Texture2D" uid="uid://c4r7glcsspnix" path="res://Assets/Cores Originais/Testes Menu/menu_improvisado.png" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://nave/nave.tscn" id="2_epypp"]
-[ext_resource type="Texture2D" uid="uid://dvrrwjbw5uasy" path="res://Assets/Cores Originais/Testes Menu/menu_sozinho.png" id="3_epypp"]
 [ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="4_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://usu4ruqjpd2o" path="res://Assets/Cores Originais/Testes Menu/vida.png" id="5_kdubu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
-size = Vector2(594, 188)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(753.5, 165.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(869, 129)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
-size = Vector2(968, 97)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
-size = Vector2(1311, 63.5)
 
 [node name="Node2D" type="Node2D" unique_id=2055429933]
 
@@ -29,40 +12,6 @@ collision_layer = 128
 collision_mask = 106
 label_vida = NodePath("../vida")
 label_score = NodePath("../score")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=979871887]
-z_index = 1
-position = Vector2(643, 370.00003)
-scale = Vector2(0.20162037, 0.18478127)
-texture = ExtResource("1_0e48y")
-
-[node name="menu" type="StaticBody2D" parent="." unique_id=706515174]
-collision_layer = 16
-
-[node name="Sprite2D" type="Sprite2D" parent="menu" unique_id=1325882745]
-position = Vector2(651, 630.875)
-scale = Vector2(0.19945984, 0.18108974)
-texture = ExtResource("3_epypp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="menu" unique_id=409761900]
-position = Vector2(654, 632)
-shape = SubResource("RectangleShape2D_epypp")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="menu" unique_id=141647224]
-position = Vector2(630.25, 656.25)
-shape = SubResource("RectangleShape2D_0hol4")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="menu" unique_id=1953164394]
-position = Vector2(649.5, 670.5)
-shape = SubResource("RectangleShape2D_q6r6c")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="menu" unique_id=1242372553]
-position = Vector2(643, 680.5)
-shape = SubResource("RectangleShape2D_kdubu")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="menu" unique_id=1248449642]
-position = Vector2(650.5, 697.25)
-shape = SubResource("RectangleShape2D_d21ai")
 
 [node name="score" type="Label" parent="." unique_id=1714361929]
 offset_left = 128.0

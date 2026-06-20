@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cgwn51p8ondg"]
 
-[ext_resource type="Script" uid="uid://cob3l8e6f8uve" path="res://Nave/nave.gd" id="1_ltewx"]
-[ext_resource type="Resource" uid="uid://bp6mqarjc8tdi" path="res://Nave/Nave.tres" id="2_2pqvo"]
+[ext_resource type="Script" uid="uid://cob3l8e6f8uve" path="res://nave/nave.gd" id="1_ltewx"]
+[ext_resource type="Resource" uid="uid://bp6mqarjc8tdi" path="res://nave/Nave.tres" id="2_2pqvo"]
 [ext_resource type="Texture2D" uid="uid://1lrq5jrck7rd" path="res://Assets/Cores Originais/Nave/DRILLERA0132X32.png" id="2_53dx7"]
-[ext_resource type="Texture2D" uid="uid://c1jgcfn4ewfu7" path="res://Assets/Cores Originais/Nave/CARRINHOCOMPLETED.png" id="3_6rt8y"]
-[ext_resource type="Texture2D" uid="uid://bn71nd0yiggy1" path="res://Assets/Cores Originais/Nave/canhao.png" id="4_1poy6"]
-[ext_resource type="Texture2D" uid="uid://c51rouprh63ls" path="res://Assets/Cores Originais/Nave/broca.png" id="5_xqbh8"]
+[ext_resource type="Texture2D" uid="uid://bc5kd6kauo56u" path="res://Assets/Protanopia/Nave/proCanhao.png" id="4_0acnm"]
+[ext_resource type="Texture2D" uid="uid://hfiddgw0g5pu" path="res://Assets/Protanopia/Nave/ProCarrinho.png" id="5_ct0ft"]
+[ext_resource type="Texture2D" uid="uid://rmehk1dhqiu8" path="res://Assets/Protanopia/Nave/proDrill.png" id="6_f8vp8"]
 [ext_resource type="AudioStream" uid="uid://diodqer63djsi" path="res://Assets/Sons/Efeitos Nave/sounds/Nave explodindo.mp3" id="7_o8mc5"]
 [ext_resource type="AudioStream" uid="uid://dak7woail2gdd" path="res://Assets/Sons/Efeitos Nave/sounds/Nave levando dano.mp3" id="8_0acnm"]
 [ext_resource type="AudioStream" uid="uid://bsf3ao4my6a0w" path="res://Assets/Sons/Efeitos Nave/sounds/tiro.mp3" id="9_0acnm"]
@@ -31,6 +31,7 @@ size = Vector2(36, 50)
 size = Vector2(23.875, 14.0625)
 
 [node name="Nave" type="CharacterBody2D" unique_id=85779185 groups=["jogador"]]
+texture_filter = 1
 script = ExtResource("1_ltewx")
 dadosNave = ExtResource("2_2pqvo")
 
@@ -58,12 +59,12 @@ shape = SubResource("RectangleShape2D_j1vys")
 [node name="canhao" type="Sprite2D" parent="flip2" unique_id=1461168935]
 position = Vector2(29.999998, -1.975)
 scale = Vector2(0.101, 0.099)
-texture = ExtResource("4_1poy6")
+texture = ExtResource("4_0acnm")
 
 [node name="card" type="Sprite2D" parent="flip2" unique_id=261987526]
 position = Vector2(35.00001, -3.999999)
 scale = Vector2(0.141, 0.135)
-texture = ExtResource("3_6rt8y")
+texture = ExtResource("5_ct0ft")
 
 [node name="flip1" type="Area2D" parent="." unique_id=66447914]
 collision_mask = 6
@@ -75,12 +76,12 @@ shape = SubResource("RectangleShape2D_j1vys")
 [node name="card" type="Sprite2D" parent="flip1" unique_id=393927898]
 position = Vector2(-36.00001, -4)
 scale = Vector2(0.15, 0.135)
-texture = ExtResource("3_6rt8y")
+texture = ExtResource("5_ct0ft")
 
 [node name="canhao" type="Sprite2D" parent="flip1" unique_id=693362293]
 position = Vector2(-30, -1.9750006)
 scale = Vector2(0.1, 0.099)
-texture = ExtResource("4_1poy6")
+texture = ExtResource("4_0acnm")
 
 [node name="shoot_l" type="Marker2D" parent="." unique_id=902505111]
 position = Vector2(-30, -17)
@@ -96,9 +97,9 @@ position = Vector2(0, -22.96875)
 shape = SubResource("RectangleShape2D_jemat")
 
 [node name="Sprite2D" type="Sprite2D" parent="Broca" unique_id=335720182]
-position = Vector2(-2.3841858e-07, -23.000004)
-scale = Vector2(0.1, 0.067)
-texture = ExtResource("5_xqbh8")
+position = Vector2(0, -28)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_f8vp8")
 
 [node name="naveDead" type="AudioStreamPlayer2D" parent="." unique_id=2108717333]
 stream = ExtResource("7_o8mc5")
