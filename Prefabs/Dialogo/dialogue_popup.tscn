@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://caocggpeyhbk5"]
 
 [ext_resource type="Script" uid="uid://drrlr37xpwxo" path="res://Scripts/Dialogo/DialoguePopup.gd" id="1_n6kgf"]
+[ext_resource type="Texture2D" uid="uid://cod15ms3eu2ra" path="res://Assets/Cores Originais/recados e dicas.png" id="2_i128u"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_xdry0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkdob"]
 
 [node name="DialoguePopup" type="CanvasLayer" unique_id=1826871568]
 script = ExtResource("1_n6kgf")
@@ -10,11 +14,36 @@ offset_left = 340.0
 offset_top = 40.0
 offset_right = 940.0
 offset_bottom = 120.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bkdob")
+
+[node name="Fundo" type="TextureRect" parent="Panel" unique_id=778363640]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.528
+anchor_top = 1.0370001
+anchor_right = -0.048
+anchor_bottom = 4.037
+offset_left = -0.2000122
+offset_top = 0.039993286
+offset_right = -177.2
+offset_bottom = -191.96002
+scale = Vector2(3.5, 5)
+texture = ExtResource("2_i128u")
 
 [node name="PopupText" type="Label" parent="Panel" unique_id=1581178334]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 15.0
-offset_right = 580.0
-offset_bottom = 65.0
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.42700002
+anchor_top = 1.9620001
+anchor_right = 0.060000002
+anchor_bottom = 3.3370001
+offset_left = 0.2000122
+offset_top = 0.039993286
+offset_bottom = 0.039978027
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xdry0")
+theme_override_font_sizes/font_size = 24
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 autowrap_mode = 3
