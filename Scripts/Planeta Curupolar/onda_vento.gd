@@ -13,7 +13,7 @@ func _ready():
 	body_exited.connect(_on_body_exited)
 
 
-func _physics_process(delta):
+func _physics_process(delta:float):
 	global_position += direcao * velocidade * delta
 
 	for body in corpos_dentro:

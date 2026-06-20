@@ -3,6 +3,7 @@ class_name GerenciadorCenas
 
 enum Cenas{
 	MenuInicial,
+	Historia,
 	PlanetaGaragem,
 	Tutorial,
 	PlanetaCurupolar,
@@ -11,6 +12,7 @@ enum Cenas{
 
 var caminhos_cena: Dictionary={
 	Cenas.MenuInicial: "res://Cenas/Jogo/Menu_Inicial.tscn",
+	Cenas.Historia: "res://Cenas/Jogo/F_HISTORIA.tscn",
 	Cenas.PlanetaGaragem: "res://Cenas/Jogo/Planeta_Garagem.tscn",
 	Cenas.Tutorial: "res://Cenas/Jogo/F_Tutorial.tscn",
 	Cenas.PlanetaCurupolar: "res://Cenas/Jogo/F_PlanetaCurupolar.tscn"
@@ -52,6 +54,7 @@ func mudarCena(novaCena: Cenas):
 	if cenaAtual == Cenas.Opcoes:
 		get_tree().paused = true
 	elif cenaAtual != Cenas.Opcoes:
+		print_debug(cenaAtual)
 		get_tree().change_scene_to_file(caminhos_cena[cenaAtual])
 	
 func gerenciarCena():

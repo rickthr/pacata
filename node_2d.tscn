@@ -8,7 +8,6 @@
 
 [node name="Nave" parent="." unique_id=85779185 node_paths=PackedStringArray("label_vida", "label_score") instance=ExtResource("2_epypp")]
 position = Vector2(640, 485)
-collision_layer = 128
 collision_mask = 106
 label_vida = NodePath("../vida")
 label_score = NodePath("../score")

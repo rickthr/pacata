@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://csyq7dfftegdf"]
+[gd_scene format=3 uid="uid://k6622eff5pyn"]
 
 [ext_resource type="PackedScene" uid="uid://j6w7hlk2a64a" path="res://Prefabs/Dialogo/dialogue_box.tscn" id="1_bqon4"]
 [ext_resource type="Script" uid="uid://dad456qtuubwr" path="res://Scripts/Dialogo/TestDialogueCaller.gd" id="2_141ub"]
@@ -11,6 +11,7 @@
 
 [node name="TestDialogueCaller" type="Node" parent="." unique_id=1008552034]
 script = ExtResource("2_141ub")
+popup_duration_per_message = 4.0
 
 [node name="DialogueNPC" type="Node" parent="." unique_id=464048036]
 script = ExtResource("3_141ub")

@@ -4,6 +4,8 @@ const JUMP_VELOCITY = -400.0
 
 @onready var shoot_l: Marker2D = $shoot_l
 @onready var shoot_r: Marker2D = $shoot_r
+@onready var animCorpo = $animCorpo
+@onready var animAsas = $animAsas
 
 @export var dadosNave : DatabaseNave
 @export var label_vida : Label
@@ -19,6 +21,8 @@ var vida :int
 var dano_bala :int
 var SPEED:int 
 var pode_atirar := true
+var direcao_atual := 0.0
+var fazendo_curva := false
 
 func flip():
 	if contador_flip %2 == 0:
@@ -35,6 +39,7 @@ func flip():
 		
 		$flip2/canhao.visible = true
 		$flip1/card.visible = true
+		
 func receber_dano():
 	vida -= 1
 	label_vida.text = "Vida: " + str(vida)
@@ -76,6 +81,8 @@ func _physics_process(delta: float) -> void:
 	var direcao := Vector2(direction_x, direction_y)
 	velocity = direcao * velocidade
 	
+	animacaoCurva(direcao.x, delta)
+	
 	if sinal_ativo:
 		velocity += forca_externa
 	else:
@@ -97,11 +104,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("flip"):
 		contador_flip+=1
 		flip()
-		print(contador_flip)
 	
 	if Input.is_action_pressed("atack") and pode_atirar:
 		var new_shoot =  shoot.instantiate()
-		print_debug(new_shoot)
 		$tiro.play()
 		pode_atirar = false
 		if contador_flip % 2 == 0:
@@ -115,12 +120,40 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
+#ANIMAÇÂO CURVA
+func animacaoCurva(direcao_x: float, delta: float):
+	var direcao_alvo =direcao_x
+	direcao_atual = lerp(direcao_atual, direcao_alvo, 5.0 * delta)
+	$Nave.flip_h = direcao_atual < 0
+	
+	if direcao_x != 0:
+		if fazendo_curva == false:
+			animAsas.play("curva")
+			animCorpo.play("curva")
+			fazendo_curva = true
+		await animCorpo.animation_finished
+		animCorpo.play("curva_loop")
+		animAsas.play("curva_loop")
+	else:
+		fazendo_curva = false 
+		animCorpo.play("RESET")
+		animAsas.play("RESET")
+
+#ANIMAÇÂO TIRO E COLETA
+func animacaoTiro():
+	
+	pass
+	
+func animacaoColeta():
+	pass
+
 func aplicar_empurrao(forca: Vector2) -> void:
 	forca_externa += forca
+	
 func _on_broca_body_entered(body: Node2D) -> void:
 	#sinal emite morte do objeto q entrou na area
-	queue_free()
-
+	if not body.is_in_group("inimigos"):
+		body.queue_free()
 
 func _on_flip_2_body_entered(body: Node2D) -> void:
 	if contador_flip %2 == 0 and body.is_in_group("Minerios"):

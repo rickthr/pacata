@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://b22bj3iww88rx"]
+
+[ext_resource type="PackedScene" uid="uid://bbyce37hw0fmy" path="res://Prefabs/fundo.tscn" id="1_2p1kb"]
+[ext_resource type="Script" uid="uid://b85webq4fr8u6" path="res://Scripts/Gerenciadores de Cenas/gerencia_historia.gd" id="1_yxn7i"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="2_52o6m"]
+[ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="4_wmfwe"]
+
+[sub_resource type="Animation" id="Animation_2p1kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Texto:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(90, 727)]
+}
+
+[sub_resource type="Animation" id="Animation_52o6m"]
+resource_name = "subindo_texto"
+length = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Texto:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 50),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(90, 727), Vector2(90, -800)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxn7i"]
+_data = {
+&"RESET": SubResource("Animation_2p1kb"),
+&"subindo_texto": SubResource("Animation_52o6m")
+}
+
+[node name="FHistoria" type="Node2D" unique_id=1725367536]
+script = ExtResource("1_yxn7i")
+
+[node name="Fundo" parent="." unique_id=241065843 instance=ExtResource("1_2p1kb")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1959865969]
+
+[node name="Texto" type="Label" parent="CanvasLayer" unique_id=1340834872]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_right = 0.93000007
+anchor_bottom = 1.09
+offset_left = 0.40000153
+offset_top = 727.0
+offset_right = -0.40014648
+offset_bottom = 727.20447
+grow_horizontal = 2
+pivot_offset = Vector2(550, 0)
+theme_override_fonts/font = ExtResource("2_52o6m")
+theme_override_font_sizes/font_size = 48
+text = "“Andrômeda, a fascinante galáxia e lugar onde eu vivo. Anos atrás, no lado mais pobre da galáxia, a Associação Interplanetária(IA) constituiu o nosso planeta e tentou nos invadir. Porém, nosso planeta era habitado pela União de Drillers(UD), e marcado como um planeta deles, uma guerra foi travada, destruindo metade do planeta. Após o fim da guerra, a IA se mandou nós ficamos pra consertar o lugar, não deu muito certo e metade do planeta agora tá coberto por uma vegetação que cresce continuamente. Eu cresci e junto de mim se construiu um belo planeta em volto da destruição e natureza, o Planeta Garagem, que hoje serve como ponto comercial e garagem para viajantes espaciais, e eu sou um deles, me chamo Diggy, e apesar da galáxia apresentar diversos planetas com diferentes formas de explorar, eu estou nesse exato momento vendo vídeos no tik-tok… Mas pera lá, tenho que parar, tenho que fazer uma coisa…”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1205954214]
+libraries/ = SubResource("AnimationLibrary_yxn7i")
+
+[node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("4_wmfwe")]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c55j0ge33gfhb"]
 
 [ext_resource type="Script" uid="uid://cfn1sehw8glay" path="res://Scripts/Planeta Curupolar/onda_vento.gd" id="1_2bugv"]
-[ext_resource type="Texture2D" uid="uid://dw7mwfvjemp65" path="res://Assets/Protanopia/vento curupolar protanopia.png" id="2_2bugv"]
+[ext_resource type="Texture2D" uid="uid://bqlvwjbwtjdt7" path="res://Assets/Protanopia/PROTAVento curupolar.png" id="2_2bugv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb3yl"]
 radius = 13.833334
@@ -11,8 +11,8 @@ height = 46.333336
 texture_filter = 1
 collision_layer = 64
 script = ExtResource("1_2bugv")
-velocidade = 6000.0
-forca_empurrao = 200.0
+velocidade = 500.0
+forca_empurrao = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=843064398]
 position = Vector2(-2.000001, 0)
@@ -22,5 +22,5 @@ shape = SubResource("CapsuleShape2D_qb3yl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1477889097]
 texture_filter = 1
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_2bugv")

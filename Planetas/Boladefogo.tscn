@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3bsa405x88mw"]
 
 [ext_resource type="Script" uid="uid://c0ov3gqjpy7i" path="res://Scripts/Planeta Curupolar/BolaMagma.gd" id="1_qwno8"]
-[ext_resource type="Texture2D" uid="uid://df8yxh441u8sn" path="res://Assets/Protanopia/projétil curupolar protanopia.png" id="2_qwno8"]
+[ext_resource type="Texture2D" uid="uid://d3w3m2bo87coj" path="res://Assets/Protanopia/PROTAProjétil curupolar.png" id="2_qwno8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_81w53"]
 radius = 14.142136
@@ -10,12 +10,11 @@ radius = 14.142136
 texture_filter = 1
 collision_layer = 64
 script = ExtResource("1_qwno8")
-velocidade = 700.0
+velocidade = 750.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213760587]
 texture_filter = 1
-position = Vector2(-3.9999998, 22)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("2_qwno8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98632325]

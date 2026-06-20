@@ -13,8 +13,8 @@ func setup(textura: Texture2D, valor_minerio: int) -> void:
 	valor = valor_minerio
 	_float_offset = randf() * TAU
 
-func _ready() -> void:
-	area_entered.connect(_on_area_entered)
+#func _ready() -> void:
+	#area_entered.connect(_on_area_entered)
 
 func _physics_process(delta: float) -> void:
 	_float_time += delta
@@ -31,6 +31,6 @@ func _checar_despawn() -> void:
 	if position.y > get_viewport_rect().size.y + 80.0:
 		queue_free()
 
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		queue_free()
+#func _on_area_entered(area: Area2D) -> void:
+	#if area.is_in_group("player"):
+		#queue_free()
