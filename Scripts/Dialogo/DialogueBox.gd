@@ -120,3 +120,4 @@ func _set_box_by_speaker(speaker: String) -> void:
 	
 	box_background.texture = selected_box
 	box_background.visible = selected_box != null
+	
