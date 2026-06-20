@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c6jaflonf2e37"]
+
+[ext_resource type="Script" uid="uid://bj75xpe8j8lb5" path="res://fundo.gd" id="1_chxvh"]
+[ext_resource type="Texture2D" uid="uid://62qcp2xtn3od" path="res://Assets/Universo.png" id="2_gub5f"]
+
+[node name="Fundo" type="ParallaxBackground" unique_id=241065843]
+script = ExtResource("1_chxvh")
+start_speed = 100
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=436717452]
+texture_filter = 1
+motion_mirroring = Vector2(1280, 720)
+
+[node name="sprite" type="Sprite2D" parent="ParallaxLayer" unique_id=1835646573]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(4, 4)
+texture = ExtResource("2_gub5f")

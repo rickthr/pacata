@@ -2,15 +2,20 @@
 
 [ext_resource type="Script" uid="uid://ccp1r60gbi7lx" path="res://Scripts/Inimigos/inimigo_tipo_c.gd" id="1_q3kla"]
 [ext_resource type="Resource" uid="uid://dg3a1jvlsjowt" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoC.tres" id="2_up7l5"]
-[ext_resource type="Texture2D" uid="uid://djpga1otan8mv" path="res://icon.svg" id="3_kkmha"]
+[ext_resource type="Texture2D" uid="uid://y0fcw3dauvds" path="res://Assets/Protanopia/Inimigos/proGiraGira (1).png" id="3_up7l5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pytsr"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qamv2"]
+radius = 6.0
+height = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pytsr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pytsr"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkmha"]
+radius = 22.0
+height = 68.0
 
 [node name="InimigoC" type="CharacterBody2D" unique_id=197331739]
+texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_q3kla")
 amplitude = 150.0
@@ -18,23 +23,38 @@ frequencia = 0.4
 dadosTipoInimigo = ExtResource("2_up7l5")
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=1004946581]
-shape = SubResource("RectangleShape2D_pytsr")
+position = Vector2(-1, 1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qamv2")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=1542027916]
+position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_pytsr")
 
 [node name="area2d" type="Area2D" parent="." unique_id=549738750]
+position = Vector2(-1, 0)
+scale = Vector2(0.9200001, 1)
 
 [node name="area2d_colisao" type="CollisionShape2D" parent="area2d" unique_id=718047789]
-shape = SubResource("CircleShape2D_pytsr")
+position = Vector2(-2, 1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kkmha")
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=504561067]
+wait_time = 0.2
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2104141958]
-texture = ExtResource("3_kkmha")
+texture_filter = 1
+position = Vector2(2, -3)
+rotation = 1.5707964
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_up7l5")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=542269330]
+position = Vector2(-5.9999995, -9.62965e-35)
+rotation = 1.5707964
+scale = Vector2(0.50355864, 0.16464065)
 
 [connection signal="body_entered" from="area2d" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="TimerAtirar" to="." method="_on_timer_atirar_timeout"]

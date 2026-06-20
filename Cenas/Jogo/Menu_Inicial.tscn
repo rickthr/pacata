@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://cjnnjyn8fcepy"]
+
+[ext_resource type="Texture2D" uid="uid://df1npikgee0q0" path="res://Assets/Cores Originais/Interface/Menu inicial.png" id="1_pqahr"]
+[ext_resource type="Script" uid="uid://b82tppejehi1x" path="res://Scripts/Gerenciadores de Cenas/gerencia_botoes.gd" id="1_upy1c"]
+[ext_resource type="Texture2D" uid="uid://ctghh4h6b4u10" path="res://Assets/Cores Originais/Interface/🫷.png" id="2_ek16h"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_upy1c"]
+[ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Cores Originais/Interface/botão do menu de config.png" id="5_sg353"]
+[ext_resource type="AudioStream" uid="uid://bw4ias3tjx1r" path="res://Assets/Sons/Músicas/Musiquinha menu_ilovemp4.mp3" id="6_wt5pj"]
+[ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="7_5e7wx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sg353"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvby4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3col"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqdma"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76jrx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sc3yr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wt5pj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5e7wx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vc246"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yhhg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypg5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3kjng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64mix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eekcj"]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_sg353"]
+
+[node name="MenuInicial" type="Control" unique_id=291414542 node_paths=PackedStringArray("botoes", "efeitoStream", "hover")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_upy1c")
+botoes = NodePath("CanvasLayer/Botoes")
+efeitoStream = NodePath("EfeitoSonoro")
+hover = NodePath("CanvasLayer/hover")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=137684394]
+
+[node name="fundo" type="Sprite2D" parent="CanvasLayer" unique_id=82959146]
+texture_filter = 1
+position = Vector2(636, 358)
+scale = Vector2(4, 4)
+texture = ExtResource("1_pqahr")
+
+[node name="logo" type="Sprite2D" parent="CanvasLayer" unique_id=1841886995]
+texture_filter = 1
+position = Vector2(640, 200)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ek16h")
+
+[node name="hover" type="Sprite2D" parent="CanvasLayer" unique_id=319151967]
+texture_filter = 1
+position = Vector2(625, 540)
+scale = Vector2(3, 3)
+texture = ExtResource("5_sg353")
+
+[node name="Botoes" type="Node2D" parent="CanvasLayer" unique_id=1679826794]
+
+[node name="Jogar" type="Button" parent="CanvasLayer/Botoes" unique_id=1982024075]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 573.0
+offset_top = 318.5
+offset_right = 707.0
+offset_bottom = 401.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_upy1c")
+theme_override_font_sizes/font_size = 82
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sg353")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yvby4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d3col")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lqdma")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_76jrx")
+text = "Jogar"
+icon_alignment = 1
+
+[node name="Opcoes" type="Button" parent="CanvasLayer/Botoes" unique_id=1345226837]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 551.0
+offset_top = 400.0
+offset_right = 730.0
+offset_bottom = 483.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_upy1c")
+theme_override_font_sizes/font_size = 82
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sc3yr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wt5pj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5e7wx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vc246")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0yhhg")
+text = "Opções"
+
+[node name="Sair" type="Button" parent="CanvasLayer/Botoes" unique_id=84751802]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 591.5
+offset_top = 492.0
+offset_right = 688.5
+offset_bottom = 575.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_upy1c")
+theme_override_font_sizes/font_size = 82
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sc3yr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ypg5f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3kjng")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_64mix")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eekcj")
+text = "Sair"
+
+[node name="EfeitoSonoro" type="AudioStreamPlayer2D" parent="." unique_id=1578229485]
+stream = SubResource("AudioStreamMP3_sg353")
+volume_db = 10.0
+
+[node name="TrilhaSonora" type="AudioStreamPlayer2D" parent="." unique_id=1143633206]
+process_mode = 3
+stream = ExtResource("6_wt5pj")
+volume_db = 1.0
+autoplay = true
+parameters/looping = true
+
+[node name="GerenciadorCenas" parent="." unique_id=80333866 instance=ExtResource("7_5e7wx")]
+position = Vector2(-650, -103)

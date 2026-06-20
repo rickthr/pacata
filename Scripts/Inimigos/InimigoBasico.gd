@@ -25,6 +25,8 @@ var lado: LadoInstanciado
 @export var caminhoPos: PathFollow2D
 var ja_desapareceu = false
 var multiplicadorPFase:= 1
+var toquei_sai := false
+var um_desapareceu := false
 
 signal desapareci
 
@@ -78,9 +80,10 @@ func instancia_projetil():
 		var atual_projetil_instanciado = projetil.instantiate()
 		projeteis_instanciados.append(atual_projetil_instanciado)
 		#DEFINIR DIREÇÃO EM QUE PROJETEIS SÃO INSTANCIADOS 
+		get_tree().current_scene.add_child(atual_projetil_instanciado)
 		atual_projetil_instanciado.direcao = defini_direcao_proj()
 		atual_projetil_instanciado.global_position = global_position
-		get_tree().current_scene.add_child(atual_projetil_instanciado)
+		
 			
 #Definir direção de instanciamento de projeteis (OVERRIDE)
 func defini_direcao_proj() -> Vector2:
@@ -89,47 +92,54 @@ func defini_direcao_proj() -> Vector2:
 	return direcao_projetil
 	
 #Dar dano no jogador -> essa função deve ser passada para o script do projetil
-func dar_dano():
+func dar_dano(corpo: Node2D):
 	print("dando dano no jogador: ", dano_colisao)
-	if jogador.has_method("receber_dano"):
-		jogador.receber_dano(dano_colisao)
+	if corpo.has_method("receber_dano"):
+		corpo.receber_dano()
 	#Chama a função 'receber_dano(dano_colisao)' do jogador
 	
 #Receber dano dos projeteis do jogador
-func receber_dano(dano_proj : int): #Chamar essa função no projetil
-	vida -= dano_proj
+@warning_ignore("unused_parameter")
+func receber_dano(): #Chamar essa função no projetil (dano_proj : int) -> se precisar
+	#vida -= dano_proj
 	morte()
 
 #Fazer colisão
 func _on_area_2d_body_entered(corpo: Node2D) -> void:
+	print_debug("toquei em algo")
 	if corpo.is_in_group("jogador"):
+		print_debug("toquei no jogador")
+		toquei_sai = true
 		hit()
-		dar_dano()
+		dar_dano(corpo)
 		
 #Fazer HIT
 func hit():
 	print('toquei no jogador')
+	morte()
 	#fazer animação de hit
 	
 #Fazer morte
 func morte():
-	if vida <= 0:
-		#faz animação de morte
-		print("morri")
-		#depois da animação de explosão da nave
-		morri_sai_tela()
-		queue_free()
+	if ja_desapareceu:
+		return
+	print_debug("morte chamada em: ", name)
+	print("morri")
+	morri_sai_tela()
+	queue_free()
 
 func _on_timer_atirar_timeout() -> void:
 	instancia_projetil()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	print_debug("saiu da tela: ", name)
+	toquei_sai = true
 	morri_sai_tela()
 	await get_tree().create_timer(1).timeout
 	queue_free()
 	
 func morri_sai_tela():
-	if ja_desapareceu:
-		return
+	if ja_desapareceu or um_desapareceu:
+		return 
 	ja_desapareceu = true
 	emit_signal("desapareci")

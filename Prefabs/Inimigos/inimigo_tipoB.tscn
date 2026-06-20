@@ -2,21 +2,26 @@
 
 [ext_resource type="Script" uid="uid://7c6jprfageyu" path="res://Scripts/Inimigos/inimigo_tipo_b.gd" id="1_w0vy1"]
 [ext_resource type="Resource" uid="uid://br5ra0kejyxlo" path="res://Scripts/Inimigos/Tipos de Inimigos/InimigoB.tres" id="2_6x7rb"]
-[ext_resource type="Texture2D" uid="uid://bjyfx7ueme400" path="res://Assets/Inimigos/MARIAFUMEGA.png" id="3_hdo21"]
+[ext_resource type="Texture2D" uid="uid://dlooep54lgt7e" path="res://Assets/Protanopia/Inimigos/PROmariafumega.png" id="3_hdo21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crevy"]
+size = Vector2(128, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jox6t"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ncvmg"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdo21"]
+radius = 41.0
+height = 156.0
 
 [node name="InimigoB" type="CharacterBody2D" unique_id=1538728272]
+texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_w0vy1")
 dadosTipoInimigo = ExtResource("2_6x7rb")
 metadata/_custom_type_script = "uid://c73v5xmb3yts"
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=1442077348]
+position = Vector2(2, -2)
 shape = SubResource("RectangleShape2D_crevy")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=284173798]
@@ -25,15 +30,18 @@ sprite_frames = SubResource("SpriteFrames_jox6t")
 [node name="area2d" type="Area2D" parent="." unique_id=197579427]
 
 [node name="area2d_colisao" type="CollisionShape2D" parent="area2d" unique_id=249243542]
-shape = SubResource("CircleShape2D_ncvmg")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hdo21")
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=876975102]
 wait_time = 0.4
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=603982884]
+texture_filter = 1
+position = Vector2(4.2632564e-14, 12)
 rotation = 1.5707964
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_hdo21")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1724003079]

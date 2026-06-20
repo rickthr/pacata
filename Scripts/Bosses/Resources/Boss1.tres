@@ -16,7 +16,8 @@
 [resource]
 script = ExtResource("1_u6r7u")
 textoNome = "Boss1"
-quantidadeFases = 1
+quantidadeFases = 2
+janelaVulnerabilidade = 1
 tiposInimigos = Array[ExtResource("2_6mlss")]([ExtResource("3_mmg8v"), ExtResource("4_ygios"), ExtResource("5_1m5qv")])
 cenasInimigos = Array[PackedScene]([ExtResource("1_1m5qv"), ExtResource("2_1m5qv"), ExtResource("3_hhavq")])
 projetilMaior = ExtResource("4_3d5ks")

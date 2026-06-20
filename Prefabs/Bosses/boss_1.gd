@@ -15,6 +15,7 @@ var inimigos_desapareceram: int
 
 # Armazena os tempos originais para não dividi-los infinitamente
 var wait_time_menor_s_base: float
+var wait_time_menor_r_base: float
 var wait_time_medio_base: float
 
 var pode_atirar_medio := true
@@ -23,9 +24,12 @@ func _ready() -> void:
 	super._ready() # Garante que o _ready do BossBasico seja executado primeiro
 	# Guarda os valores originais configurados no Inspector
 	wait_time_menor_s_base = timer_tiro_menor_s.wait_time
+	wait_time_menor_r_base = timer_tiro_menor_r.wait_time
 	wait_time_medio_base = timer_tiro_medio.wait_time
 	inimigos_desapareceram = 0
+	anim = $anim
 	
+
 func faseDano():
 	inicializa_atiradores()
 	comportamento_por_fase()
@@ -67,7 +71,8 @@ func tiro_maior():
 	
 	#espera a animação do tiro acabar para destruilo
 	await get_tree().create_timer(2).timeout#simula
-	projetil.queue_free()
+	if is_instance_valid(projetil):
+		projetil.queue_free()
 	pass
 	
 func tiro_menor(l_instanciadores: Array[Marker2D], t_projetil: PackedScene):
@@ -83,6 +88,9 @@ func tiro_medio(): #chek
 	var projetil
 	
 	while l_instanciadores.size() > 0:
+		if estado_atual != Estados.FaseDano:
+			break
+			
 		var indice = randi() % len(l_instanciadores)
 		
 		projetil = projetil_medio.instantiate()
@@ -92,9 +100,9 @@ func tiro_medio(): #chek
 		l_instanciadores.erase(l_instanciadores[indice])
 		#espera a animação do projetil acabar
 			
-		await get_tree().create_timer(2).timeout	
-		projetil.queue_free()
-		print_debug(l_instanciadores.size())
+		await get_tree().create_timer(1).timeout	
+		if is_instance_valid(projetil):
+			projetil.queue_free()
 	
 	pode_atirar_medio = true
 
@@ -103,6 +111,7 @@ func comportamento_por_fase():
 	
 	# Reseta os timers para o padrão antes de aplicar os buffs da fase atual
 	timer_tiro_menor_s.wait_time = wait_time_menor_s_base
+	timer_tiro_menor_r.wait_time = wait_time_menor_r_base
 	timer_tiro_medio.wait_time = wait_time_medio_base
 	
 	match  faseAtual:
@@ -114,16 +123,13 @@ func comportamento_por_fase():
 					inimigo.desapareci.connect(_on_inimigo_desapareceu.bind(inimigo))
 			pass
 		2:
-			for inimigo in get_tree().get_nodes_in_group("inimigo"):
-				inimigo.multiplicadorPFase = 1.5
-				timer_tiro_menor_s.wait_time = wait_time_menor_s_base/2
-				timer_tiro_medio.wait_time = wait_time_medio_base/2
-			emit_signal("chamar_instanciar")
+			timer_tiro_menor_s.wait_time = wait_time_menor_s_base/2
+			timer_tiro_menor_r.wait_time = wait_time_menor_r_base/2
+			timer_tiro_medio.wait_time = wait_time_medio_base/2
 			pass
 		3:
 			for inimigo in get_tree().get_nodes_in_group("inimigo"):
-				inimigo.multiplicadorPFase = 2
-				timer_tiro_medio.wait_time = wait_time_medio_base/3
+				inimigo.multiplicadorPFase = 1.5
 			emit_signal("chamar_instanciar")
 			pass
 	"""
@@ -133,7 +139,6 @@ func comportamento_por_fase():
 	pass
 	
 func _on_inimigo_desapareceu(inimigo: Node2D) -> void:
-	print_debug("dessapareceu")
 	inimigos_desapareceram += 1
 	inimigo.queue_free()
 	if inimigos_desapareceram >=3: 

@@ -27,6 +27,8 @@ var cenaHorda:Node2D
 var pare_instanciar_PF:bool = true
 var cenas_disponiveis:Array[PackedScene]
 
+var vivos_por_horda: Dictionary = {}
+
 func _ready() -> void:
 	boss.onda_iniciada.connect(_on_onda_iniciada)
 	boss.boss_morreu.connect(_on_boss_morreu)
@@ -126,18 +128,27 @@ func _on_instanciar(): #instanciar somente para fases em que o boss instancia fo
 	
 func _on_encerra_instanciar():# para o intanciar somente para fases em que o boss instancia fora da fase de instanciamento
 	pass
-	
+
 func _on_inimigo_desapareceu(horda: Node2D) -> void:
+	print_debug("desapareceu — horda: ", horda.name if is_instance_valid(horda) else "inválida")
+	print_debug("vivos na horda: ", vivos_por_horda.get(horda, "não encontrada"))
 	print_debug(estadoAtual)
 	print_debug(boss.estado_atual)
 	print_debug(pare_instanciar_PF)
 	print_debug(boss.podeInstanciar)
 		
-	quantHordasNaTela -= 1
+	if not vivos_por_horda.has(horda):
+		return
 	
-	if horda and is_instance_valid(horda):
-		horda.queue_free()
+	vivos_por_horda[horda] -= 1
 	
+	if vivos_por_horda[horda] <= 0:
+		vivos_por_horda.erase(horda)
+		quantHordasNaTela -= 1
+		
+		if is_instance_valid(horda):
+			horda.queue_free()
+		
 	if pare_instanciar_PF == false and quantInimigosAInstanciar > 0  and quantHordasNaTela <= 0:
 		randomizaInimigos()
 	elif pare_instanciar_PF == false and quantInimigosAInstanciar <= 0  and quantHordasNaTela <= 0:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2l3k1f6yp40g"
+path="res://.godot/imported/Nave inimiga explodindo_ilovemp4.mp3-e15be72fb1229aeb3bfbde1465196f96.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sons/Efeitos Nave/Nave inimiga explodindo_ilovemp4.mp3"
+dest_files=["res://.godot/imported/Nave inimiga explodindo_ilovemp4.mp3-e15be72fb1229aeb3bfbde1465196f96.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

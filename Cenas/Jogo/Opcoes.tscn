@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c5y0do6eylu20"]
+
+[ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Cores Originais/Interface/menu de configurações.png" id="1_f4ojv"]
+[ext_resource type="Texture2D" uid="uid://c6bqqdmku5fid" path="res://Assets/Cores Originais/Interface/Discord.png" id="2_485lp"]
+[ext_resource type="Texture2D" uid="uid://bridsp4mq4vij" path="res://Assets/Cores Originais/Interface/GitHub.png" id="3_6mjpd"]
+[ext_resource type="Texture2D" uid="uid://ch5qeuq4giiy8" path="res://Assets/Cores Originais/Interface/Instagram.png" id="4_2x53t"]
+[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Cores Originais/Interface/Itch.io.png" id="5_5ogq2"]
+[ext_resource type="Texture2D" uid="uid://b43vwealmbsb0" path="res://Assets/Cores Originais/Interface/Ajuste de som - contorno.png" id="6_krjk4"]
+[ext_resource type="Texture2D" uid="uid://cpjfvrxrny65m" path="res://Assets/Cores Originais/Interface/Som.png" id="7_7j7ll"]
+[ext_resource type="Texture2D" uid="uid://bxdvgb7drkg8g" path="res://Assets/Cores Originais/Interface/Musica.png" id="8_dmp1m"]
+
+[node name="Opcoes" type="Node2D" unique_id=1917565987]
+texture_filter = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1038520033]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1001926121]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(3.5, 3)
+texture = ExtResource("1_f4ojv")
+
+[node name="Discord" type="Sprite2D" parent="CanvasLayer" unique_id=522265148]
+texture_filter = 1
+position = Vector2(510, 479)
+scale = Vector2(3, 3)
+texture = ExtResource("2_485lp")
+
+[node name="GitHub" type="Sprite2D" parent="CanvasLayer" unique_id=784135]
+texture_filter = 1
+position = Vector2(589, 479)
+scale = Vector2(3, 3)
+texture = ExtResource("3_6mjpd")
+
+[node name="Instagram" type="Sprite2D" parent="CanvasLayer" unique_id=1462208917]
+texture_filter = 1
+position = Vector2(670, 479)
+scale = Vector2(3, 3)
+texture = ExtResource("4_2x53t")
+
+[node name="Itch_io" type="Sprite2D" parent="CanvasLayer" unique_id=2117002402]
+texture_filter = 1
+position = Vector2(760, 479)
+scale = Vector2(3, 3)
+texture = ExtResource("5_5ogq2")
+
+[node name="AjusteDeSomContorno" type="Sprite2D" parent="CanvasLayer" unique_id=463883184]
+texture_filter = 1
+position = Vector2(651, 291)
+scale = Vector2(3, 3)
+texture = ExtResource("6_krjk4")
+
+[node name="AjusteDeSomContorno2" type="Sprite2D" parent="CanvasLayer" unique_id=947814102]
+texture_filter = 1
+position = Vector2(651, 403)
+scale = Vector2(3, 3)
+texture = ExtResource("6_krjk4")
+
+[node name="Som" type="Sprite2D" parent="CanvasLayer" unique_id=250002753]
+texture_filter = 1
+position = Vector2(510, 288)
+scale = Vector2(2, 2)
+texture = ExtResource("7_7j7ll")
+
+[node name="Musica" type="Sprite2D" parent="CanvasLayer" unique_id=964409653]
+texture_filter = 1
+position = Vector2(506, 403)
+scale = Vector2(2, 2)
+texture = ExtResource("8_dmp1m")

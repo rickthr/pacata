@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pacata"
-run/main_scene="uid://csyq7dfftegdf"
+run/main_scene="uid://4vq3s0mua6ar"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,8 @@ buses/default_bus_layout="uid://cwx4t2nfdohus"
 
 [autoload]
 
-TiposDadosInimigos="uid://dhs1qwkrnkxcy"
 Global="*uid://ba3srecfpdtpo"
+TiposDadosInimigos="uid://dhs1qwkrnkxcy"
 DialogueManager="*uid://cosf8xqqm4air"
 
 [display]
@@ -34,6 +34,15 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="pacata"
+
+[editor]
+
+version_control/autoload_on_startup=true
+
+[global_group]
+
+jogador=""
+asteroid=""
 
 [input]
 
