@@ -16,8 +16,6 @@ var rot_speed:  float   = 0.0
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
-	await get_tree().create_timer(2.0).timeout#apaga depois é pra ele destruiir sozinho
-	receber_dano(hp_atual)
 	
 
 # setup() — chamado pelo Spawner logo após add_child()

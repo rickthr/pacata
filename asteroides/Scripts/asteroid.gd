@@ -2,6 +2,8 @@
 class_name Asteroid
 extends AsteroidBase
 
+@export var ore_drop_scene: PackedScene
+@export var ore_texture: Texture2D
 @export var fragment_scene: PackedScene
 @export var fragment_textures: Array[Texture2D]
 
@@ -16,9 +18,20 @@ func setup(asteroide_dict: Dictionary, minerio_dict: Dictionary) -> void:
 	
 #Função destruir com os fragmentos
 func _ao_destruir() -> void:
+	_dropar_minerio()
 	_lancar_fragmentos()
 	destruido.emit(_montar_dados())
 	queue_free()
+
+#Dropar Minerio
+func _dropar_minerio() -> void:
+	if not ore_drop_scene:
+		return
+	var drop = ore_drop_scene.instantiate()
+	get_parent().add_child(drop)
+	drop.position = position
+	drop.setup(ore_texture, dados_minerio.get("valor", 0))
+	print("Coletado minério: ", dados_minerio.get("nome", "—"))
 
 #função cores do minerio por raridade(não está funcionando tão bem)
 '''
