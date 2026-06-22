@@ -1,36 +1,24 @@
 [gd_scene format=3 uid="uid://b8m34tky5kr6m"]
 
-[ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://nave/nave.tscn" id="2_epypp"]
-[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="4_q6r6c"]
-[ext_resource type="Texture2D" uid="uid://usu4ruqjpd2o" path="res://Assets/Cores Originais/Testes Menu/vida.png" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://cpdchmu2sqx1v" path="res://Assets/Protanopia/Nave/barra de vida prota protanopia.png" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://dkisf5joilxdp" path="res://Assets/Protanopia/Nave/barra de vida protagonista parte móvel protanopia.png" id="3_epypp"]
 
 [node name="Node2D" type="Node2D" unique_id=2055429933]
+texture_filter = 1
 
-[node name="Nave" parent="." unique_id=85779185 node_paths=PackedStringArray("label_vida", "label_score") instance=ExtResource("2_epypp")]
-position = Vector2(640, 485)
-collision_mask = 106
-label_vida = NodePath("../vida")
-label_score = NodePath("../score")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=935389963]
 
-[node name="score" type="Label" parent="." unique_id=1714361929]
-offset_left = 128.0
-offset_top = 83.0
-offset_right = 193.0
-offset_bottom = 118.0
-theme_override_fonts/font = ExtResource("4_q6r6c")
-theme_override_font_sizes/font_size = 46
-text = "Score:"
-
-[node name="vida" type="Label" parent="." unique_id=984831631]
-offset_left = 1084.0
-offset_top = 83.0
-offset_right = 1209.0
-offset_bottom = 130.0
-theme_override_fonts/font = ExtResource("4_q6r6c")
-theme_override_font_sizes/font_size = 46
-clip_text = true
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1466551773]
-position = Vector2(1065, 108)
-scale = Vector2(0.12214602, 0.12437187)
-texture = ExtResource("5_kdubu")
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1151460260]
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.028
+anchor_right = 0.29700002
+anchor_bottom = 0.117000006
+offset_left = -0.48000145
+offset_top = -0.15999985
+offset_right = 359.83997
+offset_bottom = 63.759995
+scale = Vector2(0.5, 0.5)
+texture_under = ExtResource("2_0e48y")
+texture_progress = ExtResource("3_epypp")
+metadata/_edit_use_anchors_ = true

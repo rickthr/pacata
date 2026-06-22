@@ -5,6 +5,7 @@ const DIALOGUE_IDS: Array[String] = [
 	"DPai1",
 	"DUAI1",
 	"DUAI2",
+	"DPC1",
 	"DMRC1",
 	"DMRC2",
 	"DPAI2"
@@ -92,10 +93,25 @@ const DIALOGUES: Dictionary = {
 	"DUAI2": [
 		{"speaker": "UAI", "text": "Vejo que você aprendeu a navegar."},
 		{"speaker": "Diggy", "text": "Hehe, ai sim."},
-		{"speaker": "UAI", "text": "Deseja o relatório planetário?"},
-		{"speaker": "Diggy", "text": "Djabo é isso?"},
-		{"speaker": "UAI", "text": "O relatório planetário trata-se de um resumo das diversas características que o planeta alvo apresenta."},
-		{"speaker": "Diggy", "text": "Ah… Joga na mesa."}
+		{"speaker": "Diggy", "text": "Agora que notei, por que as cores estão diferentes?"},
+		{"speaker": "UAI", "text": "Segundo os dados da sua familia, voce é daltonico."},
+		{"speaker": "Diggy", "text": "I o quiku?"},
+		{"speaker": "UAI", "text": "A composição quimica e a atmosfera desse planeta são diferentes."},
+		{"speaker": "UAI", "text": "Logo, voce verá as cores de uma forma diferente"},
+		{"speaker": "Diggy", "text": "Irado."},
+		{"speaker": "UAI", "text": "Bom, chegamos."}
+	],
+	
+	"DPC1": [
+		{"speaker": "UAI", "text": "Planeta Curupolar, enquadrado no setor <>."},
+		{"speaker": "UAI", "text": "Aparentemente, seu eixo de rotação permite uma característica peculiar no planeta."},
+		{"speaker": "UAI", "text": "De um lado, a temperatura é alta e o terreno é coberto por vulcões e magma."},
+		{"speaker": "UAI", "text": "Do outro, a temperatura é baixa e o terreno é coberto por geleiras e gêiseres."},
+		{"speaker": "Diggy", "text": "Legal, fogo e gelo = vapor."},
+		{"speaker": "UAI", "text": "Uma análise formidável."},
+		{"speaker": "Diggy", "text": "Você que é formidável."},
+		{"speaker": "UAI", "text": "Sua órbita guarda a presença de cometas que se originam tanto na presença de alta como de baixa temperatura."},
+		{"speaker": "UAI", "text": "Como um driller, é seu trabalho destruir os cometas e adquirir os minérios."}
 	],
 
 	"DMRC1": [
@@ -162,18 +178,6 @@ const POPUPS: Dictionary = {
 		"UAI: !",
 		"UAI: Saiba que voce também pode trocar a posição das asas apertando o botão <>",
 	],
-	"PPRP1": [
-		"UAI: Planeta Curupolar, enquadrado no setor <>.",
-		"UAI: Aparentemente, seu eixo de rotação permite uma característica peculiar no planeta.",
-		"UAI: De um lado, a temperatura é alta e o terreno é coberto por vulcões e magma.",
-		"UAI: Do outro, a temperatura é baixa e o terreno é coberto por geleiras e gêiseres.",
-		"Diggy: Legal, fogo e gelo = vapor.",
-		"UAI: Uma análise formidável.",
-		"Diggy: Você que é formidável.",
-		"UAI: Sua órbita guarda a presença de cometas que se originam tanto na presença de alta como de baixa temperatura.",
-		"UAI: Como um driller, é seu trabalho destruir os cometas e adquirir os minérios."
-	],
-
 	"PPMRC1": [
 		"UAI: É melhor a gente dar o fora daqui.",
 		"Diggy: Nem precisa dizer duas vezes."

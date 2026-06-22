@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://qf8fmmocoxy8"]
+
+[ext_resource type="Script" uid="uid://cb5pqjbgc8hxw" path="res://Scripts/Gerenciadores de Cenas/gerencia_f_inimigos.gd" id="1_xhrii"]
+[ext_resource type="PackedScene" uid="uid://q52txm4f4wkd" path="res://Prefabs/Gerenciadores de Batalha/gerenciador_batalhas_boss_1.tscn" id="2_xc8ii"]
+[ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://Nave/nave.tscn" id="3_3sp5j"]
+[ext_resource type="Texture2D" uid="uid://cm54cop38x3cy" path="res://Assets/Protanopia/Inimigos/BALA.png" id="4_xc8ii"]
+[ext_resource type="Texture2D" uid="uid://dlooep54lgt7e" path="res://Assets/Protanopia/Inimigos/PROmariafumega.png" id="5_3sp5j"]
+[ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="6_3sp5j"]
+[ext_resource type="PackedScene" uid="uid://b4ej53i2qgk82" path="res://Prefabs/Dialogo/dialogue_ui.tscn" id="6_vgt4q"]
+
+[sub_resource type="Animation" id="Animation_xc8ii"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InimigosAniamacao/InimigoA:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InimigosAniamacao/InimigoA2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1332.9999, 564)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InimigosAniamacao/InimigoB:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1376, 50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InimigosAniamacao/InimigoB2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-147.00003, 726)]
+}
+
+[sub_resource type="Animation" id="Animation_3sp5j"]
+resource_name = "inimigos_passam"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InimigosAniamacao/InimigoA:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-100, 150), Vector2(1350, 150)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InimigosAniamacao/InimigoA2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1332.9999, 564), Vector2(-100, 564)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InimigosAniamacao/InimigoB:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1000, -100), Vector2(-150, 726)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InimigosAniamacao/InimigoB2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 800), Vector2(1380, -100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vgt4q"]
+_data = {
+&"RESET": SubResource("Animation_xc8ii"),
+&"inimigos_passam": SubResource("Animation_3sp5j")
+}
+
+[node name="FInimigos" type="Node2D" unique_id=1146575998]
+script = ExtResource("1_xhrii")
+
+[node name="GerenciadorBatalhas_Boss1" parent="." unique_id=2026716191 instance=ExtResource("2_xc8ii")]
+
+[node name="Nave" parent="." unique_id=85779185 instance=ExtResource("3_3sp5j")]
+position = Vector2(640, 400)
+
+[node name="animInimigos" type="AnimationPlayer" parent="." unique_id=1529734215]
+libraries/ = SubResource("AnimationLibrary_vgt4q")
+
+[node name="InimigosAniamacao" type="Node2D" parent="." unique_id=2041507147]
+
+[node name="InimigoA" type="Sprite2D" parent="InimigosAniamacao" unique_id=120835966]
+position = Vector2(-100, 150)
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_xc8ii")
+
+[node name="InimigoB" type="Sprite2D" parent="InimigosAniamacao" unique_id=1279867421]
+position = Vector2(1376, 50)
+rotation = -2.268928
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_3sp5j")
+
+[node name="InimigoB2" type="Sprite2D" parent="InimigosAniamacao" unique_id=2119189157]
+position = Vector2(-147.00003, 726)
+rotation = 0.7853982
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_3sp5j")
+
+[node name="InimigoA2" type="Sprite2D" parent="InimigosAniamacao" unique_id=807834633]
+position = Vector2(1332.9999, 564)
+rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_xc8ii")
+
+[node name="DialogueUi" parent="." unique_id=1705464675 instance=ExtResource("6_vgt4q")]
+
+[node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("6_3sp5j")]

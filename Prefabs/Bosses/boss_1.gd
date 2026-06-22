@@ -28,7 +28,8 @@ func _ready() -> void:
 	wait_time_medio_base = timer_tiro_medio.wait_time
 	inimigos_desapareceram = 0
 	anim = $anim
-	
+	anim_colisao = $animColisao
+	Global.BossAtual = self
 
 func faseDano():
 	inicializa_atiradores()

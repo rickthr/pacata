@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cjnnjyn8fcepy"]
+[gd_scene format=3 uid="uid://k474ckyjtquy"]
 
 [ext_resource type="Texture2D" uid="uid://df1npikgee0q0" path="res://Assets/Cores Originais/Interface/Menu inicial.png" id="1_pqahr"]
 [ext_resource type="Script" uid="uid://b82tppejehi1x" path="res://Scripts/Gerenciadores de Cenas/gerencia_botoes.gd" id="1_upy1c"]

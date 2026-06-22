@@ -10,10 +10,10 @@
 script = ExtResource("1_n6kgf")
 
 [node name="Panel" type="Panel" parent="." unique_id=1292632436]
-offset_left = 340.0
-offset_top = 40.0
-offset_right = 940.0
-offset_bottom = 120.0
+offset_left = 1168.0
+offset_top = -16.0
+offset_right = 1768.0
+offset_bottom = 64.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bkdob")
 
 [node name="Fundo" type="TextureRect" parent="Panel" unique_id=778363640]
@@ -24,12 +24,13 @@ anchor_left = -0.528
 anchor_top = 1.0370001
 anchor_right = -0.048
 anchor_bottom = 4.037
-offset_left = -0.2000122
+offset_left = 27.799988
 offset_top = 0.039993286
-offset_right = -177.2
+offset_right = -149.2
 offset_bottom = -191.96002
 scale = Vector2(3.5, 5)
 texture = ExtResource("2_i128u")
+flip_h = true
 
 [node name="PopupText" type="Label" parent="Panel" unique_id=1581178334]
 texture_filter = 1

@@ -4,3 +4,4 @@
 
 [resource]
 script = ExtResource("1_iksgb")
+vida_nave = 1

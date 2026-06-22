@@ -1,6 +1,8 @@
 extends Area2D
 @export var velocidade:int
+@export var dano:int
 var nave
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	nave = Global.Jogador
@@ -16,7 +18,11 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if body.is_in_group("Inimigos"):
 		Global.score+=10
-		queue_free()
+		
+	if body.is_in_group("Boss"):
+		body.receber_dano(dano)
+	
+	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("asteroid"):

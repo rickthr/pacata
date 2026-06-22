@@ -5,6 +5,8 @@ class_name GerenciaBotoes
 @export var efeitoStream: AudioStreamPlayer2D
 @export var hover: Sprite2D
 
+var pode_mexer: bool = true
+
 var sons: Dictionary ={
 	"selecionar": "res://Assets/Sons/Efeitos interface/Selecionar_ilovemp4.mp3",
 	"confirmar": "res://Assets/Sons/Efeitos interface/Confirmar_ilovemp4.mp3",
@@ -42,6 +44,8 @@ func tocar_som(nome_do_som: String):
 	efeitoStream.play()
 
 func escolhe_botao():
+	if not pode_mexer:
+		return
 	# detecta se o jogador apertou para baixo
 	if Input.is_action_just_pressed("ui_down"):
 		tocar_som("selecionar")
@@ -73,7 +77,7 @@ func seleciona_botao(idx_botao: int): # OVERRIDE
 	match idx_botao:
 		0:#jogar
 			tocar_som("start")
-			gerenciadorCenas.passarCena.emit(gerenciadorCenas.Cenas.PlanetaGaragem)
+			gerenciadorCenas.passarCena.emit(gerenciadorCenas.Cenas.Historia)
 			pass
 		1:#opcoes
 			tocar_som("confirmar")

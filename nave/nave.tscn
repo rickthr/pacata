@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgwn51p8ondg"]
 
-[ext_resource type="Script" uid="uid://cob3l8e6f8uve" path="res://nave/nave.gd" id="1_ltewx"]
-[ext_resource type="Resource" uid="uid://bp6mqarjc8tdi" path="res://nave/Nave.tres" id="2_2pqvo"]
+[ext_resource type="Script" uid="uid://cob3l8e6f8uve" path="res://Nave/nave.gd" id="1_ltewx"]
+[ext_resource type="Resource" uid="uid://bp6mqarjc8tdi" path="res://Nave/Nave.tres" id="2_2pqvo"]
 [ext_resource type="Texture2D" uid="uid://cl31hujmpb8id" path="res://Assets/Protanopia/Nave/Animação/protAnimação curva.png" id="3_0acnm"]
 [ext_resource type="Texture2D" uid="uid://cpvefi83d2rn1" path="res://Assets/Protanopia/Nave/Apetrechos DDIR Prota1.png" id="4_0acnm"]
 [ext_resource type="Texture2D" uid="uid://bbkiwnle15wk5" path="res://Assets/Protanopia/Nave/Apetrechos DDIR Prota2.png" id="5_ct0ft"]
@@ -9,6 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://diodqer63djsi" path="res://Assets/Sons/Efeitos Nave/sounds/Nave explodindo.mp3" id="7_o8mc5"]
 [ext_resource type="AudioStream" uid="uid://dak7woail2gdd" path="res://Assets/Sons/Efeitos Nave/sounds/Nave levando dano.mp3" id="8_0acnm"]
 [ext_resource type="AudioStream" uid="uid://bsf3ao4my6a0w" path="res://Assets/Sons/Efeitos Nave/sounds/tiro.mp3" id="9_0acnm"]
+[ext_resource type="Texture2D" uid="uid://cpdchmu2sqx1v" path="res://Assets/Protanopia/Nave/barra de vida prota protanopia.png" id="10_xctvh"]
+[ext_resource type="Texture2D" uid="uid://dkisf5joilxdp" path="res://Assets/Protanopia/Nave/barra de vida protagonista parte móvel protanopia.png" id="11_2hxpq"]
+[ext_resource type="Texture2D" uid="uid://bt1cij8d2uwof" path="res://Assets/Protanopia/minerio PRota.png" id="12_2hxpq"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="13_s7lqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilgfq"]
 size = Vector2(48, 40)
@@ -18,7 +22,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Nave:frame")
+tracks/0/path = NodePath("NaveCorpo/Nave:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -33,7 +37,7 @@ resource_name = "curva_dir"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Nave:frame")
+tracks/0/path = NodePath("NaveCorpo/Nave:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,7 +54,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Nave:frame")
+tracks/0/path = NodePath("NaveCorpo/Nave:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -163,7 +167,7 @@ tracks/3/path = NodePath("../flip1/card:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.39999998, 0.6, 0.8),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
@@ -199,7 +203,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../flip1/canhao:frame")
+tracks/2/path = NodePath("../flip1/card:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -211,7 +215,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../flip1/card:frame")
+tracks/3/path = NodePath("../flip1/canhao:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -228,20 +232,24 @@ _data = {
 &"curva_loop": SubResource("Animation_0acnm")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0acnm"]
-radius = 13.0
-height = 44.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct0ft"]
 radius = 13.0
 height = 42.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f8vp8"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f8vp8"]
+radius = 12.0
 
-[node name="Nave" type="CharacterBody2D" unique_id=85779185 groups=["jogador"]]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0acnm"]
+radius = 13.0
+height = 44.0
+
+[node name="Nave" type="CharacterBody2D" unique_id=85779185 node_paths=PackedStringArray("bar_vida", "label_quant_minerio") groups=["jogador"]]
 texture_filter = 1
 script = ExtResource("1_ltewx")
 dadosNave = ExtResource("2_2pqvo")
+bar_vida = NodePath("CanvasLayer/TextureProgressBar")
+label_quant_minerio = NodePath("CanvasLayer/quant")
+dano_recebido = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1704747473]
 limit_left = 0
@@ -253,27 +261,62 @@ limit_bottom = 720
 position = Vector2(1, 4)
 shape = SubResource("RectangleShape2D_ilgfq")
 
-[node name="Nave" type="Sprite2D" parent="." unique_id=1627911377]
+[node name="animCorpo" type="AnimationPlayer" parent="." unique_id=1180940917]
+libraries/ = SubResource("AnimationLibrary_66eap")
+
+[node name="animAsas" type="AnimationPlayer" parent="." unique_id=1492123894]
+root_node = NodePath("../NaveCorpo/flip2")
+libraries/ = SubResource("AnimationLibrary_4wtnu")
+
+[node name="NaveCorpo" type="Node2D" parent="." unique_id=487633008]
+
+[node name="Nave" type="Sprite2D" parent="NaveCorpo" unique_id=1627911377]
 texture_filter = 1
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_0acnm")
 hframes = 5
 
-[node name="animCorpo" type="AnimationPlayer" parent="." unique_id=1180940917]
-libraries/ = SubResource("AnimationLibrary_66eap")
+[node name="flip1" type="Area2D" parent="NaveCorpo" unique_id=66447914]
+collision_mask = 234
 
-[node name="animAsas" type="AnimationPlayer" parent="." unique_id=1492123894]
-root_node = NodePath("../flip2")
-libraries/ = SubResource("AnimationLibrary_4wtnu")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NaveCorpo/flip1" unique_id=755707403]
+position = Vector2(-37, 5)
+shape = SubResource("CapsuleShape2D_ct0ft")
 
-[node name="flip2" type="Area2D" parent="." unique_id=1585097600]
-collision_mask = 6
+[node name="canhao" type="Sprite2D" parent="NaveCorpo/flip1" unique_id=693362293]
+position = Vector2(-30, 2)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_0acnm")
+hframes = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="flip2" unique_id=362983867]
+[node name="card" type="Sprite2D" parent="NaveCorpo/flip1" unique_id=393927898]
+position = Vector2(-32, 4)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_ct0ft")
+flip_h = true
+hframes = 5
+
+[node name="Broca" type="Area2D" parent="NaveCorpo" unique_id=1455819047]
+position = Vector2(0, 3)
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NaveCorpo/Broca" unique_id=791978129]
+position = Vector2(0, -25)
+shape = SubResource("CapsuleShape2D_f8vp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="NaveCorpo/Broca" unique_id=335720182]
+position = Vector2(0, -27)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("6_f8vp8")
+
+[node name="flip2" type="Area2D" parent="NaveCorpo" unique_id=1585097600]
+collision_mask = 234
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NaveCorpo/flip2" unique_id=362983867]
 position = Vector2(34, 4)
 shape = SubResource("CapsuleShape2D_0acnm")
 
-[node name="canhao" type="Sprite2D" parent="flip2" unique_id=1461168935]
+[node name="canhao" type="Sprite2D" parent="NaveCorpo/flip2" unique_id=1461168935]
 texture_filter = 1
 position = Vector2(29.999998, 1.9999999)
 scale = Vector2(0.6, 0.6)
@@ -282,51 +325,18 @@ flip_h = true
 hframes = 5
 frame = 4
 
-[node name="card" type="Sprite2D" parent="flip2" unique_id=261987526]
+[node name="card" type="Sprite2D" parent="NaveCorpo/flip2" unique_id=261987526]
 position = Vector2(32, 4)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_ct0ft")
 hframes = 5
 
-[node name="flip1" type="Area2D" parent="." unique_id=66447914]
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="flip1" unique_id=755707403]
-position = Vector2(-37, 5)
-shape = SubResource("CapsuleShape2D_ct0ft")
-
-[node name="canhao" type="Sprite2D" parent="flip1" unique_id=693362293]
-position = Vector2(-30, 2)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_0acnm")
-hframes = 5
-
-[node name="card" type="Sprite2D" parent="flip1" unique_id=393927898]
-position = Vector2(-32, 4)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("5_ct0ft")
-flip_h = true
-hframes = 5
-
-[node name="shoot_l" type="Marker2D" parent="." unique_id=902505111]
+[node name="shoot_l" type="Marker2D" parent="NaveCorpo" unique_id=902505111]
 position = Vector2(-30.000002, -17)
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="shoot_r" type="Marker2D" parent="." unique_id=491748429]
+[node name="shoot_r" type="Marker2D" parent="NaveCorpo" unique_id=491748429]
 position = Vector2(30, -17)
-
-[node name="Broca" type="Area2D" parent="." unique_id=1455819047]
-position = Vector2(0, 3)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Broca" unique_id=791978129]
-position = Vector2(0, -26)
-shape = SubResource("CircleShape2D_f8vp8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Broca" unique_id=335720182]
-position = Vector2(0, -28)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("6_f8vp8")
 
 [node name="naveDead" type="AudioStreamPlayer2D" parent="." unique_id=2108717333]
 stream = ExtResource("7_o8mc5")
@@ -337,6 +347,53 @@ stream = ExtResource("8_0acnm")
 [node name="tiro" type="AudioStreamPlayer2D" parent="." unique_id=664668260]
 stream = ExtResource("9_0acnm")
 
-[connection signal="body_entered" from="flip2" to="." method="_on_flip_2_body_entered"]
-[connection signal="body_entered" from="flip1" to="." method="_on_flip_1_body_entered"]
-[connection signal="body_entered" from="Broca" to="." method="_on_broca_body_entered"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=798424402]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=23355904]
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.028
+anchor_right = 0.29700002
+anchor_bottom = 0.117000006
+offset_left = -0.48000145
+offset_top = -0.15999985
+offset_right = 359.83997
+offset_bottom = 63.759995
+scale = Vector2(0.5, 0.5)
+texture_under = ExtResource("10_xctvh")
+texture_progress = ExtResource("11_2hxpq")
+metadata/_edit_use_anchors_ = true
+
+[node name="minerios" type="Sprite2D" parent="CanvasLayer" unique_id=2111562492]
+texture_filter = 1
+position = Vector2(52.000015, 102)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_2hxpq")
+
+[node name="quant" type="Label" parent="CanvasLayer" unique_id=667281265]
+offset_left = 72.0
+offset_top = 73.0
+offset_right = 112.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("13_s7lqa")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="CanvasLayer" unique_id=1615507407]
+offset_left = 106.0
+offset_top = 73.0
+offset_right = 146.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("13_s7lqa")
+theme_override_font_sizes/font_size = 64
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="NaveCorpo/flip1" to="." method="_on_flip_1_area_entered"]
+[connection signal="body_entered" from="NaveCorpo/flip1" to="." method="_on_flip_1_body_entered"]
+[connection signal="area_entered" from="NaveCorpo/Broca" to="." method="_on_broca_area_entered"]
+[connection signal="area_entered" from="NaveCorpo/flip2" to="." method="_on_flip_2_area_entered"]
+[connection signal="body_entered" from="NaveCorpo/flip2" to="." method="_on_flip_2_body_entered"]

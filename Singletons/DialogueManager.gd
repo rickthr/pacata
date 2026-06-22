@@ -17,9 +17,11 @@ var current_line_index: int = 0
 var current_dialogue_id: String = ""
 var is_dialogue_active: bool = false
 var is_transition_locked: bool = false
+var dialogo_acabou:bool = false
 
 
 func start_dialogue_id(dialogue_id: String) -> void:
+	dialogo_acabou = false
 	var lines := DialogueDatabase.get_dialogue(dialogue_id)
 	start_dialogue(lines, dialogue_id)
 
@@ -84,7 +86,8 @@ func end_dialogue() -> void:
 	
 	dialogue_finished.emit(finished_dialogue_id)
 	
-	_process_dialogue_finished_triggers(finished_dialogue_id)
+	await _process_dialogue_finished_triggers(finished_dialogue_id)
+	dialogo_acabou = true
 
 
 func show_popup_id(popup_id: String, duration_per_message: float = DEFAULT_POPUP_DURATION_PER_MESSAGE) -> void:
@@ -128,7 +131,6 @@ func _process_dialogue_finished_triggers(dialogue_id: String) -> void:
 			await _play_popup_id_and_wait("PPMRC1", DEFAULT_POPUP_DURATION_PER_MESSAGE)
 			await get_tree().create_timer(POPUP_CHAIN_INTERVAL).timeout
 			await _play_popup_id_and_wait("PPMRC2", DEFAULT_POPUP_DURATION_PER_MESSAGE)
-
 
 func _play_popup_id_and_wait(popup_id: String, duration_per_message: float) -> void:
 	var messages := DialogueDatabase.get_popup_sequence(popup_id)

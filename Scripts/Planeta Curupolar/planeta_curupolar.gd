@@ -20,11 +20,19 @@ var face_atual: FacePlaneta = FacePlaneta.QUENTE
 var tempo_atual: float = 0.0
 var rotacionando: bool = false
 var rotacao_destino: float = 0.0
-
+var pode_atirar:= false
+var spawner_meteoro
 
 func _ready():
 	await get_tree().process_frame
-	aplicar_face_quente()
+	spawner_meteoro = Global.AsteroidSpawner
+	
+	if spawner_meteoro != null and pode_atirar:
+		spawner_meteoro.pode_instanciar = true
+
+func atualizar_estado_spawner():
+	if pode_atirar and spawner_meteoro != null:
+		spawner_meteoro.pode_instanciar = true
 
 func _process(delta):
 	contar_tempo_de_rotacao(delta)
@@ -67,8 +75,9 @@ func rotacionar_planeta(delta):
 		if sprite_planeta.rotation >= TAU:
 			sprite_planeta.rotation -= TAU
 			rotacao_destino -= TAU
-
-		aplicar_face_atual()
+		
+		if pode_atirar == true:
+			aplicar_face_atual()
 
 
 func aplicar_face_atual():

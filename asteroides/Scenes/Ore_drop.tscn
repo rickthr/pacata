@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bljgtb5p84nm6"]
 
-[ext_resource type="Script" path="res://asteroides/Scripts/ore_drop.gd" id="1_dtu83"]
+[ext_resource type="Script" uid="uid://b6y3gslfh14xm" path="res://asteroides/Scripts/ore_drop.gd" id="1_dtu83"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dtu83"]
 radius = 7.071068
 
-[node name="OreDrop" type="Area2D" unique_id=1727941661]
+[node name="OreDrop" type="Area2D" unique_id=1727941661 groups=["Minerios"]]
+collision_layer = 128
 script = ExtResource("1_dtu83")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1195854923]

@@ -1,5 +1,11 @@
 extends GerenciaBotoes
 
+#GERENCIA DIALOGO
+
+var dialogue_id: String = "DPai1"
+var popup_id: String = "PPAP"
+var popup_duration_per_message:= 4.0
+
 var pode_acessar={ 
 	"garagem": true,
 	"vendedor": false,
@@ -8,7 +14,7 @@ var pode_acessar={
 }
 
 @export var texto_notificacao: Label
-
+	
 func desenha_hover(idx_botao_atual: int):
 	var botao_alvo = lista_botoes[idx_botao_atual]
 	
@@ -20,6 +26,17 @@ func seleciona_botao(idx_botao: int): # OVERRIDE
 	match idx_botao:
 		0:#garagem
 			tocar_som("confirmar")
+			pode_mexer = false
+			DialogueManager.start_dialogue_id(dialogue_id)
+			
+			await get_tree().create_timer(2).timeout
+			DialogueManager.show_popup_id(popup_id, popup_duration_per_message)
+			#faz com que o jogador não possa mais mexer nas coisas
+			await DialogueManager.dialogue_finished
+			while not DialogueManager.dialogo_acabou:
+				await get_tree().process_frame
+			gerenciadorCenas.passarCena.emit(GerenciadorCenas.Cenas.Tutorial)
+			DialogueManager.dialogo_acabou = false
 			pass
 		1:#vendedor
 			#enquanto estiver bloqueado

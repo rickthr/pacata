@@ -10,11 +10,17 @@ var _db: AsteroidDatabase = AsteroidDatabase.new()
 var _min: MineralsDatabase = MineralsDatabase.new()
 var _timer: float = 0.0
 
+var pode_instanciar:=true
+
+func _ready() -> void:
+	Global.AsteroidSpawner = self
+
 func _process(delta: float) -> void:
-	_timer -= delta
-	if _timer <= 0.0:
-		_spawnar()
-		_timer = INTERVALOS[clamp(fase_atual - 1, 0, 4)]
+	if pode_instanciar:
+		_timer -= delta
+		if _timer <= 0.0:
+			_spawnar()
+			_timer = INTERVALOS[clamp(fase_atual - 1, 0, 4)]
 
 func _spawnar() -> void:
 	var ast: Dictionary = _sortear()

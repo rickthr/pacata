@@ -14,3 +14,4 @@ quantInimigosAInstanciarInicial = 3
 maxQuantHordasNaTela = 1
 
 [node name="Boss1" parent="control" unique_id=1877750270 instance=ExtResource("2_e4xux")]
+position = Vector2(620, 20)

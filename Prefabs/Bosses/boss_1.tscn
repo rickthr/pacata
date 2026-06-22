@@ -4,26 +4,15 @@
 [ext_resource type="Resource" uid="uid://qnxwc0vppii7" path="res://Scripts/Bosses/Resources/Boss1.tres" id="2_g4pn2"]
 [ext_resource type="PackedScene" uid="uid://c672wdww4c4k5" path="res://Prefabs/avisa_tiro_maior.tscn" id="2_xor2y"]
 [ext_resource type="Texture2D" uid="uid://1vg1x0nxyo43" path="res://Assets/Protanopia/Inimigos/proTrembossmaligno.png" id="4_tr1qw"]
-[ext_resource type="Texture2D" uid="uid://djpdwi23tsu7c" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED1.png" id="5_f5abl"]
-[ext_resource type="Texture2D" uid="uid://c4t0euapcua5y" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED2.png" id="6_7udnf"]
-[ext_resource type="Texture2D" uid="uid://krhbqlsij05m" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED3.png" id="7_7hj0j"]
-[ext_resource type="Texture2D" uid="uid://btf7nn278xwjw" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED4.png" id="8_qeyx8"]
-[ext_resource type="Texture2D" uid="uid://bjgo7wy2tuyi5" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED5.png" id="9_fbsgj"]
-[ext_resource type="Texture2D" uid="uid://ns6xgnavn7oo" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED6.png" id="10_0lr6w"]
-[ext_resource type="Texture2D" uid="uid://cmee4ef6n0bg5" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED7.png" id="11_oao1q"]
-[ext_resource type="Texture2D" uid="uid://b0trurxpt1s0v" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED8.png" id="12_4jgd3"]
-[ext_resource type="Texture2D" uid="uid://hgq8toh2g3us" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED9.png" id="13_qd0ki"]
-[ext_resource type="Texture2D" uid="uid://dnkm6r2ojtiv4" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/descendo/TremBossMalignoCOMPLETED10.png" id="14_7udnf"]
-[ext_resource type="Texture2D" uid="uid://dne8wdojk6lo0" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo1.png" id="15_q1rnu"]
-[ext_resource type="Texture2D" uid="uid://cxuk40qkf1pt2" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo2.png" id="16_afrfh"]
-[ext_resource type="Texture2D" uid="uid://dg2j7ulute76v" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo3.png" id="17_tr1qw"]
-[ext_resource type="Texture2D" uid="uid://coli8dhsnma8g" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo4.png" id="18_ru4iy"]
-[ext_resource type="Texture2D" uid="uid://dhmips0656brw" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo5.png" id="19_mhpyx"]
-[ext_resource type="Texture2D" uid="uid://bqw844xclgd5h" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo6.png" id="20_5hilp"]
-[ext_resource type="Texture2D" uid="uid://b2lg6eyjcihqd" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo7.png" id="21_dtk7y"]
-[ext_resource type="Texture2D" uid="uid://ch1i4ecak80er" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo8.png" id="22_yj2r0"]
-[ext_resource type="Texture2D" uid="uid://gmwe4xkek1qu" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo9.png" id="23_1k2wo"]
-[ext_resource type="Texture2D" uid="uid://hp5yn631mxug" path="res://Assets/Cores Originais/Inimigos/Bosses/Boss1/subindo/TremBossMalignoCOMPLETED_descendo10.png" id="24_h0a1x"]
+[ext_resource type="Texture2D" uid="uid://ccypeeupcku1x" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED1.png" id="5_7hj0j"]
+[ext_resource type="Texture2D" uid="uid://de8drpeqtbgs0" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED2.png" id="6_qeyx8"]
+[ext_resource type="Texture2D" uid="uid://be3dgwlo8nrcb" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED3.png" id="7_fbsgj"]
+[ext_resource type="Texture2D" uid="uid://da1qtepe6x7vh" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED4.png" id="8_0lr6w"]
+[ext_resource type="Texture2D" uid="uid://chl7iscb66lfq" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED5.png" id="9_oao1q"]
+[ext_resource type="Texture2D" uid="uid://vbutpntxjexm" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED6.png" id="10_4jgd3"]
+[ext_resource type="Texture2D" uid="uid://cbhj2tq0av2ga" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED7.png" id="11_qd0ki"]
+[ext_resource type="Texture2D" uid="uid://hy4cp4pim64o" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED8.png" id="12_fi25a"]
+[ext_resource type="Texture2D" uid="uid://b0q2sgjttkiid" path="res://Assets/Protanopia/Inimigos/Animação/TremBossMalignoCOMPLETED9.png" id="13_eo8pk"]
 [ext_resource type="Texture2D" uid="uid://dlpsncq1efk0j" path="res://Assets/Cores Originais/Inimigos/bv inimigos.png" id="25_tr1qw"]
 [ext_resource type="Texture2D" uid="uid://015a2x4jpqel" path="res://Assets/Cores Originais/Inimigos/bv inimigos aj.png" id="26_ru4iy"]
 
@@ -40,70 +29,118 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
+tracks/0/path = NodePath("../Moviveis:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(640, -8.999999)]
+"values": [Vector2(-10, 11.428558)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../colisao:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-14.285706, -232.85713)]
 }
 
 [sub_resource type="Animation" id="Animation_ru4iy"]
 resource_name = "descendo_gravado"
-length = 2.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
+tracks/0/path = NodePath("../Moviveis:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(600, 20), Vector2(620, 70), Vector2(590, 100)]
+"values": [Vector2(-10, 11.428558), Vector2(-10, 261)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../colisao:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-14.285706, -232.85713), Vector2(-14.286, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_7hj0j"]
+resource_name = "subindo_gravado"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../colisao:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-14.286, 100), Vector2(-14.286, -200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Moviveis:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-10, 300), Vector2(-10, 11.428558)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mhpyx"]
 _data = {
 &"RESET": SubResource("Animation_tr1qw"),
-&"descendo_gravado": SubResource("Animation_ru4iy")
+&"descendo_gravado": SubResource("Animation_ru4iy"),
+&"subindo_gravado": SubResource("Animation_7hj0j")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fi25a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_f5abl")
+"texture": ExtResource("5_7hj0j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_7udnf")
+"texture": ExtResource("6_qeyx8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_7hj0j")
+"texture": ExtResource("7_fbsgj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_qeyx8")
+"texture": ExtResource("8_0lr6w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_fbsgj")
+"texture": ExtResource("9_oao1q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_0lr6w")
+"texture": ExtResource("10_4jgd3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_oao1q")
+"texture": ExtResource("11_qd0ki")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_4jgd3")
+"texture": ExtResource("12_fi25a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_qd0ki")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_7udnf")
+"texture": ExtResource("13_eo8pk")
 }],
 "loop": false,
 "name": &"descendo",
@@ -116,123 +153,131 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_q1rnu")
+"texture": ExtResource("13_eo8pk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_afrfh")
+"texture": ExtResource("12_fi25a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_tr1qw")
+"texture": ExtResource("11_qd0ki")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_ru4iy")
+"texture": ExtResource("10_4jgd3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_mhpyx")
+"texture": ExtResource("9_oao1q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_5hilp")
+"texture": ExtResource("8_0lr6w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_dtk7y")
+"texture": ExtResource("7_fbsgj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_yj2r0")
+"texture": ExtResource("6_qeyx8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_1k2wo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_h0a1x")
+"texture": ExtResource("5_7hj0j")
 }],
 "loop": false,
 "name": &"subindo",
 "speed": 5.0
 }]
 
-[node name="Boss1" type="CharacterBody2D" unique_id=1877750270 node_paths=PackedStringArray("pos_instancia_tiro_maior", "pos_instancia_tiro_menor_s", "pos_instancia_tiro_menor_r", "pos_instancia_tiro_medio")]
-position = Vector2(640, -8.999999)
+[node name="Boss1" type="CharacterBody2D" unique_id=1877750270 node_paths=PackedStringArray("pos_instancia_tiro_maior", "pos_instancia_tiro_menor_s", "pos_instancia_tiro_menor_r", "pos_instancia_tiro_medio") groups=["Boss"]]
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
+collision_mask = 37
 script = ExtResource("1_y3k76")
-pos_instancia_tiro_maior = NodePath("InstMaior/Marker2D")
-pos_instancia_tiro_menor_s = [NodePath("InstMenorS/Marker2D2"), NodePath("InstMenorS/Marker2D3")]
-pos_instancia_tiro_menor_r = [NodePath("InstMenorR/Marker2D"), NodePath("InstMenorR/Marker2D2")]
-pos_instancia_tiro_medio = [NodePath("InstMedio/Marker2D"), NodePath("InstMedio/Marker2D4"), NodePath("InstMedio/Marker2D2"), NodePath("InstMedio/Marker2D3")]
+pos_instancia_tiro_maior = NodePath("Moviveis/InstMaior/Marker2D")
+pos_instancia_tiro_menor_s = [NodePath("Moviveis/InstMenorS/Marker2D2"), NodePath("Moviveis/InstMenorS/Marker2D3")]
+pos_instancia_tiro_menor_r = [NodePath("Moviveis/InstMenorR/Marker2D"), NodePath("Moviveis/InstMenorR/Marker2D2")]
+pos_instancia_tiro_medio = [NodePath("Moviveis/InstMedio/Marker2D"), NodePath("Moviveis/InstMedio/Marker2D4"), NodePath("Moviveis/InstMedio/Marker2D2"), NodePath("Moviveis/InstMedio/Marker2D3")]
 aviso_tiro_maior = ExtResource("2_xor2y")
 dadosBoss = ExtResource("2_g4pn2")
 metadata/_custom_type_script = "uid://b1bqlbr1cd0ed"
 
-[node name="InstMaior" type="Node2D" parent="." unique_id=345737063]
-position = Vector2(-647.1429, -251.42854)
-
-[node name="Marker2D" type="Marker2D" parent="InstMaior" unique_id=2022967480]
-position = Vector2(639, 216)
-
-[node name="InstMedio" type="Node2D" parent="." unique_id=2141966760]
-position = Vector2(-647.1429, -251.42854)
-
-[node name="Marker2D" type="Marker2D" parent="InstMedio" unique_id=401387220]
-position = Vector2(200, 115)
-
-[node name="Marker2D4" type="Marker2D" parent="InstMedio" unique_id=1492952157]
-position = Vector2(440.00003, 129.99997)
-
-[node name="Marker2D2" type="Marker2D" parent="InstMedio" unique_id=543763218]
-position = Vector2(835.71436, 129.99998)
-
-[node name="Marker2D3" type="Marker2D" parent="InstMedio" unique_id=1257568400]
-position = Vector2(1074.2858, 115.714264)
-
-[node name="InstMenorS" type="Node2D" parent="." unique_id=1342432778]
-position = Vector2(-647.1429, -251.42854)
-
-[node name="Marker2D3" type="Marker2D" parent="InstMenorS" unique_id=1628393415]
-position = Vector2(254, 34)
-
-[node name="Marker2D2" type="Marker2D" parent="InstMenorS" unique_id=359680296]
-position = Vector2(1031.4286, 34.285686)
-
-[node name="InstMenorR" type="Node2D" parent="." unique_id=1387105975]
-position = Vector2(-647.1429, -251.42854)
-
-[node name="Marker2D" type="Marker2D" parent="InstMenorR" unique_id=667588620]
-position = Vector2(350, 68)
-
-[node name="Marker2D2" type="Marker2D" parent="InstMenorR" unique_id=1116138459]
-position = Vector2(922.8571, 68.57141)
-
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=238277119]
-position = Vector2(-14.285671, -232.85715)
+position = Vector2(-14.285706, -232.85713)
 rotation = 1.5707964
-scale = Vector2(0.99999964, 0.99999964)
+scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("CapsuleShape2D_tr1qw")
 
-[node name="area2d" type="Area2D" parent="." unique_id=1298161627]
-position = Vector2(0, -309.99997)
+[node name="Moviveis" type="Node2D" parent="." unique_id=1255034256]
+position = Vector2(-10, 11.428558)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="area2d" unique_id=1745663073]
+[node name="InstMaior" type="Node2D" parent="Moviveis" unique_id=345737063]
+position = Vector2(-647.14294, -251.42857)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Marker2D" type="Marker2D" parent="Moviveis/InstMaior" unique_id=2022967480]
+position = Vector2(639, 216)
+
+[node name="InstMedio" type="Node2D" parent="Moviveis" unique_id=2141966760]
+position = Vector2(-647.14294, -251.42857)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Marker2D" type="Marker2D" parent="Moviveis/InstMedio" unique_id=401387220]
+position = Vector2(200, 115)
+
+[node name="Marker2D4" type="Marker2D" parent="Moviveis/InstMedio" unique_id=1492952157]
+position = Vector2(440.00003, 129.99997)
+
+[node name="Marker2D2" type="Marker2D" parent="Moviveis/InstMedio" unique_id=543763218]
+position = Vector2(835.71436, 129.99998)
+
+[node name="Marker2D3" type="Marker2D" parent="Moviveis/InstMedio" unique_id=1257568400]
+position = Vector2(1074.2858, 115.714264)
+
+[node name="InstMenorS" type="Node2D" parent="Moviveis" unique_id=1342432778]
+position = Vector2(-647.14294, -251.42857)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Marker2D3" type="Marker2D" parent="Moviveis/InstMenorS" unique_id=1628393415]
+position = Vector2(254, 34)
+
+[node name="Marker2D2" type="Marker2D" parent="Moviveis/InstMenorS" unique_id=359680296]
+position = Vector2(1031.4286, 34.285686)
+
+[node name="InstMenorR" type="Node2D" parent="Moviveis" unique_id=1387105975]
+position = Vector2(-647.14294, -251.42857)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Marker2D" type="Marker2D" parent="Moviveis/InstMenorR" unique_id=667588620]
+position = Vector2(350, 68)
+
+[node name="Marker2D2" type="Marker2D" parent="Moviveis/InstMenorR" unique_id=1116138459]
+position = Vector2(922.8571, 68.57141)
+
+[node name="area2d" type="Area2D" parent="Moviveis" unique_id=1298161627]
+position = Vector2(0, -310)
+scale = Vector2(1.0000001, 1.0000001)
+collision_layer = 2
+collision_mask = 37
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moviveis/area2d" unique_id=1745663073]
 position = Vector2(3.623768e-13, 72.85714)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ru4iy")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1617251182]
+visible = false
 texture_filter = 1
 position = Vector2(0, -160.00002)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_tr1qw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1006447957]
+[node name="animColisao" type="AnimationPlayer" parent="." unique_id=1006447957]
 root_node = NodePath("../anim")
 libraries/ = SubResource("AnimationLibrary_mhpyx")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=1075190972]
-position = Vector2(-4.285714, 202.85715)
-scale = Vector2(0.99999994, 0.99999994)
+texture_filter = 1
+position = Vector2(-4.285714, 88.571434)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_fi25a")
 animation = &"descendo"
-frame = 9
-frame_progress = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1510732895]
 scale = Vector2(5, 5)
@@ -241,11 +286,9 @@ transform = Transform2D(5, 0, 0, 5, 0, 0)
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1218184113]
 texture_filter = 1
 offset_left = -21.0
-offset_top = 136.6
+offset_top = 144.2
 offset_right = 99.0
-offset_bottom = 200.6
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 208.2
 rotation = -1.5707964
 value = 100.0
 texture_under = ExtResource("25_tr1qw")

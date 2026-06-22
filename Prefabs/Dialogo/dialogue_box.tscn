@@ -1,14 +1,20 @@
-[gd_scene format=3 uid="uid://j6w7hlk2a64a"]
+[gd_scene format=3 uid="uid://d38f512a7wqx"]
 
 [ext_resource type="Script" uid="uid://dqvu71fswl2ta" path="res://Scripts/Dialogo/DialogueBox.gd" id="1_0ocdd"]
 [ext_resource type="Texture2D" uid="uid://b04m0yfjn5a6h" path="res://Assets/Cores Originais/nomes d.png" id="2_ymanj"]
+[ext_resource type="Texture2D" uid="uid://cv08pfcsq3qfy" path="res://Assets/Cores Originais/Caixa de diálogo.png" id="3_hojye"]
 [ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_ymanj"]
+[ext_resource type="Texture2D" uid="uid://djpga1otan8mv" path="res://icon.svg" id="4_hojye"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ocdd"]
 
 [node name="DialogueBox" type="CanvasLayer" unique_id=1335076014]
 script = ExtResource("1_0ocdd")
 default_name_box = ExtResource("2_ymanj")
+default_box = ExtResource("3_hojye")
+default_portrait = ExtResource("4_hojye")
+diggy_portrait = ExtResource("4_hojye")
+pai_portrait = ExtResource("4_hojye")
 
 [node name="Panel" type="Panel" parent="." unique_id=1487289311]
 anchors_preset = -1
@@ -46,6 +52,7 @@ offset_right = -421.40015
 offset_bottom = -168.06302
 scale = Vector2(4.5, 4.5)
 pivot_offset = Vector2(128, 0)
+texture = ExtResource("3_hojye")
 
 [node name="NameBackground" type="TextureRect" parent="Panel" unique_id=1345354123]
 texture_filter = 1
@@ -55,11 +62,12 @@ anchor_left = 0.062000003
 anchor_top = 0.026
 anchor_right = 0.312
 anchor_bottom = 0.23500001
-offset_left = 0.6399994
-offset_top = -1.9820004
-offset_right = -239.36002
-offset_bottom = -50.145004
+offset_left = -0.3600006
+offset_top = 0.017999649
+offset_right = -240.36002
+offset_bottom = -48.145004
 scale = Vector2(4, 4)
+texture = ExtResource("2_ymanj")
 
 [node name="NameLabel" type="Label" parent="Panel" unique_id=458109714]
 texture_filter = 1

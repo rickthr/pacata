@@ -1,14 +1,20 @@
 [gd_scene format=3 uid="uid://3t0ho7w0awmh"]
 
+[ext_resource type="Script" uid="uid://yjo3v7showm1" path="res://Scripts/Gerenciadores de Cenas/gerencia_planeta_curupolar.gd" id="1_ei3eg"]
 [ext_resource type="PackedScene" uid="uid://dq0tlmctqgki3" path="res://Planetas/planeta_curupolar.tscn" id="1_i4rc7"]
-[ext_resource type="PackedScene" uid="uid://b8m34tky5kr6m" path="res://node_2d.tscn" id="1_mpuen"]
+[ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://Nave/nave.tscn" id="2_ei3eg"]
 [ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="2_k3ebi"]
+[ext_resource type="PackedScene" uid="uid://b4ej53i2qgk82" path="res://Prefabs/Dialogo/dialogue_ui.tscn" id="5_0q6ee"]
 
 [node name="GerenciaPlanetaCurupolar" type="Node2D" unique_id=846405332]
+script = ExtResource("1_ei3eg")
 
 [node name="PlanetaCurupolar" parent="." unique_id=875043077 instance=ExtResource("1_i4rc7")]
 posicao_planeta = Vector2(1280, 324)
 
-[node name="Nave" parent="." unique_id=2055429933 instance=ExtResource("1_mpuen")]
+[node name="Nave" parent="." unique_id=85779185 instance=ExtResource("2_ei3eg")]
+position = Vector2(640, 360)
 
 [node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("2_k3ebi")]
+
+[node name="DialogueUi" parent="." unique_id=1705464675 instance=ExtResource("5_0q6ee")]

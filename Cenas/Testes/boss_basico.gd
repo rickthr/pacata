@@ -35,6 +35,7 @@ var faseAtual:int
 var fases_realizadas:=0
 var cutscene_final:=false
 var anim:AnimatedSprite2D
+var anim_colisao:AnimationPlayer
 
 #sinais para o gerenciador de batalha
 signal onda_iniciada
@@ -79,14 +80,14 @@ func _ready() -> void:
 	timer.wait_time = janela_vul
 	sliderVida = $CanvasLayer/TextureProgressBar
 	sliderVida.max_value = vidaMaxima
-	hitbox = $area2d
+	hitbox = $Moviveis/area2d
 	faseDanoIniciada = false 
 	podeInstanciar = false 
 	hitbox.monitoring = false
 	faseAtual = 0
 	fases_realizadas = 0
 	cutscene_final = false
-	mudar_estado(Estados.CutScene) #->teste?
+	#mudar_estado(Estados.CutScene) #->teste?
 	
 func mudar_estado(novo_estado: Estados) -> void:
 	estado_atual = novo_estado
@@ -121,6 +122,7 @@ func mudar_estado(novo_estado: Estados) -> void:
 			"""
 			await  get_tree().create_timer(1).timeout
 			anim.play("descendo")
+			anim_colisao.play("descendo_gravado")
 			podeInstanciar = false
 			#chama as funções que realizaa as operações de FASEDANO
 			#espera o tempo da animação acabar
@@ -147,6 +149,10 @@ func mudar_estado(novo_estado: Estados) -> void:
 			podeInstanciar = false
 			faseDanoIniciada = false
 			
+			"""
+				chamar o dialogo aqui enquanto mexe os bonecos, ou fazer tudo isso no gerenciador da cena e colocar o mesmo tempo abaixo para que eles iniciem ao mesmo tempo
+			"""
+			
 			await  get_tree().create_timer(2).timeout
 			
 			if cutscene_final:
@@ -172,8 +178,7 @@ func _process(delta: float) -> void:
 	sliderVida.value = vida
 
 func receber_dano(dano: float) -> void:
-	if faseDanoIniciada:
-		vida -= dano
+	vida -= dano
 		
 func _on_janela_vulnerabilidade_timeout() -> void:
 	hitbox.monitoring = false
@@ -187,5 +192,6 @@ func _on_janela_vulnerabilidade_timeout() -> void:
 	elif vida > 0:
 		mudar_estado(Estados.CutScene)
 		anim.play("subindo")
+		anim_colisao.play("subindo_gravado")
 	else:
 		mudar_estado(Estados.Morrendo)

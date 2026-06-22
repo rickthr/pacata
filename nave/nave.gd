@@ -1,15 +1,16 @@
 extends CharacterBody2D
+class_name Nave
 
-const JUMP_VELOCITY = -400.0
-
-@onready var shoot_l: Marker2D = $shoot_l
-@onready var shoot_r: Marker2D = $shoot_r
+@onready var shoot_l: Marker2D = $NaveCorpo/shoot_l
+@onready var shoot_r: Marker2D = $NaveCorpo/shoot_r
 @onready var animCorpo = $animCorpo
 @onready var animAsas = $animAsas
 
 @export var dadosNave : DatabaseNave
-@export var label_vida : Label
-@export var label_score : Label
+@export var bar_vida : TextureProgressBar
+@export var label_quant_minerio: Label
+@export var dano_recebido: int
+var invencivel: bool = false
 
 var contador_flip :=0
 var shoot = preload("res://nave/shoot.tscn")
@@ -20,38 +21,15 @@ var velocidade:int
 var vida :int
 var dano_bala :int
 var SPEED:int 
+var quant_minerios_coletados:=0
+
 var pode_atirar := true
 var direcao_atual := 0.0
 var fazendo_curva := false
-
-func flip():
-	if contador_flip %2 == 0:
-		$flip1/canhao.visible = true
-		$flip2/card.visible = true
-		
-		$flip2/canhao.visible = false
-		$flip1/card.visible = false
-		
-		
-	else:
-		$flip1/canhao.visible = false
-		$flip2/card.visible = false
-		
-		$flip2/canhao.visible = true
-		$flip1/card.visible = true
-		
-func receber_dano():
-	vida -= 1
-	label_vida.text = "Vida: " + str(vida)
-	$naveHit.play()
-	var tween = get_tree().create_tween()
-	tween.tween_property(self,"modulate", Color.RED,0.5)
-	tween.tween_property(self,"modulate", Color.WHITE,0.5)
-	await get_tree().create_timer(2.0).timeout
-	if vida == 0:
-		$naveDead.play()
-		await $naveDead.finished
-		queue_free()
+var pode_mexer:bool = true
+var intensidade_shake: float = 4.0 
+var velocidade_shake: float = 1 
+var tremendo: bool = false
 
 func _ready() -> void:
 	add_to_group("jogador")
@@ -66,12 +44,77 @@ func _ready() -> void:
 	print("SPEED: ", SPEED)
 	print("vida: ", vida)
 	print("dano: ", dano_bala)
-	label_vida.text = "Vida: " + str(vida)
-	label_score.text = "Score:" + str(Global.score)
+	bar_vida.max_value = vida
+	bar_vida.value = vida
 	
+
+func flip():
+	if contador_flip %2 == 0:
+		$NaveCorpo/flip1/canhao.visible = true
+		$NaveCorpo/flip2/card.visible = true
+
+		$NaveCorpo/flip2/canhao.visible = false
+		$NaveCorpo/flip1/card.visible = false
+
+	else:
+		$NaveCorpo/flip1/canhao.visible = false
+		$NaveCorpo/flip2/card.visible = false
+		
+		$NaveCorpo/flip2/canhao.visible = true
+		$NaveCorpo/flip1/card.visible = true
+		
+func receber_dano():
+	if invencivel or vida <= 0:
+		return
+		
+	vida -= dano_recebido
+	bar_vida.value = vida
+	$naveHit.play()
+	
+	if vida <= 0:
+		morrer()
+		return
+
+	invencivel = true
+	
+	var tween = get_tree().create_tween()
+	
+	tween.tween_property(self, "modulate", Color.RED, 0.1)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.1)
+	
+	for i in range(6):
+		tween.tween_property(self, "modulate", Color(1, 1, 1, 0.3), 0.12) # Fica transparente
+		tween.tween_property(self, "modulate", Color(1, 1, 1, 1.0), 0.12) # Volta ao normal
+	
+	await tween.finished
+	
+	invencivel = false
+
+func morrer():
+	pode_mexer = false
+	velocity = Vector2.ZERO
+	$naveDead.play()
+
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)
+	
+	await $naveDead.finished
+	queue_free()
 	
 func _physics_process(delta: float) -> void:
 	
+	if not pode_mexer:
+		return
+		
+	if invencivel: 
+		$NaveCorpo/flip2.monitoring = false
+		$NaveCorpo/flip1.monitoring = false
+		$NaveCorpo/Broca.monitoring = false
+	else:
+		$NaveCorpo/flip2.monitoring = true
+		$NaveCorpo/flip1.monitoring = true
+		$NaveCorpo/Broca.monitoring = true
+		
 	position.x = clamp(position.x, 0, 1280)
 	position.y = clamp(position.y, 0, 720)
 	var direction_x := Input.get_axis("ui_left", "ui_right")
@@ -117,14 +160,36 @@ func _physics_process(delta: float) -> void:
 		await get_tree().create_timer(0.3).timeout
 		pode_atirar = true
 		
-		
+	tremer_motor()
 	move_and_slide()
+	
+func tremer_motor():
+	if tremendo:
+		return
+	tremendo = true
+	
+	var sprite_nave = $NaveCorpo
+	
+	var tween = get_tree().create_tween()
+	
+	for i in range(4):
+		var offset_aleatorio = Vector2(
+			randf_range(-intensidade_shake, intensidade_shake),
+			randf_range(-intensidade_shake, intensidade_shake)
+		)
+		
+		tween.tween_property(sprite_nave, "position", offset_aleatorio, velocidade_shake)
+	
+	tween.tween_property(sprite_nave, "position", Vector2.ZERO, velocidade_shake)
+	
+	await tween.finished
+	tremendo = false
 
 #ANIMAÇÂO CURVA
 func animacaoCurva(direcao_x: float, delta: float):
 	var direcao_alvo =direcao_x
 	direcao_atual = lerp(direcao_atual, direcao_alvo, 5.0 * delta)
-	$Nave.flip_h = direcao_atual < 0
+	$NaveCorpo/Nave.flip_h = direcao_atual < 0
 	
 	if direcao_x != 0:
 		if fazendo_curva == false:
@@ -139,6 +204,7 @@ func animacaoCurva(direcao_x: float, delta: float):
 		animCorpo.play("RESET")
 		animAsas.play("RESET")
 
+
 #ANIMAÇÂO TIRO E COLETA
 func animacaoTiro():
 	
@@ -150,21 +216,53 @@ func animacaoColeta():
 func aplicar_empurrao(forca: Vector2) -> void:
 	forca_externa += forca
 	
-func _on_broca_body_entered(body: Node2D) -> void:
-	#sinal emite morte do objeto q entrou na area
-	if not body.is_in_group("inimigos"):
-		body.queue_free()
-
+	
 func _on_flip_2_body_entered(body: Node2D) -> void:
 	if contador_flip %2 == 0 and body.is_in_group("Minerios"):
+		#vou fazer assim por enquanto
+		body.queue_free()
+		quant_minerios_coletados += 1
+		label_quant_minerio.text = str(quant_minerios_coletados)
 		#coletou_minerio()
 		pass
 	else:
 		receber_dano()
+
+func _on_flip_2_area_entered(area: Area2D) -> void:
+	if contador_flip %2 == 0 and area.is_in_group("Minerios"):
+		#vou fazer assim por enquanto
+		area.queue_free()
+		quant_minerios_coletados += 1
+		label_quant_minerio.text = str(quant_minerios_coletados)
+		#coletou_minerio()
+		pass
+	else:
+		receber_dano()
+
 
 func _on_flip_1_body_entered(body: Node2D) -> void:
 	if contador_flip %2 != 0 and body.is_in_group("Minerios"):
+		body.queue_free()
+		quant_minerios_coletados += 1
+		label_quant_minerio.text = str(quant_minerios_coletados)
 		#coletou_minerio()
 		pass
 	else:
 		receber_dano()
+
+
+func _on_flip_1_area_entered(area: Area2D) -> void:
+	if contador_flip %2 != 0 and area.is_in_group("Minerios"):
+		area.queue_free()
+		quant_minerios_coletados += 1
+		label_quant_minerio.text = str(quant_minerios_coletados)
+		#coletou_minerio()
+		pass
+	else:
+		receber_dano()
+	pass # Replace with function body.
+
+
+func _on_broca_area_entered(area: Area2D) -> void:
+	if area.is_in_group("asteroid"):
+		area.queue_free()

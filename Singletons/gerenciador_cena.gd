@@ -7,6 +7,8 @@ enum Cenas{
 	PlanetaGaragem,
 	Tutorial,
 	PlanetaCurupolar,
+	Inimigos,
+	Voltando,
 	Opcoes
 }
 
@@ -24,6 +26,7 @@ var sons: Dictionary ={
 	"voltar": "res://Assets/Sons/Efeitos interface/Voltar_ilovemp4.mp3",
 }
 
+@warning_ignore("unused_signal")
 signal passarCena(novaCena: Cenas)
 
 var cenaAtual
@@ -33,6 +36,8 @@ var efeitoStream
 
 var cena_anterior_aPausa
 
+var anim: AnimationPlayer
+
 func _ready() -> void:
 	if Global.CenaAtual == null:
 		Global.CenaAtual = Cenas.MenuInicial #pra testes
@@ -40,9 +45,11 @@ func _ready() -> void:
 	Global.GerenciadorCenas = self
 	cnvsOpcoes = $Opcoes
 	efeitoStream = $EfeitosStream
+	anim = $Transicao/animacao
 	desativar_no(cnvsOpcoes)
 	cenaAtual = Global.CenaAtual
-
+	
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	gerenciarCena()
 
@@ -50,12 +57,14 @@ func mudarCena(novaCena: Cenas):
 	cena_anterior_aPausa = cenaAtual# ->passa a cena anterior antes que ela mude 
 	cenaAtual = novaCena
 	Global.CenaAtual = cenaAtual
+	print_debug(cenaAtual)
 	
-	if cenaAtual == Cenas.Opcoes:
-		get_tree().paused = true
-	elif cenaAtual != Cenas.Opcoes:
-		print_debug(cenaAtual)
+	if cenaAtual != Cenas.Opcoes:
+		anim.play("fade_out")
+		await anim.animation_finished
 		get_tree().change_scene_to_file(caminhos_cena[cenaAtual])
+	else:
+		get_tree().paused = true
 	
 func gerenciarCena():
 	match cenaAtual:
