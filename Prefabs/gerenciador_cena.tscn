@@ -190,6 +190,7 @@ texture_under = ExtResource("7_d3xpe")
 texture_progress = ExtResource("12_uij10")
 
 [node name="TelaMorte" type="CanvasLayer" parent="." unique_id=1424479509 node_paths=PackedStringArray("selecionaveis", "hover", "efeitoStream")]
+layer = 2
 script = ExtResource("12_d3xpe")
 selecionaveis = [NodePath("reiniciar"), NodePath("menu")]
 hover = NodePath("hover")

@@ -107,6 +107,7 @@ func morrer():
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)
 	
 	await $naveDead.finished
+	print_debug("emiti sinal")
 	morri.emit() #emite o sinal de morte para que o gerenciador de cenas faça o restio
 	
 func _physics_process(delta: float) -> void:
@@ -238,7 +239,7 @@ func _on_flip_2_body_entered(body: Node2D) -> void:
 		pass
 	elif body.is_in_group("Vento"):
 		return
-	elif body.is_in_group("projetilInimigo"):
+	elif body.is_in_group("projetilInimigo") or body.is_in_group("asteroid"): 
 		receber_dano()
 		body.queue_free()
 		
@@ -253,7 +254,7 @@ func _on_flip_2_area_entered(area: Area2D) -> void:
 		pass
 	elif area.is_in_group("Vento"):
 		return
-	elif area.is_in_group("projetilInimigo"):
+	elif area.is_in_group("projetilInimigo") or area.is_in_group("asteroid"):
 		receber_dano()
 		area.queue_free()
 
@@ -267,7 +268,7 @@ func _on_flip_1_body_entered(body: Node2D) -> void:
 		pass
 	elif body.is_in_group("Vento"):
 		return
-	elif body.is_in_group("projetilInimigo"):
+	elif body.is_in_group("projetilInimigo") or body.is_in_group("asteroid"):
 		receber_dano()
 		body.queue_free()
 
@@ -281,7 +282,7 @@ func _on_flip_1_area_entered(area: Area2D) -> void:
 		pass
 	elif area.is_in_group("Vento"):
 		return
-	elif area.is_in_group("projetilInimigo"):
+	elif area.is_in_group("projetilInimigo")or area.is_in_group("asteroid"):
 		receber_dano()
 		area.queue_free()
 	pass # Replace with function body.
@@ -291,6 +292,6 @@ func _on_broca_area_entered(area: Area2D) -> void:
 	print_debug("colidi")
 	if area.is_in_group("asteroid"):
 		area.queue_free()
-	elif area.is_in_group("projetilInimigo"):
+	elif area.is_in_group("projetilInimigo") or area.is_in_group("asteroid"):
 		receber_dano()
 		area.queue_free()

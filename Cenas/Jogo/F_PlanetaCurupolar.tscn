@@ -26,6 +26,7 @@ bus = &"Música"
 stream = ExtResource("5_bkr5k")
 bus = &"Efeitos sonoros"
 
-[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream") instance=ExtResource("2_k3ebi")]
+[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream", "nave") instance=ExtResource("2_k3ebi")]
 efeitoStream = NodePath("../EfeitoStream")
 trilhaStream = NodePath("../TrilhaStream")
+nave = NodePath("../Nave")

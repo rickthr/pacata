@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0tjx0icagaxe" path="res://Scripts/Gerenciadores de Cenas/botoes_planetagaragem.gd" id="1_43vs0"]
 [ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="2_7lvqx"]
-[ext_resource type="Texture2D" uid="uid://dx8ojknj1d6w2" path="res://Assets/Cores Originais/Interface/Universo (background padrão_.jpg" id="2_43vs0"]
+[ext_resource type="Texture2D" uid="uid://ecp0guq1yx6r" path="res://Assets/Cores Originais/Interface/Deutera_Universo.png" id="2_grnmf"]
 [ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Cores Originais/Interface/Itch.io.png" id="4_grnmf"]
 [ext_resource type="Texture2D" uid="uid://dj38yywjmst0f" path="res://DEuGaragem.png" id="4_qab2s"]
 [ext_resource type="Texture2D" uid="uid://bqlgranxo127v" path="res://Assets/Cores Originais/cadeado.png" id="5_d6t0n"]
@@ -25,7 +25,7 @@ hover = NodePath("hover")
 texture_filter = 1
 position = Vector2(640, 360)
 scale = Vector2(4, 4)
-texture = ExtResource("2_43vs0")
+texture = ExtResource("2_grnmf")
 
 [node name="Garagem" type="Sprite2D" parent="." unique_id=496833025]
 texture_filter = 1
