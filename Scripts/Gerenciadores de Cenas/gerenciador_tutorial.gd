@@ -2,7 +2,7 @@ extends Node2D
 
 var lista_dialogos := ["DUAI1", "DUAI2"]
 var lista_pp := ["PPUAIT1", "PPUAIT2", "PPUAIT3"]
-var popup_duration_per_message := 5.0
+var popup_duration_per_message := 4.0
 var nave: Nave
 var gerenciador_cenas: GerenciadorCenas
 var pode_avancar:= true

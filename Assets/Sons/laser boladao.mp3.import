@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpdh2ahd8rnsa"
+path="res://.godot/imported/laser boladao.mp3-a03958394bf301579286305fa9777f0e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sons/laser boladao.mp3"
+dest_files=["res://.godot/imported/laser boladao.mp3-a03958394bf301579286305fa9777f0e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

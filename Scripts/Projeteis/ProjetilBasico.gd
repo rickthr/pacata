@@ -19,7 +19,7 @@ var velocidade: float
 var tipo: String
 var descricao: String
 
-var jogador
+var jogador: Nave
 var direcao:= Vector2.DOWN
 var sprite: Sprite2D
 
@@ -29,9 +29,9 @@ func _ready() -> void:
 	velocidade = tiposDados.valorVelocidade.values()[dadosTipoProjetil.valorVelocidade]
 	tipo = dadosTipoProjetil.tipo
 	descricao = dadosTipoProjetil.descricao
-	
-	jogador = Global.Jogador
 	sprite = $sprite
+	jogador = Global.Jogador
+
 
 func _process(delta: float) -> void:
 	movimento(delta)

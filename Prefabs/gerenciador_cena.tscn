@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dchh80k3fgan8" path="res://Assets/Protanopia/Inimigos/ProtaCaixa de diálogo.png" id="12_j0e77"]
 [ext_resource type="Texture2D" uid="uid://bsbe3w4ga0742" path="res://Assets/Cores Originais/Interface/Ajuste de som - parte móvel_.png" id="12_uij10"]
 [ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="13_d3xpe"]
+[ext_resource type="Texture2D" uid="uid://1pwcgaon4oyy" path="res://Assets/Cores Originais/Interface/Setinha de seleção - menu inicial.png" id="17_vf8tc"]
 
 [sub_resource type="Animation" id="Animation_wt5pj"]
 length = 0.001
@@ -241,6 +242,28 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("13_d3xpe")
 theme_override_font_sizes/font_size = 64
 text = "Menu Inicial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pular" type="CanvasLayer" parent="." unique_id=1776324225]
+
+[node name="BotaoPular" type="Node2D" parent="Pular" unique_id=1513304665]
+position = Vector2(1228, 48)
+
+[node name="Pular" type="Sprite2D" parent="Pular/BotaoPular" unique_id=228026474]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("17_vf8tc")
+
+[node name="Label" type="Label" parent="Pular/BotaoPular" unique_id=1331922626]
+texture_filter = 1
+offset_left = -165.0
+offset_top = -25.0
+offset_right = -23.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("13_d3xpe")
+theme_override_font_sizes/font_size = 54
+text = "(M)Pular"
 horizontal_alignment = 1
 vertical_alignment = 1
 

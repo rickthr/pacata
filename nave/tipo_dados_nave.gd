@@ -18,7 +18,7 @@ enum ResistenciaNave{Baixa, Media, Alta}
 }
 
 @export var valorResistenciaNave = {
-	ResistenciaNave.Baixa : 3,
-	ResistenciaNave.Media : 5,
-	ResistenciaNave.Alta : 7
+	ResistenciaNave.Baixa : 5,
+	ResistenciaNave.Media : 10,
+	ResistenciaNave.Alta : 15
 }

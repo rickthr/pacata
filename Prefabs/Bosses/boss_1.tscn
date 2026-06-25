@@ -50,6 +50,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-14.285706, -232.85713)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../colisao:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Moviveis/area2d:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Moviveis/area2d:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ru4iy"]
 resource_name = "descendo_gravado"
@@ -77,6 +113,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-14.285706, -232.85713), Vector2(-14.286, 100)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Moviveis/area2d:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.008333325, 1.0083333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Moviveis/area2d:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../colisao:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_7hj0j"]
 resource_name = "subindo_gravado"
@@ -103,6 +175,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-10, 300), Vector2(-10, 11.428558)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../colisao:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Moviveis/area2d:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Moviveis/area2d:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mhpyx"]
@@ -184,7 +292,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Boss1" type="CharacterBody2D" unique_id=1877750270 node_paths=PackedStringArray("pos_instancia_tiro_maior", "pos_instancia_tiro_menor_s", "pos_instancia_tiro_menor_r", "pos_instancia_tiro_medio") groups=["Boss"]]
+[node name="Boss1" type="CharacterBody2D" unique_id=1877750270 node_paths=PackedStringArray("pos_instancia_tiro_maior", "pos_instancia_tiro_menor_s", "pos_instancia_tiro_menor_r", "pos_instancia_tiro_medio", "efeitoStream") groups=["Boss"]]
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
 collision_mask = 37
@@ -194,6 +302,7 @@ pos_instancia_tiro_menor_s = [NodePath("Moviveis/InstMenorS/Marker2D2"), NodePat
 pos_instancia_tiro_menor_r = [NodePath("Moviveis/InstMenorR/Marker2D"), NodePath("Moviveis/InstMenorR/Marker2D2")]
 pos_instancia_tiro_medio = [NodePath("Moviveis/InstMedio/Marker2D"), NodePath("Moviveis/InstMedio/Marker2D4"), NodePath("Moviveis/InstMedio/Marker2D2"), NodePath("Moviveis/InstMedio/Marker2D3")]
 aviso_tiro_maior = ExtResource("2_xor2y")
+efeitoStream = NodePath("Efeitos")
 dadosBoss = ExtResource("2_g4pn2")
 metadata/_custom_type_script = "uid://b1bqlbr1cd0ed"
 
@@ -202,6 +311,7 @@ position = Vector2(-14.285706, -232.85713)
 rotation = 1.5707964
 scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("CapsuleShape2D_tr1qw")
+disabled = true
 
 [node name="Moviveis" type="Node2D" parent="." unique_id=1255034256]
 position = Vector2(-10, 11.428558)
@@ -255,6 +365,8 @@ position = Vector2(0, -310)
 scale = Vector2(1.0000001, 1.0000001)
 collision_layer = 2
 collision_mask = 37
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moviveis/area2d" unique_id=1745663073]
 position = Vector2(3.623768e-13, 72.85714)
@@ -271,6 +383,10 @@ texture = ExtResource("4_tr1qw")
 [node name="animColisao" type="AnimationPlayer" parent="." unique_id=1006447957]
 root_node = NodePath("../anim")
 libraries/ = SubResource("AnimationLibrary_mhpyx")
+
+[node name="Efeitos" type="AudioStreamPlayer2D" parent="." unique_id=963783146]
+position = Vector2(-4.2857137, 88.57143)
+scale = Vector2(1.4999999, 1.4999999)
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=1075190972]
 texture_filter = 1

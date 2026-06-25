@@ -347,6 +347,7 @@ stream = ExtResource("8_0acnm")
 
 [node name="tiro" type="AudioStreamPlayer2D" parent="." unique_id=664668260]
 stream = ExtResource("9_0acnm")
+volume_db = -20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=798424402]
 

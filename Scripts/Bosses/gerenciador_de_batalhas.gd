@@ -47,6 +47,8 @@ func _ready() -> void:
 	#estadoAtual = 
 	#randomizaInimigos() ->pra teste
 	await boss.ready
+	await nave.ready
+	nave.morri.connect(_on_nave_morreu)
 	#boss.mudar_estado(BossBasico.Estados.CutScene)
 
 func _on_onda_iniciada() -> void:
@@ -62,6 +64,9 @@ func _on_cutscene_encerrada() -> void:
 	if estadoAtual != Estados.Encerrado:
 		boss.mudar_estado(BossBasico.Estados.Batalhando)
 
+func _on_nave_morreu() -> void:
+	pausarBoss.emit()
+	
 func _on_boss_morreu() -> void:
 	#espera um tempo 
 	await get_tree().create_timer(2).timeout

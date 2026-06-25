@@ -46,7 +46,10 @@ var cena_anterior_aPausa
 
 var anim: AnimationPlayer
 
+@export var animacao_pulavel: AnimationPlayer
 @export var nave: Nave
+
+var botaoPular: Node2D
 
 func _ready() -> void:
 	if Global.CenaAtual == null:
@@ -56,6 +59,7 @@ func _ready() -> void:
 	cnvsOpcoes = $Opcoes
 	cenaTelaMorte = $TelaMorte
 	anim = $Transicao/animacao
+	botaoPular = $Pular/BotaoPular
 	cenaAtual = Global.CenaAtual
 	desativar_no(cnvsOpcoes)
 	desativar_no(cenaTelaMorte)
@@ -69,6 +73,9 @@ func _exit_tree() -> void:
 	
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
+	verificaConteudoPulavel()
+	if Input.is_key_label_pressed(KEY_M):
+		pular_conteudo_atual()
 	gerenciarCena()
 
 func mudarCena(novaCena: Cenas):
@@ -159,6 +166,22 @@ func reativar_no(no_alvo: Node):
 func _on_tela_morte() -> void:
 	reativar_no(cenaTelaMorte)
 	pass
+	
+func verificaConteudoPulavel():
+	#DialogueManager.is_dialogue_active or 
+	if animacao_pulavel != null and animacao_pulavel.is_playing():
+		botaoPular.show()
+	else:
+		botaoPular.hide()
+	
+func pular_conteudo_atual() -> void:
+	tocar_som("confirmar") 
+	#if DialogueManager.is_dialogue_active:
+		#DialogueManager.pular_dialogo_atual()
+		#return
+		
+	if animacao_pulavel != null and	animacao_pulavel.is_playing():#pular animação
+		animacao_pulavel.animation_finished.emit(animacao_pulavel.current_animation)
 
 func _on_passar_cena(novaCena: GerenciadorCenas.Cenas) -> void:
 	mudarCena(novaCena)

@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_52o6m"]
 resource_name = "subindo_texto"
-length = 50.0
+length = 60.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,7 +31,7 @@ tracks/0/path = NodePath("CanvasLayer/Texto:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 50),
+"times": PackedFloat32Array(0, 60),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(90, 727), Vector2(90, -800)]
@@ -59,7 +59,7 @@ anchor_bottom = 1.09
 offset_left = 0.40000153
 offset_top = 727.0
 offset_right = -0.40014648
-offset_bottom = 727.20447
+offset_bottom = 727.204
 grow_horizontal = 2
 pivot_offset = Vector2(550, 0)
 theme_override_fonts/font = ExtResource("2_52o6m")
@@ -80,6 +80,7 @@ bus = &"Efeitos sonoros"
 stream = ExtResource("4_5leo4")
 bus = &"Música"
 
-[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream") instance=ExtResource("4_wmfwe")]
+[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream", "animacao_pulavel") instance=ExtResource("4_wmfwe")]
 efeitoStream = NodePath("../EfeitoStream")
 trilhaStream = NodePath("../TrilhaStream")
+animacao_pulavel = NodePath("../AnimationPlayer")

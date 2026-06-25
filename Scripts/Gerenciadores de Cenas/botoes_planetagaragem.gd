@@ -5,7 +5,7 @@ extends GerenciaBotoes
 var dialogue_id: String = "DPAI1"
 var dialogue_final_id: String = "DPAI2"
 var popup_id: String = "PPAP"
-var popup_duration_per_message:= 4.0
+var popup_duration_per_message:= 5.0
 
 var pode_acessar={ 
 	"garagem": true,
@@ -17,6 +17,7 @@ var pode_acessar={
 @export var texto_notificacao: Label
 
 func _ready() -> void:
+	super._ready()
 	if Global.drillPerdida:
 		await get_tree().create_timer(2).timeout
 		DialogueManager.start_dialogue_id(dialogue_final_id)

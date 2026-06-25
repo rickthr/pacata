@@ -168,13 +168,15 @@ texture = ExtResource("4_xc8ii")
 
 [node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=677123901]
 stream = ExtResource("7_01trl")
+volume_db = 4.0
 bus = &"Música"
 
 [node name="EfeitoStream" type="AudioStreamPlayer2D" parent="." unique_id=2060808683]
 stream = ExtResource("7_1l6mr")
 bus = &"Efeitos sonoros"
 
-[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream", "nave") instance=ExtResource("6_3sp5j")]
+[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream", "animacao_pulavel", "nave") instance=ExtResource("6_3sp5j")]
 efeitoStream = NodePath("../EfeitoStream")
 trilhaStream = NodePath("../TrilhaStream")
+animacao_pulavel = NodePath("../animInimigos")
 nave = NodePath("../Nave")

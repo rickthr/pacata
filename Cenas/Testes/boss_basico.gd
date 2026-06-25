@@ -110,6 +110,7 @@ func mudar_estado(novo_estado: Estados) -> void:
 				passar pro estado fasedano
 			"""
 		Estados.Morrendo:
+			
 			#chama as funções que realizaa as operações de MORRRENDO
 			hitbox.monitoring = false
 			podeInstanciar = false

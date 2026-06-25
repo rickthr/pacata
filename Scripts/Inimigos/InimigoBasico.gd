@@ -17,16 +17,25 @@ var tipo : String
 var quant_spawn:int
 	
 @onready var anim = $anim
+@export var efeitoStream: AudioStreamPlayer2D
+@export var colisao: CollisionShape2D
+
 var direcao_projetil = Vector2.ZERO
 var direcao = Vector2.ZERO
 var jogador
 enum LadoInstanciado {ESQUERDA, DIREITA} 
 var lado: LadoInstanciado
-@export var caminhoPos: PathFollow2D
 var ja_desapareceu = false
 var multiplicadorPFase:= 1
 var toquei_sai := false
 var um_desapareceu := false
+var podeAtirar:= true
+
+
+var sons: Dictionary={
+	"explodindo": "res://Assets/Sons/Nave inimiga explodindo_ilovemp4.mp3",
+	"tiro": ""
+}
 
 signal desapareci
 
@@ -71,6 +80,9 @@ func altera_direcao_lado():#OVERRIDE
 	
 #Fazer instanciar projeteis(Override)
 func instancia_projetil():
+	if not podeAtirar:
+		return
+		
 	#verificar se ele intancia projeteis
 	var num_projeteis_instanciados = 1
 	var projeteis_instanciados : Array
@@ -123,10 +135,16 @@ func hit():
 func morte():
 	if ja_desapareceu:
 		return
-	print_debug("morte chamada em: ", name)
-	print("morri")
+	colisao.disabled = true
+	tocar_som("explodindo")
+	await efeitoStream.finished
 	morri_sai_tela()
 	queue_free()
+
+func tocar_som(nome_do_som: String):
+	# load() carrega o arquivo de áudio a partir do caminho na string
+	efeitoStream.stream = load(sons[nome_do_som])
+	efeitoStream.play()
 
 func _on_timer_atirar_timeout() -> void:
 	instancia_projetil()

@@ -144,3 +144,9 @@ func _play_popup_id_and_wait(popup_id: String, duration_per_message: float) -> v
 	
 	if total_duration > 0.0:
 		await get_tree().create_timer(total_duration).timeout
+
+######## FUNÇÂO ADICIONADA PELO GABRIEL
+
+func pular_dialogo_atual() -> void:
+	if is_dialogue_active:
+		end_dialogue()

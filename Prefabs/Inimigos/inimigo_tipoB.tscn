@@ -13,11 +13,13 @@ size = Vector2(128, 64)
 radius = 41.0
 height = 156.0
 
-[node name="InimigoB" type="CharacterBody2D" unique_id=1538728272]
+[node name="InimigoB" type="CharacterBody2D" unique_id=1538728272 node_paths=PackedStringArray("efeitoStream", "colisao")]
 texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_w0vy1")
 dadosTipoInimigo = ExtResource("2_6x7rb")
+efeitoStream = NodePath("efeitos")
+colisao = NodePath("colisao")
 metadata/_custom_type_script = "uid://c73v5xmb3yts"
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=1442077348]
@@ -26,6 +28,8 @@ shape = SubResource("RectangleShape2D_crevy")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=284173798]
 sprite_frames = SubResource("SpriteFrames_jox6t")
+
+[node name="efeitos" type="AudioStreamPlayer2D" parent="." unique_id=1987790117]
 
 [node name="area2d" type="Area2D" parent="." unique_id=197579427]
 

@@ -14,13 +14,15 @@ height = 16.0
 radius = 22.0
 height = 68.0
 
-[node name="InimigoC" type="CharacterBody2D" unique_id=197331739]
+[node name="InimigoC" type="CharacterBody2D" unique_id=197331739 node_paths=PackedStringArray("efeitoStream", "colisao")]
 texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_q3kla")
 amplitude = 150.0
 frequencia = 0.4
 dadosTipoInimigo = ExtResource("2_up7l5")
+efeitoStream = NodePath("efeitos")
+colisao = NodePath("colisao")
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=1004946581]
 position = Vector2(-1, 1)
@@ -39,6 +41,8 @@ scale = Vector2(0.9200001, 1)
 position = Vector2(-2, 1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kkmha")
+
+[node name="efeitos" type="AudioStreamPlayer2D" parent="." unique_id=653781364]
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=504561067]
 wait_time = 0.3

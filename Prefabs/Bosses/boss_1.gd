@@ -6,6 +6,8 @@ extends BossBasico
 @export var pos_instancia_tiro_medio: Array[Marker2D]
 @export var aviso_tiro_maior: PackedScene
 
+@export var efeitoStream: AudioStreamPlayer2D 
+
 @onready var timer_tiro_maior = $TiroTiroMaior
 @onready var timer_tiro_medio = $TimerTiroMedio
 @onready var timer_tiro_menor_s = $TimerTiroMenorS
@@ -22,6 +24,12 @@ var pode_atirar_medio := true
 
 @onready var gerenciador: GerenciadorBatalhas 
 
+var sons: Dictionary={
+	"tiro": "res://Assets/Sons/tiro inimigoh.mp3",
+	"laser_menor": "",
+	"laser_maior": "res://Assets/Sons/laser boladao.mp3"
+}
+
 func _ready() -> void:
 	super._ready() # Garante que o _ready do BossBasico seja executado primeiro
 	# Guarda os valores originais configurados no Inspector
@@ -35,6 +43,11 @@ func _ready() -> void:
 	gerenciador.pausarBoss.connect(_on_pausar_boss)
 	Global.BossAtual = self
 
+func tocar_som(nome_do_som: String):
+	# load() carrega o arquivo de áudio a partir do caminho na string
+	efeitoStream.stream = load(sons[nome_do_som])
+	efeitoStream.play()
+	
 func faseDano():
 	inicializa_atiradores()
 	comportamento_por_fase()
@@ -70,6 +83,7 @@ func tiro_maior():
 	atira
 	retira o instanciador maior escolhido da lista
 	"""
+	tocar_som("laser_maior")
 	var projetil = projetil_maior.instantiate()
 	get_tree().current_scene.add_child(projetil)
 	projetil.global_position = pos_instancia_tiro_maior.global_position
@@ -81,6 +95,7 @@ func tiro_maior():
 	pass
 	
 func tiro_menor(l_instanciadores: Array[Marker2D], t_projetil: PackedScene):
+	
 	for instanciador in l_instanciadores:
 		var projetil = t_projetil.instantiate()
 		get_tree().current_scene.add_child(projetil)

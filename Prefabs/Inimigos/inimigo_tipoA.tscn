@@ -13,11 +13,13 @@ size = Vector2(50, 53)
 radius = 27.0
 height = 76.0
 
-[node name="InimigoA" type="CharacterBody2D" unique_id=197331739]
+[node name="InimigoA" type="CharacterBody2D" unique_id=197331739 node_paths=PackedStringArray("efeitoStream", "colisao")]
 texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_2yxrs")
 dadosTipoInimigo = ExtResource("2_p5y2u")
+efeitoStream = NodePath("Efeitos")
+colisao = NodePath("colisao")
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=1004946581]
 position = Vector2(-1, 0.5)
@@ -42,6 +44,8 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_n8rqg")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=542269330]
+
+[node name="Efeitos" type="AudioStreamPlayer2D" parent="." unique_id=475918848]
 
 [connection signal="body_entered" from="area2d" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="TimerAtirar" to="." method="_on_timer_atirar_timeout"]
