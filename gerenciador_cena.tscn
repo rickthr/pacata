@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://c7gojnghjad5d"]
+
+[ext_resource type="Script" uid="uid://cn4chunbsw7qn" path="res://Singletons/gerenciador_cena.gd" id="1_obyyu"]
+[ext_resource type="Script" uid="uid://c8s5ocj2ysxw7" path="res://Prefabs/opcoes.gd" id="2_74lao"]
+[ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Cores Originais/Interface/menu de configurações.png" id="2_npafc"]
+[ext_resource type="Texture2D" uid="uid://c6bqqdmku5fid" path="res://Assets/Cores Originais/Interface/Discord.png" id="3_74lao"]
+[ext_resource type="Texture2D" uid="uid://bridsp4mq4vij" path="res://Assets/Cores Originais/Interface/GitHub.png" id="4_iq70n"]
+[ext_resource type="Texture2D" uid="uid://ch5qeuq4giiy8" path="res://Assets/Cores Originais/Interface/Instagram.png" id="5_f3v81"]
+[ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Cores Originais/Interface/Itch.io.png" id="6_j0e77"]
+[ext_resource type="Texture2D" uid="uid://b43vwealmbsb0" path="res://Assets/Cores Originais/Interface/Ajuste de som - contorno.png" id="7_d3xpe"]
+[ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Cores Originais/Interface/botão do menu de config.png" id="8_iq70n"]
+[ext_resource type="Texture2D" uid="uid://cpjfvrxrny65m" path="res://Assets/Cores Originais/Interface/Som.png" id="8_uij10"]
+[ext_resource type="Texture2D" uid="uid://bxdvgb7drkg8g" path="res://Assets/Cores Originais/Interface/Musica.png" id="9_vf8tc"]
+[ext_resource type="Texture2D" uid="uid://bsbe3w4ga0742" path="res://Assets/Cores Originais/Interface/Ajuste de som - parte móvel_.png" id="10_iq70n"]
+
+[sub_resource type="Animation" id="Animation_wt5pj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.029506557, 0.029506557, 0.029506557, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vc246"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.23137257, 0, 0.23137257, 1), Color(0.23137255, 0, 0.23137255, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_5e7wx"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.23137255, 0, 0.23137255, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vc246"]
+_data = {
+&"RESET": SubResource("Animation_wt5pj"),
+&"fade_in": SubResource("Animation_vc246"),
+&"fade_out": SubResource("Animation_5e7wx")
+}
+
+[node name="GerenciadorCena" type="Node2D" unique_id=80333866]
+process_mode = 3
+script = ExtResource("1_obyyu")
+
+[node name="Transicao" type="CanvasLayer" parent="." unique_id=858193579]
+
+[node name="animacao" type="AnimationPlayer" parent="Transicao" unique_id=216970878]
+root_node = NodePath("ColorRect")
+libraries/ = SubResource("AnimationLibrary_vc246")
+autoplay = &"fade_in"
+
+[node name="ColorRect" type="ColorRect" parent="Transicao/animacao" unique_id=577532123]
+self_modulate = Color(0.029506557, 0.029506557, 0.029506557, 1)
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Opcoes" type="CanvasLayer" parent="." unique_id=1019558419]
+script = ExtResource("2_74lao")
+
+[node name="Fundo" type="Sprite2D" parent="Opcoes" unique_id=599565984]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(3.5, 3)
+texture = ExtResource("2_npafc")
+
+[node name="Icones" type="Node2D" parent="Opcoes" unique_id=407923948]
+position = Vector2(640, 360)
+scale = Vector2(3.5, 3)
+
+[node name="Discord" type="Sprite2D" parent="Opcoes/Icones" unique_id=1210883804]
+texture_filter = 1
+position = Vector2(-37.142853, 39.66667)
+scale = Vector2(0.8571429, 1)
+texture = ExtResource("3_74lao")
+
+[node name="GitHub" type="Sprite2D" parent="Opcoes/Icones" unique_id=1238320186]
+texture_filter = 1
+position = Vector2(-14.571426, 39.66667)
+scale = Vector2(0.8571429, 1)
+texture = ExtResource("4_iq70n")
+
+[node name="Instagram" type="Sprite2D" parent="Opcoes/Icones" unique_id=306992332]
+texture_filter = 1
+position = Vector2(8.571426, 39.66667)
+scale = Vector2(0.8571429, 1)
+texture = ExtResource("5_f3v81")
+
+[node name="Itch_io" type="Sprite2D" parent="Opcoes/Icones" unique_id=1972496072]
+texture_filter = 1
+position = Vector2(34.28572, 39.66667)
+scale = Vector2(0.8571429, 1)
+texture = ExtResource("6_j0e77")
+
+[node name="Hover" type="Sprite2D" parent="Opcoes" unique_id=1776503359]
+position = Vector2(506, 287)
+scale = Vector2(0.9176161, 2.070982)
+texture = ExtResource("8_iq70n")
+
+[node name="BarraSom" type="TextureProgressBar" parent="Opcoes" unique_id=480083216]
+texture_filter = 1
+offset_left = 495.0
+offset_top = 226.0
+offset_right = 615.0
+offset_bottom = 290.0
+scale = Vector2(2.454, 2.094)
+max_value = 10.0
+texture_under = ExtResource("7_d3xpe")
+texture_progress = ExtResource("10_iq70n")
+
+[node name="BarraMusica" type="TextureProgressBar" parent="Opcoes" unique_id=1509557282]
+texture_filter = 1
+offset_left = 495.0
+offset_top = 333.0
+offset_right = 615.0
+offset_bottom = 397.0
+scale = Vector2(2.454, 2.094)
+max_value = 10.0
+texture_under = ExtResource("7_d3xpe")
+texture_progress = ExtResource("10_iq70n")
+
+[node name="Som" type="Sprite2D" parent="Opcoes" unique_id=580675776]
+texture_filter = 1
+position = Vector2(510, 288)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uij10")
+
+[node name="Musica" type="Sprite2D" parent="Opcoes" unique_id=1103624129]
+texture_filter = 1
+position = Vector2(506, 403)
+scale = Vector2(2, 2)
+texture = ExtResource("9_vf8tc")
+
+[node name="EfeitosStream" type="AudioStreamPlayer2D" parent="." unique_id=1419972863]
+bus = &"Efeitos sonoros"
+
+[connection signal="passarCena" from="." to="." method="_on_passar_cena"]
