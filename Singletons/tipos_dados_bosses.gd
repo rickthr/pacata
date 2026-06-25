@@ -12,7 +12,7 @@ enum QuantidadeFases {Uma, Duas, Tres}
 enum JanelaVulnerabilidade {Curta, Media, Longa}
 
 var valorVida = {
-	Vida.Baixa: 100,
+	Vida.Baixa: 150,
 	Vida.Media: 300,
 	Vida.Alta: 600
 }

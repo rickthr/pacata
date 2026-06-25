@@ -2,20 +2,21 @@
 
 [ext_resource type="Script" uid="uid://b6d2nak6ut8e5" path="res://Scripts/Projeteis/projetil_s.gd" id="1_hifqe"]
 [ext_resource type="Resource" uid="uid://b6vwbykydu62" path="res://Scripts/Projeteis/Tipos Projeteis/ProjetilS.tres" id="2_26wnw"]
-[ext_resource type="Texture2D" uid="uid://bpmpatiyahdu" path="res://Assets/Cores Originais/Projeteis/projetilMAIOE.png" id="3_26wnw"]
+[ext_resource type="Texture2D" uid="uid://omwtv4udec61" path="res://Assets/Protanopia/Inimigos/projetiomaior.png" id="3_26wnw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ff4vm"]
 radius = 13.0
 
-[node name="ProjetilMenorS" type="Area2D" unique_id=491273859]
+[node name="ProjetilMenorS" type="Area2D" unique_id=491273859 groups=["projetilInimigo"]]
 collision_layer = 4
 script = ExtResource("1_hifqe")
 dadosTipoProjetil = ExtResource("2_26wnw")
 metadata/_custom_type_script = "uid://dksb268q7yeaf"
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1800310161]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_26wnw")
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=359908315]
+position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_ff4vm")

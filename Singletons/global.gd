@@ -8,3 +8,4 @@ var score:int = 0
 var CenaAtual
 var AsteroidSpawner
 var BossAtual
+var drillPerdida:bool

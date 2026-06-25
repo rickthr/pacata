@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://br2v3cevybfl5" path="res://Scripts/Planeta Curupolar/planeta_curupolar.gd" id="1_2jjnc"]
 [ext_resource type="Texture2D" uid="uid://uveimb1u7am2" path="res://Assets/Protanopia/prota universo.png" id="2_qmhjd"]
-[ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://Nave/nave.tscn" id="3_qmhjd"]
 [ext_resource type="Texture2D" uid="uid://c5md2k4poxn1s" path="res://Assets/Protanopia/teste13es.png" id="3_qnhs7"]
 [ext_resource type="Script" uid="uid://l8mdvx6is4iu" path="res://Scripts/Planeta Curupolar/spawner_magma.gd" id="5_h2bnb"]
 [ext_resource type="PackedScene" uid="uid://d3bsa405x88mw" path="res://Planetas/Boladefogo.tscn" id="7_415qc"]
@@ -19,8 +18,6 @@ script = ExtResource("1_2jjnc")
 position = Vector2(640, 360)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_qmhjd")
-
-[node name="Nave" parent="." unique_id=85779185 instance=ExtResource("3_qmhjd")]
 
 [node name="AsteroidSpawner" parent="." unique_id=333937458 instance=ExtResource("8_fkykd")]
 

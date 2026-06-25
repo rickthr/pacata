@@ -1,10 +1,12 @@
 extends CanvasLayer
 
-@onready var hover: Sprite2D = $Hover
-@onready var efeitoStream: AudioStreamPlayer2D = $"../EfeitosStream"
+@export var hover: Sprite2D
+var efeitoStream: AudioStreamPlayer2D
+var trilhaStream: AudioStreamPlayer2D
 
-@onready var barra_som: TextureProgressBar = $BarraSom
-@onready var barra_musica: TextureProgressBar = $BarraMusica
+@export var gerenciadorCena: GerenciadorCenas
+@export var barra_som: TextureProgressBar
+@export var barra_musica: TextureProgressBar
 
 var sons: Dictionary = {
 	"selecionar": "res://Assets/Sons/Efeitos interface/Selecionar_ilovemp4.mp3",
@@ -23,7 +25,9 @@ var indice_atual: int = 0
 var itens_selecao: Array = []
 
 func _ready() -> void:
-
+	await get_tree().process_frame
+	efeitoStream = gerenciadorCena.efeitoStream
+	trilhaStream = gerenciadorCena.trilhaStream
 	itens_selecao = [
 		$Som,
 		$Musica,
@@ -45,7 +49,7 @@ func _ready() -> void:
 	barra_musica.value = 10
 
 	desenha_hover(indice_atual)
-
+	
 	definir_volume("Efeitos sonoros", 1.0)
 	definir_volume("Música", 1.0)
 

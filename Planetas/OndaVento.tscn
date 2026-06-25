@@ -7,7 +7,7 @@
 radius = 13.833334
 height = 46.333336
 
-[node name="Onda Vento" type="Area2D" unique_id=64112393]
+[node name="Onda Vento" type="Area2D" unique_id=64112393 groups=["Vento"]]
 texture_filter = 1
 collision_layer = 64
 script = ExtResource("1_2bugv")

@@ -10,7 +10,7 @@ var _db: AsteroidDatabase = AsteroidDatabase.new()
 var _min: MineralsDatabase = MineralsDatabase.new()
 var _timer: float = 0.0
 
-var pode_instanciar:=true
+var pode_instanciar:=false
 
 func _ready() -> void:
 	Global.AsteroidSpawner = self

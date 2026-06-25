@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bbyce37hw0fmy" path="res://Prefabs/fundo.tscn" id="1_2p1kb"]
 [ext_resource type="Script" uid="uid://b85webq4fr8u6" path="res://Scripts/Gerenciadores de Cenas/gerencia_historia.gd" id="1_yxn7i"]
 [ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="2_52o6m"]
+[ext_resource type="AudioStream" uid="uid://buq7d2kvlo7v5" path="res://Assets/Sons/Músicas/Som do espaço (white noise).mp3" id="4_5leo4"]
 [ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="4_wmfwe"]
 
 [sub_resource type="Animation" id="Animation_2p1kb"]
@@ -71,4 +72,14 @@ autowrap_mode = 3
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1205954214]
 libraries/ = SubResource("AnimationLibrary_yxn7i")
 
-[node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("4_wmfwe")]
+[node name="EfeitoStream" type="AudioStreamPlayer2D" parent="." unique_id=1125119436]
+stream = ExtResource("4_5leo4")
+bus = &"Efeitos sonoros"
+
+[node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=286748689]
+stream = ExtResource("4_5leo4")
+bus = &"Música"
+
+[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream") instance=ExtResource("4_wmfwe")]
+efeitoStream = NodePath("../EfeitoStream")
+trilhaStream = NodePath("../TrilhaStream")

@@ -5,6 +5,7 @@ class_name Nave
 @onready var shoot_r: Marker2D = $NaveCorpo/shoot_r
 @onready var animCorpo = $animCorpo
 @onready var animAsas = $animAsas
+@onready var spriteBroca = $NaveCorpo/Broca/Sprite2D
 
 @export var dadosNave : DatabaseNave
 @export var bar_vida : TextureProgressBar
@@ -30,6 +31,10 @@ var pode_mexer:bool = true
 var intensidade_shake: float = 4.0 
 var velocidade_shake: float = 1 
 var tremendo: bool = false
+
+@export var desapareci_broca:bool
+
+signal morri
 
 func _ready() -> void:
 	add_to_group("jogador")
@@ -64,9 +69,11 @@ func flip():
 		$NaveCorpo/flip1/card.visible = true
 		
 func receber_dano():
+	print_debug("cheguei")
 	if invencivel or vida <= 0:
 		return
 		
+	print_debug("cheguei")
 	vida -= dano_recebido
 	bar_vida.value = vida
 	$naveHit.play()
@@ -74,7 +81,8 @@ func receber_dano():
 	if vida <= 0:
 		morrer()
 		return
-
+	print_debug("cheguei")
+	
 	invencivel = true
 	
 	var tween = get_tree().create_tween()
@@ -99,13 +107,15 @@ func morrer():
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)
 	
 	await $naveDead.finished
-	queue_free()
+	morri.emit() #emite o sinal de morte para que o gerenciador de cenas faça o restio
 	
 func _physics_process(delta: float) -> void:
-	
+	if desapareci_broca:
+		spriteBroca.visible = false
+		
 	if not pode_mexer:
 		return
-		
+	
 	if invencivel: 
 		$NaveCorpo/flip2.monitoring = false
 		$NaveCorpo/flip1.monitoring = false
@@ -218,6 +228,7 @@ func aplicar_empurrao(forca: Vector2) -> void:
 	
 	
 func _on_flip_2_body_entered(body: Node2D) -> void:
+	print_debug("colidi")
 	if contador_flip %2 == 0 and body.is_in_group("Minerios"):
 		#vou fazer assim por enquanto
 		body.queue_free()
@@ -225,10 +236,14 @@ func _on_flip_2_body_entered(body: Node2D) -> void:
 		label_quant_minerio.text = str(quant_minerios_coletados)
 		#coletou_minerio()
 		pass
-	else:
+	elif body.is_in_group("Vento"):
+		return
+	elif body.is_in_group("projetilInimigo"):
 		receber_dano()
-
+		body.queue_free()
+		
 func _on_flip_2_area_entered(area: Area2D) -> void:
+	print_debug("colidi")
 	if contador_flip %2 == 0 and area.is_in_group("Minerios"):
 		#vou fazer assim por enquanto
 		area.queue_free()
@@ -236,33 +251,46 @@ func _on_flip_2_area_entered(area: Area2D) -> void:
 		label_quant_minerio.text = str(quant_minerios_coletados)
 		#coletou_minerio()
 		pass
-	else:
+	elif area.is_in_group("Vento"):
+		return
+	elif area.is_in_group("projetilInimigo"):
 		receber_dano()
-
+		area.queue_free()
 
 func _on_flip_1_body_entered(body: Node2D) -> void:
+	print_debug("colidi")
 	if contador_flip %2 != 0 and body.is_in_group("Minerios"):
 		body.queue_free()
 		quant_minerios_coletados += 1
 		label_quant_minerio.text = str(quant_minerios_coletados)
 		#coletou_minerio()
 		pass
-	else:
+	elif body.is_in_group("Vento"):
+		return
+	elif body.is_in_group("projetilInimigo"):
 		receber_dano()
-
+		body.queue_free()
 
 func _on_flip_1_area_entered(area: Area2D) -> void:
+	print_debug("colidi")
 	if contador_flip %2 != 0 and area.is_in_group("Minerios"):
 		area.queue_free()
 		quant_minerios_coletados += 1
 		label_quant_minerio.text = str(quant_minerios_coletados)
 		#coletou_minerio()
 		pass
-	else:
+	elif area.is_in_group("Vento"):
+		return
+	elif area.is_in_group("projetilInimigo"):
 		receber_dano()
+		area.queue_free()
 	pass # Replace with function body.
 
 
 func _on_broca_area_entered(area: Area2D) -> void:
+	print_debug("colidi")
 	if area.is_in_group("asteroid"):
+		area.queue_free()
+	elif area.is_in_group("projetilInimigo"):
+		receber_dano()
 		area.queue_free()

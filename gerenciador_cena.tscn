@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c7gojnghjad5d"]
+[gd_scene format=3 uid="uid://qhh2s1q26doy"]
 
 [ext_resource type="Script" uid="uid://cn4chunbsw7qn" path="res://Singletons/gerenciador_cena.gd" id="1_obyyu"]
 [ext_resource type="Script" uid="uid://c8s5ocj2ysxw7" path="res://Prefabs/opcoes.gd" id="2_74lao"]

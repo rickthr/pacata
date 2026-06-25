@@ -2,7 +2,8 @@ extends GerenciaBotoes
 
 #GERENCIA DIALOGO
 
-var dialogue_id: String = "DPai1"
+var dialogue_id: String = "DPAI1"
+var dialogue_final_id: String = "DPAI2"
 var popup_id: String = "PPAP"
 var popup_duration_per_message:= 4.0
 
@@ -14,6 +15,14 @@ var pode_acessar={
 }
 
 @export var texto_notificacao: Label
+
+func _ready() -> void:
+	if Global.drillPerdida:
+		await get_tree().create_timer(2).timeout
+		DialogueManager.start_dialogue_id(dialogue_final_id)
+		await DialogueManager.dialogue_finished
+		#espera isso aqui e finaliza com uma tela final
+		gerenciadorCenas.passarCena.emit(gerenciadorCenas.Cenas.MenuInicial)
 	
 func desenha_hover(idx_botao_atual: int):
 	var botao_alvo = lista_botoes[idx_botao_atual]

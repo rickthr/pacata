@@ -10,6 +10,7 @@ var planeta_curupolar
 func _ready() -> void:
 	await get_tree().process_frame
 	
+	gerenciador_cenas = $GerenciadorCena
 	nave = Global.Jogador
 	nave.pode_mexer = false
 	planeta_curupolar = $PlanetaCurupolar
@@ -23,6 +24,10 @@ func _ready() -> void:
 	nave.pode_mexer = true
 	
 	await get_tree().create_timer(120).timeout
-	#gerenciador_cenas.passarCena.emit(gerenciador_cenas.Cenas.)
+	nave.pode_mexer = false
+	planeta_curupolar.pode_atirar = false
+	if planeta_curupolar.has_method("atualizar_estado_spawner"):
+		planeta_curupolar.atualizar_estado_spawner()
+	gerenciador_cenas.passarCena.emit(gerenciador_cenas.Cenas.Inimigos)
 	
 	

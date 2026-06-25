@@ -9,6 +9,8 @@ precisa de um contador de quantos tipos já foram instanciados
 """
 @export var boss: BossBasico
 
+var nave: Nave
+
 enum Estados{
 	Inativo,      # antes da batalha começar
 	Instanciando, # onda ativa, inimigos sendo spawnados
@@ -29,6 +31,12 @@ var cenas_disponiveis:Array[PackedScene]
 
 var vivos_por_horda: Dictionary = {}
 
+signal pausarBoss
+@export var pausar_boss:bool
+
+@export var inimigoAnimavel: Area2D 
+@export var gerenciador_cena: GerenciadorCenas
+
 func _ready() -> void:
 	boss.onda_iniciada.connect(_on_onda_iniciada)
 	boss.boss_morreu.connect(_on_boss_morreu)
@@ -40,7 +48,6 @@ func _ready() -> void:
 	#randomizaInimigos() ->pra teste
 	await boss.ready
 	#boss.mudar_estado(BossBasico.Estados.CutScene)
-	
 
 func _on_onda_iniciada() -> void:
 	print_debug("onda chamada")
@@ -56,6 +63,12 @@ func _on_cutscene_encerrada() -> void:
 		boss.mudar_estado(BossBasico.Estados.Batalhando)
 
 func _on_boss_morreu() -> void:
+	#espera um tempo 
+	await get_tree().create_timer(2).timeout
+	await DialogueManager.dialogue_finished
+	inimigoAnimavel.podeIr = true
+	await get_tree().create_timer(4).timeout
+	gerenciador_cena.passarCena.emit(gerenciador_cena.Cenas.Voltando)
 	#para o funcionamento de algumas coisas
 	pass
 
@@ -70,6 +83,8 @@ func _process(delta: float) -> void:
 		pass
 	
 func mudaEstado(estadoNovo: Estados):
+	if pausarBoss:
+		pausarBoss.emit()
 	estadoAtual = estadoNovo
 	match estadoAtual:
 		Estados.Inativo:

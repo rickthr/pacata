@@ -47,6 +47,7 @@ signal fechar_instanciar
 signal cutscene_encerrada
 
 enum Estados{
+	Parado,
 	Batalhando,
 	Morrendo,
 	FaseDano,
@@ -93,6 +94,10 @@ func mudar_estado(novo_estado: Estados) -> void:
 	estado_atual = novo_estado
 
 	match estado_atual:
+		Estados.Parado:
+			hitbox.monitoring = false
+			podeInstanciar = true
+			faseDanoIniciada = false
 		Estados.Batalhando:
 			#chama as funções que realizaa as operações de BATALHANDO
 			hitbox.monitoring = false
@@ -109,12 +114,17 @@ func mudar_estado(novo_estado: Estados) -> void:
 			hitbox.monitoring = false
 			podeInstanciar = false
 			faseDanoIniciada = false
+			Global.drillPerdida = true #-> colocado aqui por improviso
 			emit_signal("boss_morreu")
 			"""
 			Inicia a animação final
 			Encerrou a animação final
 			aparece a tela de resultados 
 			"""
+			#codigo para o boss 1, pode mudar para os outros. quebra galho isso aqui !!!!!!!!!!!!!!!!
+			await get_tree().create_timer(2).timeout
+			await DialogueManager.dialogue_finished
+			anim.play("subindo")
 		Estados.FaseDano:
 			"""
 			na fase de dano o boss irá aparecer para atirar no player
@@ -123,7 +133,6 @@ func mudar_estado(novo_estado: Estados) -> void:
 			await  get_tree().create_timer(1).timeout
 			anim.play("descendo")
 			anim_colisao.play("descendo_gravado")
-			podeInstanciar = false
 			#chama as funções que realizaa as operações de FASEDANO
 			#espera o tempo da animação acabar
 			await anim.animation_finished
@@ -132,6 +141,7 @@ func mudar_estado(novo_estado: Estados) -> void:
 			timer.start() #dá play no timer janelaVulnerabilidade
 			hitbox.monitoring = true #ativa a hitbox
 			faseDanoIniciada = true #ativa pode_tomar_dano
+			podeInstanciar = true
 			faseDano()
 			#quando acaba o timer, ele já chama a propria função e passa pra cutscene
 			
@@ -180,6 +190,9 @@ func _process(delta: float) -> void:
 func receber_dano(dano: float) -> void:
 	vida -= dano
 		
+func _on_pausar_boss() -> void:
+	mudar_estado(Estados.Parado)
+	
 func _on_janela_vulnerabilidade_timeout() -> void:
 	hitbox.monitoring = false
 	faseDanoIniciada = false

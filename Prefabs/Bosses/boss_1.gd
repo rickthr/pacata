@@ -20,6 +20,8 @@ var wait_time_medio_base: float
 
 var pode_atirar_medio := true
 
+@onready var gerenciador: GerenciadorBatalhas 
+
 func _ready() -> void:
 	super._ready() # Garante que o _ready do BossBasico seja executado primeiro
 	# Guarda os valores originais configurados no Inspector
@@ -29,6 +31,8 @@ func _ready() -> void:
 	inimigos_desapareceram = 0
 	anim = $anim
 	anim_colisao = $animColisao
+	gerenciador = $".."
+	gerenciador.pausarBoss.connect(_on_pausar_boss)
 	Global.BossAtual = self
 
 func faseDano():

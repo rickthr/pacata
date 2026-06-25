@@ -245,6 +245,7 @@ height = 44.0
 
 [node name="Nave" type="CharacterBody2D" unique_id=85779185 node_paths=PackedStringArray("bar_vida", "label_quant_minerio") groups=["jogador"]]
 texture_filter = 1
+collision_mask = 5
 script = ExtResource("1_ltewx")
 dadosNave = ExtResource("2_2pqvo")
 bar_vida = NodePath("CanvasLayer/TextureProgressBar")
@@ -276,8 +277,8 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_0acnm")
 hframes = 5
 
-[node name="flip1" type="Area2D" parent="NaveCorpo" unique_id=66447914]
-collision_mask = 234
+[node name="flip1" type="Area2D" parent="NaveCorpo" unique_id=66447914 groups=["jogador"]]
+collision_mask = 238
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NaveCorpo/flip1" unique_id=755707403]
 position = Vector2(-37, 5)
@@ -296,9 +297,9 @@ texture = ExtResource("5_ct0ft")
 flip_h = true
 hframes = 5
 
-[node name="Broca" type="Area2D" parent="NaveCorpo" unique_id=1455819047]
+[node name="Broca" type="Area2D" parent="NaveCorpo" unique_id=1455819047 groups=["jogador"]]
 position = Vector2(0, 3)
-collision_mask = 32
+collision_mask = 238
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NaveCorpo/Broca" unique_id=791978129]
 position = Vector2(0, -25)
@@ -309,8 +310,8 @@ position = Vector2(0, -27)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("6_f8vp8")
 
-[node name="flip2" type="Area2D" parent="NaveCorpo" unique_id=1585097600]
-collision_mask = 234
+[node name="flip2" type="Area2D" parent="NaveCorpo" unique_id=1585097600 groups=["jogador"]]
+collision_mask = 238
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NaveCorpo/flip2" unique_id=362983867]
 position = Vector2(34, 4)

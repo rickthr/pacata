@@ -2,14 +2,14 @@ extends RefCounted
 
 const DIALOGUE_IDS: Array[String] = [
 	"INTRO1",
-	"DPai1",
+	"DPAI1",
 	"DUAI1",
 	"DUAI2",
 	"DPC1",
 	"DMRC1",
 	"DMRC2",
+	"DMRC3",
 	"DPAI2"
-	
 ]
 
 const POPUP_IDS: Array[String] = [
@@ -19,8 +19,7 @@ const POPUP_IDS: Array[String] = [
 	"PPMRC2",
 	"PPUAIT1",
 	"PPUAIT2",
-	"PPUAIT3"
-	
+	"PPUAIT3"	
 ]
 
 const DIALOGUES: Dictionary = {
@@ -59,7 +58,7 @@ const DIALOGUES: Dictionary = {
 		}
 	],
 
-	"DPai1": [
+	"DPAI1": [
 		{"speaker": "Pai", "text": "Onde você pensa que vai?"},
 		{"speaker": "Diggy", "text": "Huh… Ia dar uma zolhada na nave."},
 		{"speaker": "Pai", "text": "Sabe que não pode mexer nela."},
@@ -129,8 +128,14 @@ const DIALOGUES: Dictionary = {
 		{"speaker": "Chefe", "text": "Certo, certo, beleza, na melhor é nós."},
 		{"speaker": "Chefe", "text": "PEGUEM ELE!"}
 	],
-
+	
 	"DMRC2": [
+		{"speaker": "Chefe", "text": "Droga, vamo vazar pessoal. Mas antes,não deixem ele sair em pune."},
+		{"speaker": "Diggy", "text": "NÃOOO!"},
+		{"speaker": "Chefe", "text": "Qualquer coisa nós se tromba, otario."}
+	],
+
+	"DMRC3": [
 		{"speaker": "UAI", "text": "Pelo visto a Drill foi desacoplada."},
 		{"speaker": "Diggy", "text": "EH, EU VI… mas que droga."},
 		{"speaker": "UAI", "text": "Rastreando parte da nave…"},

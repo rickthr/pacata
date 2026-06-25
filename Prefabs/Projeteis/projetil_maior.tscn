@@ -2,20 +2,20 @@
 
 [ext_resource type="Script" uid="uid://cui2ijrxh24pq" path="res://Scripts/Projeteis/projetil_maior.gd" id="1_ff34j"]
 [ext_resource type="Resource" uid="uid://bmymbtvwr77ko" path="res://Scripts/Projeteis/Tipos Projeteis/ProjetilMaior.tres" id="2_qh775"]
-[ext_resource type="Texture2D" uid="uid://cwxqn7lsk2e71" path="res://Assets/Cores Originais/Projeteis/rajada.png" id="3_qh775"]
+[ext_resource type="Texture2D" uid="uid://dcluj1k6kd3u2" path="res://Assets/Protanopia/Inimigos/PPROrajada.png" id="3_qh775"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5i3ot"]
 radius = 120.0
 height = 654.0
 
-[node name="ProjetilMaior" type="Area2D" unique_id=1756944708]
+[node name="ProjetilMaior" type="Area2D" unique_id=1756944708 groups=["projetilInimigo"]]
 collision_layer = 4
 script = ExtResource("1_ff34j")
 dadosTipoProjetil = ExtResource("2_qh775")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1943188081]
-position = Vector2(0, 298)
-scale = Vector2(2, 2)
+position = Vector2(0, 315)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_qh775")
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=1083688623]

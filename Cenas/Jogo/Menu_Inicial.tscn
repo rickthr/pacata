@@ -67,6 +67,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("5_sg353")
 
 [node name="Botoes" type="Node2D" parent="CanvasLayer" unique_id=1679826794]
+position = Vector2(0, 1)
 
 [node name="Jogar" type="Button" parent="CanvasLayer/Botoes" unique_id=1982024075]
 texture_filter = 1
@@ -145,13 +146,17 @@ text = "Sair"
 [node name="EfeitoSonoro" type="AudioStreamPlayer2D" parent="." unique_id=1578229485]
 stream = SubResource("AudioStreamMP3_sg353")
 volume_db = 10.0
+bus = &"Efeitos sonoros"
 
 [node name="TrilhaSonora" type="AudioStreamPlayer2D" parent="." unique_id=1143633206]
 process_mode = 3
 stream = ExtResource("6_wt5pj")
 volume_db = 1.0
 autoplay = true
+bus = &"Música"
 parameters/looping = true
 
-[node name="GerenciadorCenas" parent="." unique_id=80333866 instance=ExtResource("7_5e7wx")]
+[node name="GerenciadorCenas" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream") instance=ExtResource("7_5e7wx")]
 position = Vector2(-650, -103)
+efeitoStream = NodePath("../EfeitoSonoro")
+trilhaStream = NodePath("../TrilhaSonora")

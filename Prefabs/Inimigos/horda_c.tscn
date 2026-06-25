@@ -4,11 +4,11 @@
 
 [node name="HordaC" type="Node2D" unique_id=939299534]
 
-[node name="InimigoC" parent="." unique_id=197331739 instance=ExtResource("1_fuajv")]
+[node name="InimigoC3" parent="." unique_id=197331739 instance=ExtResource("1_fuajv")]
 amplitude = 420.0
 frequencia = 0.85
 
-[node name="InimigoC2" parent="." unique_id=458680757 instance=ExtResource("1_fuajv")]
+[node name="InimigoC" parent="." unique_id=1779222022 instance=ExtResource("1_fuajv")]
 position = Vector2(1280, 720)
 amplitude = 420.0
 frequencia = 0.85

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b06gmhh3flal4"]
+
+[ext_resource type="Script" uid="uid://brr0jlg5viw2c" path="res://Scripts/Gerenciadores de Cenas/gerencia_f_voltando.gd" id="1_uqnoa"]
+[ext_resource type="PackedScene" uid="uid://bbyce37hw0fmy" path="res://Prefabs/fundo.tscn" id="2_b2img"]
+[ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://Nave/nave.tscn" id="3_vftaq"]
+[ext_resource type="PackedScene" uid="uid://b4ej53i2qgk82" path="res://Prefabs/Dialogo/dialogue_ui.tscn" id="4_q1qxo"]
+[ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="5_a3tmq"]
+[ext_resource type="AudioStream" uid="uid://d1qq7dot1y288" path="res://Assets/Sons/Músicas/trilhasonoraInimigos.mp3" id="6_vftaq"]
+[ext_resource type="AudioStream" uid="uid://buq7d2kvlo7v5" path="res://Assets/Sons/Músicas/Som do espaço (white noise).mp3" id="7_q1qxo"]
+
+[node name="Voltando" type="Node2D" unique_id=325441190]
+script = ExtResource("1_uqnoa")
+
+[node name="Fundo" parent="." unique_id=241065843 instance=ExtResource("2_b2img")]
+
+[node name="Nave" parent="." unique_id=85779185 instance=ExtResource("3_vftaq")]
+position = Vector2(640, 360)
+desapareci_broca = true
+
+[node name="DialogueUi" parent="." unique_id=1705464675 instance=ExtResource("4_q1qxo")]
+
+[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream", "nave") instance=ExtResource("5_a3tmq")]
+efeitoStream = NodePath("../EfeitoStream")
+trilhaStream = NodePath("../TrilhaStream")
+nave = NodePath("../Nave")
+
+[node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=622425607]
+stream = ExtResource("6_vftaq")
+bus = &"Efeitos sonoros"
+
+[node name="EfeitoStream" type="AudioStreamPlayer2D" parent="." unique_id=1316178977]
+stream = ExtResource("7_q1qxo")
+bus = &"Música"

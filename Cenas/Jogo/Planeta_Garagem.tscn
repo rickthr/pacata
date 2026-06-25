@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bqlgranxo127v" path="res://Assets/Cores Originais/cadeado.png" id="5_d6t0n"]
 [ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="6_hiqbd"]
 [ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Cores Originais/Interface/botão do menu de config.png" id="7_0ivy3"]
+[ext_resource type="AudioStream" uid="uid://buq7d2kvlo7v5" path="res://Assets/Sons/Músicas/Som do espaço (white noise).mp3" id="8_grnmf"]
 [ext_resource type="PackedScene" uid="uid://b4ej53i2qgk82" path="res://Prefabs/Dialogo/dialogue_ui.tscn" id="9_7lvqx"]
 
 [node name="GerenciaPlanetaGaragem" type="Control" unique_id=1423091008 node_paths=PackedStringArray("texto_notificacao", "botoes", "efeitoStream", "hover")]
@@ -185,11 +186,17 @@ scale = Vector2(2.1, 2.1)
 texture = ExtResource("7_0ivy3")
 
 [node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=38928706]
+stream = ExtResource("8_grnmf")
+bus = &"Música"
 
 [node name="EfeitosStream" type="AudioStreamPlayer2D" parent="." unique_id=1508883836]
+stream = ExtResource("8_grnmf")
+bus = &"Efeitos sonoros"
 
 [node name="DialogueUi" parent="." unique_id=1705464675 instance=ExtResource("9_7lvqx")]
 
-[node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("2_7lvqx")]
+[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream") instance=ExtResource("2_7lvqx")]
 position = Vector2(640, 360)
 scale = Vector2(3.5, 3.5)
+efeitoStream = NodePath("../EfeitosStream")
+trilhaStream = NodePath("../TrilhaStream")

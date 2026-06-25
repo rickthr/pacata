@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwn51p8ondg" path="res://Nave/nave.tscn" id="2_ei3eg"]
 [ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="2_k3ebi"]
 [ext_resource type="PackedScene" uid="uid://b4ej53i2qgk82" path="res://Prefabs/Dialogo/dialogue_ui.tscn" id="5_0q6ee"]
+[ext_resource type="AudioStream" uid="uid://buq7d2kvlo7v5" path="res://Assets/Sons/Músicas/Som do espaço (white noise).mp3" id="5_bkr5k"]
 
 [node name="GerenciaPlanetaCurupolar" type="Node2D" unique_id=846405332]
 script = ExtResource("1_ei3eg")
@@ -15,6 +16,16 @@ posicao_planeta = Vector2(1280, 324)
 [node name="Nave" parent="." unique_id=85779185 instance=ExtResource("2_ei3eg")]
 position = Vector2(640, 360)
 
-[node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("2_k3ebi")]
-
 [node name="DialogueUi" parent="." unique_id=1705464675 instance=ExtResource("5_0q6ee")]
+
+[node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=1771918856]
+stream = ExtResource("5_bkr5k")
+bus = &"Música"
+
+[node name="EfeitoStream" type="AudioStreamPlayer2D" parent="." unique_id=608788638]
+stream = ExtResource("5_bkr5k")
+bus = &"Efeitos sonoros"
+
+[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream") instance=ExtResource("2_k3ebi")]
+efeitoStream = NodePath("../EfeitoStream")
+trilhaStream = NodePath("../TrilhaStream")

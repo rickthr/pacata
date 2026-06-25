@@ -50,6 +50,7 @@ func flip():
 func dar_dano(corpo: Node2D):
 	if corpo.has_method("receber_dano"):
 		corpo.receber_dano()
+		print_debug("ele recebedano")
 	#Chama a função 'receber_dano(dano)' do jogador
 
 #FAZER SER DESTRUIDA
@@ -59,8 +60,15 @@ func autoDestruicao():
 
 #FAZER COLISAO
 func _on_body_entered(corpo: Node2D) -> void:
+	print_debug("colidi com alggo ", corpo)
 	if corpo.is_in_group("jogador"):
 		dar_dano(corpo)#dar dano no jogador
+	autoDestruicao()		
+
+func _on_area_entered(area: Area2D) -> void:
+	print_debug("colidi com alggo ", area)
+	if area.is_in_group("jogador"):
+		dar_dano(area)#dar dano no jogador
 	autoDestruicao()		
 
 #ao sair da tela

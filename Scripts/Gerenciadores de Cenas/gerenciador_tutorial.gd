@@ -26,6 +26,7 @@ var indice_pp: int = 0
 
 
 func _ready() -> void:
+	await get_tree().process_frame
 	nave = Global.Jogador
 	nave.pode_mexer = false
 	gerenciador_cenas = $GerenciadorCena

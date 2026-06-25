@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtsce"]
 size = Vector2(62, 33)
 
-[node name="Onda Vento" type="Area2D" unique_id=64112393]
+[node name="Onda Vento" type="Area2D" unique_id=64112393 groups=["Vento"]]
 script = ExtResource("1_pvpkp")
 velocidade = 200.0
 forca_empurrao = 20.0

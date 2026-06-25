@@ -16,16 +16,15 @@ func movimento():
 	"""
 	NOTA: tirar esse desenho daqui
 	velocity  +=  perpendicular  *  cos(tempo * frequencia)  *  amplitude
-   │                │                      │                     │
-   │                │                      │                     │
+   │                │                      │                     │                                                         
    ▼                ▼                      ▼                     ▼
 velocidade       direção da           quanto vale          quão largo
 principal     oscilação (90°          a oscilação          é o balanço
  da nave       da direção)          agora (-1 a 1)         de lado a lado
                                           │
-                                    ┌─────┴─────┐
+                                     ─────┴─────
                                     │           │
-                              tempo * frequencia
+                                 tempo   *   frequencia
                                     │           │
                                     ▼           ▼
                                quanto        quão
@@ -44,8 +43,8 @@ func altera_direcao_lado():#OVERRIDE
 
 func defini_direcao_proj() -> Vector2:
 	if lado == LadoInstanciado.ESQUERDA:
-		direcao_projetil = Vector2(-direcao.y, direcao.x).normalized()
+		direcao_projetil = Vector2(direcao.y, -direcao.x).normalized()
 	elif lado == LadoInstanciado.DIREITA:
-		direcao_projetil = Vector2(direcao.y, direcao.x).normalized()
+		direcao_projetil = Vector2(direcao.y, -direcao.x).normalized()
 	#Override para cada tipo de direcao respectivo ao tipo de inimigo
 	return direcao_projetil

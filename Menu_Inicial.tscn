@@ -1,11 +1,10 @@
-[gd_scene format=3 uid="uid://k474ckyjtquy"]
+[gd_scene format=3 uid="uid://caxt4d7sb4qem"]
 
 [ext_resource type="Texture2D" uid="uid://df1npikgee0q0" path="res://Assets/Cores Originais/Interface/Menu inicial.png" id="1_pqahr"]
 [ext_resource type="Script" uid="uid://b82tppejehi1x" path="res://Scripts/Gerenciadores de Cenas/gerencia_botoes.gd" id="1_upy1c"]
 [ext_resource type="Texture2D" uid="uid://ctghh4h6b4u10" path="res://Assets/Cores Originais/Interface/🫷.png" id="2_ek16h"]
 [ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_upy1c"]
 [ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Cores Originais/Interface/botão do menu de config.png" id="5_sg353"]
-[ext_resource type="AudioStream" uid="uid://bw4ias3tjx1r" path="res://Assets/Sons/Músicas/Musiquinha menu_ilovemp4.mp3" id="6_wt5pj"]
 [ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="7_5e7wx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sg353"]
@@ -145,14 +144,6 @@ text = "Sair"
 [node name="EfeitoSonoro" type="AudioStreamPlayer2D" parent="." unique_id=1578229485]
 stream = SubResource("AudioStreamMP3_sg353")
 volume_db = 10.0
-
-[node name="TrilhaSonora" type="AudioStreamPlayer2D" parent="." unique_id=1143633206]
-process_mode = 3
-stream = ExtResource("6_wt5pj")
-volume_db = 1.0
-autoplay = true
-bus = &"Música"
-parameters/looping = true
 
 [node name="GerenciadorCenas" parent="." unique_id=80333866 instance=ExtResource("7_5e7wx")]
 position = Vector2(-540, 82)

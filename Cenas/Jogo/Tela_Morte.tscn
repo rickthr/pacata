@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://g5db7lxi31r0"]
+
+[ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Cores Originais/Interface/menu de configurações.png" id="1_6hloe"]
+[ext_resource type="Script" uid="uid://bab7wkeaa12xt" path="res://Scripts/tela_morte.gd" id="1_devtp"]
+[ext_resource type="Texture2D" uid="uid://dchh80k3fgan8" path="res://Assets/Protanopia/Inimigos/ProtaCaixa de diálogo.png" id="2_7e7sc"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="3_7e7sc"]
+[ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Cores Originais/Interface/botão do menu de config.png" id="4_s7m02"]
+
+[node name="TelaMorte" type="Node2D" unique_id=258622059 node_paths=PackedStringArray("selecionaveis", "hover", "efeitoStream")]
+script = ExtResource("1_devtp")
+selecionaveis = [NodePath("reiniciarText"), NodePath("menuText")]
+hover = NodePath("hover")
+efeitoStream = NodePath("efeitoStream")
+
+[node name="FUndo" type="Sprite2D" parent="." unique_id=1861870134]
+texture_filter = 1
+position = Vector2(652, 360)
+scale = Vector2(3.5, 3)
+texture = ExtResource("1_6hloe")
+
+[node name="reiniciar" type="Sprite2D" parent="." unique_id=194839918]
+texture_filter = 1
+position = Vector2(640, 318.722)
+scale = Vector2(0.4019355, 0.3611111)
+texture = ExtResource("2_7e7sc")
+
+[node name="menu" type="Sprite2D" parent="." unique_id=1359560718]
+texture_filter = 1
+position = Vector2(640, 422.722)
+scale = Vector2(0.4019355, 0.3611111)
+texture = ExtResource("2_7e7sc")
+
+[node name="hover" type="Sprite2D" parent="." unique_id=1913116090]
+texture_filter = 1
+position = Vector2(635, 411)
+scale = Vector2(3.6774364, 3.8963144)
+texture = ExtResource("4_s7m02")
+
+[node name="reiniciarText" type="Label" parent="." unique_id=1652262308]
+texture_filter = 1
+offset_left = 550.0
+offset_top = 276.0
+offset_right = 742.0
+offset_bottom = 341.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7e7sc")
+theme_override_font_sizes/font_size = 64
+text = "Rebobinar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menuText" type="Label" parent="." unique_id=1394603673]
+texture_filter = 1
+offset_left = 525.0
+offset_top = 380.0
+offset_right = 764.0
+offset_bottom = 445.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7e7sc")
+theme_override_font_sizes/font_size = 64
+text = "Menu Inicial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="efeitoStream" type="AudioStreamPlayer2D" parent="." unique_id=116322761]

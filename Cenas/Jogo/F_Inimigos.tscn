@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dlooep54lgt7e" path="res://Assets/Protanopia/Inimigos/PROmariafumega.png" id="5_3sp5j"]
 [ext_resource type="PackedScene" uid="uid://c7gojnghjad5d" path="res://Prefabs/gerenciador_cena.tscn" id="6_3sp5j"]
 [ext_resource type="PackedScene" uid="uid://b4ej53i2qgk82" path="res://Prefabs/Dialogo/dialogue_ui.tscn" id="6_vgt4q"]
+[ext_resource type="AudioStream" uid="uid://buq7d2kvlo7v5" path="res://Assets/Sons/Músicas/Som do espaço (white noise).mp3" id="7_1l6mr"]
+[ext_resource type="AudioStream" uid="uid://d1qq7dot1y288" path="res://Assets/Sons/Músicas/trilhasonoraInimigos.mp3" id="7_01trl"]
+[ext_resource type="PackedScene" uid="uid://bbyce37hw0fmy" path="res://Prefabs/fundo.tscn" id="8_llhxf"]
 
 [sub_resource type="Animation" id="Animation_xc8ii"]
 length = 3.0
@@ -58,6 +61,9 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-147.00003, 726)]
 }
+
+[sub_resource type="Animation" id="Animation_01trl"]
+resource_name = "final"
 
 [sub_resource type="Animation" id="Animation_3sp5j"]
 resource_name = "inimigos_passam"
@@ -114,13 +120,17 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgt4q"]
 _data = {
 &"RESET": SubResource("Animation_xc8ii"),
+&"final": SubResource("Animation_01trl"),
 &"inimigos_passam": SubResource("Animation_3sp5j")
 }
 
 [node name="FInimigos" type="Node2D" unique_id=1146575998]
 script = ExtResource("1_xhrii")
 
-[node name="GerenciadorBatalhas_Boss1" parent="." unique_id=2026716191 instance=ExtResource("2_xc8ii")]
+[node name="Fundo" parent="." unique_id=241065843 instance=ExtResource("8_llhxf")]
+
+[node name="GerenciadorBatalhas_Boss1" parent="." unique_id=2026716191 node_paths=PackedStringArray("gerenciador_cena") instance=ExtResource("2_xc8ii")]
+gerenciador_cena = NodePath("../GerenciadorCena")
 
 [node name="Nave" parent="." unique_id=85779185 instance=ExtResource("3_3sp5j")]
 position = Vector2(640, 400)
@@ -156,4 +166,15 @@ texture = ExtResource("4_xc8ii")
 
 [node name="DialogueUi" parent="." unique_id=1705464675 instance=ExtResource("6_vgt4q")]
 
-[node name="GerenciadorCena" parent="." unique_id=80333866 instance=ExtResource("6_3sp5j")]
+[node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=677123901]
+stream = ExtResource("7_01trl")
+bus = &"Música"
+
+[node name="EfeitoStream" type="AudioStreamPlayer2D" parent="." unique_id=2060808683]
+stream = ExtResource("7_1l6mr")
+bus = &"Efeitos sonoros"
+
+[node name="GerenciadorCena" parent="." unique_id=80333866 node_paths=PackedStringArray("efeitoStream", "trilhaStream", "nave") instance=ExtResource("6_3sp5j")]
+efeitoStream = NodePath("../EfeitoStream")
+trilhaStream = NodePath("../TrilhaStream")
+nave = NodePath("../Nave")

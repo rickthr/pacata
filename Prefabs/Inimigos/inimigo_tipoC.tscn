@@ -41,7 +41,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kkmha")
 
 [node name="TimerAtirar" type="Timer" parent="." unique_id=504561067]
-wait_time = 0.2
+wait_time = 0.3
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2104141958]

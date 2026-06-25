@@ -2,16 +2,36 @@
 
 [ext_resource type="Script" uid="uid://bnwstx5gnxj5u" path="res://Scripts/Bosses/Gerenciadores de Batalha/gerenciador_de_batalhas_boss1.gd" id="1_7hn0v"]
 [ext_resource type="PackedScene" uid="uid://c7bwlvm4sf21j" path="res://Prefabs/Bosses/boss_1.tscn" id="2_e4xux"]
+[ext_resource type="Texture2D" uid="uid://cm54cop38x3cy" path="res://Assets/Protanopia/Inimigos/BALA.png" id="3_5fg4f"]
+[ext_resource type="Script" uid="uid://c5igfkjm6wowg" path="res://Prefabs/Gerenciadores de Batalha/capanga_animavel.gd" id="3_bm7ip"]
 
-[node name="GerenciadorBatalhas_Boss1" type="Node2D" unique_id=2026716191]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fg4f"]
+radius = 32.10315
 
-[node name="control" type="Node2D" parent="." unique_id=24854038 node_paths=PackedStringArray("boss")]
-position = Vector2(-3, 3)
+[node name="GerenciadorBatalhas_Boss1" type="Node2D" unique_id=2026716191 node_paths=PackedStringArray("boss", "inimigoAnimavel")]
 script = ExtResource("1_7hn0v")
 boss = NodePath("Boss1")
 quantInimigosAInstanciar = 3
 quantInimigosAInstanciarInicial = 3
 maxQuantHordasNaTela = 1
+inimigoAnimavel = NodePath("capangaAnimavel")
 
-[node name="Boss1" parent="control" unique_id=1877750270 instance=ExtResource("2_e4xux")]
-position = Vector2(620, 20)
+[node name="capangaAnimavel" type="Area2D" parent="." unique_id=936660540]
+position = Vector2(-80.99994, 84)
+scale = Vector2(0.7, 0.7)
+collision_layer = 256
+script = ExtResource("3_bm7ip")
+
+[node name="sprite" type="Sprite2D" parent="capangaAnimavel" unique_id=1913500415]
+texture_filter = 1
+rotation = 1.5707964
+scale = Vector2(0.14285713, 0.14285713)
+texture = ExtResource("3_5fg4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="capangaAnimavel" unique_id=602093972]
+shape = SubResource("CircleShape2D_5fg4f")
+
+[node name="Boss1" parent="." unique_id=1877750270 instance=ExtResource("2_e4xux")]
+position = Vector2(617, 23)
+
+[connection signal="area_entered" from="capangaAnimavel" to="capangaAnimavel" method="_on_area_entered"]

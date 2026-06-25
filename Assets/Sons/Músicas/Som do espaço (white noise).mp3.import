@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buq7d2kvlo7v5"
+path="res://.godot/imported/Som do espaço (white noise).mp3-49a6bd14871fc5770ee37ab9b5b1096f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sons/Músicas/Som do espaço (white noise).mp3"
+dest_files=["res://.godot/imported/Som do espaço (white noise).mp3-49a6bd14871fc5770ee37ab9b5b1096f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -7,6 +7,7 @@ var nave: Nave
 var gerenciador_cenas: GerenciadorCenas
 
 var lista_dialogos:= ["DMRC1"]
+var lista_dialogos_finais:= ["DMRC2"]
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -17,6 +18,8 @@ func _ready() -> void:
 	animInimigos = $animInimigos
 	gerenciador_cenas = $GerenciadorCena
 	
+	if boss:
+		boss.boss_morreu.connect(_on_boss_morreu)
 	nave.pode_mexer = false
 	
 	await get_tree().create_timer(2).timeout
@@ -36,3 +39,12 @@ func _ready() -> void:
 	boss.mudar_estado(boss.Estados.CutScene)
 	
 	nave.pode_mexer = true
+	
+func _on_boss_morreu() -> void:
+	if is_instance_valid(nave):
+		nave.pode_mexer = false
+	
+	await get_tree().create_timer(1.5).timeout
+	
+	DialogueManager.start_dialogue_id(lista_dialogos_finais[0])
+	await DialogueManager.dialogue_finished

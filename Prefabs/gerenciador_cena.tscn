@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://c7gojnghjad5d"]
 
 [ext_resource type="Script" uid="uid://cn4chunbsw7qn" path="res://Singletons/gerenciador_cena.gd" id="1_obyyu"]
+[ext_resource type="AudioStream" uid="uid://buq7d2kvlo7v5" path="res://Assets/Sons/Músicas/Som do espaço (white noise).mp3" id="2_74lao"]
 [ext_resource type="Texture2D" uid="uid://djg408wegis2q" path="res://Assets/Cores Originais/Interface/menu de configurações.png" id="2_npafc"]
 [ext_resource type="Texture2D" uid="uid://c6bqqdmku5fid" path="res://Assets/Cores Originais/Interface/Discord.png" id="3_74lao"]
+[ext_resource type="Script" uid="uid://cnnt24ok4h2lt" path="res://Scripts/opcoes.gd" id="3_iq70n"]
 [ext_resource type="Texture2D" uid="uid://bridsp4mq4vij" path="res://Assets/Cores Originais/Interface/GitHub.png" id="4_iq70n"]
 [ext_resource type="Texture2D" uid="uid://ch5qeuq4giiy8" path="res://Assets/Cores Originais/Interface/Instagram.png" id="5_f3v81"]
 [ext_resource type="Texture2D" uid="uid://cbbdsfqwdh6b8" path="res://Assets/Cores Originais/Interface/Itch.io.png" id="6_j0e77"]
 [ext_resource type="Texture2D" uid="uid://b43vwealmbsb0" path="res://Assets/Cores Originais/Interface/Ajuste de som - contorno.png" id="7_d3xpe"]
 [ext_resource type="Texture2D" uid="uid://cpjfvrxrny65m" path="res://Assets/Cores Originais/Interface/Som.png" id="8_uij10"]
 [ext_resource type="Texture2D" uid="uid://bxdvgb7drkg8g" path="res://Assets/Cores Originais/Interface/Musica.png" id="9_vf8tc"]
+[ext_resource type="Script" uid="uid://bab7wkeaa12xt" path="res://Scripts/tela_morte.gd" id="12_d3xpe"]
+[ext_resource type="Texture2D" uid="uid://cg4sk2ot4b6gv" path="res://Assets/Cores Originais/Interface/botão do menu de config.png" id="12_f3v81"]
+[ext_resource type="Texture2D" uid="uid://dchh80k3fgan8" path="res://Assets/Protanopia/Inimigos/ProtaCaixa de diálogo.png" id="12_j0e77"]
+[ext_resource type="Texture2D" uid="uid://bsbe3w4ga0742" path="res://Assets/Cores Originais/Interface/Ajuste de som - parte móvel_.png" id="12_uij10"]
+[ext_resource type="FontFile" uid="uid://brblw4ofokmmc" path="res://Assets/FONTE/Micro5-Regular.ttf" id="13_d3xpe"]
 
 [sub_resource type="Animation" id="Animation_wt5pj"]
 length = 0.001
@@ -94,8 +101,18 @@ script = ExtResource("1_obyyu")
 
 [node name="EfeitosStream" type="AudioStreamPlayer2D" parent="." unique_id=1419972863]
 
-[node name="Opcoes" type="CanvasLayer" parent="." unique_id=1019558419]
-visible = false
+[node name="TrilhaStream" type="AudioStreamPlayer2D" parent="." unique_id=1169822642]
+stream = ExtResource("2_74lao")
+parameters/looping = true
+
+[node name="Opcoes" type="CanvasLayer" parent="." unique_id=1019558419 node_paths=PackedStringArray("hover", "gerenciadorCena", "barra_som", "barra_musica")]
+script = ExtResource("3_iq70n")
+hover = NodePath("Hover")
+gerenciadorCena = NodePath("..")
+barra_som = NodePath("BarraSom")
+barra_musica = NodePath("BarraMusica")
+
+[node name="Script" type="Node2D" parent="Opcoes" unique_id=1077186107]
 
 [node name="Fundo" type="Sprite2D" parent="Opcoes" unique_id=599565984]
 texture_filter = 1
@@ -131,18 +148,6 @@ position = Vector2(34.28572, 39.66667)
 scale = Vector2(0.8571429, 1)
 texture = ExtResource("6_j0e77")
 
-[node name="AjusteDeSomContorno" type="Sprite2D" parent="Opcoes" unique_id=1465850807]
-texture_filter = 1
-position = Vector2(651, 291)
-scale = Vector2(3, 3)
-texture = ExtResource("7_d3xpe")
-
-[node name="AjusteDeSomContorno2" type="Sprite2D" parent="Opcoes" unique_id=209178293]
-texture_filter = 1
-position = Vector2(651, 403)
-scale = Vector2(3, 3)
-texture = ExtResource("7_d3xpe")
-
 [node name="Som" type="Sprite2D" parent="Opcoes" unique_id=580675776]
 texture_filter = 1
 position = Vector2(510, 288)
@@ -154,6 +159,90 @@ texture_filter = 1
 position = Vector2(506, 403)
 scale = Vector2(2, 2)
 texture = ExtResource("9_vf8tc")
+
+[node name="Hover" type="Sprite2D" parent="Opcoes" unique_id=1220421306]
+texture_filter = 1
+position = Vector2(505.00003, 286)
+scale = Vector2(0.78750014, 1.6399988)
+texture = ExtResource("12_f3v81")
+
+[node name="BarraSom" type="TextureProgressBar" parent="Opcoes" unique_id=82218043]
+texture_filter = 1
+offset_left = 476.0
+offset_top = 210.00002
+offset_right = 596.0
+offset_bottom = 274.0
+scale = Vector2(3, 2.56)
+max_value = 10.0
+texture_under = ExtResource("7_d3xpe")
+texture_progress = ExtResource("12_uij10")
+
+[node name="BarraMusica" type="TextureProgressBar" parent="Opcoes" unique_id=1231893545]
+texture_filter = 1
+offset_left = 472.0
+offset_top = 317.00003
+offset_right = 592.0
+offset_bottom = 381.00003
+scale = Vector2(3, 2.56)
+max_value = 10.0
+texture_under = ExtResource("7_d3xpe")
+texture_progress = ExtResource("12_uij10")
+
+[node name="TelaMorte" type="CanvasLayer" parent="." unique_id=1424479509 node_paths=PackedStringArray("selecionaveis", "hover", "efeitoStream")]
+script = ExtResource("12_d3xpe")
+selecionaveis = [NodePath("reiniciar"), NodePath("menu")]
+hover = NodePath("hover")
+efeitoStream = NodePath("../EfeitosStream")
+
+[node name="FUndo" type="Sprite2D" parent="TelaMorte" unique_id=285355884]
+texture_filter = 1
+position = Vector2(652, 360)
+scale = Vector2(3.5, 3)
+texture = ExtResource("2_npafc")
+
+[node name="reiniciar" type="Sprite2D" parent="TelaMorte" unique_id=308200431]
+texture_filter = 1
+position = Vector2(640, 318.722)
+scale = Vector2(0.4019355, 0.3611111)
+texture = ExtResource("12_j0e77")
+
+[node name="menu" type="Sprite2D" parent="TelaMorte" unique_id=1299870083]
+texture_filter = 1
+position = Vector2(640, 422.722)
+scale = Vector2(0.4019355, 0.3611111)
+texture = ExtResource("12_j0e77")
+
+[node name="hover" type="Sprite2D" parent="TelaMorte" unique_id=527233945]
+texture_filter = 1
+position = Vector2(635, 411)
+scale = Vector2(3.6774364, 3.8963144)
+texture = ExtResource("12_f3v81")
+
+[node name="reiniciarText" type="Label" parent="TelaMorte" unique_id=1825054425]
+texture_filter = 1
+offset_left = 550.0
+offset_top = 276.0
+offset_right = 742.0
+offset_bottom = 341.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_d3xpe")
+theme_override_font_sizes/font_size = 64
+text = "Rebobinar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menuText" type="Label" parent="TelaMorte" unique_id=447313646]
+texture_filter = 1
+offset_left = 525.0
+offset_top = 380.0
+offset_right = 764.0
+offset_bottom = 445.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_d3xpe")
+theme_override_font_sizes/font_size = 64
+text = "Menu Inicial"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Transicao" type="CanvasLayer" parent="." unique_id=858193579]
 layer = 10
